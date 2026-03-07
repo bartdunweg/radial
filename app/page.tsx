@@ -1,219 +1,222 @@
-import { ContactForm } from "./contact-form";
-import { ThemeToggle } from "./theme-toggle";
+import Link from "next/link";
+import services from "../content/services.json";
+import work from "../content/work.json";
+
+const clients = [
+  "Adyen", "Heineken", "KPN", "Miro", "Bol.com",
+  "Leaseplan", "Magnet.me", "Temper", "Whoppah", "GVB", "Van Dale",
+];
+
+const testimonials = [
+  {
+    quote: "Radial helped us rethink our entire product experience. The result exceeded our expectations — both in design quality and user satisfaction.",
+    name: "Sarah Chen",
+    role: "Head of Product, Meridian",
+  },
+  {
+    quote: "Their research-driven approach meant we didn't just get pretty screens — we got a product that actually solves problems for our users.",
+    name: "James van der Berg",
+    role: "CTO, Canopy",
+  },
+];
 
 export default function Home() {
   return (
     <>
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-stone-200 bg-white/80 backdrop-blur-lg dark:border-stone-800/50 dark:bg-stone-950/80">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
-          <a href="#" className="font-display text-xl font-bold tracking-tight">
-            Radial
-          </a>
-          <div className="hidden items-center gap-10 text-sm text-stone-500 md:flex dark:text-stone-400">
-            <a href="#services" className="transition-colors hover:text-stone-900 dark:hover:text-white">
-              Services
-            </a>
-            <a href="#work" className="transition-colors hover:text-stone-900 dark:hover:text-white">
-              Work
-            </a>
-            <a href="#about" className="transition-colors hover:text-stone-900 dark:hover:text-white">
-              About
-            </a>
-            <ThemeToggle />
-            <a
-              href="#contact"
-              className="rounded-full bg-stone-950 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-stone-800 dark:bg-white dark:text-stone-950 dark:hover:bg-stone-200"
-            >
-              Get in Touch
-            </a>
-          </div>
-        </div>
-      </nav>
-
       {/* Hero */}
-      <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
+      <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6">
         <div className="pointer-events-none absolute inset-0">
-          <div className="absolute left-1/2 top-1/2 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/5 blur-3xl" />
+          <div className="absolute left-1/4 top-1/3 h-[600px] w-[600px] rounded-full bg-accent-blue/5 blur-3xl dark:bg-accent-blue/10" />
+          <div className="absolute right-1/4 bottom-1/3 h-[500px] w-[500px] rounded-full bg-accent-cyan/5 blur-3xl dark:bg-accent-cyan/8" />
         </div>
 
-        <div className="relative mx-auto max-w-5xl px-6 pt-32 pb-20 text-center">
-          <p className="mb-6 text-sm font-medium uppercase tracking-[0.2em] text-stone-500">
+        <div className="relative mx-auto max-w-5xl pt-32 pb-16 text-center lg:pt-40">
+          <p className="mb-6 text-sm font-medium uppercase tracking-[0.25em] text-navy-500 dark:text-navy-400">
             Digital Product Design Studio
           </p>
-          <h1 className="font-display text-5xl font-bold leading-[1.08] tracking-tight md:text-7xl lg:text-8xl">
-            We design products
+          <h1 className="text-5xl font-bold leading-[1.05] tracking-tight md:text-7xl lg:text-[5.5rem]">
+            Shaping tomorrow&apos;s
             <br />
-            <span className="text-stone-400 dark:text-stone-500">people love to use.</span>
+            <span className="bg-gradient-to-r from-accent-blue to-accent-cyan bg-clip-text text-transparent">
+              digital products.
+            </span>
           </h1>
-          <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-stone-500 md:text-xl dark:text-stone-400">
-            Radial is a design and engineering studio that crafts exceptional
-            digital experiences. We combine human-centered design with AI to
-            build products that matter.
+          <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-navy-500 dark:text-navy-400">
+            We&apos;re problem solvers. We listen, observe, create and validate.
+            Following a human-centred approach, we work closely with you to get
+            results fast and efficiently.
           </p>
           <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
-              href="#contact"
-              className="inline-flex items-center justify-center rounded-full bg-stone-950 px-8 py-4 text-base font-medium text-white transition-colors hover:bg-stone-800 dark:bg-white dark:text-stone-950 dark:hover:bg-stone-200"
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-lg bg-navy-700 px-8 py-4 text-sm font-medium text-white shadow-sm transition-colors hover:bg-navy-600"
             >
               Start a Project
-            </a>
-            <a
-              href="#work"
-              className="inline-flex items-center justify-center rounded-full border border-stone-300 px-8 py-4 text-base font-medium text-stone-600 transition-colors hover:border-stone-400 hover:text-stone-900 dark:border-stone-700 dark:text-stone-300 dark:hover:border-stone-500 dark:hover:text-white"
+            </Link>
+            <Link
+              href="/work"
+              className="inline-flex items-center justify-center rounded-lg border border-navy-200 px-8 py-4 text-sm font-medium text-navy-600 transition-colors hover:border-navy-300 hover:text-navy-950 dark:border-navy-700 dark:text-navy-400 dark:hover:border-navy-500 dark:hover:text-white"
             >
               See Our Work
-            </a>
+            </Link>
           </div>
+        </div>
+
+        <div className="absolute bottom-10 flex flex-col items-center gap-3">
+          <span className="text-xs font-medium uppercase tracking-[0.2em] text-navy-400">
+            Scroll to explore
+          </span>
+          <div className="h-10 w-px bg-gradient-to-b from-navy-400 to-transparent" />
         </div>
       </section>
 
-      {/* Services */}
-      <section id="services" className="border-t border-stone-200 py-24 lg:py-32 dark:border-stone-800/50">
-        <div className="mx-auto max-w-5xl px-6">
-          <div className="mb-16 text-center">
-            <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-stone-500">
-              What We Do
-            </p>
-            <h2 className="font-display text-4xl font-bold tracking-tight md:text-5xl">
-              End-to-end product design
-              <br className="hidden sm:block" />
-              &amp; development.
-            </h2>
+      {/* Client logos marquee */}
+      <section className="overflow-hidden border-y border-navy-200 py-8 dark:border-navy-800">
+        <div className="animate-marquee flex items-center gap-16 whitespace-nowrap">
+          {[...clients, ...clients].map((client, i) => (
+            <span
+              key={`${client}-${i}`}
+              className="text-sm font-medium uppercase tracking-[0.15em] text-navy-300 dark:text-navy-600"
+            >
+              {client}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      {/* Services preview */}
+      <section className="py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="mb-20 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-3xl">
+              <p className="mb-4 text-sm font-medium uppercase tracking-[0.25em] text-accent-blue">
+                Services
+              </p>
+              <h2 className="text-4xl font-bold tracking-tight md:text-5xl">
+                How we add value
+                <br />
+                to your team.
+              </h2>
+            </div>
+            <Link
+              href="/services"
+              className="text-sm font-medium text-accent-blue transition-colors hover:text-accent-cyan"
+            >
+              View all services &rarr;
+            </Link>
           </div>
 
-          <div className="grid gap-px overflow-hidden rounded-2xl border border-stone-200 bg-stone-200 md:grid-cols-2 lg:grid-cols-3 dark:border-stone-800/50 dark:bg-stone-800/50">
-            {[
-              {
-                title: "Product Strategy",
-                description:
-                  "We help you define your product vision, validate assumptions, and create a roadmap that aligns business goals with user needs.",
-                number: "01",
-              },
-              {
-                title: "UX & UI Design",
-                description:
-                  "Research-driven design that puts users first. From wireframes to high-fidelity interfaces, we craft experiences that feel intuitive.",
-                number: "02",
-              },
-              {
-                title: "Design Systems",
-                description:
-                  "Scalable component libraries and design tokens that ensure consistency and accelerate your team's velocity.",
-                number: "03",
-              },
-              {
-                title: "Web Development",
-                description:
-                  "Modern, performant applications built with Next.js, React, and the latest web technologies. Fast, accessible, and beautiful.",
-                number: "04",
-              },
-              {
-                title: "AI Integration",
-                description:
-                  "We embed AI into your product workflows — from intelligent automation to generative features that create real value for users.",
-                number: "05",
-              },
-              {
-                title: "Prototyping & Testing",
-                description:
-                  "Rapid prototypes and user testing to validate ideas early, reduce risk, and iterate toward the right solution.",
-                number: "06",
-              },
-            ].map((service) => (
-              <div
-                key={service.number}
-                className="group flex flex-col justify-between bg-stone-50 p-8 transition-colors hover:bg-stone-100 lg:p-10 dark:bg-stone-950 dark:hover:bg-stone-900/50"
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {services.slice(0, 3).map((service) => (
+              <Link
+                key={service.slug}
+                href={`/services#${service.slug}`}
+                className="group rounded-2xl border border-navy-200 bg-white p-8 transition-all hover:border-accent-blue/30 hover:shadow-lg hover:shadow-accent-blue/5 dark:border-navy-800 dark:bg-navy-900 dark:hover:border-accent-blue/40 lg:p-10"
               >
-                <div>
-                  <span className="mb-6 block font-display text-sm text-stone-400 dark:text-stone-600">
-                    {service.number}
-                  </span>
-                  <h3 className="mb-3 font-display text-xl font-semibold tracking-tight">
-                    {service.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-stone-500 dark:text-stone-400">
-                    {service.description}
-                  </p>
-                </div>
-                <div className="mt-8">
-                  <span className="text-sm text-stone-300 transition-colors group-hover:text-stone-500 dark:text-stone-600 dark:group-hover:text-stone-400">
-                    &rarr;
-                  </span>
-                </div>
-              </div>
+                <h3 className="mb-3 text-xl font-semibold tracking-tight">
+                  {service.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-navy-500 dark:text-navy-400">
+                  {service.description}
+                </p>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Work / Portfolio */}
-      <section id="work" className="border-t border-stone-200 py-24 lg:py-32 dark:border-stone-800/50">
-        <div className="mx-auto max-w-5xl px-6">
-          <div className="mb-16 text-center">
-            <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-stone-500">
-              Selected Work
-            </p>
-            <h2 className="font-display text-4xl font-bold tracking-tight md:text-5xl">
-              Products we&apos;ve helped build.
+      {/* Quote banner */}
+      <section className="bg-navy-950 py-24 dark:bg-navy-900/30">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl">
+              &ldquo;Good design boosts conversion rates through simplification
+              and persuasion. A trustworthy look-and-feel contributes to
+              credibility.&rdquo;
             </h2>
           </div>
+        </div>
+      </section>
 
-          <div className="grid gap-6 md:grid-cols-2">
-            {[
-              {
-                title: "Meridian",
-                category: "Fintech Platform",
-                description:
-                  "A next-generation wealth management platform that simplifies complex financial planning through AI-powered insights.",
-                accent: "from-blue-500/20 to-indigo-500/10",
-              },
-              {
-                title: "Canopy",
-                category: "Healthcare App",
-                description:
-                  "A patient engagement platform that connects care teams with patients through intelligent scheduling and real-time communication.",
-                accent: "from-emerald-500/20 to-teal-500/10",
-              },
-              {
-                title: "Arcline",
-                category: "SaaS Dashboard",
-                description:
-                  "An analytics suite that transforms raw data into actionable insights with an interface designed for speed and clarity.",
-                accent: "from-amber-500/20 to-orange-500/10",
-              },
-              {
-                title: "Volta",
-                category: "E-Commerce",
-                description:
-                  "A premium direct-to-consumer storefront that blends editorial content with seamless shopping — built for conversion.",
-                accent: "from-rose-500/20 to-pink-500/10",
-              },
-            ].map((project) => (
-              <div
-                key={project.title}
-                className="group cursor-pointer overflow-hidden rounded-2xl border border-stone-200 transition-colors hover:border-stone-300 dark:border-stone-800/50 dark:hover:border-stone-700"
+      {/* Work preview */}
+      <section className="py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="mb-20 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-3xl">
+              <p className="mb-4 text-sm font-medium uppercase tracking-[0.25em] text-accent-blue">
+                Selected Work
+              </p>
+              <h2 className="text-4xl font-bold tracking-tight md:text-5xl">
+                Products we&apos;ve helped shape.
+              </h2>
+            </div>
+            <Link
+              href="/work"
+              className="text-sm font-medium text-accent-blue transition-colors hover:text-accent-cyan"
+            >
+              View all work &rarr;
+            </Link>
+          </div>
+
+          <div className="space-y-8">
+            {work.slice(0, 2).map((project) => (
+              <Link
+                key={project.slug}
+                href={`/work#${project.slug}`}
+                className="group block cursor-pointer overflow-hidden rounded-3xl border border-navy-200 transition-all hover:border-navy-300 dark:border-navy-800 dark:hover:border-navy-700"
               >
-                <div className="relative aspect-[16/10] overflow-hidden bg-stone-100 dark:bg-stone-900">
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${project.accent}`}
-                  />
+                <div
+                  className={`relative aspect-[21/9] overflow-hidden bg-gradient-to-br ${project.gradient} bg-navy-100 dark:bg-navy-900`}
+                >
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="font-display text-4xl font-bold text-stone-300 transition-colors group-hover:text-stone-400 md:text-5xl dark:text-stone-700 dark:group-hover:text-stone-600">
+                    <span className="text-5xl font-bold text-navy-300/60 transition-colors group-hover:text-navy-400/60 md:text-7xl dark:text-navy-700 dark:group-hover:text-navy-600">
                       {project.title}
                     </span>
                   </div>
                 </div>
-                <div className="p-6 lg:p-8">
-                  <p className="mb-2 text-xs font-medium uppercase tracking-[0.15em] text-stone-500">
-                    {project.category}
-                  </p>
-                  <h3 className="mb-2 font-display text-xl font-semibold tracking-tight">
-                    {project.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-stone-500 dark:text-stone-400">
+                <div className="flex flex-col gap-2 p-8 md:flex-row md:items-center md:justify-between lg:p-10">
+                  <div>
+                    <p className="mb-1 text-xs font-medium uppercase tracking-[0.15em] text-accent-blue">
+                      {project.client}
+                    </p>
+                    <h3 className="text-2xl font-semibold tracking-tight">
+                      {project.title}
+                    </h3>
+                  </div>
+                  <p className="max-w-md text-sm leading-relaxed text-navy-500 dark:text-navy-400">
                     {project.description}
                   </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="border-y border-navy-200 py-24 lg:py-32 dark:border-navy-800">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="mb-16">
+            <p className="mb-4 text-sm font-medium uppercase tracking-[0.25em] text-accent-blue">
+              Testimonials
+            </p>
+            <h2 className="text-4xl font-bold tracking-tight md:text-5xl">
+              What others have to say.
+            </h2>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2">
+            {testimonials.map((t) => (
+              <div
+                key={t.name}
+                className="rounded-2xl border border-navy-200 bg-white p-8 dark:border-navy-800 dark:bg-navy-900 lg:p-10"
+              >
+                <blockquote className="mb-8 text-lg leading-relaxed text-navy-600 dark:text-navy-300">
+                  &ldquo;{t.quote}&rdquo;
+                </blockquote>
+                <div>
+                  <p className="font-semibold">{t.name}</p>
+                  <p className="text-sm text-navy-500 dark:text-navy-400">{t.role}</p>
                 </div>
               </div>
             ))}
@@ -221,103 +224,31 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About */}
-      <section id="about" className="border-t border-stone-200 py-24 lg:py-32 dark:border-stone-800/50">
-        <div className="mx-auto max-w-5xl px-6">
-          <div className="mb-16 text-center">
-            <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-stone-500">
-              About Radial
-            </p>
-            <h2 className="font-display text-4xl font-bold tracking-tight md:text-5xl">
-              Design meets intelligence.
-            </h2>
-          </div>
-
-          <div className="mx-auto max-w-3xl space-y-6 text-center">
-            <p className="text-lg leading-relaxed text-stone-500 dark:text-stone-400">
-              We&apos;re a small, senior team of designers and engineers who
-              believe that the best digital products come from deep
-              collaboration, rigorous craft, and a relentless focus on the
-              people who use them.
-            </p>
-            <p className="text-lg leading-relaxed text-stone-500 dark:text-stone-400">
-              We leverage AI not as a gimmick, but as a genuine force
-              multiplier — from accelerating research and ideation to
-              embedding intelligent features directly into the products we
-              build. This lets us deliver more, faster, without compromising
-              on quality.
-            </p>
-          </div>
-
-          <div className="mx-auto mt-16 grid max-w-2xl grid-cols-3 gap-8 text-center">
-            {[
-              { value: "50+", label: "Products Shipped" },
-              { value: "8+", label: "Years in Business" },
-              { value: "96%", label: "Client Retention" },
-            ].map((stat) => (
-              <div key={stat.label}>
-                <p className="font-display text-3xl font-bold tracking-tight md:text-4xl">
-                  {stat.value}
-                </p>
-                <p className="mt-2 text-sm text-stone-500">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Contact */}
-      <section id="contact" className="border-t border-stone-200 py-24 lg:py-32 dark:border-stone-800/50">
-        <div className="mx-auto max-w-5xl px-6">
-          <div className="mb-16 text-center">
-            <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-stone-500">
-              Get in Touch
-            </p>
-            <h2 className="font-display text-4xl font-bold tracking-tight md:text-5xl">
+      {/* CTA */}
+      <section className="bg-navy-950 py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl">
               Let&apos;s build something
               <br />
-              great together.
+              <span className="bg-gradient-to-r from-accent-blue to-accent-cyan bg-clip-text text-transparent">
+                great together.
+              </span>
             </h2>
-            <p className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-stone-500 dark:text-stone-400">
-              Have a project in mind? We&apos;d love to hear about it. Tell us
-              what you&apos;re working on and we&apos;ll get back to you
-              within 24 hours.
+            <p className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-navy-400">
+              Have a project in mind? We&apos;d love to hear about it.
             </p>
-          </div>
-
-          <div className="mx-auto max-w-xl">
-            <ContactForm />
-            <p className="mt-8 text-center text-sm text-stone-400 dark:text-stone-600">
-              Or email us directly at{" "}
-              <a
-                href="mailto:hello@radial.studio"
-                className="text-stone-600 transition-colors hover:text-stone-900 dark:text-stone-400 dark:hover:text-white"
+            <div className="mt-10">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-lg bg-white px-8 py-4 text-sm font-medium text-navy-950 shadow-sm transition-colors hover:bg-navy-100"
               >
-                hello@radial.studio
-              </a>
-            </p>
+                Start a Project
+              </Link>
+            </div>
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="border-t border-stone-200 py-12 dark:border-stone-800/50">
-        <div className="mx-auto max-w-5xl px-6">
-          <div className="flex flex-col items-center justify-between gap-4 text-center md:flex-row md:text-left">
-            <div>
-              <span className="font-display text-lg font-bold tracking-tight">
-                Radial
-              </span>
-              <p className="mt-1 text-sm text-stone-400 dark:text-stone-600">
-                Digital Product Design Studio
-              </p>
-            </div>
-            <p className="text-sm text-stone-400 dark:text-stone-600">
-              &copy; {new Date().getFullYear()} Radial. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
     </>
   );
 }

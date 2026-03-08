@@ -8,15 +8,22 @@ Digital product design studio that designs and builds digital products with a st
 - TypeScript (always)
 - Tailwind CSS v4
 - shadcn/ui for UI components
-- Inter font for all typography
+- Syne font for headings, DM Sans for body text
 
 ## Design Principles
 
-- Premium, modern, minimal aesthetic
-- Dark navy color palette (#040615 base) with blue accents (#005BE4, #00A1FC)
-- Light and dark mode support (dark mode default)
+- Light, clean, minimalist aesthetic
+- Off-white background (#FAFAFA) with near-black text (#0A0A0A)
+- Single accent color: Radial blue (#005BE4)
+- Subtle shadows, no gradients or glows
+- Light mode only
 - Clean, well-structured components
 - Mobile-first responsive design
+
+## Design Tokens
+
+All design tokens are defined in `app/globals.css` via Tailwind's `@theme` block.
+Available as Tailwind classes: `bg-surface`, `text-primary`, `text-accent`, `rounded-xl`, `shadow-card`, etc.
 
 ## Conventions
 

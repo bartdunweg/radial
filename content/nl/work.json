@@ -1,0 +1,58 @@
+[
+  {
+    "slug": "meridian",
+    "title": "Meridian",
+    "client": "Fintech Platform",
+    "description": "Vermogensbeheer herontwerpen voor de volgende generatie investeerders.",
+    "longDescription": "Meridian had een complete herdenking nodig van hun vermogensbeheerplatform. We voerden uitgebreid gebruikersonderzoek uit met zowel adviseurs als particuliere beleggers, ontwierpen een nieuwe informatiearchitectuur en leverden een moderne interface die complexe financiële data vereenvoudigt tot bruikbare inzichten.",
+    "services": ["Research & Strategie", "UX & UI Design", "Design Systems"],
+    "year": "2025",
+    "metrics": [
+      { "value": "+62%", "label": "Gebruikersbetrokkenheid" },
+      { "value": "3x", "label": "Snellere onboarding" },
+      { "value": "98%", "label": "Adviseur tevredenheid" }
+    ]
+  },
+  {
+    "slug": "canopy",
+    "title": "Canopy",
+    "client": "Gezondheidszorg",
+    "description": "Zorgteams verbinden met patiënten door intelligente communicatie.",
+    "longDescription": "Het zorgcoördinatieplatform van Canopy was krachtig maar moeilijk te gebruiken. We hebben de gehele patiëntervaring herontworpen — van afspraken plannen tot realtime berichten — terwijl we AI-aangedreven triage introduceerden die patiënten direct naar het juiste zorgteam routeert.",
+    "services": ["UX & UI Design", "AI Integratie", "MVP's Bouwen"],
+    "year": "2024",
+    "metrics": [
+      { "value": "-45%", "label": "Responstijd" },
+      { "value": "+80%", "label": "Patiënttevredenheid" },
+      { "value": "12k", "label": "Maandelijks actieve gebruikers" }
+    ]
+  },
+  {
+    "slug": "arcline",
+    "title": "Arcline",
+    "client": "SaaS Analytics",
+    "description": "Ruwe data transformeren naar bruikbare inzichten met helderheid en snelheid.",
+    "longDescription": "Het analyticsplatform van Arcline had alle data maar geen helderheid. We herontwierpen hun dashboard-ervaring van de grond af, met aanpasbare weergaven, natural language queries en een design system dat meegroeit met hun groeiende productsuite.",
+    "services": ["Design Systems", "UX & UI Design", "Research & Strategie"],
+    "year": "2024",
+    "metrics": [
+      { "value": "+120%", "label": "Dashboard-adoptie" },
+      { "value": "-60%", "label": "Tijd tot inzicht" },
+      { "value": "50+", "label": "Componenten opgeleverd" }
+    ]
+  },
+  {
+    "slug": "volta",
+    "title": "Volta",
+    "client": "E-Commerce",
+    "description": "Een premium direct-to-consumer webshop gebouwd voor conversie.",
+    "longDescription": "Volta wilde een webshop die net zo premium aanvoelde als hun producten. We ontwierpen een editorial-meets-commerce ervaring die rijke storytelling combineert met naadloos kopen — resulterend in een 40% hogere conversieratio binnen drie maanden na lancering.",
+    "services": ["Branding Versterken", "UX & UI Design", "MVP's Bouwen"],
+    "year": "2023",
+    "metrics": [
+      { "value": "+40%", "label": "Conversieratio" },
+      { "value": "+25%", "label": "Gemiddelde bestelwaarde" },
+      { "value": "2.8x", "label": "Terugkerende bezoekers" }
+    ]
+  }
+]

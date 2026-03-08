@@ -1,0 +1,72 @@
+{
+  "packages": [
+    {
+      "slug": "flexible",
+      "title": "Flexible",
+      "dailyRate": 999,
+      "days": 1,
+      "description": "For quick wins and focused tasks. Book a designer for a day.",
+      "features": [
+        "1 dedicated designer",
+        "Per-day booking",
+        "Figma deliverables",
+        "Async communication",
+        "1 revision round included"
+      ]
+    },
+    {
+      "slug": "short-term",
+      "title": "Short Term",
+      "dailyRate": 899,
+      "days": 20,
+      "totalPrice": 17999,
+      "popular": true,
+      "description": "For ongoing projects that need consistent design support.",
+      "features": [
+        "1 dedicated designer",
+        "20 days of design work",
+        "Weekly syncs & updates",
+        "Figma + developer handoff",
+        "Unlimited revisions",
+        "Priority scheduling"
+      ]
+    },
+    {
+      "slug": "long-term",
+      "title": "Long Term",
+      "dailyRate": 799,
+      "days": 40,
+      "totalPrice": 31999,
+      "description": "For long-term partnerships with a dedicated design resource.",
+      "features": [
+        "1 dedicated senior designer",
+        "40 days of design work",
+        "Embedded in your team",
+        "Figma + developer handoff",
+        "Unlimited revisions",
+        "Priority scheduling",
+        "Design system setup included"
+      ]
+    }
+  ],
+  "designSprint": {
+    "title": "Design Sprint",
+    "description": "A structured 5-day process to rapidly solve a design challenge. From problem definition to a tested prototype in one week.",
+    "price": 6399,
+    "duration": "5 days",
+    "features": [
+      "Day 1: Understand — Map the problem, define the challenge",
+      "Day 2: Diverge — Explore solutions, sketch ideas",
+      "Day 3: Decide — Choose the best direction, create a storyboard",
+      "Day 4: Prototype — Build a realistic, clickable prototype",
+      "Day 5: Test — Validate with real users, gather insights"
+    ],
+    "includes": [
+      "2 designers facilitated",
+      "Stakeholder interviews",
+      "Clickable Figma prototype",
+      "User test report with findings",
+      "Actionable next steps"
+    ]
+  }
+}

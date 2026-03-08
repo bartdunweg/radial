@@ -1,0 +1,58 @@
+[
+  {
+    "slug": "meridian",
+    "title": "Meridian",
+    "client": "Fintech Platform",
+    "description": "Redesigning wealth management for the next generation of investors.",
+    "longDescription": "Meridian needed a complete reimagining of their wealth management platform. We conducted extensive user research with both advisors and retail investors, designed a new information architecture, and delivered a modern interface that simplifies complex financial data into actionable insights.",
+    "services": ["Research & Strategy", "UX & UI Design", "Design Systems"],
+    "year": "2025",
+    "metrics": [
+      { "value": "+62%", "label": "User engagement" },
+      { "value": "3x", "label": "Faster onboarding" },
+      { "value": "98%", "label": "Advisor satisfaction" }
+    ]
+  },
+  {
+    "slug": "canopy",
+    "title": "Canopy",
+    "client": "Healthcare",
+    "description": "Connecting care teams with patients through intelligent communication.",
+    "longDescription": "Canopy's care coordination platform was powerful but hard to use. We redesigned the entire patient-facing experience — from appointment scheduling to real-time messaging — while introducing AI-powered triage that routes patients to the right care team instantly.",
+    "services": ["UX & UI Design", "AI Integration", "Build MVPs"],
+    "year": "2024",
+    "metrics": [
+      { "value": "-45%", "label": "Response time" },
+      { "value": "+80%", "label": "Patient satisfaction" },
+      { "value": "12k", "label": "Monthly active users" }
+    ]
+  },
+  {
+    "slug": "arcline",
+    "title": "Arcline",
+    "client": "SaaS Analytics",
+    "description": "Transforming raw data into actionable insights with clarity and speed.",
+    "longDescription": "Arcline's analytics platform had all the data but none of the clarity. We redesigned their dashboard experience from the ground up, introducing customizable views, natural language queries, and a design system that scales across their growing product suite.",
+    "services": ["Design Systems", "UX & UI Design", "Research & Strategy"],
+    "year": "2024",
+    "metrics": [
+      { "value": "+120%", "label": "Dashboard adoption" },
+      { "value": "-60%", "label": "Time to insight" },
+      { "value": "50+", "label": "Components shipped" }
+    ]
+  },
+  {
+    "slug": "volta",
+    "title": "Volta",
+    "client": "E-Commerce",
+    "description": "A premium direct-to-consumer storefront built for conversion.",
+    "longDescription": "Volta wanted a storefront that felt as premium as their products. We designed an editorial-meets-commerce experience that blends rich storytelling with seamless purchasing — resulting in a 40% increase in conversion rate within three months of launch.",
+    "services": ["Boost Branding", "UX & UI Design", "Build MVPs"],
+    "year": "2023",
+    "metrics": [
+      { "value": "+40%", "label": "Conversion rate" },
+      { "value": "+25%", "label": "Average order value" },
+      { "value": "2.8x", "label": "Return visitor rate" }
+    ]
+  }
+]

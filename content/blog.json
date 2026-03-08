@@ -1,0 +1,42 @@
+[
+  {
+    "slug": "designing-with-ai",
+    "title": "Designing with AI: Beyond the Hype",
+    "excerpt": "How we integrate AI into our design process — not as a replacement for human creativity, but as a tool that amplifies it.",
+    "date": "2026-02-15",
+    "author": "Bart Dunweg",
+    "category": "AI",
+    "readTime": "6 min read",
+    "content": "AI is everywhere in design conversations right now. But most of the discussion focuses on AI generating designs, which misses the point entirely.\n\nAt Radial, we use AI differently. It's a research accelerator, a brainstorming partner, and a prototyping tool — but the creative decisions always stay with humans.\n\n## Where AI actually helps\n\nThe biggest impact we've seen is in the research phase. AI can synthesize interview transcripts, identify patterns across user feedback, and surface insights that might take a human researcher days to find.\n\nIn prototyping, AI helps us generate copy variations, test different content strategies, and quickly mock up data-heavy interfaces with realistic content.\n\n## Where it doesn't\n\nAI still can't replace the nuanced understanding that comes from sitting with a user and watching them struggle with an interface. It can't feel the emotional weight of a design decision or understand the cultural context that makes one solution better than another.\n\nThe best results come from treating AI as a capable junior team member — fast, tireless, and good at execution, but needing human direction and judgment."
+  },
+  {
+    "slug": "design-systems-at-scale",
+    "title": "Why Your Design System Is Failing (And How to Fix It)",
+    "excerpt": "Most design systems fail not because of bad components, but because of bad adoption strategies. Here's what actually works.",
+    "date": "2026-01-20",
+    "author": "Bart Dunweg",
+    "category": "Design Systems",
+    "readTime": "8 min read",
+    "content": "We've built design systems for companies of all sizes, and the pattern is always the same: the system gets built, looks great in Figma, and then... nobody uses it.\n\n## The adoption problem\n\nDesign systems fail when they're built in isolation. If designers and developers aren't involved from day one, you're building something nobody asked for.\n\n## What works instead\n\nStart with the components your team uses most. Audit your existing product, find the patterns that repeat, and systematize those first. This gives immediate value and builds trust.\n\nDocument everything — not just what a component looks like, but when to use it, when not to, and why it exists. Context is everything.\n\nFinally, make contribution easy. A design system that only the core team can update will always lag behind the product."
+  },
+  {
+    "slug": "mvp-mistakes",
+    "title": "The 3 MVP Mistakes We See Every Startup Make",
+    "excerpt": "Building too much, testing too late, and solving the wrong problem. Here's how to avoid the most common MVP pitfalls.",
+    "date": "2025-12-10",
+    "author": "Bart Dunweg",
+    "category": "Product Strategy",
+    "readTime": "5 min read",
+    "content": "After helping dozens of startups build their first products, we've noticed the same three mistakes come up again and again.\n\n## Mistake 1: Building too much\n\nAn MVP is not version 1.0 of your product. It's the smallest thing you can build to test your core assumption. If your MVP takes more than 6-8 weeks to build, it's not minimal enough.\n\n## Mistake 2: Testing too late\n\nDon't wait until the product is built to talk to users. Test your assumptions with prototypes, landing pages, even paper sketches. The earlier you learn, the cheaper the lesson.\n\n## Mistake 3: Solving the wrong problem\n\nThe most expensive mistake is building a beautiful solution to a problem nobody has. Spend time in the problem space before jumping to solutions. Interview potential users. Understand their current workarounds. Only then should you start designing."
+  },
+  {
+    "slug": "ux-research-methods",
+    "title": "A Practical Guide to UX Research Methods",
+    "excerpt": "Not every project needs the same research approach. Here's how to pick the right methods for your situation and budget.",
+    "date": "2025-11-05",
+    "author": "Bart Dunweg",
+    "category": "Research",
+    "readTime": "7 min read",
+    "content": "UX research doesn't have to be expensive or time-consuming. The key is picking the right method for the question you're trying to answer.\n\n## Generative vs. Evaluative\n\nGenerative research helps you discover problems and opportunities. Use interviews, diary studies, and contextual inquiry when you're exploring a new space.\n\nEvaluative research helps you test solutions. Use usability testing, A/B tests, and surveys when you have something concrete to validate.\n\n## Our go-to stack\n\nFor most projects, we start with 5-8 user interviews, run a competitive analysis, and create a journey map. This gives us enough insight to start designing with confidence.\n\nOnce we have prototypes, we run moderated usability tests with 5 participants. Five users will uncover 85% of usability issues — you don't need more than that."
+  }
+]

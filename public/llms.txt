@@ -1,0 +1,37 @@
+# Radial — Digital Product Design Studio
+
+## About
+Radial is a digital product design studio based in Rotterdam, the Netherlands. We design and build digital products with a strong focus on user experience, powered by AI.
+
+## Services
+- **Research & Strategy**: User research, competitive analysis, product strategy, roadmapping, stakeholder workshops
+- **UX & UI Design**: Wireframing, user flows, visual design, interaction design, responsive design
+- **Design Systems**: Component libraries, design tokens, documentation, Figma libraries, developer handoff
+- **Build MVPs**: MVP scoping, rapid prototyping, frontend development, user testing, iteration sprints
+- **Boost Branding**: Brand strategy, visual identity, typography systems, illustration style, brand guidelines
+- **AI Integration**: AI opportunity mapping, prompt engineering, AI-powered features, LLM integration, workflow automation
+
+## AI Expertise
+We use AI throughout our design process — from research synthesis and brainstorming to prototyping and content generation. We also help clients integrate AI into their products through intelligent automation and generative features.
+
+## Pricing
+- **Sprint**: 40 hours / EUR 4,800 — For smaller projects or focused design sprints
+- **Growth**: 100 hours / EUR 11,000 — For ongoing projects (most popular)
+- **Scale**: 200 hours / EUR 20,000 — For long-term partnerships with a dedicated designer
+
+## Ideal Clients
+- Startups building their first product (MVP)
+- Scale-ups improving existing products
+- Companies looking to integrate AI into their products
+- Teams needing design system expertise
+
+## Location
+Voorhaven 27C, 3025 HC Rotterdam, the Netherlands
+
+## Contact
+- Email: hello@radial.design
+- Phone: +31 (6) 39 56 15 80
+- Website: https://radial.design
+
+## Languages
+English, Dutch (Nederlands)

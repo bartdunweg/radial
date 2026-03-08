@@ -1,0 +1,44 @@
+[
+  {
+    "slug": "research-strategy",
+    "title": "Research & Strategie",
+    "description": "We praten graag met gebruikers. Met diverse onderzoeksmethoden werken we naar een haalbare productstrategie.",
+    "longDescription": "Je gebruikers begrijpen is de basis van elk succesvol product. We voeren interviews, usability tests, enquêtes en concurrentieanalyses uit om inzichten te ontdekken die slimme beslissingen sturen. Van daaruit vertalen we bevindingen naar een heldere productstrategie en roadmap die bedrijfsdoelen afstemmen op echte gebruikersbehoeften.",
+    "deliverables": ["Gebruikersonderzoek", "Concurrentieanalyse", "Productstrategie", "Roadmapping", "Stakeholder Workshops"]
+  },
+  {
+    "slug": "ux-ui-design",
+    "title": "UX & UI Design",
+    "description": "We creëren intuïtieve, mooie interfaces die gebruikers verrassen en betrokkenheid stimuleren.",
+    "longDescription": "Goed design is onzichtbaar — het werkt gewoon. We maken interfaces die niet alleen visueel verbluffend zijn, maar diep intuïtief. Ons proces gaat van wireframes en user flows naar pixel-perfect UI design, altijd gegrond in gebruikersonderzoek en iteratief testen.",
+    "deliverables": ["Wireframing", "User Flows", "Visueel Design", "Interactie Design", "Responsive Design"]
+  },
+  {
+    "slug": "design-systems",
+    "title": "Design Systems",
+    "description": "Een design system brengt consistentie en efficiëntie naar je product, resulterend in betere gebruikerservaring en merkidentiteit.",
+    "longDescription": "Naarmate producten schalen, sluipt inconsistentie erin. Wij bouwen uitgebreide design systems — componentbibliotheken, design tokens en documentatie — die je product coherent houden en je team snel. Een goed gebouwd systeem betaalt zich jarenlang terug.",
+    "deliverables": ["Componentbibliotheken", "Design Tokens", "Documentatie", "Figma Libraries", "Developer Handoff"]
+  },
+  {
+    "slug": "build-mvps",
+    "title": "MVP's Bouwen",
+    "description": "Valideer snel je productidee, ontvang feedback van gebruikers en itereer naar een succesvolle oplossing.",
+    "longDescription": "Snelheid naar de markt telt. We helpen je de kleinst haalbare versie van je product te definiëren, ontwerpen en snel bouwen, en dan voor echte gebruikers te zetten. Deze leer-snel aanpak vermindert risico en zorgt dat je iets bouwt dat mensen echt willen.",
+    "deliverables": ["MVP Scoping", "Rapid Prototyping", "Frontend Development", "Gebruikerstesten", "Iteratie Sprints"]
+  },
+  {
+    "slug": "boost-branding",
+    "title": "Branding Versterken",
+    "description": "We tillen de visuele identiteit van je product naar een hoger niveau voor een samenhangend, memorabel merk.",
+    "longDescription": "Je merk is meer dan een logo — het is het gevoel dat mensen krijgen als ze met je product interacteren. Wij creëren visuele identiteiten die resoneren met je doelgroep, van typografie en kleursystemen tot illustratiestijlen en motion principles.",
+    "deliverables": ["Merkstrategie", "Visuele Identiteit", "Typografie Systemen", "Illustratiestijl", "Merkrichtlijnen"]
+  },
+  {
+    "slug": "ai-integration",
+    "title": "AI Integratie",
+    "description": "We integreren AI in je productworkflows — van intelligente automatisering tot generatieve features die echte waarde creëren.",
+    "longDescription": "AI transformeert hoe producten werken. We helpen je identificeren waar AI echte waarde creëert voor je gebruikers — geen gimmicks, maar zinvolle features. Van slimme automatisering tot generatieve interfaces, we ontwerpen en bouwen AI-aangedreven ervaringen die natuurlijk en nuttig aanvoelen.",
+    "deliverables": ["AI Opportunity Mapping", "Prompt Engineering", "AI-Powered Features", "LLM Integratie", "Workflow Automatisering"]
+  }
+]

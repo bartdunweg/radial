@@ -1,0 +1,42 @@
+[
+  {
+    "slug": "designing-with-ai",
+    "title": "Ontwerpen met AI: Voorbij de Hype",
+    "excerpt": "Hoe we AI integreren in ons designproces — niet als vervanging voor menselijke creativiteit, maar als tool die het versterkt.",
+    "date": "2026-02-15",
+    "author": "Bart Dunweg",
+    "category": "AI",
+    "readTime": "6",
+    "content": "AI is overal in designgesprekken op dit moment. Maar de meeste discussie gaat over AI die designs genereert, en dat mist het punt volledig.\n\nBij Radial gebruiken we AI anders. Het is een onderzoeksversneller, een brainstormpartner en een prototypingtool — maar de creatieve beslissingen blijven altijd bij mensen.\n\n## Waar AI echt helpt\n\nDe grootste impact die we hebben gezien is in de onderzoeksfase. AI kan interviewtranscripten samenvatten, patronen identificeren in gebruikersfeedback en inzichten boven water halen die een menselijke onderzoeker dagen zou kosten.\n\nBij prototyping helpt AI ons tekstvariaties te genereren, verschillende contentstrategieën te testen en snel data-intensieve interfaces te mocken met realistische content.\n\n## Waar het niet helpt\n\nAI kan nog steeds niet het genuanceerde begrip vervangen dat komt van naast een gebruiker zitten en kijken hoe ze worstelen met een interface. Het kan het emotionele gewicht van een designbeslissing niet voelen of de culturele context begrijpen die de ene oplossing beter maakt dan de andere.\n\nDe beste resultaten komen van AI behandelen als een capabel junior teamlid — snel, onvermoeibaar en goed in uitvoering, maar met menselijke richting en beoordelingsvermogen."
+  },
+  {
+    "slug": "design-systems-at-scale",
+    "title": "Waarom Je Design System Faalt (En Hoe Je Het Fixt)",
+    "excerpt": "De meeste design systems falen niet door slechte componenten, maar door slechte adoptiestrategieën.",
+    "date": "2026-01-20",
+    "author": "Bart Dunweg",
+    "category": "Design Systems",
+    "readTime": "8",
+    "content": "We hebben design systems gebouwd voor bedrijven van alle groottes, en het patroon is altijd hetzelfde: het systeem wordt gebouwd, ziet er geweldig uit in Figma, en dan... gebruikt niemand het.\n\n## Het adoptieprobleem\n\nDesign systems falen wanneer ze in isolatie worden gebouwd. Als designers en developers niet vanaf dag één betrokken zijn, bouw je iets waar niemand om heeft gevraagd.\n\n## Wat wel werkt\n\nBegin met de componenten die je team het meest gebruikt. Audit je bestaande product, vind de patronen die zich herhalen en systematiseer die eerst. Dit geeft direct waarde en bouwt vertrouwen.\n\nDocumenteer alles — niet alleen hoe een component eruitziet, maar wanneer je het gebruikt, wanneer niet, en waarom het bestaat. Context is alles.\n\nMaak bijdragen makkelijk. Een design system dat alleen het kernteam kan updaten zal altijd achterlopen op het product."
+  },
+  {
+    "slug": "mvp-mistakes",
+    "title": "De 3 MVP-Fouten Die We Bij Elke Startup Zien",
+    "excerpt": "Te veel bouwen, te laat testen en het verkeerde probleem oplossen.",
+    "date": "2025-12-10",
+    "author": "Bart Dunweg",
+    "category": "Productstrategie",
+    "readTime": "5",
+    "content": "Na tientallen startups geholpen te hebben met hun eerste producten, zien we steeds dezelfde drie fouten.\n\n## Fout 1: Te veel bouwen\n\nEen MVP is niet versie 1.0 van je product. Het is het kleinste wat je kunt bouwen om je kernaanname te testen. Als je MVP meer dan 6-8 weken duurt om te bouwen, is het niet minimaal genoeg.\n\n## Fout 2: Te laat testen\n\nWacht niet tot het product gebouwd is om met gebruikers te praten. Test je aannames met prototypes, landingspagina's, zelfs papieren schetsen. Hoe eerder je leert, hoe goedkoper de les.\n\n## Fout 3: Het verkeerde probleem oplossen\n\nDe duurste fout is het bouwen van een prachtige oplossing voor een probleem dat niemand heeft. Besteed tijd in de probleemruimte voordat je naar oplossingen springt. Interview potentiële gebruikers. Begrijp hun huidige workarounds. Pas dan begin je met ontwerpen."
+  },
+  {
+    "slug": "ux-research-methods",
+    "title": "Een Praktische Gids voor UX Research Methoden",
+    "excerpt": "Niet elk project heeft dezelfde onderzoeksaanpak nodig. Zo kies je de juiste methoden.",
+    "date": "2025-11-05",
+    "author": "Bart Dunweg",
+    "category": "Onderzoek",
+    "readTime": "7",
+    "content": "UX research hoeft niet duur of tijdrovend te zijn. De sleutel is de juiste methode kiezen voor de vraag die je probeert te beantwoorden.\n\n## Generatief vs. Evaluatief\n\nGeneratief onderzoek helpt je problemen en kansen te ontdekken. Gebruik interviews, dagboekstudies en contextueel onderzoek wanneer je een nieuwe ruimte verkent.\n\nEvaluatief onderzoek helpt je oplossingen te testen. Gebruik usability testing, A/B tests en enquêtes wanneer je iets concreets hebt om te valideren.\n\n## Onze standaard aanpak\n\nVoor de meeste projecten beginnen we met 5-8 gebruikersinterviews, voeren een concurrentieanalyse uit en maken een journey map. Dit geeft ons genoeg inzicht om met vertrouwen te beginnen met ontwerpen.\n\nZodra we prototypes hebben, voeren we gemodereerde usability tests uit met 5 deelnemers. Vijf gebruikers onthullen 85% van usability problemen — meer heb je niet nodig."
+  }
+]

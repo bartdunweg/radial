@@ -1,0 +1,72 @@
+{
+  "packages": [
+    {
+      "slug": "flexible",
+      "title": "Flexible",
+      "dailyRate": 999,
+      "days": 1,
+      "description": "Voor snelle winsten en gerichte taken. Boek een designer voor een dag.",
+      "features": [
+        "1 dedicated designer",
+        "Boekbaar per dag",
+        "Figma deliverables",
+        "Asynchrone communicatie",
+        "1 revisieronde inbegrepen"
+      ]
+    },
+    {
+      "slug": "short-term",
+      "title": "Short Term",
+      "dailyRate": 899,
+      "days": 20,
+      "totalPrice": 17999,
+      "popular": true,
+      "description": "Voor doorlopende projecten die consistente design support nodig hebben.",
+      "features": [
+        "1 dedicated designer",
+        "20 dagen designwerk",
+        "Wekelijkse syncs & updates",
+        "Figma + developer handoff",
+        "Onbeperkte revisies",
+        "Prioriteitsplanning"
+      ]
+    },
+    {
+      "slug": "long-term",
+      "title": "Long Term",
+      "dailyRate": 799,
+      "days": 40,
+      "totalPrice": 31999,
+      "description": "Voor langdurige samenwerkingen met een dedicated design resource.",
+      "features": [
+        "1 dedicated senior designer",
+        "40 dagen designwerk",
+        "Ingebed in je team",
+        "Figma + developer handoff",
+        "Onbeperkte revisies",
+        "Prioriteitsplanning",
+        "Design system setup inbegrepen"
+      ]
+    }
+  ],
+  "designSprint": {
+    "title": "Design Sprint",
+    "description": "Een gestructureerd 5-daags proces om snel een designvraagstuk op te lossen. Van probleemstelling tot een getest prototype in één week.",
+    "price": 6399,
+    "duration": "5 dagen",
+    "features": [
+      "Dag 1: Begrijpen — Probleem in kaart brengen, uitdaging definiëren",
+      "Dag 2: Verkennen — Oplossingen verkennen, ideeën schetsen",
+      "Dag 3: Beslissen — Beste richting kiezen, storyboard maken",
+      "Dag 4: Prototypen — Realistisch, klikbaar prototype bouwen",
+      "Dag 5: Testen — Valideren met echte gebruikers, inzichten verzamelen"
+    ],
+    "includes": [
+      "2 designers gefaciliteerd",
+      "Stakeholder interviews",
+      "Klikbaar Figma prototype",
+      "User test rapport met bevindingen",
+      "Concrete vervolgstappen"
+    ]
+  }
+}

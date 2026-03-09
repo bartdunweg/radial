@@ -4,6 +4,11 @@ import { Link } from "@/i18n/navigation";
 import { Separator } from "@/components/ui/separator";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { cn } from "@/lib/utils";
+import {
+  AnimatedSection,
+  AnimatedGrid,
+  AnimatedGridItem,
+} from "../../components/animated-sections";
 
 export async function generateMetadata({
   params,
@@ -34,11 +39,13 @@ export default async function AboutPage({
   return (
     <section className="px-8 pt-[212px] pb-24">
       <div className="mx-auto max-w-[1280px]">
-        <h1 className="text-[clamp(2rem,4vw,3rem)] tracking-tight">{t("title")}</h1>
-        <p className="mt-4 text-lg text-muted-foreground leading-relaxed">{t("subtitle")}</p>
+        <AnimatedSection>
+          <h1 className="text-[clamp(2rem,4vw,3rem)] tracking-tight">{t("title")}</h1>
+          <p className="mt-4 text-lg text-muted-foreground leading-relaxed">{t("subtitle")}</p>
+        </AnimatedSection>
 
         {/* Image slider */}
-        <div className="mt-12 -mx-8">
+        <AnimatedSection delay={0.2} className="mt-12 -mx-8">
           <div className="flex gap-4 overflow-x-auto scrollbar-hide px-8">
             {Array.from({ length: 5 }).map((_, i) => (
               <div
@@ -47,35 +54,41 @@ export default async function AboutPage({
               />
             ))}
           </div>
-        </div>
+        </AnimatedSection>
 
         <Separator className="my-12" />
 
-        <h2 className="text-2xl tracking-tight">{t("storyTitle")}</h2>
-        <p className="mt-4 text-muted-foreground leading-relaxed">{t("storyText")}</p>
+        <AnimatedSection>
+          <h2 className="text-2xl tracking-tight">{t("storyTitle")}</h2>
+          <p className="mt-4 text-muted-foreground leading-relaxed">{t("storyText")}</p>
+        </AnimatedSection>
 
         <Separator className="my-12" />
 
-        <h2 className="text-2xl tracking-tight mb-8">{t("approachTitle")}</h2>
-        <div className="grid gap-8 sm:grid-cols-2">
+        <AnimatedSection>
+          <h2 className="text-2xl tracking-tight mb-8">{t("approachTitle")}</h2>
+        </AnimatedSection>
+        <AnimatedGrid className="grid gap-8 sm:grid-cols-2" staggerDelay={0.1}>
           {approaches.map((item) => (
-            <div key={item.title}>
+            <AnimatedGridItem key={item.title}>
               <h3 className="text-base font-semibold">{item.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.text}</p>
-            </div>
+            </AnimatedGridItem>
           ))}
-        </div>
+        </AnimatedGrid>
 
         <Separator className="my-12" />
 
-        <h2 className="text-2xl tracking-tight mb-8">{t("teamTitle")}</h2>
-        <div className="grid gap-8 sm:grid-cols-3">
+        <AnimatedSection>
+          <h2 className="text-2xl tracking-tight mb-8">{t("teamTitle")}</h2>
+        </AnimatedSection>
+        <AnimatedGrid className="grid gap-8 sm:grid-cols-3" staggerDelay={0.12}>
           {[
             { initials: "BD", name: "Bart Dunweg", role: t("teamBart"), bio: t("teamBartBio") },
             { initials: "JO", name: "Jasper den Oude", role: t("teamJasper"), bio: t("teamJasperBio") },
             { initials: "EW", name: "Erwin de Witte", role: t("teamErwin"), bio: t("teamErwinBio") },
           ].map((member) => (
-            <div key={member.name} className="flex flex-col items-start gap-3">
+            <AnimatedGridItem key={member.name} className="flex flex-col items-start gap-3">
               <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-muted text-sm font-semibold">
                 {member.initials}
               </div>
@@ -84,9 +97,9 @@ export default async function AboutPage({
                 <div className="text-sm text-muted-foreground">{member.role}</div>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{member.bio}</p>
               </div>
-            </div>
+            </AnimatedGridItem>
           ))}
-        </div>
+        </AnimatedGrid>
 
       </div>
     </section>

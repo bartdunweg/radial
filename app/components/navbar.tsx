@@ -27,6 +27,22 @@ export function Navbar() {
   ];
 
   const isHome = pathname === "/";
+  const [homeVariant, setHomeVariant] = useState<"a" | "b">("a");
+
+  // Track home variant from data attribute
+  useEffect(() => {
+    function read() {
+      const v = document.documentElement.getAttribute("data-home-variant");
+      setHomeVariant(v === "b" ? "b" : "a");
+    }
+    read();
+    const observer = new MutationObserver(read);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-home-variant"] });
+    return () => observer.disconnect();
+  }, []);
+
+  // Dark hero = home + variant B (gradient)
+  const isDarkHero = isHome && homeVariant === "b";
 
   // Set navbar pill bg via JS to handle dark mode + hero/content switch
   useEffect(() => {
@@ -35,16 +51,13 @@ export function Navbar() {
       const isMobile = window.innerWidth < 768;
       const isDark = document.documentElement.classList.contains("dark");
       if (isMobile) {
-        // Mobile: always white pill
         navRef.current.style.backgroundColor = "rgba(255, 255, 255, 0.85)";
-      } else if (isHome && !pillVisible) {
-        // Desktop home hero (dark bg)
+      } else if (isDarkHero && !pillVisible) {
         navRef.current.style.backgroundColor = "rgba(0, 0, 0, 0.3)";
+      } else if (isDark) {
+        navRef.current.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
       } else {
-        // Desktop content area or non-home pages
-        navRef.current.style.backgroundColor = isDark
-          ? "rgba(0, 0, 0, 0.5)"
-          : "rgba(255, 255, 255, 0.5)";
+        navRef.current.style.backgroundColor = "rgba(255, 255, 255, 0.5)";
       }
     }
     applyBg();
@@ -55,7 +68,7 @@ export function Navbar() {
       window.removeEventListener("resize", applyBg);
       observer.disconnect();
     };
-  }, [pillVisible, isHome]);
+  }, [pillVisible, isDarkHero]);
 
   // Show pill after announcement bar scrolls out of view
   useEffect(() => {
@@ -86,15 +99,15 @@ export function Navbar() {
       {/* Announcement bar — scrolls with the page */}
       <div ref={announcementRef} className={cn(
         "absolute inset-x-0 top-0 z-50 flex items-center justify-center gap-2 border-b px-4 py-2.5 text-sm backdrop-blur-sm overflow-hidden",
-        isHome
+        isDarkHero
           ? "border-white/10 bg-white/5"
-          : "border-black/5 bg-white/50 dark:border-white/10 dark:bg-white/5"
+          : "border-black/5 bg-[#f9f9f9] dark:border-white/10 dark:bg-white/5"
       )}>
-        <Sparkles size={14} className={isHome ? "text-white/70" : "text-[#8994a8] dark:text-white/70"} />
-        <span className={cn("truncate", isHome ? "text-white/70" : "text-[#8994a8] dark:text-white/70")}>{t("announcement")}</span>
+        <Sparkles size={14} className={isDarkHero ? "text-white/70" : "text-[#535862] dark:text-white/70"} />
+        <span className={cn("truncate", isDarkHero ? "text-white/70" : "text-[#535862] dark:text-white/70")}>{t("announcement")}</span>
         <Link href="/blog" className={cn(
           "inline-flex shrink-0 items-center gap-1 whitespace-nowrap font-semibold transition-colors",
-          isHome ? "text-white hover:text-white/80" : "text-foreground hover:text-accent dark:text-white"
+          isDarkHero ? "text-white hover:text-white/80" : "text-[#535862] hover:text-accent dark:text-white"
         )}>
           {t("readMore")}
           <ArrowRight size={14} />
@@ -104,22 +117,22 @@ export function Navbar() {
       {/* Top bar — scrolls with the page */}
       <div className={cn(
         "absolute inset-x-0 top-10 z-50 mx-auto flex max-w-[1344px] items-center justify-between px-8 pt-4",
-        isHome && "text-white"
+        isDarkHero && "text-white"
       )}>
         <Link href="/" className="text-2xl font-bold tracking-tight">
           Radial
         </Link>
 
         <div className="flex h-[52px] items-center gap-1">
-          <LanguageSwitcher isHome={isHome} />
-          <ThemeToggle isHome={isHome} />
+          <LanguageSwitcher isHome={isDarkHero} />
+          <ThemeToggle isHome={isDarkHero} />
           <Link
             ref={ctaRef}
             href="/contact"
             className={cn(
               buttonVariants({ size: "lg" }),
-              "hidden h-[44px] rounded-full px-6 text-sm font-medium md:inline-flex",
-              isHome && "!bg-gradient-to-b !from-white !via-[#f5f5f5] !to-[#e8e8e8] !text-[#0A0A0A] !shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_2px_6px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.08)] hover:!from-white hover:!via-[#fafafa] hover:!to-[#ededed]"
+              "hidden text-sm md:inline-flex",
+              isDarkHero && "!bg-gradient-to-b !from-white !via-[#f5f5f5] !to-[#e8e8e8] !text-[#0A0A0A] !shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_2px_6px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.08)] hover:!from-white hover:!via-[#fafafa] hover:!to-[#ededed]"
             )}
           >
             {t("startProject")}
@@ -137,7 +150,7 @@ export function Navbar() {
           pillVisible
             ? "md:fixed md:top-4"
             : "md:absolute md:top-[60px]",
-          isHome && !pillVisible
+          isDarkHero && !pillVisible
             ? "md:ring-white/10"
             : "md:ring-black/5 md:dark:ring-white/10"
         )}
@@ -151,7 +164,7 @@ export function Navbar() {
                   className={cn(
                     "rounded-full px-3 h-8 flex items-center text-sm font-medium transition-colors whitespace-nowrap",
                     "text-[#0A0A0A] hover:bg-black/5",
-                    isHome && !pillVisible
+                    isDarkHero && !pillVisible
                       ? "md:text-white md:hover:bg-white/10 md:hover:text-white"
                       : "md:text-foreground md:dark:text-white md:hover:bg-muted md:hover:text-foreground"
                   )}

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
 
 interface FaqItem {
   q: string;
@@ -20,22 +21,26 @@ export function FaqAccordion({ items }: { items: FaqItem[] }) {
             className="flex w-full items-center justify-between py-5 text-left"
           >
             <span className="text-base font-medium pr-4">{item.q}</span>
-            <ChevronDown
-              size={18}
-              className={`shrink-0 text-muted-foreground transition-transform duration-200 ${
-                openIndex === i ? "rotate-180" : ""
-              }`}
-            />
+            <motion.div
+              animate={{ rotate: openIndex === i ? 180 : 0 }}
+              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <ChevronDown size={18} className="shrink-0 text-muted-foreground" />
+            </motion.div>
           </button>
-          <div
-            className={`grid transition-all duration-200 ${
-              openIndex === i ? "grid-rows-[1fr] pb-5" : "grid-rows-[0fr]"
-            }`}
-          >
-            <div className="overflow-hidden">
-              <p className="text-sm leading-relaxed text-muted-foreground">{item.a}</p>
-            </div>
-          </div>
+          <AnimatePresence initial={false}>
+            {openIndex === i && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                className="overflow-hidden"
+              >
+                <p className="pb-5 text-sm leading-relaxed text-muted-foreground">{item.a}</p>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       ))}
     </div>

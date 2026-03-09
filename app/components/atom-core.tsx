@@ -152,17 +152,13 @@ export function AtomCore() {
     const glowCanvas = document.createElement("canvas");
     let glowGL: ReturnType<typeof initGlowGL> = null;
 
-    let dragRotY = 0;
-    let dragRotX = -0.4;
-    let isDragging = false;
-    let lastPointerX = 0;
-    let lastPointerY = 0;
-    let velocityX = 0;
-    let velocityY = 0;
+    const dragRotY = 0;
+    const dragRotX = -0.4;
     let scrollRotY = 0;
     let scrollRotX = 0;
-    const mouseRotY = 0;
-    const mouseRotX = 0;
+    // Mouse position for glare (normalized -1..1 from sphere center)
+    let mouseGlareX = 0;
+    let mouseGlareY = 0;
 
     // Orbits — mix of large and small, evenly spaced like an atom
     // Colors adapt: dark navy on light mode, bright blue on dark mode
@@ -220,26 +216,16 @@ export function AtomCore() {
     resize();
     window.addEventListener("resize", resize);
 
-    const onPointerDown = (e: PointerEvent) => {
-      isDragging = true;
-      lastPointerX = e.clientX; lastPointerY = e.clientY;
-      velocityX = 0; velocityY = 0;
-      canvas.setPointerCapture(e.pointerId);
+    const onMouseMove = (e: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      const mx = e.clientX - rect.left - w / 2;
+      const my = e.clientY - rect.top - h / 2;
+      const maxDist = Math.min(w, h) * 0.5;
+      mouseGlareX = Math.max(-1, Math.min(1, mx / maxDist));
+      mouseGlareY = Math.max(-1, Math.min(1, my / maxDist));
     };
-    const onPointerMove = (e: PointerEvent) => {
-      if (!isDragging) return;
-      const dx = e.clientX - lastPointerX;
-      const dy = e.clientY - lastPointerY;
-      dragRotY += dx * 0.01; dragRotX += dy * 0.01;
-      velocityX = dx * 0.01; velocityY = dy * 0.01;
-      lastPointerX = e.clientX; lastPointerY = e.clientY;
-    };
-    const onPointerUp = () => { isDragging = false; };
 
-    canvas.addEventListener("pointerdown", onPointerDown);
-    canvas.addEventListener("pointermove", onPointerMove);
-    canvas.addEventListener("pointerup", onPointerUp);
-    canvas.addEventListener("pointercancel", onPointerUp);
+    window.addEventListener("mousemove", onMouseMove);
 
     const onScroll = () => {
       scrollRotY = window.scrollY * 0.003;
@@ -313,15 +299,8 @@ export function AtomCore() {
       const coreColor = CORE_LIGHT;
       const coreRgb = rgb(coreColor);
 
-      if (!isDragging) {
-        dragRotY += velocityX;
-        dragRotX += velocityY;
-        velocityX *= 0.95;
-        velocityY *= 0.95;
-      }
-
-      const gRotY = time * 0.35 + dragRotY + scrollRotY + mouseRotY;
-      const gRotX = Math.sin(time * 0.15) * 0.15 + dragRotX + scrollRotX + mouseRotX;
+      const gRotY = time * 0.35 + dragRotY + scrollRotY;
+      const gRotX = Math.sin(time * 0.15) * 0.15 + dragRotX + scrollRotX;
       const sphereR = radius * SPHERE_R_RATIO;
 
       // === WebGL glow pass ===
@@ -402,8 +381,9 @@ export function AtomCore() {
       // === Core sphere — glass orb with starburst ===
       const pulse = 1 + Math.sin(time * 2) * 0.03;
       const breath = 0.85 + 0.15 * Math.sin(time * 0.8);
-      const hlOffX = Math.sin(gRotY) * sphereR * 0.45;
-      const hlOffY = -Math.sin(gRotX) * sphereR * 0.45;
+      // Glare follows mouse position
+      const hlOffX = mouseGlareX * sphereR * 0.5;
+      const hlOffY = mouseGlareY * sphereR * 0.5;
 
       // Clip to sphere
       ctx.save();
@@ -605,11 +585,7 @@ export function AtomCore() {
       cancelAnimationFrame(animationId);
       window.removeEventListener("resize", resize);
       window.removeEventListener("scroll", onScroll);
-
-      canvas.removeEventListener("pointerdown", onPointerDown);
-      canvas.removeEventListener("pointermove", onPointerMove);
-      canvas.removeEventListener("pointerup", onPointerUp);
-      canvas.removeEventListener("pointercancel", onPointerUp);
+      window.removeEventListener("mousemove", onMouseMove);
     };
   }, []);
 
@@ -618,7 +594,7 @@ export function AtomCore() {
       <div className="lg:relative lg:mx-auto lg:w-full lg:max-w-[1280px] lg:px-8">
         <canvas
           ref={canvasRef}
-          className="aspect-square w-[min(90vw,500px)] opacity-70 dark:opacity-50 cursor-grab active:cursor-grabbing pointer-events-auto lg:absolute lg:-right-24 lg:top-1/2 lg:-translate-y-1/2 lg:w-[700px] lg:opacity-100 dark:lg:opacity-100"
+          className="aspect-square w-[min(90vw,500px)] opacity-70 dark:opacity-50 lg:absolute lg:-right-24 lg:top-1/2 lg:-translate-y-1/2 lg:w-[700px] lg:opacity-100 dark:lg:opacity-100"
         />
       </div>
     </div>

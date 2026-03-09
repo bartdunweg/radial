@@ -7,6 +7,11 @@ import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import {
+  AnimatedSection,
+  AnimatedGrid,
+  AnimatedGridItem,
+} from "../../components/animated-sections";
 
 export async function generateMetadata({
   params,
@@ -31,35 +36,39 @@ export default async function ServicesPage({
   return (
     <section className="px-8 pt-[212px] pb-24">
       <div className="mx-auto max-w-[1280px]">
-        <h1 className="text-[clamp(2rem,4vw,3rem)] tracking-tight">{t("title")}</h1>
-        <p className="mt-4 text-lg text-muted-foreground">{t("subtitle")}</p>
+        <AnimatedSection>
+          <h1 className="text-[clamp(2rem,4vw,3rem)] tracking-tight">{t("title")}</h1>
+          <p className="mt-4 text-lg text-muted-foreground">{t("subtitle")}</p>
+        </AnimatedSection>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2">
+        <AnimatedGrid className="mt-12 grid gap-4 sm:grid-cols-2" staggerDelay={0.1}>
           {services.map((service) => (
-            <Link key={service.slug} href={`/services/${service.slug}`}>
-              <Card className="bg-card border-border h-full hover:shadow-card transition-shadow group">
-                <CardHeader>
-                  <CardTitle className="text-lg">{service.title}</CardTitle>
-                  <CardDescription className="mt-2">{service.description}</CardDescription>
-                  <div className="flex flex-wrap gap-1.5 mt-4">
-                    {service.deliverables.slice(0, 3).map((d) => (
-                      <Badge key={d} variant="outline" className="text-xs">{d}</Badge>
-                    ))}
-                    {service.deliverables.length > 3 && (
-                      <Badge variant="outline" className="text-xs">+{service.deliverables.length - 3}</Badge>
-                    )}
-                  </div>
-                  <div className="mt-4 text-sm text-muted-foreground group-hover:text-foreground transition-colors flex items-center gap-1">
-                    {t("learnMore")} <ArrowRight size={14} />
-                  </div>
-                </CardHeader>
-              </Card>
-            </Link>
+            <AnimatedGridItem key={service.slug}>
+              <Link href={`/services/${service.slug}`}>
+                <Card className="bg-card border-border h-full hover:shadow-card transition-shadow group">
+                  <CardHeader>
+                    <CardTitle className="text-lg">{service.title}</CardTitle>
+                    <CardDescription className="mt-2">{service.description}</CardDescription>
+                    <div className="flex flex-wrap gap-1.5 mt-4">
+                      {service.deliverables.slice(0, 3).map((d) => (
+                        <Badge key={d} variant="outline" className="text-xs">{d}</Badge>
+                      ))}
+                      {service.deliverables.length > 3 && (
+                        <Badge variant="outline" className="text-xs">+{service.deliverables.length - 3}</Badge>
+                      )}
+                    </div>
+                    <div className="mt-4 text-sm text-muted-foreground group-hover:text-foreground transition-colors flex items-center gap-1">
+                      {t("learnMore")} <ArrowRight size={14} />
+                    </div>
+                  </CardHeader>
+                </Card>
+              </Link>
+            </AnimatedGridItem>
           ))}
-        </div>
+        </AnimatedGrid>
 
         {/* CTA */}
-        <div className="py-32">
+        <AnimatedSection className="py-32">
           <div className="mx-auto max-w-[680px] text-center">
             <h2 className="text-3xl font-light leading-tight tracking-tight md:text-5xl">
               {t("ctaHeadline")}
@@ -73,7 +82,7 @@ export default async function ServicesPage({
               </Link>
             </div>
           </div>
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );

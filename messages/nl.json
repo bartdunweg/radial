@@ -3,18 +3,19 @@
     "work": "Projecten",
     "services": "Expertise",
     "about": "Over ons",
-    "blog": "Artikelen",
+    "blog": "Thoughts",
     "pricing": "Prijzen",
     "contact": "Contact",
     "getInTouch": "Neem contact op",
-    "startProject": "Start een project",
+    "startProject": "Laten we samen bouwen",
     "announcement": "We hebben een nieuwe website gelanceerd.",
     "readMore": "Lees meer"
   },
   "home": {
+    "tagline": "Digital Product Studio",
     "title": "Goede producten stralen vanuit een heldere kern",
     "subtitle": "Wij vinden de kern van jouw digitale product en bouwen van daaruit naar buiten — tot elke laag schittert.",
-    "cta": "Start een project",
+    "cta": "Laten we samen bouwen",
     "ctaSecondary": "Bekijk plannen",
     "horizonSubtext": "Samen bewegen we naar die stip op de horizon.",
     "clients": "We werken met deze bedrijven",
@@ -107,7 +108,7 @@
     "services": "Expertise",
     "impact": "Impact",
     "ctaHeadline": "Bevalt wat je ziet?",
-    "ctaCta": "Start een project",
+    "ctaCta": "Laten we samen bouwen",
     "ctaSecondary": "Bekijk plannen"
   },
   "services": {
@@ -121,13 +122,13 @@
     "backToServices": "Terug naar Expertise"
   },
   "blog": {
-    "title": "Artikelen",
-    "subtitle": "Gedachten over design, AI en het bouwen van betere producten.",
-    "readMore": "Lees artikel",
-    "backToBlog": "Terug naar Artikelen",
+    "title": "Thoughts",
+    "subtitle": "Over design, AI en het bouwen van betere producten.",
+    "readMore": "Lees meer",
+    "backToBlog": "Terug naar Thoughts",
     "minRead": "min leestijd",
     "ctaHeadline": "Klaar om ideeën in actie om te zetten?",
-    "ctaCta": "Start een project",
+    "ctaCta": "Laten we samen bouwen",
     "ctaSecondary": "Bekijk onze expertise"
   },
   "pricing": {
@@ -187,7 +188,7 @@
     "switchLang": "English"
   },
   "metadata": {
-    "siteTitle": "Radial — Digital Product Design Studio",
+    "siteTitle": "Radial — Digital Product Studio",
     "siteDescription": "Digital product design vanuit de kern. We vormen de digitale producten van morgen met helderheid en impact."
   }
 }

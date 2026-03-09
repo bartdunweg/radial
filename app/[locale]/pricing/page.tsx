@@ -6,9 +6,14 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { Separator } from "@/components/ui/separator";
-import { Check, ChevronDown } from "lucide-react";
+import { Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { FaqAccordion } from "../../components/faq-accordion";
+import {
+  AnimatedSection,
+  AnimatedGrid,
+  AnimatedGridItem,
+} from "../../components/animated-sections";
 
 export async function generateMetadata({
   params,
@@ -36,62 +41,63 @@ export default async function PricingPage({
   return (
     <section className="px-8 pt-[212px] pb-24">
       <div className="mx-auto max-w-[1280px]">
-        <div className="text-center">
+        <AnimatedSection className="text-center">
           <h1 className="text-[clamp(2rem,4vw,3rem)] tracking-tight">{t("title")}</h1>
           <p className="mt-4 text-lg text-muted-foreground">{t("subtitle")}</p>
-        </div>
+        </AnimatedSection>
 
         {/* Day-rate packages */}
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <AnimatedGrid className="mt-12 grid gap-6 md:grid-cols-3" staggerDelay={0.1}>
           {packages.map((pkg: { slug: string; title: string; dailyRate: number; days: number; totalPrice?: number; popular?: boolean; description: string; features: string[] }) => (
-            <Card
-              key={pkg.slug}
-              className={`bg-card border-border relative ${
-                pkg.popular ? "ring-2 ring-primary" : ""
-              }`}
-            >
-              {pkg.popular && (
-                <Badge className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  {t("popular")}
-                </Badge>
-              )}
-              <CardHeader>
-                <CardTitle className="text-lg">{pkg.title}</CardTitle>
-                <CardDescription className="mt-1">{pkg.description}</CardDescription>
-                <div className="mt-4">
-                  <span className="text-3xl font-semibold tracking-tight">
-                    &euro;{pkg.dailyRate.toLocaleString()}
-                  </span>
-                  <span className="text-sm text-muted-foreground ml-1">{t("perDay")}</span>
-                </div>
-                {pkg.totalPrice && (
-                  <div className="text-sm text-muted-foreground">
-                    {pkg.days} {t("days")} &middot; &euro;{pkg.totalPrice.toLocaleString()}
-                  </div>
+            <AnimatedGridItem key={pkg.slug}>
+              <Card
+                className={`bg-card border-border relative h-full ${
+                  pkg.popular ? "ring-2 ring-primary" : ""
+                }`}
+              >
+                {pkg.popular && (
+                  <Badge className="absolute -top-3 left-1/2 -translate-x-1/2">
+                    {t("popular")}
+                  </Badge>
                 )}
-              </CardHeader>
-              <CardContent>
-                <Separator className="mb-4" />
-                <ul className="space-y-2.5">
-                  {pkg.features.map((feature: string) => (
-                    <li key={feature} className="flex items-start gap-2 text-sm text-muted-foreground">
-                      <Check size={16} className="mt-0.5 shrink-0 text-foreground" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-6">
-                  <a href="mailto:hello@radial.design" className={cn(buttonVariants({ variant: pkg.popular ? "default" : "outline" }), "w-full")}>
-                    {t("getStarted")}
-                  </a>
-                </div>
-              </CardContent>
-            </Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">{pkg.title}</CardTitle>
+                  <CardDescription className="mt-1">{pkg.description}</CardDescription>
+                  <div className="mt-4">
+                    <span className="text-3xl font-semibold tracking-tight">
+                      &euro;{pkg.dailyRate.toLocaleString()}
+                    </span>
+                    <span className="text-sm text-muted-foreground ml-1">{t("perDay")}</span>
+                  </div>
+                  {pkg.totalPrice && (
+                    <div className="text-sm text-muted-foreground">
+                      {pkg.days} {t("days")} &middot; &euro;{pkg.totalPrice.toLocaleString()}
+                    </div>
+                  )}
+                </CardHeader>
+                <CardContent>
+                  <Separator className="mb-4" />
+                  <ul className="space-y-2.5">
+                    {pkg.features.map((feature: string) => (
+                      <li key={feature} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <Check size={16} className="mt-0.5 shrink-0 text-foreground" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-6">
+                    <a href="mailto:hello@radial.design" className={cn(buttonVariants({ variant: pkg.popular ? "default" : "outline" }), "w-full")}>
+                      {t("getStarted")}
+                    </a>
+                  </div>
+                </CardContent>
+              </Card>
+            </AnimatedGridItem>
           ))}
-        </div>
+        </AnimatedGrid>
 
         {/* Design Sprint */}
-        <div className="mt-16">
+        <AnimatedSection className="mt-16">
           <Separator className="mb-16" />
           <div className="grid gap-10 md:grid-cols-[1fr_1fr]">
             <div>
@@ -132,10 +138,10 @@ export default async function PricingPage({
               </div>
             </div>
           </div>
-        </div>
+        </AnimatedSection>
 
         {/* FAQ */}
-        <div className="mt-16">
+        <AnimatedSection className="mt-16">
           <Separator className="mb-16" />
           <h2 className="text-[28px] md:text-[36px] tracking-tight mb-10">{t("faqTitle")}</h2>
           <FaqAccordion
@@ -148,10 +154,10 @@ export default async function PricingPage({
               { q: t("faq6Q"), a: t("faq6A") },
             ]}
           />
-        </div>
+        </AnimatedSection>
 
         {/* CTA */}
-        <div className="py-32">
+        <AnimatedSection className="py-32">
           <div className="mx-auto max-w-[680px] text-center">
             <h2 className="text-3xl font-light leading-tight tracking-tight md:text-5xl">
               {t("ctaHeadline")}
@@ -165,7 +171,7 @@ export default async function PricingPage({
               </Link>
             </div>
           </div>
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );

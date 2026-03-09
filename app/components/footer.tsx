@@ -1,7 +1,8 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
+import { useEffect, useState } from "react";
 
 
 const LinkedinIcon = () => (
@@ -16,6 +17,20 @@ const InstagramIcon = () => (
 export function Footer() {
   const t = useTranslations("footer");
   const nav = useTranslations("nav");
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  const [homeVariant, setHomeVariant] = useState<"a" | "b">("b");
+
+  useEffect(() => {
+    const el = document.documentElement;
+    const update = () => setHomeVariant((el.getAttribute("data-home-variant") as "a" | "b") || "a");
+    update();
+    const observer = new MutationObserver(update);
+    observer.observe(el, { attributes: true, attributeFilter: ["data-home-variant"] });
+    return () => observer.disconnect();
+  }, []);
+
+  const isVariantA = homeVariant === "a";
 
   return (
     <footer className="sticky bottom-0 z-0 flex min-h-screen w-full flex-col justify-between bg-[#f8f9fb] text-foreground dark:bg-[#101114] dark:text-white px-8 pt-32">
@@ -78,10 +93,10 @@ export function Footer() {
       <div className="mx-auto w-full max-w-[1280px] pb-8">
         <div className="flex flex-col md:flex-row md:items-baseline md:justify-between">
           <span
-            className="block font-bold leading-none tracking-tighter bg-clip-text text-transparent footer-wordmark"
+            className={`block font-bold leading-none tracking-tighter ${isVariantA ? "text-foreground" : "bg-clip-text text-transparent footer-wordmark"}`}
             style={{ fontSize: "clamp(80px, 15vw, 200px)" }}
           >
-            Radial
+            {isVariantA ? "Strakzat" : "Radial"}
           </span>
           <span className="mt-2 text-xs text-muted-foreground whitespace-nowrap md:mt-0">&copy;{t("copyright")}</span>
         </div>

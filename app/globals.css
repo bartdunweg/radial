@@ -168,6 +168,200 @@ h1, h2, h3, h4, h5 {
   pointer-events: none;
 }
 
+@layer components {
+  .btn-primary-glow {
+    position: relative;
+    background-color: #000000;
+    color: #ffffff;
+    background-image:
+      linear-gradient(rgba(0,0,0,0) 65%, rgba(255,255,255,0.04) 110%),
+      linear-gradient(rgba(255,255,255,0.06) -10%, rgba(0,0,0,0) 45%);
+    box-shadow:
+      rgba(0,0,0,0.10) 0px 1px 3px 0px,
+      rgba(0,0,0,0.04) 0px 0.5px 0.5px 0px,
+      rgba(0,0,0,0.14) 0px 12px 24px -12px,
+      rgba(255,255,255,0.02) 0px 8px 16px 0px inset,
+      rgba(255,255,255,0.08) 0px 0.5px 0.5px 0px inset,
+      rgba(255,255,255,0.01) 0px -4px 8px 0px inset,
+      rgba(255,255,255,0.04) 0px -0.5px 0.5px 0px inset;
+  }
+  .btn-primary-glow::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    pointer-events: none;
+    background-image:
+      linear-gradient(287deg, rgba(0,0,0,0) 60%, rgba(255,255,255,0.05) 90%),
+      linear-gradient(107deg, rgba(0,0,0,0) 62%, rgba(255,255,255,0.025) 91%);
+    background-color: rgba(255,255,255,0.01);
+  }
+  .btn-primary-glow:hover {
+    background-color: #111111;
+  }
+  .btn-primary-glow:active {
+    background-color: #1a1a1a;
+  }
+
+  .btn-white-glow {
+    position: relative;
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid rgba(0,0,0,0.06);
+    background-image:
+      linear-gradient(rgba(255,255,255,0) 65%, rgba(0,0,0,0.015) 110%),
+      linear-gradient(rgba(0,0,0,0.02) -10%, rgba(255,255,255,0) 45%);
+    box-shadow:
+      rgba(0,0,0,0.04) 0px 1px 2px 0px,
+      rgba(0,0,0,0.02) 0px 0.5px 0.5px 0px,
+      rgba(0,0,0,0.04) 0px 8px 16px -8px,
+      rgba(255,255,255,0.30) 0px 0.5px 0.5px 0px inset,
+      rgba(0,0,0,0.01) 0px -0.5px 0.5px 0px inset;
+  }
+  .btn-white-glow::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    pointer-events: none;
+    background-image:
+      linear-gradient(287deg, rgba(255,255,255,0) 60%, rgba(0,0,0,0.02) 90%),
+      linear-gradient(107deg, rgba(255,255,255,0) 62%, rgba(0,0,0,0.01) 91%);
+  }
+  .btn-white-glow:hover {
+    background-color: #f5f5f5;
+  }
+  .btn-white-glow:active {
+    background-color: #ebebeb;
+  }
+
+  .btn-white-glow-fixed {
+    position: relative;
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid rgba(0,0,0,0.06);
+    background-image:
+      linear-gradient(rgba(255,255,255,0) 65%, rgba(0,0,0,0.015) 110%),
+      linear-gradient(rgba(0,0,0,0.02) -10%, rgba(255,255,255,0) 45%);
+    box-shadow:
+      rgba(0,0,0,0.04) 0px 1px 2px 0px,
+      rgba(0,0,0,0.02) 0px 0.5px 0.5px 0px,
+      rgba(0,0,0,0.04) 0px 8px 16px -8px,
+      rgba(255,255,255,0.30) 0px 0.5px 0.5px 0px inset,
+      rgba(0,0,0,0.01) 0px -0.5px 0.5px 0px inset;
+  }
+  .btn-white-glow-fixed::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    pointer-events: none;
+    background-image:
+      linear-gradient(287deg, rgba(255,255,255,0) 60%, rgba(0,0,0,0.02) 90%),
+      linear-gradient(107deg, rgba(255,255,255,0) 62%, rgba(0,0,0,0.01) 91%);
+  }
+  .btn-white-glow-fixed:hover {
+    background-color: #f5f5f5;
+  }
+  .btn-white-glow-fixed:active {
+    background-color: #ebebeb;
+  }
+
+  .btn-glass-glow {
+    position: relative;
+    background-color: rgba(255,255,255,0.06);
+    color: #ffffff;
+    border: 1px solid rgba(255,255,255,0.10);
+    background-image:
+      linear-gradient(rgba(255,255,255,0) 65%, rgba(255,255,255,0.015) 110%),
+      linear-gradient(rgba(255,255,255,0.025) -10%, rgba(255,255,255,0) 45%);
+    box-shadow:
+      rgba(0,0,0,0.08) 0px 1px 3px 0px,
+      rgba(0,0,0,0.04) 0px 0.5px 0.5px 0px,
+      rgba(0,0,0,0.10) 0px 12px 24px -12px,
+      rgba(255,255,255,0.015) 0px 8px 16px 0px inset,
+      rgba(255,255,255,0.06) 0px 0.5px 0.5px 0px inset,
+      rgba(255,255,255,0.01) 0px -4px 8px 0px inset,
+      rgba(255,255,255,0.03) 0px -0.5px 0.5px 0px inset;
+  }
+  .btn-glass-glow::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    pointer-events: none;
+    background-image:
+      linear-gradient(287deg, rgba(255,255,255,0) 60%, rgba(255,255,255,0.03) 90%),
+      linear-gradient(107deg, rgba(255,255,255,0) 62%, rgba(255,255,255,0.015) 91%);
+  }
+  .btn-glass-glow:hover {
+    background-color: rgba(255,255,255,0.12);
+  }
+  .btn-glass-glow:active {
+    background-color: rgba(255,255,255,0.16);
+  }
+}
+
+/* Dark mode button overrides */
+@layer components {
+  .dark .btn-primary-glow {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid rgba(255,255,255,0.12);
+    background-image:
+      linear-gradient(rgba(255,255,255,0) 65%, rgba(0,0,0,0.02) 110%),
+      linear-gradient(rgba(0,0,0,0.03) -10%, rgba(255,255,255,0) 45%);
+    box-shadow:
+      rgba(0,0,0,0.20) 0px 1px 3px 0px,
+      rgba(0,0,0,0.10) 0px 0.5px 0.5px 0px,
+      rgba(0,0,0,0.25) 0px 12px 24px -12px,
+      rgba(255,255,255,0.40) 0px 0.5px 0.5px 0px inset,
+      rgba(0,0,0,0.015) 0px 8px 16px 0px inset,
+      rgba(0,0,0,0.01) 0px -4px 8px 0px inset,
+      rgba(0,0,0,0.03) 0px -0.5px 0.5px 0px inset;
+  }
+  .dark .btn-primary-glow::before {
+    background-image:
+      linear-gradient(287deg, rgba(255,255,255,0) 60%, rgba(0,0,0,0.03) 90%),
+      linear-gradient(107deg, rgba(255,255,255,0) 62%, rgba(0,0,0,0.015) 91%);
+    background-color: transparent;
+  }
+  .dark .btn-primary-glow:hover {
+    background-color: #e5e5e5;
+  }
+  .dark .btn-primary-glow:active {
+    background-color: #d4d4d4;
+  }
+
+  .dark .btn-white-glow {
+    background-color: #0A0A0A;
+    color: #ffffff;
+    border: 1px solid rgba(255,255,255,0.10);
+    background-image:
+      linear-gradient(rgba(0,0,0,0) 65%, rgba(255,255,255,0.04) 110%),
+      linear-gradient(rgba(255,255,255,0.06) -10%, rgba(0,0,0,0) 45%);
+    box-shadow:
+      rgba(0,0,0,0.25) 0px 1px 3px 0px,
+      rgba(0,0,0,0.15) 0px 0.5px 0.5px 0px,
+      rgba(0,0,0,0.30) 0px 12px 24px -12px,
+      rgba(255,255,255,0.02) 0px 8px 16px 0px inset,
+      rgba(255,255,255,0.08) 0px 0.5px 0.5px 0px inset,
+      rgba(255,255,255,0.015) 0px -4px 8px 0px inset,
+      rgba(255,255,255,0.04) 0px -0.5px 0.5px 0px inset;
+  }
+  .dark .btn-white-glow::before {
+    background-image:
+      linear-gradient(287deg, rgba(0,0,0,0) 60%, rgba(255,255,255,0.05) 90%),
+      linear-gradient(107deg, rgba(0,0,0,0) 62%, rgba(255,255,255,0.025) 91%);
+  }
+  .dark .btn-white-glow:hover {
+    background-color: #151515;
+  }
+  .dark .btn-white-glow:active {
+    background-color: #1a1a1a;
+  }
+}
+
 .footer-wordmark {
   background-image: linear-gradient(135deg, #6040a0 0%, #2050b0 50%, #4080e0 100%);
 }

@@ -8,6 +8,7 @@ import { routing } from "@/i18n/routing";
 import { ThemeProvider } from "../components/theme-provider";
 import { Navbar } from "../components/navbar";
 import { Footer } from "../components/footer";
+import { VariantToggle } from "../components/variant-toggle";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -80,6 +81,7 @@ export default async function LocaleLayout({
             <main className="relative z-10 bg-background">{children}</main>
 
             <Footer />
+            <VariantToggle />
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>

@@ -40,5 +40,12 @@
     "description": "We embed AI into your product workflows — from intelligent automation to generative features that create real user value.",
     "longDescription": "AI is transforming how products work. We help you identify where AI creates genuine value for your users — not gimmicks, but meaningful features. From smart automation to generative interfaces, we design and build AI-powered experiences that feel natural and useful.",
     "deliverables": ["AI Opportunity Mapping", "Prompt Engineering", "AI-Powered Features", "LLM Integration", "Workflow Automation"]
+  },
+  {
+    "slug": "design-for-mendix",
+    "title": "Design for Mendix",
+    "description": "We design pixel-perfect interfaces optimized for Mendix — so your low-code apps look and feel like custom-built products.",
+    "longDescription": "Mendix is powerful, but out-of-the-box it doesn't always deliver the experience your users deserve. We bridge that gap — designing interfaces that work seamlessly within Mendix's component architecture while pushing the visual and interaction quality far beyond standard templates. From custom design systems to production-ready Atlas UI themes, we make your Mendix apps shine.",
+    "deliverables": ["Mendix UI Design", "Atlas UI Theming", "Custom Widget Design", "Design System for Mendix", "Mendix Prototyping"]
   }
 ]

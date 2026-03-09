@@ -3,18 +3,19 @@
     "work": "Projects",
     "services": "Expertise",
     "about": "About",
-    "blog": "Articles",
+    "blog": "Thoughts",
     "pricing": "Pricing",
     "contact": "Contact",
     "getInTouch": "Get in touch",
-    "startProject": "Start a project",
+    "startProject": "Let's build together",
     "announcement": "We just launched our new website.",
     "readMore": "Read more"
   },
   "home": {
+    "tagline": "Digital Product Studio",
     "title": "Great products radiate from a clear core",
     "subtitle": "We find the core of your digital product and build outward from there — until every layer shines.",
-    "cta": "Start a project",
+    "cta": "Let's build together",
     "ctaSecondary": "See plans",
     "horizonSubtext": "Together, we move towards that point on the horizon.",
     "clients": "We work with these companies",
@@ -107,7 +108,7 @@
     "services": "Expertise",
     "impact": "Impact",
     "ctaHeadline": "Like what you see?",
-    "ctaCta": "Start a project",
+    "ctaCta": "Let's build together",
     "ctaSecondary": "See plans"
   },
   "services": {
@@ -121,13 +122,13 @@
     "backToServices": "Back to Expertise"
   },
   "blog": {
-    "title": "Articles",
-    "subtitle": "Thoughts on design, AI, and building better products.",
-    "readMore": "Read article",
-    "backToBlog": "Back to Articles",
+    "title": "Thoughts",
+    "subtitle": "On design, AI, and building better products.",
+    "readMore": "Read more",
+    "backToBlog": "Back to Thoughts",
     "minRead": "min read",
     "ctaHeadline": "Ready to put ideas into action?",
-    "ctaCta": "Start a project",
+    "ctaCta": "Let's build together",
     "ctaSecondary": "See our expertise"
   },
   "pricing": {
@@ -187,7 +188,7 @@
     "switchLang": "Nederlands"
   },
   "metadata": {
-    "siteTitle": "Radial — Digital Product Design Studio",
+    "siteTitle": "Radial — Digital Product Studio",
     "siteDescription": "Digital product design from the center out. We shape tomorrow's digital products with clarity and impact."
   }
 }

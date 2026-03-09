@@ -114,6 +114,44 @@ h1, h2, h3, h4, h5 {
   animation: marquee-right 30s linear infinite;
 }
 
+/* Radar pattern for clean hero variant */
+.radar-pattern {
+  position: relative;
+  overflow: hidden;
+}
+.radar-pattern::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    repeating-radial-gradient(
+      circle at 50% 50%,
+      transparent 0px,
+      transparent 79px,
+      rgba(0, 0, 0, 0.03) 80px,
+      transparent 81px
+    );
+}
+.radar-pattern::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1px;
+  height: 50%;
+  transform-origin: top center;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.15), transparent);
+  animation: radar-sweep 8s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+@keyframes radar-sweep {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 /* Hero gradient background */
 .hero-gradient {
   background-image: radial-gradient(180% 130% at 65% 0%, #020408 0%, #030810 12%, #051530 26%, #0a2060 40%, #4080e0 52%, #c0d8ff 61%, #ffffff 68%, #ffffff 100%);

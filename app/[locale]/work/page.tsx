@@ -5,6 +5,11 @@ import { getContent } from "@/lib/content";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { cn } from "@/lib/utils";
+import {
+  AnimatedSection,
+  AnimatedGrid,
+  AnimatedGridItem,
+} from "../../components/animated-sections";
 
 export async function generateMetadata({
   params,
@@ -29,35 +34,39 @@ export default async function WorkPage({
   return (
     <section className="px-8 pt-[212px] pb-24">
       <div className="mx-auto max-w-[1280px]">
-        <h1 className="text-[clamp(2rem,4vw,3rem)] tracking-tight">{t("title")}</h1>
-        <p className="mt-4 text-lg text-muted-foreground">{t("subtitle")}</p>
+        <AnimatedSection>
+          <h1 className="text-[clamp(2rem,4vw,3rem)] tracking-tight">{t("title")}</h1>
+          <p className="mt-4 text-lg text-muted-foreground">{t("subtitle")}</p>
+        </AnimatedSection>
 
         <div className="mt-12 space-y-16">
           {work.map((project, i) => {
-            // Pattern: full width, then two side-by-side, repeat
-            // i % 3 === 0 → full width
-            // i % 3 === 1 or 2 → half width (paired)
             const position = i % 3;
             const isFullWidth = position === 0;
             const isLeftHalf = position === 1;
 
-            // For half-width items, render both in a row when we hit the left one
             if (isLeftHalf) {
               const rightProject = work[i + 1];
               return (
-                <div key={project.slug} className="grid gap-8 md:grid-cols-2">
-                  <ProjectCard project={project} t={t} height={400} />
-                  {rightProject && <ProjectCard project={rightProject} t={t} height={400} />}
-                </div>
+                <AnimatedGrid key={project.slug} className="grid gap-8 md:grid-cols-2" staggerDelay={0.15}>
+                  <AnimatedGridItem>
+                    <ProjectCard project={project} t={t} height={400} />
+                  </AnimatedGridItem>
+                  {rightProject && (
+                    <AnimatedGridItem>
+                      <ProjectCard project={rightProject} t={t} height={400} />
+                    </AnimatedGridItem>
+                  )}
+                </AnimatedGrid>
               );
             }
 
-            // Skip right-half items (already rendered with left)
             if (position === 2) return null;
 
-            // Full width
             return (
-              <ProjectCard key={project.slug} project={project} t={t} height={500} />
+              <AnimatedSection key={project.slug}>
+                <ProjectCard project={project} t={t} height={500} />
+              </AnimatedSection>
             );
           })}
         </div>
@@ -71,15 +80,13 @@ function ProjectCard({
   t,
   height,
 }: {
-  project: { slug: string; client: string; year: number; title: string; description: string; services: string[] };
+  project: { slug: string; client: string; year: string | number; title: string; description: string; services: string[] };
   t: (key: string) => string;
   height: number;
 }) {
   return (
     <div>
-      {/* Image placeholder */}
       <div className="rounded-2xl border border-black/5 bg-[#f8f9fb] dark:border-white/10 dark:bg-[#101114]" style={{ height }} />
-      {/* Info */}
       <div className="mt-4">
         <div className="flex items-center gap-3 mb-2">
           <span className="text-sm font-medium">{project.client}</span>

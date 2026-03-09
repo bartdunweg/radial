@@ -614,11 +614,11 @@ export function AtomCore() {
   }, []);
 
   return (
-    <div className="absolute inset-0 z-[1] flex items-center justify-center pointer-events-none lg:justify-start">
+    <div className="absolute inset-0 z-[1] flex items-start justify-center pt-[15vh] pointer-events-none lg:items-center lg:pt-0 lg:justify-start">
       <div className="lg:relative lg:mx-auto lg:w-full lg:max-w-[1280px] lg:px-8">
         <canvas
           ref={canvasRef}
-          className="aspect-square w-[min(90vw,500px)] opacity-50 dark:opacity-35 cursor-grab active:cursor-grabbing pointer-events-auto lg:absolute lg:-right-24 lg:top-1/2 lg:-translate-y-1/2 lg:w-[700px] lg:opacity-100 dark:lg:opacity-100"
+          className="aspect-square w-[min(90vw,500px)] opacity-70 dark:opacity-50 cursor-grab active:cursor-grabbing pointer-events-auto lg:absolute lg:-right-24 lg:top-1/2 lg:-translate-y-1/2 lg:w-[700px] lg:opacity-100 dark:lg:opacity-100"
         />
       </div>
     </div>

@@ -24,7 +24,7 @@ export default async function ContactPage({
   const t = await getTranslations("contact");
 
   return (
-    <section className="px-8 pt-32 pb-24">
+    <section className="px-8 pt-[212px] pb-24">
       <div className="mx-auto max-w-[1280px]">
         <div className="max-w-xl">
           <h1 className="text-[clamp(2rem,4vw,3rem)] tracking-tight">{t("title")}</h1>

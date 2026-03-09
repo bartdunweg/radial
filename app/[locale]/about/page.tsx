@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { Separator } from "@/components/ui/separator";
+import { buttonVariants } from "@/components/ui/button-variants";
+import { cn } from "@/lib/utils";
 
 export async function generateMetadata({
   params,
@@ -29,10 +32,22 @@ export default async function AboutPage({
   ];
 
   return (
-    <section className="px-8 pt-32 pb-24">
+    <section className="px-8 pt-[212px] pb-24">
       <div className="mx-auto max-w-[1280px]">
         <h1 className="text-[clamp(2rem,4vw,3rem)] tracking-tight">{t("title")}</h1>
         <p className="mt-4 text-lg text-muted-foreground leading-relaxed">{t("subtitle")}</p>
+
+        {/* Image slider */}
+        <div className="mt-12 -mx-8">
+          <div className="flex gap-4 overflow-x-auto scrollbar-hide px-8">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <div
+                key={i}
+                className="h-[400px] w-[600px] shrink-0 rounded-2xl border border-black/5 bg-[#f8f9fb] dark:border-white/10 dark:bg-[#101114]"
+              />
+            ))}
+          </div>
+        </div>
 
         <Separator className="my-12" />
 
@@ -72,6 +87,7 @@ export default async function AboutPage({
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );

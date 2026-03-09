@@ -5,7 +5,7 @@
 
 @theme {
   /* Page */
-  --color-background: #F9F9F9;
+  --color-background: #FFFFFF;
   --color-foreground: #0A0A0A;
 
   /* Core surface (after hero transition) */
@@ -17,26 +17,26 @@
 
   /* Primary (buttons, badges) */
   --color-primary: #18181B;
-  --color-primary-foreground: #FAFAFA;
+  --color-primary-foreground: #f8f9fb;
 
   /* Secondary (secondary buttons/badges) */
-  --color-secondary: #F4F4F5;
+  --color-secondary: #f2f3f7;
   --color-secondary-foreground: #18181B;
 
   /* Muted (subtle backgrounds, muted text) */
-  --color-muted: #F9F9F9;
-  --color-muted-foreground: #71717A;
+  --color-muted: #f8f9fb;
+  --color-muted-foreground: #6b7189;
 
   /* Accent (hover states) */
-  --color-accent: #F4F4F5;
+  --color-accent: #f2f3f7;
   --color-accent-foreground: #18181B;
 
   /* Destructive */
   --color-destructive: #EF4444;
 
   /* Border, input, ring */
-  --color-border: #E4E4E7;
-  --color-input: #E4E4E7;
+  --color-border: #e2e3e9;
+  --color-input: #e2e3e9;
   --color-ring: #18181B;
 
   /* Radii */
@@ -130,6 +130,13 @@ h1, h2, h3, h4, h5 {
   pointer-events: none;
 }
 
+.footer-wordmark {
+  background-image: linear-gradient(135deg, #6040a0 0%, #2050b0 50%, #4080e0 100%);
+}
+.dark .footer-wordmark {
+  background-image: linear-gradient(135deg, #7EB6FF 0%, #ffffff 100%);
+}
+
 .navbar-pill {
   background-color: rgba(255, 255, 255, 0.8);
 }
@@ -201,7 +208,7 @@ h1, h2, h3, h4, h5 {
 
 @layer base {
   .dark {
-    --color-background: #141414;
+    --color-background: #000000;
     --color-foreground: #FAFAFA;
     --color-card: #000000;
     --color-card-foreground: #FAFAFA;

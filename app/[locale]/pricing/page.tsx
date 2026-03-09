@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { getContent } from "@/lib/content";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { Separator } from "@/components/ui/separator";
-import { Check } from "lucide-react";
+import { Check, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { FaqAccordion } from "../../components/faq-accordion";
 
 export async function generateMetadata({
   params,
@@ -32,7 +34,7 @@ export default async function PricingPage({
   const sprint = pricing.designSprint;
 
   return (
-    <section className="px-8 pt-32 pb-24">
+    <section className="px-8 pt-[212px] pb-24">
       <div className="mx-auto max-w-[1280px]">
         <div className="text-center">
           <h1 className="text-[clamp(2rem,4vw,3rem)] tracking-tight">{t("title")}</h1>
@@ -132,14 +134,36 @@ export default async function PricingPage({
           </div>
         </div>
 
+        {/* FAQ */}
+        <div className="mt-16">
+          <Separator className="mb-16" />
+          <h2 className="text-[28px] md:text-[36px] tracking-tight mb-10">{t("faqTitle")}</h2>
+          <FaqAccordion
+            items={[
+              { q: t("faq1Q"), a: t("faq1A") },
+              { q: t("faq2Q"), a: t("faq2A") },
+              { q: t("faq3Q"), a: t("faq3A") },
+              { q: t("faq4Q"), a: t("faq4A") },
+              { q: t("faq5Q"), a: t("faq5A") },
+              { q: t("faq6Q"), a: t("faq6A") },
+            ]}
+          />
+        </div>
+
         {/* CTA */}
-        <div className="mt-16 rounded-lg bg-muted border border-border p-10 text-center">
-          <h2 className="text-xl tracking-tight">{t("ctaTitle")}</h2>
-          <p className="mt-2 text-muted-foreground text-sm">{t("ctaText")}</p>
-          <div className="mt-6">
-            <a href="mailto:hello@radial.design" className={cn(buttonVariants())}>
-              {t("ctaCta")}
-            </a>
+        <div className="py-32">
+          <div className="mx-auto max-w-[680px] text-center">
+            <h2 className="text-3xl font-light leading-tight tracking-tight md:text-5xl">
+              {t("ctaHeadline")}
+            </h2>
+            <div className="mt-10 flex items-center justify-center gap-4">
+              <Link href="/contact" className={cn(buttonVariants({ size: "lg" }))}>
+                {t("ctaCta")}
+              </Link>
+              <Link href="/work" className={cn(buttonVariants({ variant: "outline", size: "lg" }))}>
+                {t("ctaSecondary")}
+              </Link>
+            </div>
           </div>
         </div>
       </div>

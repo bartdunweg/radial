@@ -47,7 +47,7 @@ export default async function ServiceDetailPage({
   if (!service) notFound();
 
   return (
-    <section className="px-8 pt-32 pb-24">
+    <section className="px-8 pt-[212px] pb-24">
       <div className="mx-auto max-w-[1280px]">
         <Link
           href="/services"
@@ -72,13 +72,20 @@ export default async function ServiceDetailPage({
           ))}
         </div>
 
-        <div className="mt-16 rounded-lg bg-muted border border-border p-10 text-center">
-          <h2 className="text-xl tracking-tight">{t("ctaTitle")}</h2>
-          <p className="mt-2 text-muted-foreground text-sm">{t("ctaText")}</p>
-          <div className="mt-6">
-            <a href="mailto:hello@radial.design" className={cn(buttonVariants())}>
-              {t("ctaCta")}
-            </a>
+        {/* CTA */}
+        <div className="py-32">
+          <div className="mx-auto max-w-[680px] text-center">
+            <h2 className="text-3xl font-light leading-tight tracking-tight md:text-5xl">
+              {t("ctaHeadline")}
+            </h2>
+            <div className="mt-10 flex items-center justify-center gap-4">
+              <Link href="/contact" className={cn(buttonVariants({ size: "lg" }))}>
+                {t("ctaCta")}
+              </Link>
+              <Link href="/pricing" className={cn(buttonVariants({ variant: "outline", size: "lg" }))}>
+                {t("ctaSecondary")}
+              </Link>
+            </div>
           </div>
         </div>
       </div>

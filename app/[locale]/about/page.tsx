@@ -72,7 +72,7 @@ export default async function AboutPage({
         <div className="grid gap-8 sm:grid-cols-3">
           {[
             { initials: "BD", name: "Bart Dunweg", role: t("teamBart"), bio: t("teamBartBio") },
-            { initials: "JO", name: "Jasper den Oude", role: t("teamJasper"), bio: t("teamJasperBio") },
+            { initials: "JO", name: "Jasper den Ouden", role: t("teamJasper"), bio: t("teamJasperBio") },
             { initials: "EW", name: "Erwin de Witte", role: t("teamErwin"), bio: t("teamErwinBio") },
           ].map((member) => (
             <div key={member.name} className="flex flex-col items-start gap-3">

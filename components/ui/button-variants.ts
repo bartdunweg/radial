@@ -1,15 +1,18 @@
 import { cva, type VariantProps } from "class-variance-authority"
 
 const buttonVariants = cva(
-  "group/button inline-flex shrink-0 items-center justify-center rounded-full border border-transparent text-sm font-medium whitespace-nowrap transition-colors outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  "group/button inline-flex shrink-0 items-center justify-center rounded-full text-sm font-medium whitespace-nowrap transition-colors outline-none select-none focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
       variant: {
-        default: "bg-[#0A0A0A] text-white hover:bg-[#222222] active:bg-[#2a2a2a] dark:bg-white dark:text-black dark:hover:bg-[#e5e5e5] dark:active:bg-[#d4d4d4]",
-        outline:
-          "border-[#d1d5db] bg-white text-foreground hover:bg-[#f5f5f5] active:bg-[#ebebeb] dark:border-[#333] dark:bg-[#0A0A0A] dark:text-white dark:hover:bg-[#151515] dark:active:bg-[#1a1a1a]",
+        default: "btn-primary-glow",
+        outline: "btn-white-glow",
         secondary:
           "bg-muted text-secondary-foreground hover:bg-muted/80 active:bg-muted/60 dark:bg-white/10 dark:text-white dark:hover:bg-white/15 dark:active:bg-white/20",
+        "outline-on-dark":
+          "btn-white-glow-fixed",
+        "ghost-light":
+          "btn-glass-glow",
         ghost:
           "shadow-none hover:bg-muted active:bg-muted/80 dark:hover:bg-white/10 dark:active:bg-white/15",
         destructive:

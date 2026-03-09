@@ -1,27 +1,28 @@
-import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+"use client";
+
+import { useTranslations } from "next-intl";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
+import { useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { ArrowRight, Check } from "lucide-react";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "contact" });
-  return { title: t("title") };
-}
+const intents = ["new", "improve", "audit", "other"] as const;
+type Intent = (typeof intents)[number];
 
-export default async function ContactPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  setRequestLocale(locale);
-  const t = await getTranslations("contact");
+export default function ContactPage() {
+  const t = useTranslations("contact");
+  const searchParams = useSearchParams();
+  const initialIntent = (searchParams.get("intent") as Intent) || null;
+  const [selectedIntent, setSelectedIntent] = useState<Intent | null>(initialIntent);
+
+  const intentOptions: { key: Intent; label: string; desc: string }[] = [
+    { key: "new", label: t("intentNew"), desc: t("intentNewDesc") },
+    { key: "improve", label: t("intentImprove"), desc: t("intentImproveDesc") },
+    { key: "audit", label: t("intentAudit"), desc: t("intentAuditDesc") },
+    { key: "other", label: t("intentOther"), desc: t("intentOtherDesc") },
+  ];
 
   return (
     <section className="px-8 pt-[212px] pb-24">
@@ -31,8 +32,40 @@ export default async function ContactPage({
           <p className="mt-4 text-lg text-muted-foreground">{t("subtitle")}</p>
         </div>
 
-        <div className="mt-12 grid gap-16 lg:grid-cols-[1fr_320px]">
+        {/* Intent selection */}
+        <div className="mt-12">
+          <h2 className="text-sm font-medium text-muted-foreground mb-4">{t("intentTitle")}</h2>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {intentOptions.map((option) => (
+              <button
+                key={option.key}
+                onClick={() => setSelectedIntent(option.key)}
+                className={cn(
+                  "relative rounded-2xl border p-5 text-left transition-colors",
+                  selectedIntent === option.key
+                    ? "border-foreground bg-foreground/[0.03] dark:border-white dark:bg-white/5"
+                    : "border-black/5 bg-background hover:border-black/15 dark:border-white/10 dark:hover:border-white/20"
+                )}
+              >
+                {selectedIntent === option.key && (
+                  <div className="absolute top-3 right-3 flex h-5 w-5 items-center justify-center rounded-full bg-foreground dark:bg-white">
+                    <Check size={12} className="text-background dark:text-black" />
+                  </div>
+                )}
+                <div className="text-sm font-medium">{option.label}</div>
+                <div className="mt-1 text-xs text-muted-foreground">{option.desc}</div>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <Separator className="my-12" />
+
+        <div className="grid gap-16 lg:grid-cols-[1fr_320px]">
           <form className="space-y-6">
+            {selectedIntent && (
+              <input type="hidden" name="intent" value={selectedIntent} />
+            )}
             <div className="grid gap-6 sm:grid-cols-2">
               <div className="space-y-2">
                 <label htmlFor="name" className="text-sm font-medium">{t("nameLabel")}</label>

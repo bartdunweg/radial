@@ -47,5 +47,12 @@
     "description": "Solve big product challenges in just 5 days — from problem framing to a tested prototype with real users.",
     "longDescription": "A Design Sprint is a structured 5-day process that helps teams rapidly move from a challenge to a validated solution. We facilitate the entire sprint: mapping the problem, sketching solutions, deciding on direction, building a realistic prototype, and testing it with real users — all in one week. It's the fastest way to de-risk decisions and align your team.",
     "deliverables": ["Sprint Facilitation", "Problem Mapping", "Rapid Prototyping", "User Testing", "Validated Concepts"]
+  },
+  {
+    "slug": "design-for-mendix",
+    "title": "Design for Mendix",
+    "description": "We design pixel-perfect interfaces optimized for Mendix — so your low-code apps look and feel like custom-built products.",
+    "longDescription": "Mendix is powerful, but out-of-the-box it doesn't always deliver the experience your users deserve. We bridge that gap — designing interfaces that work seamlessly within Mendix's component architecture while pushing the visual and interaction quality far beyond standard templates. From custom design systems to production-ready Atlas UI themes, we make your Mendix apps shine.",
+    "deliverables": ["Mendix UI Design", "Atlas UI Theming", "Custom Widget Design", "Design System for Mendix", "Mendix Prototyping"]
   }
 ]

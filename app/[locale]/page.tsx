@@ -167,10 +167,10 @@ export default async function HomePage({
               </AnimatedHeroItem>
               <AnimatedHeroItem>
                 <div data-hero-cta className="mt-8 flex items-center gap-4">
-                  <Link href="/contact" className="inline-flex h-11 items-center gap-2 rounded-full bg-white px-6 text-base font-medium text-black transition-colors hover:bg-white/90">
+                  <Link href="/contact" className={cn(buttonVariants({ variant: "outline-on-dark", size: "lg" }))}>
                     {t("cta")}
                   </Link>
-                  <Link href="/pricing" className="inline-flex h-11 items-center gap-2 rounded-full bg-white/15 px-6 text-base font-medium text-white transition-colors hover:bg-white/25">
+                  <Link href="/pricing" className={cn(buttonVariants({ variant: "ghost-light", size: "lg" }))}>
                     {t("ctaSecondary")}
                     <ArrowRight size={16} />
                   </Link>
@@ -194,6 +194,42 @@ export default async function HomePage({
 
       <div className="px-8"><div className="mx-auto max-w-[1280px]"><div className="h-px bg-black/5 dark:bg-white/10" /></div></div>
 
+      {/* Featured Work — prominent, right after hero */}
+      <section className="px-8 py-24">
+        <div className="mx-auto max-w-[1280px]">
+          <AnimatedSection>
+            <div className="flex items-center justify-between mb-10">
+              <h2 className="text-[28px] md:text-[36px] tracking-tight">{t("featuredWork")}</h2>
+              <Link href="/work" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
+                {t("viewAllWork")} <ArrowRight size={14} />
+              </Link>
+            </div>
+          </AnimatedSection>
+          <AnimatedGrid className="grid gap-8 md:grid-cols-2" staggerDelay={0.15}>
+            {work.slice(0, 2).map((project) => (
+              <AnimatedGridItem key={project.slug}>
+                <div className="h-[400px] rounded-2xl border border-black/5 bg-[#f8f9fb] dark:border-white/10 dark:bg-[#101114]" />
+                <div className="mt-4">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="text-sm font-medium">{project.client}</span>
+                    <span className="text-xs text-muted-foreground">{project.year}</span>
+                  </div>
+                  <h3 className="text-xl font-medium tracking-tight">{project.title}</h3>
+                  <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{project.description}</p>
+                  <div className="flex flex-wrap gap-1.5 mt-3">
+                    {project.services.map((service) => (
+                      <Badge key={service} variant="outline" className="text-xs border-border text-muted-foreground">{service}</Badge>
+                    ))}
+                  </div>
+                </div>
+              </AnimatedGridItem>
+            ))}
+          </AnimatedGrid>
+        </div>
+      </section>
+
+      <div className="px-8"><div className="mx-auto max-w-[1280px]"><div className="h-px bg-black/5 dark:bg-white/10" /></div></div>
+
       {/* Intro */}
       <section className="px-8 py-24">
         <div className="mx-auto max-w-[1280px]">
@@ -207,54 +243,6 @@ export default async function HomePage({
       </section>
 
       <div className="px-8"><div className="mx-auto max-w-[1280px]"><div className="h-px bg-black/5 dark:bg-white/10" /></div></div>
-
-      {/* About */}
-      <section className="px-8 py-24">
-        <div className="mx-auto max-w-[1280px]">
-          {/* Header + intro */}
-          <AnimatedSection className="max-w-2xl">
-            <h2 className="text-[28px] md:text-[36px] tracking-tight">{t("aboutTitle")}</h2>
-            <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-              {t("aboutText")}
-            </p>
-            <div className="mt-6">
-              <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
-                {t("aboutCta")} <ArrowRight size={14} />
-              </Link>
-            </div>
-          </AnimatedSection>
-
-          {/* Stats */}
-          <AnimatedGrid className="mt-16 grid grid-cols-2 gap-8 md:grid-cols-4" staggerDelay={0.1}>
-            {[
-              { value: t("aboutStat1Value"), label: t("aboutStat1Label") },
-              { value: t("aboutStat2Value"), label: t("aboutStat2Label") },
-              { value: t("aboutStat3Value"), label: t("aboutStat3Label") },
-              { value: t("aboutStat4Value"), label: t("aboutStat4Label") },
-            ].map((stat) => (
-              <AnimatedGridItem key={stat.label}>
-                <div className="text-[36px] md:text-[48px] font-medium tracking-tight leading-none">{stat.value}</div>
-                <div className="mt-2 text-sm text-muted-foreground">{stat.label}</div>
-              </AnimatedGridItem>
-            ))}
-          </AnimatedGrid>
-
-          {/* USPs */}
-          <AnimatedGrid className="mt-16 grid gap-8 sm:grid-cols-2" staggerDelay={0.1}>
-            {[
-              { title: t("aboutApproach1Title"), text: t("aboutApproach1Text") },
-              { title: t("aboutApproach2Title"), text: t("aboutApproach2Text") },
-              { title: t("aboutApproach3Title"), text: t("aboutApproach3Text") },
-              { title: t("aboutApproach4Title"), text: t("aboutApproach4Text") },
-            ].map((item) => (
-              <AnimatedGridItem key={item.title} className="rounded-2xl border border-black/5 bg-background p-6 dark:border-white/10">
-                <h3 className="text-xl font-medium tracking-tight">{item.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.text}</p>
-              </AnimatedGridItem>
-            ))}
-          </AnimatedGrid>
-        </div>
-      </section>
 
       {/* Why Radial */}
       <section className="px-8 py-24">
@@ -343,6 +331,53 @@ export default async function HomePage({
 
       <div className="px-8"><div className="mx-auto max-w-[1280px]"><div className="h-px bg-black/5 dark:bg-white/10" /></div></div>
 
+      {/* About */}
+      <section className="px-8 py-24">
+        <div className="mx-auto max-w-[1280px]">
+          <AnimatedSection className="max-w-2xl">
+            <h2 className="text-[28px] md:text-[36px] tracking-tight">{t("aboutTitle")}</h2>
+            <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
+              {t("aboutText")}
+            </p>
+            <div className="mt-6">
+              <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
+                {t("aboutCta")} <ArrowRight size={14} />
+              </Link>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedGrid className="mt-16 grid grid-cols-2 gap-8 md:grid-cols-4" staggerDelay={0.1}>
+            {[
+              { value: t("aboutStat1Value"), label: t("aboutStat1Label") },
+              { value: t("aboutStat2Value"), label: t("aboutStat2Label") },
+              { value: t("aboutStat3Value"), label: t("aboutStat3Label") },
+              { value: t("aboutStat4Value"), label: t("aboutStat4Label") },
+            ].map((stat) => (
+              <AnimatedGridItem key={stat.label}>
+                <div className="text-[36px] md:text-[48px] font-medium tracking-tight leading-none">{stat.value}</div>
+                <div className="mt-2 text-sm text-muted-foreground">{stat.label}</div>
+              </AnimatedGridItem>
+            ))}
+          </AnimatedGrid>
+
+          <AnimatedGrid className="mt-16 grid gap-8 sm:grid-cols-2" staggerDelay={0.1}>
+            {[
+              { title: t("aboutApproach1Title"), text: t("aboutApproach1Text") },
+              { title: t("aboutApproach2Title"), text: t("aboutApproach2Text") },
+              { title: t("aboutApproach3Title"), text: t("aboutApproach3Text") },
+              { title: t("aboutApproach4Title"), text: t("aboutApproach4Text") },
+            ].map((item) => (
+              <AnimatedGridItem key={item.title} className="rounded-2xl border border-black/5 bg-background p-6 dark:border-white/10">
+                <h3 className="text-xl font-medium tracking-tight">{item.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.text}</p>
+              </AnimatedGridItem>
+            ))}
+          </AnimatedGrid>
+        </div>
+      </section>
+
+      <div className="px-8"><div className="mx-auto max-w-[1280px]"><div className="h-px bg-black/5 dark:bg-white/10" /></div></div>
+
       {/* Testimonials */}
       <section className="px-8 py-24">
         <div className="mx-auto max-w-[1280px]">
@@ -350,40 +385,6 @@ export default async function HomePage({
             <h2 className="text-[28px] md:text-[36px] tracking-tight mb-10">{t("testimonialsTitle")}</h2>
             <TestimonialSlider items={testimonials} />
           </AnimatedSection>
-        </div>
-      </section>
-
-      {/* Featured Work */}
-      <section className="px-8 py-24">
-        <div className="mx-auto max-w-[1280px]">
-          <AnimatedSection>
-            <div className="flex items-center justify-between mb-10">
-              <h2 className="text-[28px] md:text-[36px] tracking-tight">{t("featuredWork")}</h2>
-              <Link href="/work" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
-                {t("viewAllWork")} <ArrowRight size={14} />
-              </Link>
-            </div>
-          </AnimatedSection>
-          <AnimatedGrid className="grid gap-8 md:grid-cols-2" staggerDelay={0.15}>
-            {work.slice(0, 2).map((project) => (
-              <AnimatedGridItem key={project.slug}>
-                <div className="h-[400px] rounded-2xl border border-black/5 bg-[#f8f9fb] dark:border-white/10 dark:bg-[#101114]" />
-                <div className="mt-4">
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-sm font-medium">{project.client}</span>
-                    <span className="text-xs text-muted-foreground">{project.year}</span>
-                  </div>
-                  <h3 className="text-xl font-medium tracking-tight">{project.title}</h3>
-                  <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{project.description}</p>
-                  <div className="flex flex-wrap gap-1.5 mt-3">
-                    {project.services.map((service) => (
-                      <Badge key={service} variant="outline" className="text-xs border-border text-muted-foreground">{service}</Badge>
-                    ))}
-                  </div>
-                </div>
-              </AnimatedGridItem>
-            ))}
-          </AnimatedGrid>
         </div>
       </section>
 

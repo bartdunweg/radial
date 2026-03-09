@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Sparkles, ArrowRight } from "lucide-react";
-import { buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button-variants";
 import { ThemeToggle } from "./theme-toggle";
 import { LanguageSwitcher } from "./language-switcher";
 import { cn } from "@/lib/utils";
@@ -27,7 +27,7 @@ export function Navbar() {
   ];
 
   const isHome = pathname === "/";
-  const [homeVariant, setHomeVariant] = useState<"a" | "b">("a");
+  const [homeVariant, setHomeVariant] = useState<"a" | "b">("b");
 
   // Track home variant from data attribute
   useEffect(() => {
@@ -115,12 +115,9 @@ export function Navbar() {
       </div>
 
       {/* Top bar — scrolls with the page */}
-      <div className={cn(
-        "absolute inset-x-0 top-10 z-50 mx-auto flex max-w-[1344px] items-center justify-between px-8 pt-4",
-        isDarkHero && "text-white"
-      )}>
-        <Link href="/" className="text-2xl font-bold tracking-tight">
-          Radial
+      <div className="absolute inset-x-0 top-10 z-50 mx-auto flex max-w-[1344px] items-center justify-between px-8 pt-4">
+        <Link href="/" className={cn("text-2xl font-bold tracking-tight", isDarkHero && "text-white")}>
+          {homeVariant === "a" ? "Strakzat" : "Radial"}
         </Link>
 
         <div className="flex h-[52px] items-center gap-1">
@@ -130,9 +127,8 @@ export function Navbar() {
             ref={ctaRef}
             href="/contact"
             className={cn(
-              buttonVariants({ size: "lg" }),
-              "hidden text-sm md:inline-flex",
-              isDarkHero && "!bg-gradient-to-b !from-white !via-[#f5f5f5] !to-[#e8e8e8] !text-[#0A0A0A] !shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_2px_6px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.08)] hover:!from-white hover:!via-[#fafafa] hover:!to-[#ededed]"
+              buttonVariants({ variant: isDarkHero ? "outline-on-dark" : "default", size: "lg" }),
+              "hidden text-sm md:inline-flex"
             )}
           >
             {t("startProject")}
@@ -181,9 +177,9 @@ export function Navbar() {
           <Link
             href="/contact"
             className={cn(
-              buttonVariants({ size: "sm" }),
+              buttonVariants({ variant: "default", size: "sm" }),
               "h-8 text-sm font-medium transition-all duration-300 overflow-hidden whitespace-nowrap",
-              ctaHidden ? "ml-1 max-w-[200px] px-3 opacity-100" : "ml-0 max-w-0 opacity-0 px-0 border-0"
+              ctaHidden ? "ml-1 max-w-[200px] px-3 opacity-100" : "ml-0 max-w-0 opacity-0 px-0"
             )}
           >
             {t("startProject")}

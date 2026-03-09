@@ -18,7 +18,7 @@ export function Footer() {
   const nav = useTranslations("nav");
 
   return (
-    <footer className="sticky bottom-0 z-0 flex min-h-screen w-full flex-col justify-between bg-[#f9f9f9] text-foreground dark:bg-[#111111] dark:text-white px-8 pt-32">
+    <footer className="sticky bottom-0 z-0 flex min-h-screen w-full flex-col justify-between bg-[#f8f9fb] text-foreground dark:bg-[#101114] dark:text-white px-8 pt-32">
       {/* Top: navigation, contact, social, legal */}
       <div className="mx-auto w-full max-w-[1280px]">
         <div className="mb-12 grid gap-10 md:grid-cols-[2fr_1fr_1fr_1fr_1fr]">
@@ -76,14 +76,14 @@ export function Footer() {
 
       {/* Bottom: wordmark + copyright */}
       <div className="mx-auto w-full max-w-[1280px] pb-8">
-        <div className="flex items-baseline justify-between">
+        <div className="flex flex-col md:flex-row md:items-baseline md:justify-between">
           <span
-            className="block font-bold leading-none tracking-tighter text-foreground dark:text-white"
+            className="block font-bold leading-none tracking-tighter bg-clip-text text-transparent footer-wordmark"
             style={{ fontSize: "clamp(80px, 15vw, 200px)" }}
           >
             Radial
           </span>
-          <span className="text-xs text-muted-foreground whitespace-nowrap">&copy;{t("copyright")}</span>
+          <span className="mt-2 text-xs text-muted-foreground whitespace-nowrap md:mt-0">&copy;{t("copyright")}</span>
         </div>
       </div>
     </footer>

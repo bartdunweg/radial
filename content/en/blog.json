@@ -38,5 +38,45 @@
     "category": "Research",
     "readTime": "7 min read",
     "content": "UX research doesn't have to be expensive or time-consuming. The key is picking the right method for the question you're trying to answer.\n\n## Generative vs. Evaluative\n\nGenerative research helps you discover problems and opportunities. Use interviews, diary studies, and contextual inquiry when you're exploring a new space.\n\nEvaluative research helps you test solutions. Use usability testing, A/B tests, and surveys when you have something concrete to validate.\n\n## Our go-to stack\n\nFor most projects, we start with 5-8 user interviews, run a competitive analysis, and create a journey map. This gives us enough insight to start designing with confidence.\n\nOnce we have prototypes, we run moderated usability tests with 5 participants. Five users will uncover 85% of usability issues — you don't need more than that."
+  },
+  {
+    "slug": "anatomy-of-a-design-sprint",
+    "title": "Anatomy of a Design Sprint: What Actually Happens in 5 Days",
+    "excerpt": "A behind-the-scenes look at how we run design sprints — and why they consistently produce better outcomes than months of traditional planning.",
+    "date": "2026-03-01",
+    "author": "Bart Dunweg",
+    "category": "Design Sprints",
+    "readTime": "6 min read",
+    "content": "Design sprints sound almost too good to be true: go from problem to tested prototype in five days. But after running over 40 sprints, we can confirm — they work.\n\n## Day 1: Map & Define\n\nThe first day is about alignment. We map the user journey, interview stakeholders, and pick a specific target to focus on. Most teams try to boil the ocean. A sprint forces you to pick one thing.\n\n## Day 2: Sketch\n\nEveryone sketches solutions individually. No groupthink, no design-by-committee. We use Crazy 8s and Solution Sketches to generate a wide range of ideas before converging.\n\n## Day 3: Decide & Storyboard\n\nThe team votes on the strongest ideas and we create a storyboard — a step-by-step plan for the prototype. This is where the magic happens: hard decisions get made in hours, not weeks.\n\n## Day 4: Prototype\n\nWe build a realistic-looking prototype in a single day. It doesn't need to work — it just needs to look real enough to get honest feedback from users.\n\n## Day 5: Test\n\nFive users test the prototype while the team watches. By the end of the day, patterns emerge. You know what works, what doesn't, and exactly what to build next."
+  },
+  {
+    "slug": "accessibility-is-not-optional",
+    "title": "Accessibility Is Not Optional — It's a Competitive Advantage",
+    "excerpt": "Why building accessible products isn't just the right thing to do — it's also good for business, SEO, and overall user experience.",
+    "date": "2025-10-15",
+    "author": "Bart Dunweg",
+    "category": "Accessibility",
+    "readTime": "5 min read",
+    "content": "Accessibility is often treated as a checkbox exercise — something you bolt on at the end if there's time and budget left. That's backwards.\n\n## The business case\n\nOver 1 billion people globally live with some form of disability. That's a market you're actively excluding when you ship inaccessible products. And the European Accessibility Act (EAA) coming into effect in 2025 means it's not optional anymore for many businesses.\n\n## It makes everything better\n\nAccessible design is just good design. Proper color contrast helps everyone read in bright sunlight. Keyboard navigation benefits power users. Clear information hierarchy helps users with cognitive disabilities and busy executives alike.\n\n## Where to start\n\nDon't try to fix everything at once. Start with the basics: semantic HTML, sufficient color contrast, keyboard navigation, and alt text for images. Run an automated audit with tools like axe or Lighthouse, then follow up with manual testing using a screen reader.\n\nBuild accessibility into your process from the start, and it costs almost nothing extra. Retrofit it later, and it costs a fortune."
+  },
+  {
+    "slug": "from-figma-to-production",
+    "title": "Bridging the Gap: From Figma to Production Without Losing Fidelity",
+    "excerpt": "The handoff between design and development is where quality goes to die. Here's how we keep pixel-perfect output throughout the process.",
+    "date": "2025-09-20",
+    "author": "Bart Dunweg",
+    "category": "Process",
+    "readTime": "7 min read",
+    "content": "Every designer knows the frustration: you hand off a polished Figma file, and what comes back from development looks... off. Spacing is wrong, fonts are slightly different, animations are missing.\n\n## Why handoffs fail\n\nThe traditional handoff model is broken because it assumes a clean boundary between design and development. In reality, design decisions happen during development too — responsive behavior, loading states, error handling, edge cases.\n\n## Our approach\n\nWe work in cross-functional pairs. A designer and a developer sit together during implementation, making decisions in real time. This eliminates the telephone game that happens with async handoffs.\n\nWe also use design tokens — a shared language of colors, spacing, typography, and shadows that both Figma and code reference. When we change a token, it updates everywhere.\n\n## Tools that help\n\nTailwind CSS has been transformative for us. Its utility-first approach maps almost 1:1 to design properties, making it easy for designers to read and even write code. Combined with a solid component library, the gap between design and production shrinks to almost nothing."
+  },
+  {
+    "slug": "when-to-redesign",
+    "title": "When to Redesign vs. When to Iterate",
+    "excerpt": "Not every product needs a redesign. Sometimes small, strategic iterations deliver more value. Here's how to tell the difference.",
+    "date": "2025-08-10",
+    "author": "Bart Dunweg",
+    "category": "Product Strategy",
+    "readTime": "6 min read",
+    "content": "Clients often come to us saying they need a complete redesign. Sometimes they're right. Often, they're not.\n\n## Signs you need a redesign\n\nIf your product has accumulated years of design debt, if the underlying architecture can't support new features, or if your brand has fundamentally changed — a redesign makes sense. Also: if users consistently can't complete core tasks, something structural is broken.\n\n## Signs you should iterate\n\nIf your product works but feels dated, if conversion rates are declining gradually, or if you're adding new features that don't fit the current layout — iterative improvements are usually faster, cheaper, and less risky.\n\n## The hybrid approach\n\nWhat we often recommend is a phased approach: redesign the core experience (onboarding, key workflows) while iterating on secondary features. This gives you the impact of a redesign with the safety of iteration.\n\nThe worst outcome is a redesign that takes so long it's already outdated by the time it launches. Ship improvements continuously, even during a larger redesign effort."
   }
 ]

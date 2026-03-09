@@ -4,6 +4,8 @@ import { Link } from "@/i18n/navigation";
 import { getContent } from "@/lib/content";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { buttonVariants } from "@/components/ui/button-variants";
+import { cn } from "@/lib/utils";
 
 export async function generateMetadata({
   params,
@@ -26,12 +28,12 @@ export default async function BlogPage({
   const { blog } = getContent(locale);
 
   return (
-    <section className="px-8 pt-32 pb-24">
-      <div className="mx-auto max-w-[1280px]">
+    <section className="px-8 pt-[212px] pb-24">
+      <div className="mx-auto max-w-[720px]">
         <h1 className="text-[clamp(2rem,4vw,3rem)] tracking-tight">{t("title")}</h1>
         <p className="mt-4 text-lg text-muted-foreground">{t("subtitle")}</p>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2">
+        <div className="mt-12 flex flex-col gap-4">
           {blog.map((post) => (
             <Link key={post.slug} href={`/blog/${post.slug}`}>
               <Card className="bg-card border-border h-full hover:shadow-card transition-shadow">

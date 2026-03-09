@@ -5,6 +5,8 @@ import { notFound } from "next/navigation";
 import { getContent } from "@/lib/content";
 import { routing } from "@/i18n/routing";
 import { ArrowLeft } from "lucide-react";
+import { buttonVariants } from "@/components/ui/button-variants";
+import { cn } from "@/lib/utils";
 
 import blogEn from "@/content/en/blog.json";
 
@@ -45,8 +47,8 @@ export default async function BlogPostPage({
   const paragraphs = post.content.split("\n\n");
 
   return (
-    <article className="px-8 pt-32 pb-24">
-      <div className="mx-auto max-w-[1280px]">
+    <article className="px-8 pt-[212px] pb-24">
+      <div className="mx-auto max-w-[720px]">
         <Link
           href="/blog"
           className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"

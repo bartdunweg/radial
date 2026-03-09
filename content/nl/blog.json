@@ -38,5 +38,45 @@
     "category": "Onderzoek",
     "readTime": "7",
     "content": "UX research hoeft niet duur of tijdrovend te zijn. De sleutel is de juiste methode kiezen voor de vraag die je probeert te beantwoorden.\n\n## Generatief vs. Evaluatief\n\nGeneratief onderzoek helpt je problemen en kansen te ontdekken. Gebruik interviews, dagboekstudies en contextueel onderzoek wanneer je een nieuwe ruimte verkent.\n\nEvaluatief onderzoek helpt je oplossingen te testen. Gebruik usability testing, A/B tests en enquêtes wanneer je iets concreets hebt om te valideren.\n\n## Onze standaard aanpak\n\nVoor de meeste projecten beginnen we met 5-8 gebruikersinterviews, voeren een concurrentieanalyse uit en maken een journey map. Dit geeft ons genoeg inzicht om met vertrouwen te beginnen met ontwerpen.\n\nZodra we prototypes hebben, voeren we gemodereerde usability tests uit met 5 deelnemers. Vijf gebruikers onthullen 85% van usability problemen — meer heb je niet nodig."
+  },
+  {
+    "slug": "anatomy-of-a-design-sprint",
+    "title": "Anatomie van een Design Sprint: Wat Er Echt Gebeurt in 5 Dagen",
+    "excerpt": "Een kijkje achter de schermen bij hoe we design sprints uitvoeren — en waarom ze consequent betere resultaten opleveren dan maanden traditionele planning.",
+    "date": "2026-03-01",
+    "author": "Bart Dunweg",
+    "category": "Design Sprints",
+    "readTime": "6",
+    "content": "Design sprints klinken bijna te mooi om waar te zijn: van probleem naar getest prototype in vijf dagen. Maar na meer dan 40 sprints kunnen we bevestigen — ze werken.\n\n## Dag 1: In kaart brengen & Definiëren\n\nDe eerste dag draait om afstemming. We brengen de gebruikersreis in kaart, interviewen stakeholders en kiezen een specifiek doel om op te focussen. De meeste teams proberen te veel tegelijk. Een sprint dwingt je om één ding te kiezen.\n\n## Dag 2: Schetsen\n\nIedereen schetst individueel oplossingen. Geen groepsdenken, geen design-by-committee. We gebruiken Crazy 8s en Solution Sketches om een breed scala aan ideeën te genereren voordat we convergeren.\n\n## Dag 3: Beslissen & Storyboard\n\nHet team stemt op de sterkste ideeën en we maken een storyboard — een stap-voor-stap plan voor het prototype. Hier gebeurt de magie: moeilijke beslissingen worden in uren genomen, niet in weken.\n\n## Dag 4: Prototype\n\nWe bouwen een realistisch ogend prototype in één dag. Het hoeft niet te werken — het hoeft er alleen echt genoeg uit te zien om eerlijke feedback van gebruikers te krijgen.\n\n## Dag 5: Testen\n\nVijf gebruikers testen het prototype terwijl het team meekijkt. Aan het eind van de dag worden patronen zichtbaar. Je weet wat werkt, wat niet, en precies wat je als volgende moet bouwen."
+  },
+  {
+    "slug": "accessibility-is-not-optional",
+    "title": "Toegankelijkheid Is Niet Optioneel — Het Is een Concurrentievoordeel",
+    "excerpt": "Waarom toegankelijke producten bouwen niet alleen het juiste is om te doen — maar ook goed is voor business, SEO en de algehele gebruikerservaring.",
+    "date": "2025-10-15",
+    "author": "Bart Dunweg",
+    "category": "Toegankelijkheid",
+    "readTime": "5",
+    "content": "Toegankelijkheid wordt vaak behandeld als een vinkjeslijst — iets dat je er aan het eind bij plakt als er nog tijd en budget over is. Dat is precies verkeerd om.\n\n## De zakelijke motivatie\n\nMeer dan 1 miljard mensen wereldwijd leven met een vorm van beperking. Dat is een markt die je actief uitsluit wanneer je ontoegankelijke producten lanceert. En de European Accessibility Act (EAA) die in 2025 van kracht wordt, betekent dat het voor veel bedrijven niet meer optioneel is.\n\n## Het maakt alles beter\n\nToegankelijk ontwerp is gewoon goed ontwerp. Goed kleurcontrast helpt iedereen lezen in fel zonlicht. Toetsenbordnavigatie komt power users ten goede. Duidelijke informatiehiërarchie helpt zowel gebruikers met cognitieve beperkingen als drukke directeuren.\n\n## Waar te beginnen\n\nProbeer niet alles tegelijk te fixen. Begin met de basis: semantische HTML, voldoende kleurcontrast, toetsenbordnavigatie en alt-tekst voor afbeeldingen. Voer een geautomatiseerde audit uit met tools als axe of Lighthouse, en volg op met handmatig testen met een screenreader.\n\nBouw toegankelijkheid vanaf het begin in je proces in, en het kost bijna niets extra. Doe het er later bij, en het kost een fortuin."
+  },
+  {
+    "slug": "from-figma-to-production",
+    "title": "De Kloof Overbruggen: Van Figma naar Productie Zonder Kwaliteitsverlies",
+    "excerpt": "De overdracht tussen design en development is waar kwaliteit sterft. Zo houden wij pixel-perfect output door het hele proces.",
+    "date": "2025-09-20",
+    "author": "Bart Dunweg",
+    "category": "Proces",
+    "readTime": "7",
+    "content": "Elke designer kent de frustratie: je draagt een gepolijst Figma-bestand over, en wat terugkomt van development ziet er... net niet goed uit. Spacing klopt niet, fonts zijn subtiel anders, animaties ontbreken.\n\n## Waarom overdrachten falen\n\nHet traditionele overdrachtsmodel is kapot omdat het uitgaat van een schone grens tussen design en development. In werkelijkheid worden designbeslissingen ook tijdens development genomen — responsief gedrag, laadstatussen, foutafhandeling, edge cases.\n\n## Onze aanpak\n\nWe werken in cross-functionele paren. Een designer en een developer zitten samen tijdens de implementatie en nemen beslissingen in real time. Dit elimineert het stille-post-effect dat ontstaat bij asynchrone overdrachten.\n\nWe gebruiken ook design tokens — een gedeelde taal van kleuren, spacing, typografie en schaduwen waar zowel Figma als code naar verwijzen. Wanneer we een token wijzigen, wordt het overal bijgewerkt.\n\n## Tools die helpen\n\nTailwind CSS is transformatief geweest voor ons. De utility-first aanpak mapt bijna 1:1 op designeigenschappen, waardoor het voor designers makkelijk is om code te lezen en zelfs te schrijven. Gecombineerd met een solide componentbibliotheek krimpt de kloof tussen design en productie tot bijna niets."
+  },
+  {
+    "slug": "when-to-redesign",
+    "title": "Wanneer Herontwerpen vs. Wanneer Itereren",
+    "excerpt": "Niet elk product heeft een herontwerp nodig. Soms leveren kleine, strategische iteraties meer waarde. Zo zie je het verschil.",
+    "date": "2025-08-10",
+    "author": "Bart Dunweg",
+    "category": "Productstrategie",
+    "readTime": "6",
+    "content": "Klanten komen vaak bij ons met de boodschap dat ze een compleet herontwerp nodig hebben. Soms hebben ze gelijk. Vaak niet.\n\n## Tekenen dat je een herontwerp nodig hebt\n\nAls je product jaren aan designschuld heeft opgebouwd, als de onderliggende architectuur geen nieuwe features meer ondersteunt, of als je merk fundamenteel is veranderd — dan is een herontwerp logisch. Ook: als gebruikers consequent kerntaken niet kunnen voltooien, is er iets structureels kapot.\n\n## Tekenen dat je moet itereren\n\nAls je product werkt maar gedateerd aanvoelt, als conversieratio's geleidelijk dalen, of als je nieuwe features toevoegt die niet in de huidige layout passen — zijn iteratieve verbeteringen meestal sneller, goedkoper en minder risicovol.\n\n## De hybride aanpak\n\nWat we vaak aanbevelen is een gefaseerde aanpak: herontwerp de kernervaring (onboarding, belangrijke workflows) terwijl je itereert op secundaire features. Dit geeft je de impact van een herontwerp met de veiligheid van iteratie.\n\nHet slechtste resultaat is een herontwerp dat zo lang duurt dat het al verouderd is tegen de tijd dat het lanceert. Ship continu verbeteringen, zelfs tijdens een groter herontwerptraject."
   }
 ]

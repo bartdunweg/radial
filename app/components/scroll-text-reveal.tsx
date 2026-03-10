@@ -1,7 +1,19 @@
 "use client";
 
-import { useRef, useState, useCallback, useEffect } from "react";
+import { useRef, useState, useCallback, useEffect, useSyncExternalStore } from "react";
 import { motion, useScroll, useTransform, useMotionValueEvent } from "motion/react";
+
+function useHomeVariant() {
+  return useSyncExternalStore(
+    (cb) => {
+      const observer = new MutationObserver(cb);
+      observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-home-variant"] });
+      return () => observer.disconnect();
+    },
+    () => (document.documentElement.getAttribute("data-home-variant") as "a" | "b") || "b",
+    () => "b" as const,
+  );
+}
 
 /* ------------------------------------------------------------------ */
 /*  Sparkle dots                                                       */
@@ -84,8 +96,8 @@ function Sparkles({
 
 export interface TextSegment {
   text: string;
-  /** "default" = primary color, "accent" = bold + foreground (stands out) */
-  style?: "default" | "accent";
+  /** "default" = primary color, color variants = bold + gradient */
+  style?: "default" | "accent" | "purple" | "orange" | "pink" | "blue";
 }
 
 interface ScrollTextRevealProps {
@@ -97,7 +109,7 @@ interface ScrollTextRevealProps {
 
 interface Word {
   text: string;
-  style: "default" | "accent";
+  style: "default" | "accent" | "purple" | "orange" | "pink" | "blue";
   index: number; // word index for reveal tracking
 }
 
@@ -109,6 +121,8 @@ export function ScrollTextReveal({
 }: ScrollTextRevealProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const stickyRef = useRef<HTMLDivElement>(null);
+  const variant = useHomeVariant();
+  const isBranded = variant === "b";
 
   // Build flat word list from segments
   const words: Word[] = [];
@@ -156,17 +170,39 @@ export function ScrollTextReveal({
           {sparkles && <Sparkles containerRef={stickyRef} active={isAnimating} />}
           {words.map((w) => {
             const isRevealed = w.index < revealed;
+            const isAccent = w.style !== "default";
+
+            const gradientMap: Record<string, string> = {
+              accent: "linear-gradient(135deg, #6040a0 0%, #2050b0 50%, #4080e0 100%)",
+              purple: "linear-gradient(135deg, #6040a0 0%, #8060c0 50%, #a080e0 100%)",
+              orange: "linear-gradient(135deg, #c05020 0%, #e07030 50%, #f09040 100%)",
+              pink:   "linear-gradient(135deg, #c03070 0%, #e05090 50%, #f070b0 100%)",
+              blue:   "linear-gradient(135deg, #2040c0 0%, #3060e0 50%, #4080ff 100%)",
+            };
+
             return (
               <span key={w.index} className="inline">
                 <span
                   data-revealed={isRevealed || undefined}
                   className={`inline-block ${
-                    w.style === "accent" ? "font-semibold bg-clip-text text-transparent footer-wordmark" : ""
+                    isAccent
+                      ? isBranded
+                        ? "font-semibold"
+                        : "font-semibold text-foreground"
+                      : isBranded
+                        ? ""
+                        : "text-[#555] dark:text-[#999]"
                   }`}
                   style={{
                     opacity: isRevealed ? 1 : 0.15,
                     filter: isRevealed ? "blur(0px)" : "blur(4px)",
                     transition: "opacity 0.6s ease-out, filter 0.6s ease-out",
+                    ...(isAccent && isBranded ? {
+                      backgroundImage: gradientMap[w.style],
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text",
+                    } : {}),
                   }}
                 >
                   {w.text}

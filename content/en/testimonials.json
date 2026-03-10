@@ -1,38 +1,56 @@
 [
   {
-    "quote": "Radial transformed our product experience. Their ability to understand complex problems and translate them into elegant interfaces is remarkable.",
-    "author": "Sarah Chen",
-    "role": "CPO",
-    "company": "Flowmatic"
+    "quote": "UX was the driving force behind the START project, and its successful deployment proved the impact of putting users first. We also established a scalable design system that now serves as a foundation for future applications.",
+    "author": "Koen Rutten",
+    "role": "Product Owner",
+    "company": "SPIE"
   },
   {
-    "quote": "Working with Radial felt like having a senior designer embedded in our team. They delivered faster than we expected, without cutting corners.",
-    "author": "Thomas van der Berg",
-    "role": "Founder",
-    "company": "Stackbase"
-  },
-  {
-    "quote": "The design sprint gave us more clarity in 5 days than we'd achieved in months of internal discussions. Highly recommend.",
-    "author": "Maria Lopez",
-    "role": "Head of Product",
-    "company": "Neura Health"
-  },
-  {
-    "quote": "Their design system work saved us hundreds of engineering hours. Everything is consistent, documented, and a joy to build with.",
-    "author": "David Kim",
-    "role": "CTO",
-    "company": "Parallel"
-  },
-  {
-    "quote": "Radial doesn't just make things look good — they think deeply about how things work. Our conversion rate jumped 40% after the redesign.",
-    "author": "Emma de Vries",
-    "role": "Growth Lead",
-    "company": "Breeze"
-  },
-  {
-    "quote": "We've worked with many agencies, but Radial stands out. They challenge assumptions and push for what's best for the user.",
-    "author": "Lucas Müller",
+    "quote": "Thank you for putting in such good efforts on the T&C consolidation project, you provided us with very insightful information for what we thought could have been a simple change, thanks for understanding the business needs and putting in the effort.",
+    "author": "Utsha Sinha",
     "role": "Product Manager",
-    "company": "Kinetic"
+    "company": "Uber"
+  },
+  {
+    "quote": "Next to the fact that they are really pleasant people to work with, they add incredible value to our company. Our design flow is way more efficient which is beneficial for both our team internally as our customers.",
+    "author": "Tako Paddenburg",
+    "role": "Co-founder",
+    "company": "Oaky"
+  },
+  {
+    "quote": "Great collaboration with Radial. They are skilled designers who always go the extra mile. They quickly understood what we needed and organized the process tightly.",
+    "author": "Wendy Bogers",
+    "role": "Founder",
+    "company": "Ligo"
+  },
+  {
+    "quote": "Radial's work has had a major impact on our product. The app plays a key role in our trainings, and participants really enjoy the competitive element at the end, which boosts engagement. Since working together, the value of our training sessions has clearly increased. We've appreciated the clear communication, strong follow-up on tasks, patience, and the fun energy they bring.",
+    "author": "Thomas van Boheemen",
+    "role": "Manager Global Star Quality",
+    "company": "Heineken"
+  },
+  {
+    "quote": "Radial's design work will make several previously frustrating tasks much faster and easier. The collaboration has been smooth, with clear communication and a low-barrier, hands-on approach. Their ability to explain and involve end users has really stood out and made the transition feel seamless.",
+    "author": "Gerrie de Vries",
+    "role": "Business Analyst",
+    "company": "NHG"
+  },
+  {
+    "quote": "Radial delivered a design that brings our Digital Signing service completely in line with modern expectations. This puts our product ahead of the market.",
+    "author": "Ronald Boer",
+    "role": "Product Manager",
+    "company": "Aangetekend Mailen"
+  },
+  {
+    "quote": "Radial has been a fantastic addition to our team, consistently bringing fresh perspectives and out-of-the-box thinking to our solutions. Their ability to creatively tackle challenges and manage time efficiently has made a real difference in how we work. Since collaborating with Radial, we've been able to focus more clearly on the end product, enhancing both our direction and execution.",
+    "author": "Jan-Peter Reumermann",
+    "role": "Director",
+    "company": "GRIB"
+  },
+  {
+    "quote": "We received a beautiful and clear design for our app, which end users also find visually appealing and user-friendly. The collaboration went smoothly, with transparent pricing and strong design quality throughout. Honestly, there's nothing I'd change about the experience.",
+    "author": "Martin de Ruiter",
+    "role": "Owner",
+    "company": "Praktijkdata"
   }
 ]

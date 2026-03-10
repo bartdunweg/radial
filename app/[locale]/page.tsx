@@ -110,11 +110,7 @@ export default async function HomePage({
               </AnimatedHeroItem>
               <AnimatedHeroItem>
                 <h1 className="mt-4 text-[48px] leading-[1.1] tracking-tight md:text-[52px] lg:text-[64px]">
-                  {locale === "nl" ? (
-                    <>Gecreëerd vanuit<br />de kern</>
-                  ) : (
-                    <>Crafted from<br />the core out</>
-                  )}
+                  {t("heroTitle")}
                 </h1>
               </AnimatedHeroItem>
               <AnimatedHeroItem>
@@ -164,11 +160,7 @@ export default async function HomePage({
               </AnimatedHeroItem>
               <AnimatedHeroItem>
                 <h1 className="mt-4 text-[48px] leading-[1.1] tracking-tight md:text-[52px] lg:text-[64px]">
-                  {locale === "nl" ? (
-                    <>Gecreëerd vanuit<br />de kern</>
-                  ) : (
-                    <>Crafted from<br />the core out</>
-                  )}
+                  {t("heroTitle")}
                 </h1>
               </AnimatedHeroItem>
               <AnimatedHeroItem>
@@ -262,11 +254,14 @@ export default async function HomePage({
           { text: t("intro3b"), style: "accent" },
           { text: t("intro3c") },
           { text: t("intro4") },
-          { text: t("intro5"), style: "accent" },
-          { text: t("intro6") },
-          { text: t("intro7") },
-          { text: t("intro8a") },
-          { text: t("intro8b"), style: "accent" },
+          { text: t("intro5") },
+          { text: t("intro6"), style: "accent" },
+          { text: t("intro7"), style: "accent" },
+          { text: t("intro8") },
+          { text: t("intro9") },
+          { text: t("intro10") },
+          { text: t("intro11a") },
+          { text: t("intro11b"), style: "accent" },
         ]}
         className="mx-auto max-w-[960px] text-[clamp(1.75rem,3vw,2.5rem)] leading-[1.4] tracking-tight"
       />
@@ -362,11 +357,7 @@ export default async function HomePage({
             </div>
           </AnimatedSection>
 
-          {/* Story */}
-          <AnimatedSection className="mt-16 max-w-2xl" delay={0.2}>
-            <h3 className="text-2xl tracking-tight">{t("whyRadialStoryTitle")}</h3>
-            <p className="mt-4 text-muted-foreground leading-relaxed">{t("whyRadialStoryText")}</p>
-          </AnimatedSection>
+
         </div>
       </section>
 
@@ -470,9 +461,10 @@ export default async function HomePage({
             </div>
           </AnimatedSection>
           {(() => {
-            // Split services into two columns
-            const col1 = services.filter((_: unknown, i: number) => i % 2 === 0);
-            const col2 = services.filter((_: unknown, i: number) => i % 2 === 1);
+            // Filter out Mendix service from homepage, then split into two columns
+            const homepageServices = services.filter((s: { slug: string }) => s.slug !== "design-for-mendix");
+            const col1 = homepageServices.filter((_: unknown, i: number) => i % 2 === 0);
+            const col2 = homepageServices.filter((_: unknown, i: number) => i % 2 === 1);
 
             // Base image heights per card (visual variety)
             const baseHeights = [520, 400, 460, 440, 500, 380, 480];

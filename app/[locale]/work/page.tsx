@@ -80,7 +80,7 @@ function ProjectCard({
   t,
   height,
 }: {
-  project: { slug: string; client: string; year: string | number; title: string; description: string; services: string[] };
+  project: { slug: string; client: string; year: string | number; title: string; description: string; services: string[]; metrics?: { value: string; label: string }[] };
   t: (key: string) => string;
   height: number;
 }) {
@@ -94,6 +94,16 @@ function ProjectCard({
         </div>
         <h2 className="text-[28px] md:text-[36px] font-medium tracking-tight">{project.title}</h2>
         <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{project.description}</p>
+        {project.metrics && project.metrics.length > 0 && (
+          <div className="flex gap-6 mt-4">
+            {project.metrics.map((metric) => (
+              <div key={metric.label}>
+                <div className="text-2xl font-semibold tracking-tight">{metric.value}</div>
+                <div className="text-xs text-muted-foreground">{metric.label}</div>
+              </div>
+            ))}
+          </div>
+        )}
         <div className="flex flex-wrap gap-1.5 mt-3">
           {project.services.map((service) => (
             <Badge key={service} variant="outline" className="text-xs border-border text-muted-foreground">{service}</Badge>

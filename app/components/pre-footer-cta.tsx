@@ -326,7 +326,7 @@ export function PreFooterCTA() {
             href="/contact"
             className={cn(
               buttonVariants({ size: "lg" }),
-              "bg-white text-[#040615] hover:bg-white/90"
+              "bg-white text-foreground hover:bg-white/90"
             )}
           >
             {t("cta")}

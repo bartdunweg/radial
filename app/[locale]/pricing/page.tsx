@@ -51,12 +51,12 @@ export default async function PricingPage({
           {packages.map((pkg: { slug: string; title: string; dailyRate: number; days: number; totalPrice?: number; popular?: boolean; description: string; features: string[] }) => (
             <AnimatedGridItem key={pkg.slug}>
               <Card
-                className={`bg-card border-border relative h-full ${
+                className={`bg-card border-border relative h-full overflow-visible ${
                   pkg.popular ? "ring-2 ring-primary" : ""
                 }`}
               >
                 {pkg.popular && (
-                  <Badge className="absolute -top-3 left-1/2 -translate-x-1/2">
+                  <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
                     {t("popular")}
                   </Badge>
                 )}
@@ -86,7 +86,7 @@ export default async function PricingPage({
                     ))}
                   </ul>
                   <div className="mt-6">
-                    <a href="mailto:hello@radial.design" className={cn(buttonVariants({ variant: pkg.popular ? "default" : "outline" }), "w-full")}>
+                    <a href="mailto:hello@radial.design" className={cn(buttonVariants({ variant: pkg.popular ? "default" : "outline", size: "sm" }), "w-full")}>
                       {t("getStarted")}
                     </a>
                   </div>
@@ -98,46 +98,49 @@ export default async function PricingPage({
 
         {/* Design Sprint */}
         <AnimatedSection className="mt-16">
-          <Separator className="mb-16" />
-          <div className="grid gap-10 md:grid-cols-[1fr_1fr]">
-            <div>
-              <h2 className="text-2xl md:text-3xl tracking-tight">{sprint.title}</h2>
-              <p className="mt-4 text-muted-foreground leading-relaxed">{sprint.description}</p>
-              <div className="mt-6">
-                <span className="text-3xl font-semibold tracking-tight">
-                  &euro;{sprint.price.toLocaleString()}
-                </span>
-                <span className="text-sm text-muted-foreground ml-2">{sprint.duration}</span>
-              </div>
-              <div className="mt-8">
-                <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-4">{t("sprintIncludes")}</div>
-                <ul className="space-y-2.5">
-                  {sprint.includes.map((item: string) => (
-                    <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
-                      <Check size={16} className="mt-0.5 shrink-0 text-foreground" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="mt-8">
-                <a href="mailto:hello@radial.design" className={cn(buttonVariants({ size: "lg" }))}>
-                  {t("getStarted")}
-                </a>
-              </div>
-            </div>
-
-            <div>
-              <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-4">{t("sprintProcess")}</div>
-              <div className="space-y-3">
-                {sprint.features.map((step: string, i: number) => (
-                  <div key={i} className="rounded-lg border border-border bg-card p-4">
-                    <p className="text-sm">{step}</p>
+          <Card className="bg-card border-border overflow-hidden">
+            <CardContent className="p-8 md:p-10">
+              <div className="grid gap-10 md:grid-cols-[1fr_1fr]">
+                <div>
+                  <h2 className="text-2xl md:text-3xl tracking-tight">{sprint.title}</h2>
+                  <p className="mt-4 text-muted-foreground leading-relaxed">{sprint.description}</p>
+                  <div className="mt-6">
+                    <span className="text-3xl font-semibold tracking-tight">
+                      &euro;{sprint.price.toLocaleString()}
+                    </span>
+                    <span className="text-sm text-muted-foreground ml-2">{sprint.duration}</span>
                   </div>
-                ))}
+                  <div className="mt-8">
+                    <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-4">{t("sprintIncludes")}</div>
+                    <ul className="space-y-2.5">
+                      {sprint.includes.map((item: string) => (
+                        <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                          <Check size={16} className="mt-0.5 shrink-0 text-foreground" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="mt-8">
+                    <a href="mailto:hello@radial.design" className={cn(buttonVariants({ size: "lg" }))}>
+                      {t("getStarted")}
+                    </a>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-4">{t("sprintProcess")}</div>
+                  <div className="space-y-3">
+                    {sprint.features.map((step: string, i: number) => (
+                      <div key={i} className="rounded-lg border border-border bg-[#f8f9fb] dark:bg-[#101114] p-4">
+                        <p className="text-sm">{step}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
         </AnimatedSection>
 
         {/* FAQ */}

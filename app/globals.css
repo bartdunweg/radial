@@ -300,6 +300,95 @@ h1, h2, h3, h4, h5 {
   .btn-glass-glow:active {
     background-color: rgba(255,255,255,0.16);
   }
+
+  /* Icon button with glass hover — for lang switcher, theme toggle */
+  .btn-icon-glass {
+    position: relative;
+    background-color: transparent;
+    border: 1px solid transparent;
+    transition: all 0.15s ease;
+  }
+  .btn-icon-glass:hover {
+    background-color: rgba(0,0,0,0.04);
+    border-color: rgba(0,0,0,0.06);
+    box-shadow:
+      rgba(0,0,0,0.03) 0px 1px 2px 0px,
+      rgba(255,255,255,0.30) 0px 0.5px 0.5px 0px inset;
+  }
+  .btn-icon-glass:active {
+    background-color: rgba(0,0,0,0.08);
+  }
+
+  /* On dark backgrounds (home hero) */
+  .btn-icon-glass-dark {
+    position: relative;
+    background-color: transparent;
+    border: 1px solid transparent;
+    transition: all 0.15s ease;
+  }
+  .btn-icon-glass-dark:hover {
+    background-color: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.10);
+    box-shadow:
+      rgba(0,0,0,0.08) 0px 1px 2px 0px,
+      rgba(255,255,255,0.06) 0px 0.5px 0.5px 0px inset;
+  }
+  .btn-icon-glass-dark:active {
+    background-color: rgba(255,255,255,0.14);
+  }
+}
+
+/* Dark mode icon button override */
+@layer components {
+  .dark .btn-icon-glass:hover {
+    background-color: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.10);
+    box-shadow:
+      rgba(0,0,0,0.08) 0px 1px 2px 0px,
+      rgba(255,255,255,0.06) 0px 0.5px 0.5px 0px inset;
+  }
+  .dark .btn-icon-glass:active {
+    background-color: rgba(255,255,255,0.14);
+  }
+}
+
+/* Announcement banner — glass style */
+@layer components {
+  .banner-glass {
+    position: relative;
+    background-color: rgba(0,0,0,0.02);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    background-image:
+      linear-gradient(rgba(0,0,0,0) 65%, rgba(0,0,0,0.01) 110%),
+      linear-gradient(rgba(0,0,0,0.015) -10%, rgba(0,0,0,0) 45%);
+    box-shadow:
+      rgba(0,0,0,0.03) 0px 1px 2px 0px,
+      rgba(255,255,255,0.30) 0px 0.5px 0.5px 0px inset,
+      rgba(0,0,0,0.01) 0px -0.5px 0.5px 0px inset;
+  }
+  .banner-glass-dark {
+    position: relative;
+    background-color: rgba(255,255,255,0.04);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    background-image:
+      linear-gradient(rgba(255,255,255,0) 65%, rgba(255,255,255,0.01) 110%),
+      linear-gradient(rgba(255,255,255,0.02) -10%, rgba(255,255,255,0) 45%);
+    box-shadow:
+      rgba(0,0,0,0.06) 0px 1px 2px 0px,
+      rgba(255,255,255,0.04) 0px 0.5px 0.5px 0px inset,
+      rgba(255,255,255,0.01) 0px -0.5px 0.5px 0px inset;
+  }
+  .dark .banner-glass {
+    background-color: rgba(255,255,255,0.04);
+    border-bottom-color: rgba(255,255,255,0.08);
+    background-image:
+      linear-gradient(rgba(255,255,255,0) 65%, rgba(255,255,255,0.01) 110%),
+      linear-gradient(rgba(255,255,255,0.02) -10%, rgba(255,255,255,0) 45%);
+    box-shadow:
+      rgba(0,0,0,0.06) 0px 1px 2px 0px,
+      rgba(255,255,255,0.04) 0px 0.5px 0.5px 0px inset,
+      rgba(255,255,255,0.01) 0px -0.5px 0.5px 0px inset;
+  }
 }
 
 /* Dark mode button overrides */

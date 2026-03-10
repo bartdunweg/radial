@@ -101,13 +101,17 @@ export default async function HomePage({
           <div className="mx-auto max-w-[1280px]">
             <AnimatedHero className="mx-auto max-w-[640px] text-center">
               <AnimatedHeroItem>
-                <span className="text-sm font-semibold tracking-wide text-[#535862] dark:text-[#94979e]">
+                <span className="text-sm font-semibold tracking-wide text-muted-foreground">
                   {t("tagline")}
                 </span>
               </AnimatedHeroItem>
               <AnimatedHeroItem>
                 <h1 className="mt-4 text-[48px] leading-[1.1] tracking-tight md:text-[52px] lg:text-[64px]">
-                  {t("title")}
+                  {locale === "nl" ? (
+                    <>Gecreëerd vanuit<br />de kern</>
+                  ) : (
+                    <>Crafted from<br />the core out</>
+                  )}
                 </h1>
               </AnimatedHeroItem>
               <AnimatedHeroItem>
@@ -120,7 +124,7 @@ export default async function HomePage({
                   <Link href="/contact" className={cn(buttonVariants({ size: "lg" }))}>
                     {t("cta")}
                   </Link>
-                  <Link href="/pricing" className={cn(buttonVariants({ variant: "outline", size: "lg" }))}>
+                  <Link href="/work" className={cn(buttonVariants({ variant: "outline", size: "lg" }))}>
                     {t("ctaSecondary")}
                     <ArrowRight size={16} />
                   </Link>
@@ -157,7 +161,11 @@ export default async function HomePage({
               </AnimatedHeroItem>
               <AnimatedHeroItem>
                 <h1 className="mt-4 text-[48px] leading-[1.1] tracking-tight md:text-[52px] lg:text-[64px]">
-                  {t("title")}
+                  {locale === "nl" ? (
+                    <>Gecreëerd vanuit<br />de kern</>
+                  ) : (
+                    <>Crafted from<br />the core out</>
+                  )}
                 </h1>
               </AnimatedHeroItem>
               <AnimatedHeroItem>
@@ -170,7 +178,7 @@ export default async function HomePage({
                   <Link href="/contact" className={cn(buttonVariants({ variant: "outline-on-dark", size: "lg" }))}>
                     {t("cta")}
                   </Link>
-                  <Link href="/pricing" className={cn(buttonVariants({ variant: "ghost-light", size: "lg" }))}>
+                  <Link href="/work" className={cn(buttonVariants({ variant: "ghost-light", size: "lg" }))}>
                     {t("ctaSecondary")}
                     <ArrowRight size={16} />
                   </Link>
@@ -198,12 +206,13 @@ export default async function HomePage({
       <section className="px-8 py-24">
         <div className="mx-auto max-w-[1280px]">
           <AnimatedSection>
-            <div className="flex items-center justify-between mb-10">
+            <div className="flex items-center justify-between mb-4">
               <h2 className="text-[28px] md:text-[36px] tracking-tight">{t("featuredWork")}</h2>
               <Link href="/work" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
                 {t("viewAllWork")} <ArrowRight size={14} />
               </Link>
             </div>
+            <p className="text-muted-foreground mb-10 max-w-xl">{t("featuredWorkTagline")}</p>
           </AnimatedSection>
           <AnimatedGrid className="grid gap-8 md:grid-cols-2" staggerDelay={0.15}>
             {work.slice(0, 2).map((project) => (
@@ -216,6 +225,16 @@ export default async function HomePage({
                   </div>
                   <h3 className="text-xl font-medium tracking-tight">{project.title}</h3>
                   <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{project.description}</p>
+                  {project.metrics && project.metrics.length > 0 && (
+                    <div className="flex gap-6 mt-4">
+                      {project.metrics.map((metric: { value: string; label: string }) => (
+                        <div key={metric.label}>
+                          <div className="text-2xl font-semibold tracking-tight">{metric.value}</div>
+                          <div className="text-xs text-muted-foreground">{metric.label}</div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                   <div className="flex flex-wrap gap-1.5 mt-3">
                     {project.services.map((service) => (
                       <Badge key={service} variant="outline" className="text-xs border-border text-muted-foreground">{service}</Badge>
@@ -230,14 +249,14 @@ export default async function HomePage({
 
       <div className="px-8"><div className="mx-auto max-w-[1280px]"><div className="h-px bg-black/5 dark:bg-white/10" /></div></div>
 
-      {/* Intro */}
+      {/* Manifesto */}
       <section className="px-8 py-24">
-        <div className="mx-auto max-w-[1280px]">
-          <AnimatedSection className="mx-auto max-w-2xl text-center">
-            <h2 className="text-[28px] md:text-[36px] tracking-tight">{t("introTitle")}</h2>
-            <p className="mt-4 text-muted-foreground leading-relaxed">
+        <div className="mx-auto max-w-[960px]">
+          <AnimatedSection>
+            <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">{t("introLabel")}</span>
+            <h2 className="mt-4 text-[clamp(1.5rem,2.5vw,2rem)] leading-[1.4] tracking-tight">
               {t("introText")}
-            </p>
+            </h2>
           </AnimatedSection>
         </div>
       </section>
@@ -252,80 +271,92 @@ export default async function HomePage({
             <p className="mt-4 text-lg text-muted-foreground leading-relaxed">{t("whyRadialText")}</p>
           </AnimatedSection>
 
-          <AnimatedGrid className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4" staggerDelay={0.1}>
-            {/* Freelancer */}
-            <AnimatedGridItem className="rounded-2xl border border-black/5 bg-background p-6 dark:border-white/10">
-              <h3 className="text-xl font-medium tracking-tight mb-6">{t("whyCol1Title")}</h3>
-              <ul className="space-y-3">
-                {[t("whyCol1Pro1"), t("whyCol1Pro2")].map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
-                    <Check size={16} className="mt-0.5 shrink-0 text-foreground" />
-                    {item}
-                  </li>
-                ))}
-                {[t("whyCol1Con1"), t("whyCol1Con2"), t("whyCol1Con3")].map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
-                    <X size={16} className="mt-0.5 shrink-0 text-muted-foreground/50" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </AnimatedGridItem>
+          {/* Comparison cards — 4 columns with dividers, Radial card elevated */}
+          <AnimatedSection delay={0.1}>
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr_1fr_auto] items-end gap-0">
+              {/* Three comparison cards in one bordered container */}
+              <div className="rounded-2xl border border-black/5 dark:border-white/10 grid grid-cols-1 sm:grid-cols-3 lg:col-span-3">
+              {/* Freelancer */}
+              <div className="p-6">
+                <h3 className="text-xl font-medium tracking-tight mb-6">{t("whyCol1Title")}</h3>
+                <ul className="space-y-3">
+                  {[t("whyCol1Pro1"), t("whyCol1Pro2")].map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <Check size={16} className="mt-0.5 shrink-0 text-foreground" />
+                      {item}
+                    </li>
+                  ))}
+                  {[t("whyCol1Con1"), t("whyCol1Con2"), t("whyCol1Con3")].map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <X size={16} className="mt-0.5 shrink-0 text-muted-foreground/50" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-            {/* Radial */}
-            <AnimatedGridItem className="rounded-2xl border-2 border-accent bg-accent/5 p-6 flex flex-col -mt-4 -mb-4">
-              <h3 className="text-xl font-medium tracking-tight mb-6">{t("whyCol2Title")}</h3>
-              <ul className="space-y-3 flex-1">
-                {[t("whyCol2Pro1"), t("whyCol2Pro2"), t("whyCol2Pro3"), t("whyCol2Pro4"), t("whyCol2Pro5")].map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-sm">
-                    <Check size={16} className="mt-0.5 shrink-0 text-accent" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <Link href="/contact" className={cn(buttonVariants({ size: "default" }), "mt-6 w-full")}>
-                {t("cta")}
-              </Link>
-            </AnimatedGridItem>
+              {/* Secondment */}
+              <div className="p-6 border-l border-black/5 dark:border-white/10 max-sm:border-l-0 max-sm:border-t">
+                <h3 className="text-xl font-medium tracking-tight mb-6">{t("whyCol3Title")}</h3>
+                <ul className="space-y-3">
+                  {[t("whyCol3Pro1"), t("whyCol3Pro2")].map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <Check size={16} className="mt-0.5 shrink-0 text-foreground" />
+                      {item}
+                    </li>
+                  ))}
+                  {[t("whyCol3Con1"), t("whyCol3Con2"), t("whyCol3Con3")].map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <X size={16} className="mt-0.5 shrink-0 text-muted-foreground/50" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-            {/* Secondment */}
-            <AnimatedGridItem className="rounded-2xl border border-black/5 bg-background p-6 dark:border-white/10">
-              <h3 className="text-xl font-medium tracking-tight mb-6">{t("whyCol3Title")}</h3>
-              <ul className="space-y-3">
-                {[t("whyCol3Pro1"), t("whyCol3Pro2")].map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
-                    <Check size={16} className="mt-0.5 shrink-0 text-foreground" />
-                    {item}
-                  </li>
-                ))}
-                {[t("whyCol3Con1"), t("whyCol3Con2"), t("whyCol3Con3")].map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
-                    <X size={16} className="mt-0.5 shrink-0 text-muted-foreground/50" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </AnimatedGridItem>
+              {/* Big agency */}
+              <div className="p-6 border-l border-black/5 dark:border-white/10 max-sm:border-l-0 max-sm:border-t">
+                <h3 className="text-xl font-medium tracking-tight mb-6">{t("whyCol4Title")}</h3>
+                <ul className="space-y-3">
+                  {[t("whyCol4Pro1"), t("whyCol4Pro2")].map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <Check size={16} className="mt-0.5 shrink-0 text-foreground" />
+                      {item}
+                    </li>
+                  ))}
+                  {[t("whyCol4Con1"), t("whyCol4Con2"), t("whyCol4Con3")].map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <X size={16} className="mt-0.5 shrink-0 text-muted-foreground/50" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              </div>
 
-            {/* Big agency */}
-            <AnimatedGridItem className="rounded-2xl border border-black/5 bg-background p-6 dark:border-white/10">
-              <h3 className="text-xl font-medium tracking-tight mb-6">{t("whyCol4Title")}</h3>
-              <ul className="space-y-3">
-                {[t("whyCol4Pro1"), t("whyCol4Pro2")].map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
-                    <Check size={16} className="mt-0.5 shrink-0 text-foreground" />
-                    {item}
-                  </li>
-                ))}
-                {[t("whyCol4Con1"), t("whyCol4Con2"), t("whyCol4Con3")].map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
-                    <X size={16} className="mt-0.5 shrink-0 text-muted-foreground/50" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </AnimatedGridItem>
-          </AnimatedGrid>
+              {/* Radial — elevated card */}
+              <div className="rounded-2xl bg-foreground text-background dark:bg-white dark:text-black p-6 -my-4 shadow-lg flex flex-col max-lg:mt-4 max-lg:-mb-0">
+                <h3 className="text-xl font-medium tracking-tight mb-6">{t("whyCol2Title")}</h3>
+                <ul className="space-y-3 flex-1">
+                  {[t("whyCol2Pro1"), t("whyCol2Pro2"), t("whyCol2Pro3"), t("whyCol2Pro4"), t("whyCol2Pro5")].map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-background/80 dark:text-black/70">
+                      <Check size={16} className="mt-0.5 shrink-0 text-accent" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <Link href="/contact" className={cn(buttonVariants({ size: "default" }), "mt-6 w-full bg-background text-foreground hover:bg-background/90 dark:bg-black dark:text-white dark:hover:bg-black/90")}>
+                  {t("cta")}
+                </Link>
+              </div>
+            </div>
+          </AnimatedSection>
+
+          {/* Story */}
+          <AnimatedSection className="mt-16 max-w-2xl" delay={0.2}>
+            <h3 className="text-2xl tracking-tight">{t("whyRadialStoryTitle")}</h3>
+            <p className="mt-4 text-muted-foreground leading-relaxed">{t("whyRadialStoryText")}</p>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -378,14 +409,46 @@ export default async function HomePage({
 
       <div className="px-8"><div className="mx-auto max-w-[1280px]"><div className="h-px bg-black/5 dark:bg-white/10" /></div></div>
 
-      {/* Testimonials */}
+      {/* AI */}
       <section className="px-8 py-24">
         <div className="mx-auto max-w-[1280px]">
+          <AnimatedSection className="max-w-2xl">
+            <h2 className="text-[28px] md:text-[36px] tracking-tight">{t("aiTitle")}</h2>
+            <p className="mt-4 text-lg text-muted-foreground leading-relaxed">{t("aiText")}</p>
+            <p className="mt-4 text-muted-foreground leading-relaxed">{t("aiText2")}</p>
+          </AnimatedSection>
+
+          <AnimatedGrid className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" staggerDelay={0.1}>
+            {[
+              { title: t("aiPoint1Title"), text: t("aiPoint1Text") },
+              { title: t("aiPoint2Title"), text: t("aiPoint2Text") },
+              { title: t("aiPoint3Title"), text: t("aiPoint3Text") },
+            ].map((item) => (
+              <AnimatedGridItem key={item.title} className="rounded-2xl border border-black/5 p-6 dark:border-white/10">
+                <h3 className="text-base font-semibold">{item.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.text}</p>
+              </AnimatedGridItem>
+            ))}
+            <AnimatedGridItem className="rounded-2xl bg-foreground text-background dark:bg-white dark:text-black p-6">
+              <h3 className="text-base font-semibold">{t("aiPoint4Title")}</h3>
+              <p className="mt-2 text-sm text-background/70 dark:text-black/70 leading-relaxed">{t("aiPoint4Text")}</p>
+            </AnimatedGridItem>
+          </AnimatedGrid>
+        </div>
+      </section>
+
+      <div className="px-8"><div className="mx-auto max-w-[1280px]"><div className="h-px bg-black/5 dark:bg-white/10" /></div></div>
+
+      {/* Testimonials */}
+      <section className="py-24">
+        <div className="px-8 mx-auto max-w-[1280px]">
           <AnimatedSection>
             <h2 className="text-[28px] md:text-[36px] tracking-tight mb-10">{t("testimonialsTitle")}</h2>
-            <TestimonialSlider items={testimonials} />
           </AnimatedSection>
         </div>
+        <AnimatedSection>
+          <TestimonialSlider items={testimonials} />
+        </AnimatedSection>
       </section>
 
       {/* How We Can Help — Bento Grid */}

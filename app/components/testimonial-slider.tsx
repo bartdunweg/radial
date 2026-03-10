@@ -1,8 +1,5 @@
 "use client";
 
-import { useRef } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-
 interface Testimonial {
   quote: string;
   author: string;
@@ -11,26 +8,18 @@ interface Testimonial {
 }
 
 export function TestimonialSlider({ items }: { items: Testimonial[] }) {
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  const scroll = (direction: "left" | "right") => {
-    if (!scrollRef.current) return;
-    const cardWidth = 400 + 24; // card width + gap
-    scrollRef.current.scrollBy({
-      left: direction === "left" ? -cardWidth : cardWidth,
-      behavior: "smooth",
-    });
-  };
+  // Duplicate items for seamless infinite loop
+  const duplicated = [...items, ...items];
 
   return (
-    <div className="relative">
+    <div className="relative overflow-hidden group">
       <div
-        ref={scrollRef}
-        className="flex gap-6 overflow-x-auto scrollbar-hide"
+        className="flex gap-6 animate-marquee-left group-hover:[animation-play-state:paused]"
+        style={{ width: "max-content" }}
       >
-        {items.map((item) => (
+        {duplicated.map((item, i) => (
           <div
-            key={item.author}
+            key={`${item.author}-${i}`}
             className="w-[400px] shrink-0 rounded-2xl border border-black/5 bg-background p-8 flex flex-col justify-between dark:border-white/10"
           >
             <blockquote className="text-base leading-relaxed text-muted-foreground">
@@ -44,24 +33,6 @@ export function TestimonialSlider({ items }: { items: Testimonial[] }) {
             </div>
           </div>
         ))}
-      </div>
-
-      {/* Navigation */}
-      <div className="mt-8 flex items-center gap-3">
-        <button
-          onClick={() => scroll("left")}
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-border transition-colors hover:bg-muted"
-          aria-label="Previous testimonials"
-        >
-          <ChevronLeft size={18} />
-        </button>
-        <button
-          onClick={() => scroll("right")}
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-border transition-colors hover:bg-muted"
-          aria-label="Next testimonials"
-        >
-          <ChevronRight size={18} />
-        </button>
       </div>
     </div>
   );

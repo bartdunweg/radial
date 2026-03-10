@@ -6,6 +6,7 @@ import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/ca
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { cn } from "@/lib/utils";
+import { AnimatedSection, AnimatedGrid, AnimatedGridItem } from "../../components/animated-sections";
 
 export async function generateMetadata({
   params,
@@ -30,32 +31,36 @@ export default async function BlogPage({
   return (
     <section className="px-8 pt-[212px] pb-24">
       <div className="mx-auto max-w-[720px]">
-        <h1 className="text-[clamp(2rem,4vw,3rem)] tracking-tight">{t("title")}</h1>
-        <p className="mt-4 text-lg text-muted-foreground">{t("subtitle")}</p>
+        <AnimatedSection>
+          <h1 className="text-[clamp(2rem,4vw,3rem)] tracking-tight">{t("title")}</h1>
+          <p className="mt-4 text-lg text-muted-foreground">{t("subtitle")}</p>
+        </AnimatedSection>
 
-        <div className="mt-12 flex flex-col gap-4">
+        <AnimatedGrid className="mt-12 flex flex-col gap-4" staggerDelay={0.1}>
           {blog.map((post) => (
-            <Link key={post.slug} href={`/blog/${post.slug}`}>
-              <Card className="bg-card border-border h-full hover:shadow-card transition-shadow">
-                <CardHeader>
-                  <div className="flex items-center gap-2 mb-2">
-                    <Badge variant="secondary">{post.category}</Badge>
-                    <span className="text-xs text-muted-foreground">{post.readTime} {t("minRead")}</span>
-                  </div>
-                  <CardTitle className="text-base">{post.title}</CardTitle>
-                  <CardDescription className="mt-2 text-sm">{post.excerpt}</CardDescription>
-                  <div className="mt-4 text-xs text-muted-foreground">
-                    {post.author} &middot;{" "}
-                    {new Date(post.date).toLocaleDateString(
-                      locale === "nl" ? "nl-NL" : "en-US",
-                      { month: "long", day: "numeric", year: "numeric" }
-                    )}
-                  </div>
-                </CardHeader>
-              </Card>
-            </Link>
+            <AnimatedGridItem key={post.slug}>
+              <Link href={`/blog/${post.slug}`}>
+                <Card className="bg-card border-border h-full hover:shadow-card transition-shadow">
+                  <CardHeader>
+                    <div className="flex items-center gap-2 mb-2">
+                      <Badge variant="secondary">{post.category}</Badge>
+                      <span className="text-xs text-muted-foreground">{post.readTime} {t("minRead")}</span>
+                    </div>
+                    <CardTitle className="text-base">{post.title}</CardTitle>
+                    <CardDescription className="mt-2 text-sm">{post.excerpt}</CardDescription>
+                    <div className="mt-4 text-xs text-muted-foreground">
+                      {post.author} &middot;{" "}
+                      {new Date(post.date).toLocaleDateString(
+                        locale === "nl" ? "nl-NL" : "en-US",
+                        { month: "long", day: "numeric", year: "numeric" }
+                      )}
+                    </div>
+                  </CardHeader>
+                </Card>
+              </Link>
+            </AnimatedGridItem>
           ))}
-        </div>
+        </AnimatedGrid>
       </div>
     </section>
   );

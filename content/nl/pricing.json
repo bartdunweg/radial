@@ -20,7 +20,6 @@
       "dailyRate": 899,
       "days": 20,
       "totalPrice": 17999,
-      "popular": true,
       "description": "Voor doorlopende projecten die consistente design support nodig hebben.",
       "features": [
         "1 dedicated designer",
@@ -37,6 +36,7 @@
       "dailyRate": 799,
       "days": 40,
       "totalPrice": 31999,
+      "popular": true,
       "description": "Voor langdurige samenwerkingen met een dedicated design resource.",
       "features": [
         "1 dedicated senior designer",
@@ -51,15 +51,14 @@
   ],
   "designSprint": {
     "title": "Design Sprint",
-    "description": "Een gestructureerd 5-daags proces om snel een designvraagstuk op te lossen. Van probleemstelling tot een getest prototype in één week.",
+    "description": "Een gestructureerd 4-daags proces om snel een designvraagstuk op te lossen. Van probleemstelling tot een getest prototype in minder dan een week.",
     "price": 6399,
-    "duration": "5 dagen",
+    "duration": "4 dagen",
     "features": [
-      "Dag 1: Begrijpen — Probleem in kaart brengen, uitdaging definiëren",
-      "Dag 2: Verkennen — Oplossingen verkennen, ideeën schetsen",
-      "Dag 3: Beslissen — Beste richting kiezen, storyboard maken",
-      "Dag 4: Prototypen — Realistisch, klikbaar prototype bouwen",
-      "Dag 5: Testen — Valideren met echte gebruikers, inzichten verzamelen"
+      "Dag 1: Begrijpen — Probleem in kaart brengen, oplossingen verkennen",
+      "Dag 2: Beslissen — Beste richting kiezen, storyboard maken",
+      "Dag 3: Prototypen — Realistisch, klikbaar prototype bouwen",
+      "Dag 4: Testen — Valideren met echte gebruikers, inzichten verzamelen"
     ],
     "includes": [
       "2 designers gefaciliteerd",

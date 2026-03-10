@@ -43,29 +43,35 @@ export default async function AboutPage({
     { title: t("vision2Title"), text: t("vision2Text") },
     { title: t("vision3Title"), text: t("vision3Text") },
     { title: t("vision4Title"), text: t("vision4Text") },
+    { title: t("vision5Title"), text: t("vision5Text") },
   ];
 
   return (
-    <section className="px-8 pt-[212px] pb-24">
-      <div className="mx-auto max-w-[1280px]">
+    <div className="pt-[212px] pb-24">
+      <div className="px-8 mx-auto max-w-[1280px]">
         {/* Hero */}
         <AnimatedSection>
           <h1 className="text-[clamp(2rem,4vw,3rem)] tracking-tight">{t("title")}</h1>
           <p className="mt-4 max-w-2xl text-lg text-muted-foreground leading-relaxed">{t("subtitle")}</p>
         </AnimatedSection>
+      </div>
 
-        {/* Image slider */}
-        <AnimatedSection delay={0.2} className="mt-12 -mx-8">
-          <div className="flex gap-4 overflow-x-auto scrollbar-hide px-8">
-            {Array.from({ length: 5 }).map((_, i) => (
-              <div
-                key={i}
-                className="h-[400px] w-[600px] shrink-0 rounded-2xl border border-black/5 bg-[#f8f9fb] dark:border-white/10 dark:bg-[#101114]"
-              />
-            ))}
-          </div>
-        </AnimatedSection>
+      {/* Image slider — full width */}
+      <AnimatedSection delay={0.2} className="mt-12 overflow-hidden group">
+        <div
+          className="flex gap-4 animate-marquee-left group-hover:[animation-play-state:paused]"
+          style={{ width: "max-content" }}
+        >
+          {Array.from({ length: 10 }).map((_, i) => (
+            <div
+              key={i}
+              className="h-[400px] w-[600px] shrink-0 rounded-2xl border border-black/5 bg-[#f8f9fb] dark:border-white/10 dark:bg-[#101114]"
+            />
+          ))}
+        </div>
+      </AnimatedSection>
 
+      <div className="px-8 mx-auto max-w-[1280px]">
         <Separator className="my-16" />
 
         {/* Story */}
@@ -77,6 +83,7 @@ export default async function AboutPage({
             <p className="text-lg leading-relaxed">{t("storyIntro")}</p>
             <p className="mt-6 text-muted-foreground leading-relaxed">{t("storyText")}</p>
             <p className="mt-4 text-muted-foreground leading-relaxed">{t("storyGrowth")}</p>
+            <p className="mt-4 text-muted-foreground leading-relaxed">{t("storyPhilosophy")}</p>
             <p className="mt-4 text-muted-foreground leading-relaxed">{t("storyToday")}</p>
           </AnimatedSection>
         </div>
@@ -162,6 +169,6 @@ export default async function AboutPage({
           </div>
         </AnimatedSection>
       </div>
-    </section>
+    </div>
   );
 }

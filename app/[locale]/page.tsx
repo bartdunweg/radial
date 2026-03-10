@@ -23,6 +23,7 @@ import { DotField } from "../components/dot-field";
 import { TextReveal } from "../components/text-reveal";
 import { ScrollTextReveal } from "../components/scroll-text-reveal";
 import { ScrollApproach } from "../components/scroll-approach";
+import { Icon3DCore, Icon3DFingerprint, Icon3DMagnifier, Icon3DHeart } from "../components/manifesto-icons";
 
 
 export default async function HomePage({
@@ -251,17 +252,17 @@ export default async function HomePage({
           { text: t("intro1") },
           { text: t("intro2") },
           { text: t("intro3a") },
-          { text: t("intro3b"), style: "purple" },
+          { text: t("intro3b"), style: "purple", icon: <Icon3DCore /> },
           { text: t("intro3c") },
           { text: t("intro4") },
           { text: t("intro5") },
-          { text: t("intro6"), style: "orange" },
-          { text: t("intro7"), style: "pink" },
+          { text: t("intro6"), style: "orange", icon: <Icon3DFingerprint /> },
+          { text: t("intro7"), style: "pink", icon: <Icon3DMagnifier /> },
           { text: t("intro8") },
           { text: t("intro9") },
           { text: t("intro10") },
           { text: t("intro11a") },
-          { text: t("intro11b"), style: "blue" },
+          { text: t("intro11b"), style: "blue", icon: <Icon3DHeart /> },
         ]}
         className="mx-auto max-w-[960px] text-[clamp(1.75rem,3vw,2.5rem)] leading-[1.4] tracking-tight"
         sparkles={false}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useCallback, useEffect, useSyncExternalStore } from "react";
+import { useRef, useState, useCallback, useEffect, useSyncExternalStore, type ReactNode } from "react";
 import { motion, useScroll, useTransform, useMotionValueEvent } from "motion/react";
 
 function useHomeVariant() {
@@ -98,6 +98,8 @@ export interface TextSegment {
   text: string;
   /** "default" = primary color, color variants = bold + gradient */
   style?: "default" | "accent" | "purple" | "orange" | "pink" | "blue";
+  /** Optional inline icon rendered before the first word of this segment */
+  icon?: ReactNode;
 }
 
 interface ScrollTextRevealProps {
@@ -111,6 +113,7 @@ interface Word {
   text: string;
   style: "default" | "accent" | "purple" | "orange" | "pink" | "blue";
   index: number; // word index for reveal tracking
+  icon?: ReactNode; // icon rendered before this word
 }
 
 export function ScrollTextReveal({
@@ -130,8 +133,13 @@ export function ScrollTextReveal({
   for (const seg of segments) {
     const style = seg.style ?? "default";
     const segWords = seg.text.split(/\s+/).filter(Boolean);
-    for (const w of segWords) {
-      words.push({ text: w, style, index: wordIdx++ });
+    for (let i = 0; i < segWords.length; i++) {
+      words.push({
+        text: segWords[i],
+        style,
+        index: wordIdx++,
+        icon: i === 0 ? seg.icon : undefined,
+      });
     }
   }
   const totalWords = words.length;
@@ -180,8 +188,29 @@ export function ScrollTextReveal({
               blue:   "linear-gradient(135deg, #2040c0 0%, #3060e0 50%, #4080ff 100%)",
             };
 
+            const hasIcon = !!w.icon;
+
             return (
               <span key={w.index} className="inline">
+                {hasIcon && (
+                  <motion.span
+                    className="inline-block align-middle mr-1.5"
+                    initial={{ opacity: 0, scale: 0, filter: "blur(6px)" }}
+                    animate={isRevealed
+                      ? { opacity: 1, scale: 1, filter: "blur(0px)" }
+                      : { opacity: 0, scale: 0, filter: "blur(6px)" }
+                    }
+                    transition={{
+                      type: "spring",
+                      stiffness: 400,
+                      damping: 20,
+                      mass: 0.8,
+                    }}
+                    style={{ transformOrigin: "center center" }}
+                  >
+                    {w.icon}
+                  </motion.span>
+                )}
                 <span
                   data-revealed={isRevealed || undefined}
                   className={`inline-block ${
@@ -196,7 +225,9 @@ export function ScrollTextReveal({
                   style={{
                     opacity: isRevealed ? 1 : 0.15,
                     filter: isRevealed ? "blur(0px)" : "blur(4px)",
-                    transition: "opacity 0.6s ease-out, filter 0.6s ease-out",
+                    transition: hasIcon
+                      ? "opacity 0.5s ease-out 0.15s, filter 0.5s ease-out 0.15s"
+                      : "opacity 0.6s ease-out, filter 0.6s ease-out",
                     ...(isAccent && isBranded ? {
                       backgroundImage: gradientMap[w.style],
                       WebkitBackgroundClip: "text",

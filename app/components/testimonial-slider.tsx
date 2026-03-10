@@ -12,7 +12,7 @@ interface Testimonial {
 export function TestimonialSlider({ items }: { items: Testimonial[] }) {
   const duplicated = [...items, ...items];
   const trackRef = useRef<HTMLDivElement>(null);
-  const rafRef = useRef<number>();
+  const rafRef = useRef<number>(undefined);
   const speedRef = useRef(1); // 1 = full speed, 0 = stopped
   const targetSpeedRef = useRef(1);
 

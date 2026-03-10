@@ -4,7 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { Separator } from "@/components/ui/separator";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { cn } from "@/lib/utils";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Check, X } from "lucide-react";
 import {
   AnimatedSection,
   AnimatedGrid,
@@ -30,12 +30,20 @@ export default async function AboutPage({
   setRequestLocale(locale);
   const t = await getTranslations("about");
 
-  const approaches = [
-    { title: t("approachResearch"), text: t("approachResearchText") },
-    { title: t("approachDesign"), text: t("approachDesignText") },
-    { title: t("approachBuild"), text: t("approachBuildText") },
-    { title: t("approachAI"), text: t("approachAIText") },
-    { title: t("approachIterate"), text: t("approachIterateText") },
+  const traditionalSteps = [
+    t("approachTrad1"),
+    t("approachTrad2"),
+    t("approachTrad3"),
+    t("approachTrad4"),
+    t("approachTrad5"),
+    t("approachTrad6"),
+  ];
+
+  const radialSteps = [
+    { title: t("approachStep1"), text: t("approachStep1Text") },
+    { title: t("approachStep2"), text: t("approachStep2Text") },
+    { title: t("approachStep3"), text: t("approachStep3Text") },
+    { title: t("approachStep4"), text: t("approachStep4Text") },
   ];
 
   const beliefs = [
@@ -106,25 +114,47 @@ export default async function AboutPage({
         <Separator className="my-16" />
 
         {/* How we work */}
-        <div className="grid gap-12 md:grid-cols-[1fr_2fr]">
-          <AnimatedSection>
-            <h2 className="text-2xl tracking-tight">{t("approachTitle")}</h2>
-            <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{t("approachIntro")}</p>
-          </AnimatedSection>
-          <AnimatedGrid className="grid gap-6" staggerDelay={0.08}>
-            {approaches.map((item, i) => (
-              <AnimatedGridItem key={item.title} className="flex gap-4">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-muted text-xs font-semibold">
-                  {i + 1}
-                </span>
-                <div>
-                  <h3 className="text-base font-semibold">{item.title}</h3>
-                  <p className="mt-1 text-sm text-muted-foreground leading-relaxed">{item.text}</p>
-                </div>
-              </AnimatedGridItem>
-            ))}
-          </AnimatedGrid>
-        </div>
+        <AnimatedSection>
+          <h2 className="text-2xl tracking-tight">{t("approachTitle")}</h2>
+          <p className="mt-3 max-w-xl text-muted-foreground leading-relaxed">{t("approachIntro")}</p>
+        </AnimatedSection>
+
+        <AnimatedSection delay={0.1} className="mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] items-end gap-0">
+            {/* Traditional approach */}
+            <div className="rounded-2xl border border-black/5 p-6">
+              <h3 className="text-xl font-medium tracking-tight">{t("approachTraditionalTitle")}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">{t("approachTraditionalSubtitle")}</p>
+              <ul className="mt-6 space-y-3">
+                {traditionalSteps.map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                    <X size={16} className="mt-0.5 shrink-0 text-muted-foreground/50" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Radial approach — elevated */}
+            <div className="rounded-2xl bg-foreground text-background p-6 -my-4 shadow-lg flex flex-col max-md:mt-4 max-md:-mb-0">
+              <div className="flex items-center justify-between gap-4 mb-1">
+                <h3 className="text-xl font-medium tracking-tight">{t("approachRadialTitle")}</h3>
+                <span className="shrink-0 rounded-full bg-accent px-3 py-1 text-xs font-medium text-white">{t("approachRadialSubtitle")}</span>
+              </div>
+              <ul className="mt-6 space-y-4 flex-1">
+                {radialSteps.map((item) => (
+                  <li key={item.title} className="flex items-start gap-2">
+                    <Check size={16} className="mt-0.5 shrink-0 text-accent" />
+                    <div>
+                      <span className="text-sm font-semibold">{item.title}</span>
+                      <p className="mt-0.5 text-sm text-background/70">{item.text}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </AnimatedSection>
 
         <Separator className="my-16" />
 

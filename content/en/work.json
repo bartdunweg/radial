@@ -3,28 +3,27 @@
     "slug": "heineken",
     "title": "Heineken Draught Competition",
     "client": "Heineken",
-    "description": "Redesigning the digital experience for one of the world's most iconic beer brands.",
+    "description": "Crafting a digital platform that elevates draughting competitions with faster assessments and real-time insights.",
     "longDescription": "Heineken needed a modern digital platform that matches their brand ambition. We designed and built an experience that connects consumers with the brand across multiple touchpoints — from event discovery to product storytelling.",
-    "services": ["Research & Strategy", "UX & UI Design", "Build MVPs"],
+    "services": ["Design Sprint", "Research & Strategy", "Product Design"],
     "year": "2024",
     "metrics": [
-      { "value": "+62%", "label": "User engagement" },
-      { "value": "3x", "label": "Faster onboarding" },
-      { "value": "98%", "label": "Client satisfaction" }
+      { "value": "2×", "label": "More trainings" },
+      { "value": "+67%", "label": "Group size" }
     ]
   },
   {
     "slug": "spie",
-    "title": "Field Operations Platform",
+    "title": "Time registration app",
     "client": "SPIE",
-    "description": "Streamlining operations for a leading European technical services provider.",
+    "description": "Recrafted the entire time, leave and expenses to a mobile-first, user-friendly, and pleasant experience.",
     "longDescription": "SPIE required a digital transformation of their internal tooling and client-facing platforms. We designed intuitive interfaces that simplify complex technical workflows and improve communication between field teams and management.",
-    "services": ["UX & UI Design", "Design Systems", "Research & Strategy"],
+    "services": ["Design Sprint", "Research & Strategy", "Design System", "Product Design"],
     "year": "2024",
     "metrics": [
-      { "value": "-45%", "label": "Response time" },
-      { "value": "+80%", "label": "User satisfaction" },
-      { "value": "12k", "label": "Monthly active users" }
+      { "value": "~17%", "label": "Faster processing" },
+      { "value": "3.4 FTE", "label": "Annual ROI (€135K)" },
+      { "value": "8–9%", "label": "Fewer errors" }
     ]
   },
   {
@@ -33,7 +32,7 @@
     "client": "NHG",
     "description": "Making mortgage guarantees accessible and understandable for homebuyers.",
     "longDescription": "NHG needed to make their mortgage guarantee process more transparent and user-friendly. We redesigned the digital experience to guide homebuyers through the application process with clarity, reducing friction and support requests.",
-    "services": ["Research & Strategy", "UX & UI Design", "Design Systems"],
+    "services": ["Research & Strategy", "Product Design", "Design Systems"],
     "year": "2024",
     "metrics": [
       { "value": "+120%", "label": "Application completion" },
@@ -47,7 +46,7 @@
     "client": "GGD",
     "description": "Designing a contact platform that connects public health services with citizens.",
     "longDescription": "GGD needed a scalable contact platform to handle citizen communication efficiently. We designed and built a system that streamlines appointment scheduling, information sharing, and follow-up — ensuring public health services remain accessible to everyone.",
-    "services": ["UX & UI Design", "Build MVPs", "AI Integration"],
+    "services": ["Product Design", "Build MVPs", "AI Integration"],
     "year": "2023",
     "metrics": [
       { "value": "+40%", "label": "Conversion rate" },
@@ -61,7 +60,7 @@
     "client": "Sitedish",
     "description": "Building a platform that connects restaurants with hungry customers.",
     "longDescription": "Sitedish wanted a modern ordering platform that feels effortless for both restaurants and customers. We designed an end-to-end experience — from restaurant onboarding to customer checkout — that drives conversion and repeat orders.",
-    "services": ["UX & UI Design", "Build MVPs", "Design Systems"],
+    "services": ["Product Design", "Build MVPs", "Design Systems"],
     "year": "2023",
     "metrics": [
       { "value": "+35%", "label": "Order conversion" },
@@ -75,7 +74,7 @@
     "client": "Uber",
     "description": "Enhancing the driver and rider experience for the world's leading mobility platform.",
     "longDescription": "Uber needed design support to refine key touchpoints in the driver and rider journey. We worked closely with their product teams to improve onboarding flows, in-app communication, and safety features — delivering a smoother experience for millions of users.",
-    "services": ["UX & UI Design", "Research & Strategy", "Design Systems"],
+    "services": ["Product Design", "Research & Strategy", "Design Systems"],
     "year": "2024",
     "metrics": [
       { "value": "+30%", "label": "Task completion" },

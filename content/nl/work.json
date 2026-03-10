@@ -3,28 +3,27 @@
     "slug": "heineken",
     "title": "Heineken Draught Competition",
     "client": "Heineken",
-    "description": "De digitale ervaring herontwerpen voor een van 's werelds meest iconische biermerken.",
+    "description": "Een digitaal platform dat tapwedstrijden naar een hoger niveau tilt met snellere beoordelingen en realtime inzichten.",
     "longDescription": "Heineken had een modern digitaal platform nodig dat past bij hun merkambitie. We ontwierpen en bouwden een ervaring die consumenten via meerdere touchpoints verbindt met het merk — van evenementen ontdekken tot productstorytelling.",
-    "services": ["Research & Strategie", "UX & UI Design", "MVP's Bouwen"],
+    "services": ["Design Sprint", "Research & Strategie", "Product Design"],
     "year": "2024",
     "metrics": [
-      { "value": "+62%", "label": "Gebruikersbetrokkenheid" },
-      { "value": "3x", "label": "Snellere onboarding" },
-      { "value": "98%", "label": "Klanttevredenheid" }
+      { "value": "2×", "label": "Meer trainingen" },
+      { "value": "+67%", "label": "Groepsgrootte" }
     ]
   },
   {
     "slug": "spie",
-    "title": "Field Operations Platform",
+    "title": "Tijdregistratie-app",
     "client": "SPIE",
-    "description": "Operaties stroomlijnen voor een toonaangevende Europese technische dienstverlener.",
+    "description": "Tijd, verlof en declaraties volledig hervormd tot een mobile-first, gebruiksvriendelijke en prettige ervaring.",
     "longDescription": "SPIE had een digitale transformatie nodig van hun interne tooling en klantgerichte platformen. We ontwierpen intuïtieve interfaces die complexe technische workflows vereenvoudigen en communicatie tussen veldteams en management verbeteren.",
-    "services": ["UX & UI Design", "Design Systems", "Research & Strategie"],
+    "services": ["Design Sprint", "Research & Strategie", "Design System", "Product Design"],
     "year": "2024",
     "metrics": [
-      { "value": "-45%", "label": "Responstijd" },
-      { "value": "+80%", "label": "Gebruikerstevredenheid" },
-      { "value": "12k", "label": "Maandelijks actieve gebruikers" }
+      { "value": "~17%", "label": "Snellere verwerking" },
+      { "value": "3.4 FTE", "label": "Jaarlijkse ROI (€135K)" },
+      { "value": "8–9%", "label": "Minder fouten" }
     ]
   },
   {
@@ -33,7 +32,7 @@
     "client": "NHG",
     "description": "Hypotheekgaranties toegankelijk en begrijpelijk maken voor huizenkopers.",
     "longDescription": "NHG moest hun hypotheekgarantieproces transparanter en gebruiksvriendelijker maken. We herontwierpen de digitale ervaring om huizenkopers helder door het aanvraagproces te begeleiden, met minder wrijving en minder supportverzoeken.",
-    "services": ["Research & Strategie", "UX & UI Design", "Design Systems"],
+    "services": ["Research & Strategie", "Product Design", "Design Systems"],
     "year": "2024",
     "metrics": [
       { "value": "+120%", "label": "Aanvraag voltooiing" },
@@ -47,7 +46,7 @@
     "client": "GGD",
     "description": "Een contactplatform ontwerpen dat publieke gezondheidsdiensten verbindt met burgers.",
     "longDescription": "GGD had een schaalbaar contactplatform nodig om communicatie met burgers efficiënt af te handelen. We ontwierpen en bouwden een systeem dat afspraken plannen, informatie delen en opvolging stroomlijnt — zodat gezondheidsdiensten toegankelijk blijven voor iedereen.",
-    "services": ["UX & UI Design", "MVP's Bouwen", "AI Integratie"],
+    "services": ["Product Design", "MVP's Bouwen", "AI Integratie"],
     "year": "2023",
     "metrics": [
       { "value": "+40%", "label": "Conversieratio" },
@@ -61,7 +60,7 @@
     "client": "Sitedish",
     "description": "Een platform bouwen dat restaurants verbindt met hongerige klanten.",
     "longDescription": "Sitedish wilde een modern bestelplatform dat moeiteloos aanvoelt voor zowel restaurants als klanten. We ontwierpen een end-to-end ervaring — van restaurant-onboarding tot klant-checkout — die conversie en herhaalaankopen stimuleert.",
-    "services": ["UX & UI Design", "MVP's Bouwen", "Design Systems"],
+    "services": ["Product Design", "MVP's Bouwen", "Design Systems"],
     "year": "2023",
     "metrics": [
       { "value": "+35%", "label": "Bestelconversie" },
@@ -75,7 +74,7 @@
     "client": "Uber",
     "description": "De chauffeur- en passagierservaring verbeteren voor 's werelds grootste mobiliteitsplatform.",
     "longDescription": "Uber had designondersteuning nodig om belangrijke touchpoints in de chauffeur- en passagiersreis te verfijnen. We werkten nauw samen met hun productteams om onboarding flows, in-app communicatie en veiligheidsfuncties te verbeteren — voor een soepelere ervaring voor miljoenen gebruikers.",
-    "services": ["UX & UI Design", "Research & Strategie", "Design Systems"],
+    "services": ["Product Design", "Research & Strategie", "Design Systems"],
     "year": "2024",
     "metrics": [
       { "value": "+30%", "label": "Taakvoltooiing" },

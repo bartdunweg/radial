@@ -1,38 +1,56 @@
 [
   {
-    "quote": "Radial heeft onze productervaring getransformeerd. Hun vermogen om complexe problemen te begrijpen en te vertalen naar elegante interfaces is opmerkelijk.",
-    "author": "Sarah Chen",
-    "role": "CPO",
-    "company": "Flowmatic"
+    "quote": "UX was de drijvende kracht achter het START-project, en de succesvolle oplevering bewees de impact van gebruikers op de eerste plaats zetten. We hebben ook een schaalbaar design system opgezet dat nu als fundament dient voor toekomstige applicaties.",
+    "author": "Koen Rutten",
+    "role": "Product Owner",
+    "company": "SPIE"
   },
   {
-    "quote": "Werken met Radial voelde alsof we een senior designer in ons team hadden. Ze leverden sneller dan verwacht, zonder concessies te doen aan kwaliteit.",
-    "author": "Thomas van der Berg",
-    "role": "Oprichter",
-    "company": "Stackbase"
-  },
-  {
-    "quote": "De design sprint gaf ons meer helderheid in 5 dagen dan we in maanden van interne discussies hadden bereikt. Sterk aanbevolen.",
-    "author": "Maria Lopez",
-    "role": "Head of Product",
-    "company": "Neura Health"
-  },
-  {
-    "quote": "Hun design system werk bespaarde ons honderden engineering-uren. Alles is consistent, gedocumenteerd en een plezier om mee te bouwen.",
-    "author": "David Kim",
-    "role": "CTO",
-    "company": "Parallel"
-  },
-  {
-    "quote": "Radial maakt niet alleen dingen mooi — ze denken diep na over hoe dingen werken. Onze conversieratio steeg met 40% na het herontwerp.",
-    "author": "Emma de Vries",
-    "role": "Growth Lead",
-    "company": "Breeze"
-  },
-  {
-    "quote": "We hebben met veel bureaus gewerkt, maar Radial springt eruit. Ze dagen aannames uit en pushen voor wat het beste is voor de gebruiker.",
-    "author": "Lucas Müller",
+    "quote": "Bedankt voor de geweldige inzet op het T&C consolidatieproject. Jullie leverden zeer waardevolle inzichten voor wat wij dachten dat een simpele wijziging zou zijn. Bedankt voor het begrijpen van de zakelijke behoeften en de moeite die jullie erin hebben gestoken.",
+    "author": "Utsha Sinha",
     "role": "Product Manager",
-    "company": "Kinetic"
+    "company": "Uber"
+  },
+  {
+    "quote": "Naast het feit dat het erg prettige mensen zijn om mee te werken, voegen ze ongelooflijk veel waarde toe aan ons bedrijf. Onze design flow is veel efficiënter, wat gunstig is voor zowel ons team intern als onze klanten.",
+    "author": "Tako Paddenburg",
+    "role": "Co-founder",
+    "company": "Oaky"
+  },
+  {
+    "quote": "Erg fijn samengewerkt met Radial. Het zijn kundige designers die steeds een stapje extra zetten. Ze begrepen snel wat wij wilden en organiseren het proces strak.",
+    "author": "Wendy Bogers",
+    "role": "Founder",
+    "company": "Ligo"
+  },
+  {
+    "quote": "Het werk van Radial heeft een grote impact gehad op ons product. De app speelt een sleutelrol in onze trainingen, en deelnemers genieten echt van het competitieve element aan het eind, wat de betrokkenheid vergroot. Sinds de samenwerking is de waarde van onze trainingen duidelijk gestegen. We waarderen de heldere communicatie, sterke opvolging, het geduld en de leuke energie die ze meebrengen.",
+    "author": "Thomas van Boheemen",
+    "role": "Manager Global Star Quality",
+    "company": "Heineken"
+  },
+  {
+    "quote": "Het designwerk van Radial maakt een aantal voorheen frustrerende taken veel sneller en makkelijker. De samenwerking verliep soepel, met heldere communicatie en een laagdrempelige, hands-on aanpak. Hun vermogen om eindgebruikers te betrekken en uit te leggen viel echt op en maakte de transitie naadloos.",
+    "author": "Gerrie de Vries",
+    "role": "Business Analist",
+    "company": "NHG"
+  },
+  {
+    "quote": "Radial leverde een ontwerp dat onze Digitale Ondertekeningsdienst volledig in lijn brengt met moderne verwachtingen. Dit zet ons product voor op de markt.",
+    "author": "Ronald Boer",
+    "role": "Product Manager",
+    "company": "Aangetekend Mailen"
+  },
+  {
+    "quote": "Radial is een fantastische toevoeging aan ons team geweest, met steeds frisse perspectieven en out-of-the-box denken. Hun vermogen om uitdagingen creatief aan te pakken en tijd efficiënt te beheren heeft echt verschil gemaakt in hoe wij werken. Sinds de samenwerking kunnen we ons veel helderder richten op het eindproduct, wat zowel onze richting als uitvoering verbetert.",
+    "author": "Jan-Peter Reumermann",
+    "role": "Director",
+    "company": "GRIB"
+  },
+  {
+    "quote": "We ontvingen een mooi en helder ontwerp voor onze app, dat eindgebruikers ook visueel aantrekkelijk en gebruiksvriendelijk vinden. De samenwerking verliep soepel, met transparante prijzen en sterke designkwaliteit. Eerlijk gezegd zou ik niets veranderen aan de ervaring.",
+    "author": "Martin de Ruiter",
+    "role": "Eigenaar",
+    "company": "Praktijkdata"
   }
 ]

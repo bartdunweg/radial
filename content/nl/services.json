@@ -8,7 +8,7 @@
   },
   {
     "slug": "ux-ui-design",
-    "title": "UX & UI Design",
+    "title": "Product Design",
     "description": "We creëren intuïtieve, mooie interfaces die gebruikers verrassen en betrokkenheid stimuleren.",
     "longDescription": "Goed design is onzichtbaar — het werkt gewoon. We maken interfaces die niet alleen visueel verbluffend zijn, maar diep intuïtief. Ons proces gaat van wireframes en user flows naar pixel-perfect UI design, altijd gegrond in gebruikersonderzoek en iteratief testen.",
     "deliverables": ["Wireframing", "User Flows", "Visueel Design", "Interactie Design", "Responsive Design"]
@@ -44,8 +44,8 @@
   {
     "slug": "design-sprints",
     "title": "Design Sprints",
-    "description": "Los grote productuitdagingen op in slechts 5 dagen — van probleemstelling tot een getest prototype met echte gebruikers.",
-    "longDescription": "Een Design Sprint is een gestructureerd 5-daags proces dat teams helpt snel van uitdaging naar gevalideerde oplossing te gaan. Wij faciliteren de hele sprint: het probleem in kaart brengen, oplossingen schetsen, richting bepalen, een realistisch prototype bouwen en testen met echte gebruikers — allemaal in één week. Het is de snelste manier om beslissingen te de-risken en je team te alignen.",
+    "description": "Los grote productuitdagingen op in slechts 4 dagen — van probleemstelling tot een getest prototype met echte gebruikers.",
+    "longDescription": "Een Design Sprint is een gestructureerd 4-daags proces dat teams helpt snel van uitdaging naar gevalideerde oplossing te gaan. Wij faciliteren de hele sprint: het probleem in kaart brengen, oplossingen schetsen, richting bepalen, een realistisch prototype bouwen en testen met echte gebruikers. Het is de snelste manier om beslissingen te de-risken en je team te alignen.",
     "deliverables": ["Sprint Facilitatie", "Probleem Mapping", "Rapid Prototyping", "Gebruikerstesten", "Gevalideerde Concepten"]
   },
   {

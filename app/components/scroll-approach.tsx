@@ -21,7 +21,7 @@ export function ScrollApproach({ items, interval = 5000 }: ScrollApproachProps) 
   const [activeIndex, setActiveIndex] = useState(0);
   const barRefs = useRef<(HTMLDivElement | null)[]>([]);
   const pausedRef = useRef(false);
-  const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
+  const timeoutRef = useRef<ReturnType<typeof setTimeout>>(undefined);
 
   const startFill = useCallback((index: number) => {
     barRefs.current.forEach((bar) => {

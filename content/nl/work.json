@@ -1,114 +1,86 @@
 [
   {
-    "slug": "meridian",
-    "title": "Meridian",
-    "client": "Fintech Platform",
-    "description": "Vermogensbeheer herontwerpen voor de volgende generatie investeerders.",
-    "longDescription": "Meridian had een complete herdenking nodig van hun vermogensbeheerplatform. We voerden uitgebreid gebruikersonderzoek uit met zowel adviseurs als particuliere beleggers, ontwierpen een nieuwe informatiearchitectuur en leverden een moderne interface die complexe financiële data vereenvoudigt tot bruikbare inzichten.",
-    "services": ["Research & Strategie", "UX & UI Design", "Design Systems"],
-    "year": "2025",
+    "slug": "heineken",
+    "title": "Heineken Draught Competition",
+    "client": "Heineken",
+    "description": "De digitale ervaring herontwerpen voor een van 's werelds meest iconische biermerken.",
+    "longDescription": "Heineken had een modern digitaal platform nodig dat past bij hun merkambitie. We ontwierpen en bouwden een ervaring die consumenten via meerdere touchpoints verbindt met het merk — van evenementen ontdekken tot productstorytelling.",
+    "services": ["Research & Strategie", "UX & UI Design", "MVP's Bouwen"],
+    "year": "2024",
     "metrics": [
       { "value": "+62%", "label": "Gebruikersbetrokkenheid" },
       { "value": "3x", "label": "Snellere onboarding" },
-      { "value": "98%", "label": "Adviseur tevredenheid" }
+      { "value": "98%", "label": "Klanttevredenheid" }
     ]
   },
   {
-    "slug": "canopy",
-    "title": "Canopy",
-    "client": "Gezondheidszorg",
-    "description": "Zorgteams verbinden met patiënten door intelligente communicatie.",
-    "longDescription": "Het zorgcoördinatieplatform van Canopy was krachtig maar moeilijk te gebruiken. We hebben de gehele patiëntervaring herontworpen — van afspraken plannen tot realtime berichten — terwijl we AI-aangedreven triage introduceerden die patiënten direct naar het juiste zorgteam routeert.",
-    "services": ["UX & UI Design", "AI Integratie", "MVP's Bouwen"],
+    "slug": "spie",
+    "title": "Field Operations Platform",
+    "client": "SPIE",
+    "description": "Operaties stroomlijnen voor een toonaangevende Europese technische dienstverlener.",
+    "longDescription": "SPIE had een digitale transformatie nodig van hun interne tooling en klantgerichte platformen. We ontwierpen intuïtieve interfaces die complexe technische workflows vereenvoudigen en communicatie tussen veldteams en management verbeteren.",
+    "services": ["UX & UI Design", "Design Systems", "Research & Strategie"],
     "year": "2024",
     "metrics": [
       { "value": "-45%", "label": "Responstijd" },
-      { "value": "+80%", "label": "Patiënttevredenheid" },
+      { "value": "+80%", "label": "Gebruikerstevredenheid" },
       { "value": "12k", "label": "Maandelijks actieve gebruikers" }
     ]
   },
   {
-    "slug": "arcline",
-    "title": "Arcline",
-    "client": "SaaS Analytics",
-    "description": "Ruwe data transformeren naar bruikbare inzichten met helderheid en snelheid.",
-    "longDescription": "Het analyticsplatform van Arcline had alle data maar geen helderheid. We herontwierpen hun dashboard-ervaring van de grond af, met aanpasbare weergaven, natural language queries en een design system dat meegroeit met hun groeiende productsuite.",
-    "services": ["Design Systems", "UX & UI Design", "Research & Strategie"],
+    "slug": "nhg",
+    "title": "Huizenkopers Portaal",
+    "client": "NHG",
+    "description": "Hypotheekgaranties toegankelijk en begrijpelijk maken voor huizenkopers.",
+    "longDescription": "NHG moest hun hypotheekgarantieproces transparanter en gebruiksvriendelijker maken. We herontwierpen de digitale ervaring om huizenkopers helder door het aanvraagproces te begeleiden, met minder wrijving en minder supportverzoeken.",
+    "services": ["Research & Strategie", "UX & UI Design", "Design Systems"],
     "year": "2024",
     "metrics": [
-      { "value": "+120%", "label": "Dashboard-adoptie" },
-      { "value": "-60%", "label": "Tijd tot inzicht" },
+      { "value": "+120%", "label": "Aanvraag voltooiing" },
+      { "value": "-60%", "label": "Supporttickets" },
       { "value": "50+", "label": "Componenten opgeleverd" }
     ]
   },
   {
-    "slug": "volta",
-    "title": "Volta",
-    "client": "E-Commerce",
-    "description": "Een premium direct-to-consumer webshop gebouwd voor conversie.",
-    "longDescription": "Volta wilde een webshop die net zo premium aanvoelde als hun producten. We ontwierpen een editorial-meets-commerce ervaring die rijke storytelling combineert met naadloos kopen — resulterend in een 40% hogere conversieratio binnen drie maanden na lancering.",
-    "services": ["Branding Versterken", "UX & UI Design", "MVP's Bouwen"],
+    "slug": "ggd-contact",
+    "title": "Burger Contactplatform",
+    "client": "GGD",
+    "description": "Een contactplatform ontwerpen dat publieke gezondheidsdiensten verbindt met burgers.",
+    "longDescription": "GGD had een schaalbaar contactplatform nodig om communicatie met burgers efficiënt af te handelen. We ontwierpen en bouwden een systeem dat afspraken plannen, informatie delen en opvolging stroomlijnt — zodat gezondheidsdiensten toegankelijk blijven voor iedereen.",
+    "services": ["UX & UI Design", "MVP's Bouwen", "AI Integratie"],
     "year": "2023",
     "metrics": [
       { "value": "+40%", "label": "Conversieratio" },
-      { "value": "+25%", "label": "Gemiddelde bestelwaarde" },
-      { "value": "2.8x", "label": "Terugkerende bezoekers" }
+      { "value": "+25%", "label": "Gebruikerstevredenheid" },
+      { "value": "2.8x", "label": "Snellere verwerking" }
     ]
   },
   {
-    "slug": "pulse",
-    "title": "Pulse",
-    "client": "HR Tech",
-    "description": "Een people analytics platform dat werknemerswelzijn meetbaar maakt.",
-    "longDescription": "Pulse moest abstract werknemerssentiment omzetten naar heldere, bruikbare data voor HR-leiders. We ontwierpen een dashboard dat trends in teamgezondheid, betrokkenheid en burn-outrisico zichtbaar maakt — aangedreven door realtime enquêtedata en AI-gedreven aanbevelingen.",
-    "services": ["Research & Strategie", "UX & UI Design", "AI Integratie"],
-    "year": "2025",
+    "slug": "sitedish",
+    "title": "Restaurant Bestelplatform",
+    "client": "Sitedish",
+    "description": "Een platform bouwen dat restaurants verbindt met hongerige klanten.",
+    "longDescription": "Sitedish wilde een modern bestelplatform dat moeiteloos aanvoelt voor zowel restaurants als klanten. We ontwierpen een end-to-end ervaring — van restaurant-onboarding tot klant-checkout — die conversie en herhaalaankopen stimuleert.",
+    "services": ["UX & UI Design", "MVP's Bouwen", "Design Systems"],
+    "year": "2023",
     "metrics": [
-      { "value": "+35%", "label": "Enquête responsrate" },
-      { "value": "-28%", "label": "Personeelsverloop" },
+      { "value": "+35%", "label": "Bestelconversie" },
+      { "value": "-28%", "label": "Winkelwagen verlating" },
       { "value": "4.8", "label": "App Store beoordeling" }
     ]
   },
   {
-    "slug": "hatch",
-    "title": "Hatch",
-    "client": "EdTech",
-    "description": "Online leren heruitvinden met adaptieve, hapklare ervaringen.",
-    "longDescription": "Hatch wilde breken met passieve videocursussen. We ontwierpen een mobile-first leerplatform met adaptieve leerpaden, gespreide herhaling en sociale verantwoordingsfuncties die leerlingen ver voorbij de eerste week betrokken houden.",
-    "services": ["UX & UI Design", "MVP's Bouwen", "Design Systems"],
+    "slug": "uber",
+    "title": "Chauffeurservaring Herontwerp",
+    "client": "Uber",
+    "description": "De chauffeur- en passagierservaring verbeteren voor 's werelds grootste mobiliteitsplatform.",
+    "longDescription": "Uber had designondersteuning nodig om belangrijke touchpoints in de chauffeur- en passagiersreis te verfijnen. We werkten nauw samen met hun productteams om onboarding flows, in-app communicatie en veiligheidsfuncties te verbeteren — voor een soepelere ervaring voor miljoenen gebruikers.",
+    "services": ["UX & UI Design", "Research & Strategie", "Design Systems"],
     "year": "2024",
     "metrics": [
-      { "value": "92%", "label": "Voltooiingspercentage" },
-      { "value": "+3x", "label": "Dagelijks actieve gebruikers" },
-      { "value": "18min", "label": "Gem. sessieduur" }
-    ]
-  },
-  {
-    "slug": "norde",
-    "title": "Norde",
-    "client": "Logistiek",
-    "description": "Last-mile bezorging stroomlijnen met een chauffeur-eerst aanpak.",
-    "longDescription": "De bezorgchauffeurs van Norde vochten tegen een onhandige app die hen vertraagde. We herontwierpen de chauffeurservaring van scratch — grote touch targets, spraakgestuurde navigatie en slimme routeoptimalisatie die realtime inspeelt op verkeer en orderwijzigingen.",
-    "services": ["Research & Strategie", "UX & UI Design", "MVP's Bouwen"],
-    "year": "2024",
-    "metrics": [
-      { "value": "+22%", "label": "Bezorgingen per shift" },
-      { "value": "-40%", "label": "Chauffeursklachten" },
-      { "value": "98.5%", "label": "Op-tijd bezorging" }
-    ]
-  },
-  {
-    "slug": "lumen",
-    "title": "Lumen",
-    "client": "PropTech",
-    "description": "Een smart building platform dat energiedata omzet in besparingen.",
-    "longDescription": "Lumen verbindt gebouwsensoren, energiemeters en klimaatsystemen in één interface voor vastgoedbeheerders. We ontwierpen een intuïtief dashboard dat afwijkingen signaleert, verbruik voorspelt en optimalisaties aanbeveelt — waarmee gebouwen tot 30% op energiekosten besparen.",
-    "services": ["UX & UI Design", "Design Systems", "AI Integratie"],
-    "year": "2023",
-    "metrics": [
-      { "value": "-30%", "label": "Energiekosten" },
-      { "value": "200+", "label": "Verbonden gebouwen" },
-      { "value": "15sec", "label": "Tijd tot afwijkingsmelding" }
+      { "value": "+30%", "label": "Taakvoltooiing" },
+      { "value": "-35%", "label": "Supporttickets" },
+      { "value": "4.7", "label": "App Store beoordeling" }
     ]
   }
 ]

@@ -12,11 +12,11 @@ export function LanguageSwitcher({ isHome = false }: { isHome?: boolean }) {
     <Link
       href={pathname}
       locale={targetLocale}
-      className={
+      className={`flex h-[44px] w-[44px] items-center justify-center rounded-full text-sm font-semibold lowercase ${
         isHome
-          ? "flex h-[44px] w-[44px] items-center justify-center rounded-full text-sm font-semibold lowercase text-white transition-colors hover:bg-white/10"
-          : "flex h-[44px] w-[44px] items-center justify-center rounded-full text-sm font-semibold lowercase text-[#535862] transition-colors hover:bg-black/5 dark:text-[#94979e] dark:hover:bg-white/10"
-      }
+          ? "text-white btn-icon-glass-dark"
+          : "text-muted-foreground btn-icon-glass"
+      }`}
     >
       {targetLocale}
     </Link>

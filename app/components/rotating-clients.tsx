@@ -3,8 +3,8 @@
 import { useEffect, useState, useCallback } from "react";
 
 const allClients = [
-  "Heineken", "Uber", "KPN", "Adyen", "Bol.com", "Rijksoverheid", "SPIE", "Miro",
-  "Louwman", "Temper", "GVB", "Van Dale", "Magnet.me", "Hopin", "Leaseplan", "Whoppah",
+  "Heineken", "Uber", "Kpn", "Adyen", "Bol.com", "Rijksoverheid", "Spie", "Miro",
+  "Louwman", "Temper", "Gvb", "Van dale", "Magnet.me", "Hopin", "Leaseplan", "Whoppah",
 ];
 
 const VISIBLE_COUNT = 8;

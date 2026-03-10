@@ -15,11 +15,11 @@ export function ThemeToggle({ isHome = false }: { isHome?: boolean }) {
   return (
     <button
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-      className={
+      className={`flex h-[44px] w-[44px] items-center justify-center rounded-full ${
         isHome
-          ? "flex h-[44px] w-[44px] items-center justify-center rounded-full text-white transition-colors hover:bg-white/10"
-          : "flex h-[44px] w-[44px] items-center justify-center rounded-full text-[#535862] transition-colors hover:bg-black/5 dark:text-[#94979e] dark:hover:bg-white/10"
-      }
+          ? "text-white btn-icon-glass-dark"
+          : "text-muted-foreground btn-icon-glass"
+      }`}
       aria-label={resolvedTheme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
     >
       {resolvedTheme === "dark" ? <Sun size={18} /> : <Moon size={18} />}

@@ -1,114 +1,86 @@
 [
   {
-    "slug": "meridian",
-    "title": "Meridian",
-    "client": "Fintech Platform",
-    "description": "Redesigning wealth management for the next generation of investors.",
-    "longDescription": "Meridian needed a complete reimagining of their wealth management platform. We conducted extensive user research with both advisors and retail investors, designed a new information architecture, and delivered a modern interface that simplifies complex financial data into actionable insights.",
-    "services": ["Research & Strategy", "UX & UI Design", "Design Systems"],
-    "year": "2025",
+    "slug": "heineken",
+    "title": "Heineken Draught Competition",
+    "client": "Heineken",
+    "description": "Redesigning the digital experience for one of the world's most iconic beer brands.",
+    "longDescription": "Heineken needed a modern digital platform that matches their brand ambition. We designed and built an experience that connects consumers with the brand across multiple touchpoints — from event discovery to product storytelling.",
+    "services": ["Research & Strategy", "UX & UI Design", "Build MVPs"],
+    "year": "2024",
     "metrics": [
       { "value": "+62%", "label": "User engagement" },
       { "value": "3x", "label": "Faster onboarding" },
-      { "value": "98%", "label": "Advisor satisfaction" }
+      { "value": "98%", "label": "Client satisfaction" }
     ]
   },
   {
-    "slug": "canopy",
-    "title": "Canopy",
-    "client": "Healthcare",
-    "description": "Connecting care teams with patients through intelligent communication.",
-    "longDescription": "Canopy's care coordination platform was powerful but hard to use. We redesigned the entire patient-facing experience — from appointment scheduling to real-time messaging — while introducing AI-powered triage that routes patients to the right care team instantly.",
-    "services": ["UX & UI Design", "AI Integration", "Build MVPs"],
+    "slug": "spie",
+    "title": "Field Operations Platform",
+    "client": "SPIE",
+    "description": "Streamlining operations for a leading European technical services provider.",
+    "longDescription": "SPIE required a digital transformation of their internal tooling and client-facing platforms. We designed intuitive interfaces that simplify complex technical workflows and improve communication between field teams and management.",
+    "services": ["UX & UI Design", "Design Systems", "Research & Strategy"],
     "year": "2024",
     "metrics": [
       { "value": "-45%", "label": "Response time" },
-      { "value": "+80%", "label": "Patient satisfaction" },
+      { "value": "+80%", "label": "User satisfaction" },
       { "value": "12k", "label": "Monthly active users" }
     ]
   },
   {
-    "slug": "arcline",
-    "title": "Arcline",
-    "client": "SaaS Analytics",
-    "description": "Transforming raw data into actionable insights with clarity and speed.",
-    "longDescription": "Arcline's analytics platform had all the data but none of the clarity. We redesigned their dashboard experience from the ground up, introducing customizable views, natural language queries, and a design system that scales across their growing product suite.",
-    "services": ["Design Systems", "UX & UI Design", "Research & Strategy"],
+    "slug": "nhg",
+    "title": "Homebuyer Portal",
+    "client": "NHG",
+    "description": "Making mortgage guarantees accessible and understandable for homebuyers.",
+    "longDescription": "NHG needed to make their mortgage guarantee process more transparent and user-friendly. We redesigned the digital experience to guide homebuyers through the application process with clarity, reducing friction and support requests.",
+    "services": ["Research & Strategy", "UX & UI Design", "Design Systems"],
     "year": "2024",
     "metrics": [
-      { "value": "+120%", "label": "Dashboard adoption" },
-      { "value": "-60%", "label": "Time to insight" },
+      { "value": "+120%", "label": "Application completion" },
+      { "value": "-60%", "label": "Support tickets" },
       { "value": "50+", "label": "Components shipped" }
     ]
   },
   {
-    "slug": "volta",
-    "title": "Volta",
-    "client": "E-Commerce",
-    "description": "A premium direct-to-consumer storefront built for conversion.",
-    "longDescription": "Volta wanted a storefront that felt as premium as their products. We designed an editorial-meets-commerce experience that blends rich storytelling with seamless purchasing — resulting in a 40% increase in conversion rate within three months of launch.",
-    "services": ["Boost Branding", "UX & UI Design", "Build MVPs"],
+    "slug": "ggd-contact",
+    "title": "Citizen Contact Platform",
+    "client": "GGD",
+    "description": "Designing a contact platform that connects public health services with citizens.",
+    "longDescription": "GGD needed a scalable contact platform to handle citizen communication efficiently. We designed and built a system that streamlines appointment scheduling, information sharing, and follow-up — ensuring public health services remain accessible to everyone.",
+    "services": ["UX & UI Design", "Build MVPs", "AI Integration"],
     "year": "2023",
     "metrics": [
       { "value": "+40%", "label": "Conversion rate" },
-      { "value": "+25%", "label": "Average order value" },
-      { "value": "2.8x", "label": "Return visitor rate" }
+      { "value": "+25%", "label": "User satisfaction" },
+      { "value": "2.8x", "label": "Faster processing" }
     ]
   },
   {
-    "slug": "pulse",
-    "title": "Pulse",
-    "client": "HR Tech",
-    "description": "A people analytics platform that makes employee wellbeing measurable.",
-    "longDescription": "Pulse needed to turn abstract employee sentiment into clear, actionable data for HR leaders. We designed a dashboard that surfaces trends in team health, engagement and burnout risk — powered by real-time survey data and AI-driven recommendations.",
-    "services": ["Research & Strategy", "UX & UI Design", "AI Integration"],
-    "year": "2025",
+    "slug": "sitedish",
+    "title": "Restaurant Ordering Platform",
+    "client": "Sitedish",
+    "description": "Building a platform that connects restaurants with hungry customers.",
+    "longDescription": "Sitedish wanted a modern ordering platform that feels effortless for both restaurants and customers. We designed an end-to-end experience — from restaurant onboarding to customer checkout — that drives conversion and repeat orders.",
+    "services": ["UX & UI Design", "Build MVPs", "Design Systems"],
+    "year": "2023",
     "metrics": [
-      { "value": "+35%", "label": "Survey response rate" },
-      { "value": "-28%", "label": "Employee turnover" },
+      { "value": "+35%", "label": "Order conversion" },
+      { "value": "-28%", "label": "Cart abandonment" },
       { "value": "4.8", "label": "App Store rating" }
     ]
   },
   {
-    "slug": "hatch",
-    "title": "Hatch",
-    "client": "EdTech",
-    "description": "Reimagining online learning with adaptive, bite-sized experiences.",
-    "longDescription": "Hatch wanted to break the mold of passive video courses. We designed a mobile-first learning platform with adaptive pathways, spaced repetition, and social accountability features that keep learners engaged far beyond the first week.",
-    "services": ["UX & UI Design", "Build MVPs", "Design Systems"],
+    "slug": "uber",
+    "title": "Driver Experience Redesign",
+    "client": "Uber",
+    "description": "Enhancing the driver and rider experience for the world's leading mobility platform.",
+    "longDescription": "Uber needed design support to refine key touchpoints in the driver and rider journey. We worked closely with their product teams to improve onboarding flows, in-app communication, and safety features — delivering a smoother experience for millions of users.",
+    "services": ["UX & UI Design", "Research & Strategy", "Design Systems"],
     "year": "2024",
     "metrics": [
-      { "value": "92%", "label": "Completion rate" },
-      { "value": "+3x", "label": "Daily active users" },
-      { "value": "18min", "label": "Avg. session time" }
-    ]
-  },
-  {
-    "slug": "norde",
-    "title": "Norde",
-    "client": "Logistics",
-    "description": "Streamlining last-mile delivery with a driver-first approach.",
-    "longDescription": "Norde's delivery drivers were fighting a clunky app that slowed them down. We redesigned the driver experience from scratch — large touch targets, voice-assisted navigation, and smart route optimization that adapts in real time to traffic and order changes.",
-    "services": ["Research & Strategy", "UX & UI Design", "Build MVPs"],
-    "year": "2024",
-    "metrics": [
-      { "value": "+22%", "label": "Deliveries per shift" },
-      { "value": "-40%", "label": "Driver complaints" },
-      { "value": "98.5%", "label": "On-time delivery" }
-    ]
-  },
-  {
-    "slug": "lumen",
-    "title": "Lumen",
-    "client": "PropTech",
-    "description": "A smart building platform that turns energy data into savings.",
-    "longDescription": "Lumen connects building sensors, energy meters, and climate systems into a single interface for property managers. We designed an intuitive dashboard that surfaces anomalies, forecasts consumption, and recommends optimizations — helping buildings reduce energy costs by up to 30%.",
-    "services": ["UX & UI Design", "Design Systems", "AI Integration"],
-    "year": "2023",
-    "metrics": [
-      { "value": "-30%", "label": "Energy costs" },
-      { "value": "200+", "label": "Buildings connected" },
-      { "value": "15sec", "label": "Time to anomaly alert" }
+      { "value": "+30%", "label": "Task completion" },
+      { "value": "-35%", "label": "Support tickets" },
+      { "value": "4.7", "label": "App Store rating" }
     ]
   }
 ]

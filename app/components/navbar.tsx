@@ -98,16 +98,14 @@ export function Navbar() {
     <>
       {/* Announcement bar — scrolls with the page */}
       <div ref={announcementRef} className={cn(
-        "absolute inset-x-0 top-0 z-50 flex items-center justify-center gap-2 border-b px-4 py-2.5 text-sm backdrop-blur-sm overflow-hidden",
-        isDarkHero
-          ? "border-white/10 bg-white/5"
-          : "border-black/5 bg-[#f9f9f9] dark:border-white/10 dark:bg-white/5"
+        "absolute inset-x-0 top-0 z-50 flex items-center justify-center gap-2 px-4 py-2.5 text-sm backdrop-blur-sm overflow-hidden",
+        isDarkHero ? "banner-glass-dark" : "banner-glass"
       )}>
-        <Sparkles size={14} className={isDarkHero ? "text-white/70" : "text-[#535862] dark:text-white/70"} />
-        <span className={cn("truncate", isDarkHero ? "text-white/70" : "text-[#535862] dark:text-white/70")}>{t("announcement")}</span>
+        <Sparkles size={14} className={isDarkHero ? "text-white/70" : "text-muted-foreground"} />
+        <span className={cn("truncate", isDarkHero ? "text-white/70" : "text-muted-foreground")}>{t("announcement")}</span>
         <Link href="/blog" className={cn(
           "inline-flex shrink-0 items-center gap-1 whitespace-nowrap font-semibold transition-colors",
-          isDarkHero ? "text-white hover:text-white/80" : "text-[#535862] hover:text-accent dark:text-white"
+          isDarkHero ? "text-white hover:text-white/80" : "text-muted-foreground hover:text-foreground"
         )}>
           {t("readMore")}
           <ArrowRight size={14} />
@@ -159,7 +157,7 @@ export function Navbar() {
                   href={link.href}
                   className={cn(
                     "rounded-full px-3 h-8 flex items-center text-sm font-medium transition-colors whitespace-nowrap",
-                    "text-[#0A0A0A] hover:bg-black/5",
+                    "text-foreground hover:bg-black/5",
                     isDarkHero && !pillVisible
                       ? "md:text-white md:hover:bg-white/10 md:hover:text-white"
                       : "md:text-foreground md:dark:text-white md:hover:bg-muted md:hover:text-foreground"

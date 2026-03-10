@@ -1,6 +1,6 @@
 {
   "nav": {
-    "work": "Werk",
+    "work": "Projecten",
     "services": "Expertise",
     "about": "Over ons",
     "blog": "Inzichten",
@@ -17,7 +17,7 @@
     "title": "Gecreëerd vanuit de kern",
     "subtitle": "Wij helpen teams bij het onderzoeken, ontwerpen en bouwen van digitale producten met echte impact.",
     "cta": "Samenwerken",
-    "ctaSecondary": "Ons werk",
+    "ctaSecondary": "Onze projecten",
     "heroChoice1": "Een product ontwerpen",
     "heroChoice2": "Een bestaand product verbeteren",
     "heroChoice3": "Nog niet zeker — laten we praten",
@@ -156,10 +156,10 @@
     "ctaHeadline": "Wil je met ons samenwerken?",
     "ctaText": "We horen graag over je project. Of je nu een helder briefing hebt of alleen een idee — laten we verkennen wat mogelijk is.",
     "ctaCta": "Neem contact op",
-    "ctaSecondary": "Bekijk ons werk"
+    "ctaSecondary": "Bekijk onze projecten"
   },
   "work": {
-    "title": "Werk",
+    "title": "Projecten",
     "subtitle": "We maken niet alleen mooie dingen — we zorgen dat ze werken. Elk project wordt gemeten aan echte bedrijfsdoelen.",
     "viewCase": "Bekijk case study",
     "services": "Expertise",
@@ -200,7 +200,7 @@
     "sprintProcess": "Het 4-daagse proces",
     "ctaHeadline": "Niet zeker welk pakket past?",
     "ctaCta": "Neem contact op",
-    "ctaSecondary": "Bekijk ons werk",
+    "ctaSecondary": "Bekijk onze projecten",
     "faqTitle": "Veelgestelde vragen",
     "faq1Q": "Hoe werkt het designproces?",
     "faq1A": "We starten met een kickoff om je doelen, gebruikers en randvoorwaarden te begrijpen. Daarna gaan we aan de slag met onderzoek, wireframes, visueel ontwerp en prototyping — altijd met regelmatige check-ins zodat je betrokken blijft.",

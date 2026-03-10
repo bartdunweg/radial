@@ -264,6 +264,7 @@ export default async function HomePage({
           { text: t("intro11b"), style: "accent" },
         ]}
         className="mx-auto max-w-[960px] text-[clamp(1.75rem,3vw,2.5rem)] leading-[1.4] tracking-tight"
+        sparkles={false}
       />
 
       <div className="px-8"><div className="mx-auto max-w-[1280px]"><div className="h-px bg-black/5 dark:bg-white/10" /></div></div>

@@ -161,7 +161,7 @@ export function ScrollTextReveal({
                 <span
                   data-revealed={isRevealed || undefined}
                   className={`inline-block ${
-                    w.style === "accent" ? "font-semibold" : ""
+                    w.style === "accent" ? "font-semibold bg-clip-text text-transparent footer-wordmark" : ""
                   }`}
                   style={{
                     opacity: isRevealed ? 1 : 0.15,

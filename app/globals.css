@@ -353,42 +353,28 @@ h1, h2, h3, h4, h5 {
 }
 
 /* Announcement banner — glass style */
-@layer components {
-  .banner-glass {
-    position: relative;
-    background-color: rgba(0,0,0,0.02);
-    border-bottom: 1px solid rgba(0,0,0,0.06);
-    background-image:
-      linear-gradient(rgba(0,0,0,0) 65%, rgba(0,0,0,0.01) 110%),
-      linear-gradient(rgba(0,0,0,0.015) -10%, rgba(0,0,0,0) 45%);
-    box-shadow:
-      rgba(0,0,0,0.03) 0px 1px 2px 0px,
-      rgba(255,255,255,0.30) 0px 0.5px 0.5px 0px inset,
-      rgba(0,0,0,0.01) 0px -0.5px 0.5px 0px inset;
-  }
-  .banner-glass-dark {
-    position: relative;
-    background-color: rgba(255,255,255,0.04);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    background-image:
-      linear-gradient(rgba(255,255,255,0) 65%, rgba(255,255,255,0.01) 110%),
-      linear-gradient(rgba(255,255,255,0.02) -10%, rgba(255,255,255,0) 45%);
-    box-shadow:
-      rgba(0,0,0,0.06) 0px 1px 2px 0px,
-      rgba(255,255,255,0.04) 0px 0.5px 0.5px 0px inset,
-      rgba(255,255,255,0.01) 0px -0.5px 0.5px 0px inset;
-  }
-  .dark .banner-glass {
-    background-color: rgba(255,255,255,0.04);
-    border-bottom-color: rgba(255,255,255,0.08);
-    background-image:
-      linear-gradient(rgba(255,255,255,0) 65%, rgba(255,255,255,0.01) 110%),
-      linear-gradient(rgba(255,255,255,0.02) -10%, rgba(255,255,255,0) 45%);
-    box-shadow:
-      rgba(0,0,0,0.06) 0px 1px 2px 0px,
-      rgba(255,255,255,0.04) 0px 0.5px 0.5px 0px inset,
-      rgba(255,255,255,0.01) 0px -0.5px 0.5px 0px inset;
-  }
+.banner-glass {
+  position: relative;
+  background-color: rgba(0,0,0,0.02);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  background-image:
+    linear-gradient(rgba(0,0,0,0) 65%, rgba(0,0,0,0.01) 110%),
+    linear-gradient(rgba(0,0,0,0.015) -10%, rgba(0,0,0,0) 45%);
+}
+.banner-glass-dark {
+  position: relative;
+  background-color: rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background-image:
+    linear-gradient(rgba(255,255,255,0) 65%, rgba(255,255,255,0.01) 110%),
+    linear-gradient(rgba(255,255,255,0.02) -10%, rgba(255,255,255,0) 45%);
+}
+.dark .banner-glass {
+  background-color: rgba(255,255,255,0.04);
+  border-bottom-color: rgba(255,255,255,0.08);
+  background-image:
+    linear-gradient(rgba(255,255,255,0) 65%, rgba(255,255,255,0.01) 110%),
+    linear-gradient(rgba(255,255,255,0.02) -10%, rgba(255,255,255,0) 45%);
 }
 
 /* Dark mode button overrides */

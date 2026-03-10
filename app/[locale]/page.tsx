@@ -5,7 +5,7 @@ import { buttonVariants } from "@/components/ui/button-variants";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { ArrowRight, Check, X } from "lucide-react";
+import { ArrowRight, Check, X, Users, Handshake, Microscope, Rocket } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { AtomToggle } from "../components/atom-toggle";
@@ -20,6 +20,9 @@ import {
 } from "../components/animated-sections";
 import { HomeVariantToggle } from "../components/home-variant-toggle";
 import { DotField } from "../components/dot-field";
+import { TextReveal } from "../components/text-reveal";
+import { ScrollTextReveal } from "../components/scroll-text-reveal";
+import { ScrollApproach } from "../components/scroll-approach";
 
 
 export default async function HomePage({
@@ -249,17 +252,24 @@ export default async function HomePage({
 
       <div className="px-8"><div className="mx-auto max-w-[1280px]"><div className="h-px bg-black/5 dark:bg-white/10" /></div></div>
 
-      {/* Manifesto */}
-      <section className="px-8 py-24">
-        <div className="mx-auto max-w-[960px]">
-          <AnimatedSection>
-            <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">{t("introLabel")}</span>
-            <h2 className="mt-4 text-[clamp(1.5rem,2.5vw,2rem)] leading-[1.4] tracking-tight">
-              {t("introText")}
-            </h2>
-          </AnimatedSection>
-        </div>
-      </section>
+      {/* Manifesto — scroll-driven reveal */}
+      <ScrollTextReveal
+        label={t("introLabel")}
+        segments={[
+          { text: t("intro1") },
+          { text: t("intro2") },
+          { text: t("intro3a") },
+          { text: t("intro3b"), style: "accent" },
+          { text: t("intro3c") },
+          { text: t("intro4") },
+          { text: t("intro5"), style: "accent" },
+          { text: t("intro6") },
+          { text: t("intro7") },
+          { text: t("intro8a") },
+          { text: t("intro8b"), style: "accent" },
+        ]}
+        className="mx-auto max-w-[960px] text-[clamp(1.75rem,3vw,2.5rem)] leading-[1.4] tracking-tight"
+      />
 
       <div className="px-8"><div className="mx-auto max-w-[1280px]"><div className="h-px bg-black/5 dark:bg-white/10" /></div></div>
 
@@ -391,19 +401,16 @@ export default async function HomePage({
             ))}
           </AnimatedGrid>
 
-          <AnimatedGrid className="mt-16 grid gap-8 sm:grid-cols-2" staggerDelay={0.1}>
-            {[
-              { title: t("aboutApproach1Title"), text: t("aboutApproach1Text") },
-              { title: t("aboutApproach2Title"), text: t("aboutApproach2Text") },
-              { title: t("aboutApproach3Title"), text: t("aboutApproach3Text") },
-              { title: t("aboutApproach4Title"), text: t("aboutApproach4Text") },
-            ].map((item) => (
-              <AnimatedGridItem key={item.title} className="rounded-2xl border border-black/5 bg-background p-6 dark:border-white/10">
-                <h3 className="text-xl font-medium tracking-tight">{item.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.text}</p>
-              </AnimatedGridItem>
-            ))}
-          </AnimatedGrid>
+          <div className="mt-16">
+            <ScrollApproach
+              items={[
+                { title: t("aboutApproach1Title"), text: t("aboutApproach1Text"), icon: <Users size={18} /> },
+                { title: t("aboutApproach2Title"), text: t("aboutApproach2Text"), icon: <Handshake size={18} /> },
+                { title: t("aboutApproach3Title"), text: t("aboutApproach3Text"), icon: <Microscope size={18} /> },
+                { title: t("aboutApproach4Title"), text: t("aboutApproach4Text"), icon: <Rocket size={18} /> },
+              ]}
+            />
+          </div>
         </div>
       </section>
 

@@ -131,7 +131,7 @@ export function ScrollApproach({ items, interval = 5000 }: ScrollApproachProps) 
       </div>
 
       {/* Right: image */}
-      <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-black/5 bg-[#f5f5f5]">
+      <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-black/5 bg-[#f5f5f5] dark:border-white/10 dark:bg-white/5">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeIndex}

@@ -1,6 +1,6 @@
 {
   "nav": {
-    "work": "Work",
+    "work": "Projects",
     "services": "Expertise",
     "about": "About",
     "blog": "Insights",
@@ -17,7 +17,7 @@
     "title": "Crafted from the core out",
     "subtitle": "We help teams research, design and build digital products that make real impact.",
     "cta": "Let's collaborate",
-    "ctaSecondary": "Our work",
+    "ctaSecondary": "Our projects",
     "heroChoice1": "Design a product",
     "heroChoice2": "Improve an existing product",
     "heroChoice3": "Not sure yet — let's talk",
@@ -156,10 +156,10 @@
     "ctaHeadline": "Want to work with us?",
     "ctaText": "We'd love to hear about your project. Whether you have a clear brief or just an idea — let's explore what's possible.",
     "ctaCta": "Get in touch",
-    "ctaSecondary": "See our work"
+    "ctaSecondary": "See our projects"
   },
   "work": {
-    "title": "Work",
+    "title": "Projects",
     "subtitle": "We don't just make things look good — we make them work. Every project is measured against real business goals.",
     "viewCase": "View case study",
     "services": "Expertise",
@@ -200,7 +200,7 @@
     "sprintProcess": "The 4-day process",
     "ctaHeadline": "Not sure which package fits?",
     "ctaCta": "Get in touch",
-    "ctaSecondary": "See our work",
+    "ctaSecondary": "See our projects",
     "faqTitle": "Frequently Asked Questions",
     "faq1Q": "How does the design process work?",
     "faq1A": "We start with a kickoff to understand your goals, users, and constraints. From there we move into research, wireframing, visual design, and prototyping — always with regular check-ins so you stay in the loop.",

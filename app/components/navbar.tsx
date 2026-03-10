@@ -98,8 +98,8 @@ export function Navbar() {
     <>
       {/* Announcement bar — scrolls with the page */}
       <div ref={announcementRef} className={cn(
-        "absolute inset-x-0 top-0 z-50 flex items-center justify-center gap-2 px-4 py-2.5 text-sm backdrop-blur-sm overflow-hidden",
-        isDarkHero ? "banner-glass-dark" : "banner-glass"
+        "absolute inset-x-0 top-0 z-50 flex items-center justify-center gap-2 px-4 py-2.5 text-sm overflow-hidden",
+        isDarkHero ? "banner-dark" : "banner-light"
       )}>
         <Sparkles size={14} className={isDarkHero ? "text-white/70" : "text-muted-foreground"} />
         <span className={cn("truncate", isDarkHero ? "text-white/70" : "text-muted-foreground")}>{t("announcement")}</span>

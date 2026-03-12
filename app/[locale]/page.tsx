@@ -80,20 +80,6 @@ export default async function HomePage({
   })();
 
   /* ------------------------------------------------------------------ */
-  /*  Clients section                                                   */
-  /* ------------------------------------------------------------------ */
-  const clientsSection = (
-    <section className="px-8 pb-24">
-      <div className="mx-auto max-w-[1280px]">
-        <p className="mb-10 text-center text-base font-medium text-muted-foreground">
-          {t("clients")}
-        </p>
-        <RotatingClients />
-      </div>
-    </section>
-  );
-
-  /* ------------------------------------------------------------------ */
   /*  Variant A — minimal hero + sliders                                */
   /* ------------------------------------------------------------------ */
   const variantA = (
@@ -105,18 +91,13 @@ export default async function HomePage({
           <div className="mx-auto max-w-[1280px]">
             <AnimatedHero className="mx-auto max-w-[640px] text-center">
               <AnimatedHeroItem>
-                <span className="text-sm font-semibold tracking-wide text-muted-foreground">
-                  {t("tagline")}
-                </span>
-              </AnimatedHeroItem>
-              <AnimatedHeroItem>
-                <h1 className="mt-4 text-[48px] leading-[1.1] tracking-tight md:text-[52px] lg:text-[64px]">
-                  {t("heroTitle")}
+                <h1 className="text-[48px] leading-[1.1] tracking-tight md:text-[52px] lg:text-[64px]">
+                  {t("heroTitle1")}<br />{t("heroTitle2")}
                 </h1>
               </AnimatedHeroItem>
               <AnimatedHeroItem>
                 <p className="mt-6 max-w-[480px] mx-auto text-[17px] leading-relaxed text-muted-foreground md:text-[20px]">
-                  {t("subtitle")}
+                  {t("subtitle1")}<br />{t("subtitle2")}
                 </p>
               </AnimatedHeroItem>
               <AnimatedHeroItem>
@@ -133,12 +114,20 @@ export default async function HomePage({
             </AnimatedHero>
           </div>
         </div>
+
       </section>
 
-      {/* Scrolling card rows + clients — visible in bottom 10% */}
+      {/* Scrolling card rows + clients */}
       <div className="bg-background text-foreground">
         {marqueeRows}
-        {clientsSection}
+        <section className="px-8 pb-24">
+          <div className="mx-auto max-w-[1280px]">
+            <p className="mb-10 text-center text-base font-medium text-muted-foreground">
+              {t("clients")}
+            </p>
+            <RotatingClients />
+          </div>
+        </section>
       </div>
     </div>
   );
@@ -155,18 +144,13 @@ export default async function HomePage({
           <div className="mx-auto max-w-[1280px]">
             <AnimatedHero className="mx-auto max-w-[640px] lg:mx-0">
               <AnimatedHeroItem>
-                <span className="text-sm font-semibold tracking-wide text-white/50">
-                  {t("tagline")}
-                </span>
-              </AnimatedHeroItem>
-              <AnimatedHeroItem>
-                <h1 className="mt-4 text-[48px] leading-[1.1] tracking-tight md:text-[52px] lg:text-[64px]">
-                  {t("heroTitle")}
+                <h1 className="text-[48px] leading-[1.1] tracking-tight md:text-[52px] lg:text-[64px]">
+                  {t("heroTitle1")}<br />{t("heroTitle2")}
                 </h1>
               </AnimatedHeroItem>
               <AnimatedHeroItem>
                 <p className="mt-6 max-w-[480px] text-[17px] leading-relaxed text-white/70 md:text-[20px]">
-                  {t("subtitle")}
+                  {t("subtitle1")}<br />{t("subtitle2")}
                 </p>
               </AnimatedHeroItem>
               <AnimatedHeroItem>
@@ -183,12 +167,14 @@ export default async function HomePage({
             </AnimatedHero>
           </div>
         </div>
-      </section>
 
-      {/* Clients only (no sliders) */}
-      <div className="relative z-10 -mt-1 bg-background text-foreground">
-        {clientsSection}
-      </div>
+        {/* Clients pinned to bottom of hero — desktop only */}
+        <div className="absolute bottom-16 left-0 right-0 z-10 hidden md:block px-8">
+          <div className="mx-auto max-w-[1280px]">
+            <RotatingClients count={6} />
+          </div>
+        </div>
+      </section>
     </div>
   );
 
@@ -252,17 +238,17 @@ export default async function HomePage({
           { text: t("intro1") },
           { text: t("intro2") },
           { text: t("intro3a") },
-          { text: t("intro3b"), style: "purple", icon: <Icon3DCore /> },
+          { text: t("intro3b"), style: "accent" },
           { text: t("intro3c") },
           { text: t("intro4") },
           { text: t("intro5") },
-          { text: t("intro6"), style: "orange", icon: <Icon3DFingerprint /> },
-          { text: t("intro7"), style: "pink", icon: <Icon3DMagnifier /> },
+          { text: t("intro6"), style: "accent" },
+          { text: t("intro7"), style: "accent" },
           { text: t("intro8") },
           { text: t("intro9") },
           { text: t("intro10") },
           { text: t("intro11a") },
-          { text: t("intro11b"), style: "blue", icon: <Icon3DHeart /> },
+          { text: t("intro11b"), style: "accent" },
         ]}
         className="mx-auto max-w-[960px] text-[clamp(1.75rem,3vw,2.5rem)] leading-[1.4] tracking-tight"
         sparkles={false}

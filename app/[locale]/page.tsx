@@ -23,6 +23,7 @@ import { DotField } from "../components/dot-field";
 import { TextReveal } from "../components/text-reveal";
 import { ScrollTextReveal } from "../components/scroll-text-reveal";
 import { ScrollApproach } from "../components/scroll-approach";
+import { Icon3DCore, Icon3DFingerprint, Icon3DMagnifier, Icon3DHeart } from "../components/manifesto-icons";
 
 
 export default async function HomePage({

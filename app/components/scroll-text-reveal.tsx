@@ -176,6 +176,7 @@ export function ScrollTextReveal({
             const isRevealed = w.index < revealed;
             const isAccent = w.style === "accent";
 
+
             return (
               <span key={w.index} className="inline">
                 <span

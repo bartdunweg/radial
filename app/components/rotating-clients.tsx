@@ -7,16 +7,19 @@ const allClients = [
   "Louwman", "Temper", "Gvb", "Van dale", "Magnet.me", "Hopin", "Leaseplan", "Whoppah",
 ];
 
-const VISIBLE_COUNT = 8;
+interface RotatingClientsProps {
+  className?: string;
+  count?: number;
+}
 
-export function RotatingClients() {
-  const [visible, setVisible] = useState(allClients.slice(0, VISIBLE_COUNT));
+export function RotatingClients({ className, count = 8 }: RotatingClientsProps) {
+  const [visible, setVisible] = useState(allClients.slice(0, count));
   const [fadingOut, setFadingOut] = useState<number | null>(null);
   const [fadingIn, setFadingIn] = useState<number | null>(null);
-  const [nextPool, setNextPool] = useState(VISIBLE_COUNT);
+  const [nextPool, setNextPool] = useState(count);
 
   const swapOne = useCallback(() => {
-    const slotIndex = Math.floor(Math.random() * VISIBLE_COUNT);
+    const slotIndex = Math.floor(Math.random() * count);
 
     setFadingOut(slotIndex);
 
@@ -25,7 +28,6 @@ export function RotatingClients() {
         const next = [...prev];
         const currentVisible = new Set(next);
         let poolIndex = nextPool;
-        // Find a name not currently visible
         let newName = allClients[poolIndex % allClients.length];
         let attempts = 0;
         while (currentVisible.has(newName) && attempts < allClients.length) {
@@ -44,15 +46,19 @@ export function RotatingClients() {
         setFadingIn(null);
       }, 300);
     }, 300);
-  }, [nextPool]);
+  }, [nextPool, count]);
 
   useEffect(() => {
     const interval = setInterval(swapOne, 2000);
     return () => clearInterval(interval);
   }, [swapOne]);
 
+  const gridClass = count <= 6
+    ? "grid grid-cols-3 md:grid-cols-6"
+    : "grid grid-cols-4 md:grid-cols-8";
+
   return (
-    <div className="grid grid-cols-4 md:grid-cols-8">
+    <div className={gridClass}>
       {visible.map((name, i) => (
         <div
           key={i}
@@ -60,7 +66,7 @@ export function RotatingClients() {
         >
           <span
             style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
-            className={`text-lg font-medium tracking-tight text-muted-foreground transition-all duration-300 md:text-2xl ${
+            className={`text-lg font-medium tracking-tight ${className || "text-muted-foreground"} transition-all duration-300 md:text-2xl ${
               fadingOut === i
                 ? "-translate-y-2 opacity-0"
                 : fadingIn === i

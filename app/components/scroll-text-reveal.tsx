@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useCallback, useEffect, useSyncExternalStore, type ReactNode } from "react";
+import { useRef, useState, useCallback, useEffect, useSyncExternalStore } from "react";
 import { motion, useScroll, useTransform, useMotionValueEvent } from "motion/react";
 
 function useHomeVariant() {
@@ -96,10 +96,8 @@ function Sparkles({
 
 export interface TextSegment {
   text: string;
-  /** "default" = primary color, color variants = bold + gradient */
-  style?: "default" | "accent" | "purple" | "orange" | "pink" | "blue";
-  /** Optional inline icon rendered before the first word of this segment */
-  icon?: ReactNode;
+  /** "default" = primary color, "accent" = bold + gradient (branded only) */
+  style?: "default" | "accent";
 }
 
 interface ScrollTextRevealProps {
@@ -111,9 +109,8 @@ interface ScrollTextRevealProps {
 
 interface Word {
   text: string;
-  style: "default" | "accent" | "purple" | "orange" | "pink" | "blue";
-  index: number; // word index for reveal tracking
-  icon?: ReactNode; // icon rendered before this word
+  style: "default" | "accent";
+  index: number;
 }
 
 export function ScrollTextReveal({
@@ -138,7 +135,6 @@ export function ScrollTextReveal({
         text: segWords[i],
         style,
         index: wordIdx++,
-        icon: i === 0 ? seg.icon : undefined,
       });
     }
   }
@@ -178,39 +174,10 @@ export function ScrollTextReveal({
           {sparkles && <Sparkles containerRef={stickyRef} active={isAnimating} />}
           {words.map((w) => {
             const isRevealed = w.index < revealed;
-            const isAccent = w.style !== "default";
-
-            const gradientMap: Record<string, string> = {
-              accent: "linear-gradient(135deg, #6040a0 0%, #2050b0 50%, #4080e0 100%)",
-              purple: "linear-gradient(135deg, #6040a0 0%, #8060c0 50%, #a080e0 100%)",
-              orange: "linear-gradient(135deg, #c05020 0%, #e07030 50%, #f09040 100%)",
-              pink:   "linear-gradient(135deg, #c03070 0%, #e05090 50%, #f070b0 100%)",
-              blue:   "linear-gradient(135deg, #2040c0 0%, #3060e0 50%, #4080ff 100%)",
-            };
-
-            const hasIcon = !!w.icon;
+            const isAccent = w.style === "accent";
 
             return (
               <span key={w.index} className="inline">
-                {hasIcon && (
-                  <motion.span
-                    className="inline-block align-middle mr-1.5"
-                    initial={{ opacity: 0, scale: 0, filter: "blur(6px)" }}
-                    animate={isRevealed
-                      ? { opacity: 1, scale: 1, filter: "blur(0px)" }
-                      : { opacity: 0, scale: 0, filter: "blur(6px)" }
-                    }
-                    transition={{
-                      type: "spring",
-                      stiffness: 400,
-                      damping: 20,
-                      mass: 0.8,
-                    }}
-                    style={{ transformOrigin: "center center" }}
-                  >
-                    {w.icon}
-                  </motion.span>
-                )}
                 <span
                   data-revealed={isRevealed || undefined}
                   className={`inline-block ${
@@ -225,11 +192,9 @@ export function ScrollTextReveal({
                   style={{
                     opacity: isRevealed ? 1 : 0.15,
                     filter: isRevealed ? "blur(0px)" : "blur(4px)",
-                    transition: hasIcon
-                      ? "opacity 0.5s ease-out 0.15s, filter 0.5s ease-out 0.15s"
-                      : "opacity 0.6s ease-out, filter 0.6s ease-out",
+                    transition: "opacity 0.6s ease-out, filter 0.6s ease-out",
                     ...(isAccent && isBranded ? {
-                      backgroundImage: gradientMap[w.style],
+                      backgroundImage: "linear-gradient(135deg, #6040a0 0%, #2050b0 50%, #4080e0 100%)",
                       WebkitBackgroundClip: "text",
                       WebkitTextFillColor: "transparent",
                       backgroundClip: "text",

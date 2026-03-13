@@ -194,6 +194,7 @@ export default async function HomePage({
           { text: t("intro3b"), style: "accent" },
           { text: t("intro4") },
           { text: t("intro5") },
+          { text: t("intro5b") },
           { text: t("intro6"), style: "accent" },
           { text: t("intro7"), style: "accent" },
         ]}

@@ -158,6 +158,14 @@ export default async function AboutPage({
 
         <Separator className="my-16" />
 
+        {/* Small by design */}
+        <AnimatedSection>
+          <h3 className="text-base font-semibold">{t("smallByDesignTitle")}</h3>
+          <p className="mt-2 max-w-xl text-sm text-muted-foreground leading-relaxed">{t("smallByDesignText")}</p>
+        </AnimatedSection>
+
+        <Separator className="my-16" />
+
         {/* Team */}
         <AnimatedSection>
           <h2 className="text-2xl tracking-tight">{t("teamTitle")}</h2>

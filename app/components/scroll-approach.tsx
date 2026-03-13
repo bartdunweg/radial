@@ -1,8 +1,6 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef, type ReactNode } from "react";
-import Image from "next/image";
-import { motion, AnimatePresence } from "motion/react";
 
 interface ApproachItem {
   title: string;
@@ -91,69 +89,43 @@ export function ScrollApproach({ items, interval = 5000 }: ScrollApproachProps) 
   }, [activeIndex, interval, items.length]);
 
   return (
-    <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-16 md:items-center">
-      {/* Left: items with dividers */}
-      <div
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
-        {items.map((item, index) => {
-          const isActive = activeIndex === index;
-          return (
-            <div key={index}>
-              {/* Divider with progress */}
-              <div className="relative h-[1px] bg-black/5">
-                <div
-                  ref={(el) => { barRefs.current[index] = el; }}
-                  className="absolute inset-y-0 left-0 bg-foreground/80"
-                  style={{ width: "0%" }}
-                />
-              </div>
-              <button
-                type="button"
-                onClick={() => goTo(index)}
-                className="w-full py-5 text-left"
-              >
-                <h3 className="flex items-center gap-2.5 text-lg font-medium tracking-tight">
-                  {item.icon && <span className="shrink-0">{item.icon}</span>}
-                  {item.title}
-                </h3>
-                {isActive && (
-                  <p className="pt-2 text-sm text-muted-foreground leading-relaxed">
-                    {item.text}
-                  </p>
-                )}
-              </button>
-            </div>
-          );
-        })}
-        <div className="h-[1px] bg-black/5" />
-      </div>
-
-      {/* Right: image */}
-      <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-black/5 bg-[#f5f5f5] dark:border-white/10 dark:bg-white/5">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeIndex}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="absolute inset-0"
-          >
-            {items[activeIndex]?.image ? (
-              <Image
-                src={items[activeIndex].image!}
-                alt={items[activeIndex].title}
-                fill
-                className="object-cover"
+    <div
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      {items.map((item, index) => {
+        const isActive = activeIndex === index;
+        return (
+          <div key={index}>
+            {/* Divider with progress */}
+            <div className="relative h-[1px] bg-black/5 dark:bg-white/10">
+              <div
+                ref={(el) => { barRefs.current[index] = el; }}
+                className="absolute inset-y-0 left-0 bg-foreground/80"
+                style={{ width: "0%" }}
               />
-            ) : (
-              <div className="h-full w-full" />
-            )}
-          </motion.div>
-        </AnimatePresence>
-      </div>
+            </div>
+            <button
+              type="button"
+              onClick={() => goTo(index)}
+              className="w-full py-5 text-left"
+            >
+              <h3 className="flex items-center justify-between text-lg font-medium tracking-tight">
+                {item.title}
+                <span className="shrink-0 text-muted-foreground text-xl leading-none">
+                  {isActive ? "−" : "+"}
+                </span>
+              </h3>
+              {isActive && (
+                <p className="pt-2 text-sm text-muted-foreground leading-relaxed pr-8">
+                  {item.text}
+                </p>
+              )}
+            </button>
+          </div>
+        );
+      })}
+      <div className="h-[1px] bg-black/5 dark:bg-white/10" />
     </div>
   );
 }

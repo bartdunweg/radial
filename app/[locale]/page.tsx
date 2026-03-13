@@ -184,7 +184,26 @@ export default async function HomePage({
 
       <div className="px-8"><div className="mx-auto max-w-[1280px]"><div className="h-px bg-black/5 dark:bg-white/10" /></div></div>
 
-      {/* Featured Work — prominent, right after hero */}
+      {/* Manifesto — scroll-driven reveal */}
+      <ScrollTextReveal
+        label={undefined}
+        segments={[
+          { text: t("intro1a") },
+          { text: t("intro1b") },
+          { text: t("intro2") },
+          { text: t("intro3b"), style: "accent" },
+          { text: t("intro4") },
+          { text: t("intro5") },
+          { text: t("intro6"), style: "accent" },
+          { text: t("intro7"), style: "accent" },
+        ]}
+        className="mx-auto max-w-[960px] text-[clamp(1.75rem,3vw,2.5rem)] leading-[1.4] tracking-tight"
+        sparkles={false}
+      />
+
+      <div className="px-8"><div className="mx-auto max-w-[1280px]"><div className="h-px bg-black/5 dark:bg-white/10" /></div></div>
+
+      {/* Featured Work */}
       <section className="px-8 py-24">
         <div className="mx-auto max-w-[1280px]">
           <AnimatedSection>
@@ -231,28 +250,52 @@ export default async function HomePage({
 
       <div className="px-8"><div className="mx-auto max-w-[1280px]"><div className="h-px bg-black/5 dark:bg-white/10" /></div></div>
 
-      {/* Manifesto — scroll-driven reveal */}
-      <ScrollTextReveal
-        label={t("introLabel")}
-        segments={[
-          { text: t("intro1") },
-          { text: t("intro2") },
-          { text: t("intro3a") },
-          { text: t("intro3b"), style: "accent" },
-          { text: t("intro3c") },
-          { text: t("intro4") },
-          { text: t("intro5") },
-          { text: t("intro6"), style: "accent" },
-          { text: t("intro7"), style: "accent" },
-          { text: t("intro8") },
-          { text: t("intro9") },
-          { text: t("intro10") },
-          { text: t("intro11a") },
-          { text: t("intro11b"), style: "accent" },
-        ]}
-        className="mx-auto max-w-[960px] text-[clamp(1.75rem,3vw,2.5rem)] leading-[1.4] tracking-tight"
-        sparkles={false}
-      />
+      {/* About */}
+      <section className="px-8 py-24">
+        <div className="mx-auto max-w-[1280px]">
+          <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:items-start">
+            {/* Left: text + stats */}
+            <div>
+              <AnimatedSection>
+                <h2 className="text-[28px] md:text-[36px] tracking-tight">{t("aboutTitle")}</h2>
+                <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
+                  {t("aboutText")}
+                </p>
+                <div className="mt-6">
+                  <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
+                    {t("aboutCta")} <ArrowRight size={14} />
+                  </Link>
+                </div>
+              </AnimatedSection>
+
+            </div>
+
+            {/* Right: approach accordion */}
+            <AnimatedSection delay={0.15}>
+              <ScrollApproach
+                items={[
+                  { title: t("aboutApproach1Title"), text: t("aboutApproach1Text") },
+                  { title: t("aboutApproach2Title"), text: t("aboutApproach2Text") },
+                  { title: t("aboutApproach3Title"), text: t("aboutApproach3Text") },
+                  { title: t("aboutApproach4Title"), text: t("aboutApproach4Text") },
+                ]}
+              />
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* Team photo */}
+      <section className="px-8 py-24">
+        <div className="mx-auto max-w-[1280px]">
+          <div className="relative aspect-[21/9] w-full overflow-hidden rounded-2xl bg-muted">
+            {/* Placeholder — replace with actual team/drone photo */}
+            <div className="absolute inset-0 flex items-center justify-center text-muted-foreground text-sm">
+              Team photo placeholder
+            </div>
+          </div>
+        </div>
+      </section>
 
       <div className="px-8"><div className="mx-auto max-w-[1280px]"><div className="h-px bg-black/5 dark:bg-white/10" /></div></div>
 
@@ -266,9 +309,9 @@ export default async function HomePage({
 
           {/* Comparison cards — 4 columns with dividers, Radial card elevated */}
           <AnimatedSection delay={0.1}>
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr_1fr_auto] items-end gap-0">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr_1fr_auto] items-start gap-0 relative">
               {/* Three comparison cards in one bordered container */}
-              <div className="rounded-2xl border border-black/5 dark:border-white/10 grid grid-cols-1 sm:grid-cols-3 lg:col-span-3">
+              <div className="rounded-2xl border border-black/5 dark:border-white/10 grid grid-cols-1 sm:grid-cols-3 lg:col-span-3 relative z-0">
               {/* Freelancer */}
               <div className="p-6">
                 <h3 className="text-xl font-medium tracking-tight mb-6">{t("whyCol1Title")}</h3>
@@ -328,7 +371,7 @@ export default async function HomePage({
               </div>
 
               {/* Radial — elevated card */}
-              <div className="rounded-2xl bg-foreground text-background dark:bg-white dark:text-black p-6 -my-4 shadow-lg flex flex-col max-lg:mt-4 max-lg:-mb-0">
+              <div className="rounded-2xl bg-foreground text-background dark:bg-white dark:text-black p-6 -my-4 lg:-ml-4 shadow-lg flex flex-col max-lg:mt-4 max-lg:-mb-0 relative z-10">
                 <h3 className="text-xl font-medium tracking-tight mb-6">{t("whyCol2Title")}</h3>
                 <ul className="space-y-3 flex-1">
                   {[t("whyCol2Pro1"), t("whyCol2Pro2"), t("whyCol2Pro3"), t("whyCol2Pro4"), t("whyCol2Pro5")].map((item) => (
@@ -344,52 +387,6 @@ export default async function HomePage({
               </div>
             </div>
           </AnimatedSection>
-
-
-        </div>
-      </section>
-
-      <div className="px-8"><div className="mx-auto max-w-[1280px]"><div className="h-px bg-black/5 dark:bg-white/10" /></div></div>
-
-      {/* About */}
-      <section className="px-8 py-24">
-        <div className="mx-auto max-w-[1280px]">
-          <AnimatedSection className="max-w-2xl">
-            <h2 className="text-[28px] md:text-[36px] tracking-tight">{t("aboutTitle")}</h2>
-            <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-              {t("aboutText")}
-            </p>
-            <div className="mt-6">
-              <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
-                {t("aboutCta")} <ArrowRight size={14} />
-              </Link>
-            </div>
-          </AnimatedSection>
-
-          <AnimatedGrid className="mt-16 grid grid-cols-2 gap-8 md:grid-cols-4" staggerDelay={0.1}>
-            {[
-              { value: t("aboutStat1Value"), label: t("aboutStat1Label") },
-              { value: t("aboutStat2Value"), label: t("aboutStat2Label") },
-              { value: t("aboutStat3Value"), label: t("aboutStat3Label") },
-              { value: t("aboutStat4Value"), label: t("aboutStat4Label") },
-            ].map((stat) => (
-              <AnimatedGridItem key={stat.label}>
-                <div className="text-[36px] md:text-[48px] font-medium tracking-tight leading-none">{stat.value}</div>
-                <div className="mt-2 text-sm text-muted-foreground">{stat.label}</div>
-              </AnimatedGridItem>
-            ))}
-          </AnimatedGrid>
-
-          <div className="mt-16">
-            <ScrollApproach
-              items={[
-                { title: t("aboutApproach1Title"), text: t("aboutApproach1Text"), icon: <Users size={18} /> },
-                { title: t("aboutApproach2Title"), text: t("aboutApproach2Text"), icon: <Handshake size={18} /> },
-                { title: t("aboutApproach3Title"), text: t("aboutApproach3Text"), icon: <Microscope size={18} /> },
-                { title: t("aboutApproach4Title"), text: t("aboutApproach4Text"), icon: <Rocket size={18} /> },
-              ]}
-            />
-          </div>
         </div>
       </section>
 
@@ -404,22 +401,22 @@ export default async function HomePage({
             <p className="mt-4 text-muted-foreground leading-relaxed">{t("aiText2")}</p>
           </AnimatedSection>
 
-          <AnimatedGrid className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" staggerDelay={0.1}>
+          <div className="mt-12 grid grid-cols-2 lg:grid-cols-4">
             {[
               { title: t("aiPoint1Title"), text: t("aiPoint1Text") },
               { title: t("aiPoint2Title"), text: t("aiPoint2Text") },
               { title: t("aiPoint3Title"), text: t("aiPoint3Text") },
-            ].map((item) => (
-              <AnimatedGridItem key={item.title} className="rounded-2xl border border-black/5 p-6 dark:border-white/10">
-                <h3 className="text-base font-semibold">{item.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.text}</p>
-              </AnimatedGridItem>
+              { title: t("aiPoint4Title"), text: t("aiPoint4Text") },
+            ].map((item, i) => (
+              <div key={item.title} className="flex">
+                {i > 0 && <div className="w-px bg-black/5 dark:bg-white/10" />}
+                <div className="py-2 px-5">
+                  <h3 className="text-lg font-medium tracking-tight">{item.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.text}</p>
+                </div>
+              </div>
             ))}
-            <AnimatedGridItem className="rounded-2xl bg-foreground text-background dark:bg-white dark:text-black p-6">
-              <h3 className="text-base font-semibold">{t("aiPoint4Title")}</h3>
-              <p className="mt-2 text-sm text-background/70 dark:text-black/70 leading-relaxed">{t("aiPoint4Text")}</p>
-            </AnimatedGridItem>
-          </AnimatedGrid>
+          </div>
         </div>
       </section>
 

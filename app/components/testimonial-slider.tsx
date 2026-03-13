@@ -87,7 +87,7 @@ export function TestimonialSlider({ items }: { items: Testimonial[] }) {
             key={`${item.author}-${i}`}
             className="w-[400px] shrink-0 rounded-2xl border border-black/5 bg-background p-8 flex flex-col justify-between dark:border-white/10"
           >
-            <blockquote className="text-base leading-relaxed text-muted-foreground">
+            <blockquote className="text-lg leading-relaxed text-muted-foreground md:text-xl">
               &ldquo;{item.quote}&rdquo;
             </blockquote>
             <div className="mt-6">

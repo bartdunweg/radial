@@ -98,6 +98,8 @@ export interface TextSegment {
   text: string;
   /** "default" = primary color, "accent" = bold + gradient (branded only) */
   style?: "default" | "accent";
+  /** Add a line break after this segment */
+  break?: boolean;
 }
 
 interface ScrollTextRevealProps {
@@ -111,6 +113,7 @@ interface Word {
   text: string;
   style: "default" | "accent";
   index: number;
+  breakAfter?: boolean;
 }
 
 export function ScrollTextReveal({
@@ -135,6 +138,7 @@ export function ScrollTextReveal({
         text: segWords[i],
         style,
         index: wordIdx++,
+        breakAfter: seg.break && i === segWords.length - 1,
       });
     }
   }
@@ -195,7 +199,7 @@ export function ScrollTextReveal({
                     filter: isRevealed ? "blur(0px)" : "blur(4px)",
                     transition: "opacity 0.6s ease-out, filter 0.6s ease-out",
                     ...(isAccent && isBranded ? {
-                      backgroundImage: "linear-gradient(135deg, #6040a0 0%, #2050b0 50%, #4080e0 100%)",
+                      backgroundImage: "linear-gradient(135deg, #8070c0 0%, #5080d0 50%, #70a0f0 100%)",
                       WebkitBackgroundClip: "text",
                       WebkitTextFillColor: "transparent",
                       backgroundClip: "text",
@@ -203,7 +207,7 @@ export function ScrollTextReveal({
                   }}
                 >
                   {w.text}
-                </span>{" "}
+                </span>{w.breakAfter ? <span className="block h-[0.5em]" /> : " "}
               </span>
             );
           })}

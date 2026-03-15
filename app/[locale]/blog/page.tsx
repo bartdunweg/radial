@@ -8,6 +8,12 @@ import { buttonVariants } from "@/components/ui/button-variants";
 import { cn } from "@/lib/utils";
 import { AnimatedSection, AnimatedGrid, AnimatedGridItem } from "../../components/animated-sections";
 
+const authorInitials: Record<string, string> = {
+  "Bart Dunweg": "BD",
+  "Jasper den Ouden": "JO",
+  "Elwin de Witte": "EW",
+};
+
 export async function generateMetadata({
   params,
 }: {
@@ -48,7 +54,10 @@ export default async function BlogPage({
                     </div>
                     <CardTitle className="text-base">{post.title}</CardTitle>
                     <CardDescription className="mt-2 text-sm">{post.excerpt}</CardDescription>
-                    <div className="mt-4 text-xs text-muted-foreground">
+                    <div className="mt-4 flex items-center gap-2 text-xs text-muted-foreground">
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-muted text-[10px] font-semibold">
+                        {authorInitials[post.author] ?? post.author.split(" ").map(w => w[0]).join("")}
+                      </span>
                       {post.author} &middot;{" "}
                       {new Date(post.date).toLocaleDateString(
                         locale === "nl" ? "nl-NL" : "en-US",

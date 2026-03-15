@@ -447,8 +447,9 @@ export default async function HomePage({
             </div>
           </AnimatedSection>
           {(() => {
-            // Filter out Mendix service from homepage, then split into two columns
-            const homepageServices = services.filter((s: { slug: string }) => s.slug !== "design-for-mendix");
+            // Filter out secondary services from homepage, then split into two columns
+            const excludeSlugs = ["design-for-mendix", "foundation-sprint", "ux-ui-audits", "user-testing"];
+            const homepageServices = services.filter((s: { slug: string }) => !excludeSlugs.includes(s.slug));
             const col1 = homepageServices.filter((_: unknown, i: number) => i % 2 === 0);
             const col2 = homepageServices.filter((_: unknown, i: number) => i % 2 === 1);
 

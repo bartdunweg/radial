@@ -44,7 +44,7 @@ const LABELS = [
   },
   { // Business — bottom of circle
     anchor: { x: 0.5, y: 0.64 + 0.28 },
-    end: { x: 0.5, y: 0.96 },
+    end: { x: 0.5, y: 1.0 },
   },
 ];
 
@@ -273,7 +273,7 @@ export function VennDiagram() {
           <p className="text-xs text-muted-foreground">Feasible as</p>
           <p className="text-base font-medium tracking-tight">Tech</p>
         </div>
-        <div className="absolute bottom-[0%] left-1/2 -translate-x-1/2 text-center pointer-events-none">
+        <div className="absolute bottom-[-6%] left-1/2 -translate-x-1/2 text-center pointer-events-none">
           <p className="text-xs text-muted-foreground">Viable to</p>
           <p className="text-base font-medium tracking-tight">Business</p>
         </div>

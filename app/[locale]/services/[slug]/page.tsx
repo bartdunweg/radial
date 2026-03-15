@@ -9,6 +9,7 @@ import { buttonVariants } from "@/components/ui/button-variants";
 import { Separator } from "@/components/ui/separator";
 import { ArrowLeft } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { VennDiagram } from "@/app/components/venn-diagram";
 
 import servicesEn from "@/content/en/services.json";
 
@@ -56,20 +57,28 @@ export default async function ServiceDetailPage({
           <ArrowLeft size={14} /> {t("backToServices")}
         </Link>
 
-        <h1 className="text-[clamp(2rem,4vw,3rem)] tracking-tight">{service.title}</h1>
-        <p className="mt-4 text-lg text-muted-foreground leading-relaxed">{service.description}</p>
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_320px]">
+          {/* Main content */}
+          <div>
+            <h1 className="text-[clamp(2rem,4vw,3rem)] tracking-tight">{service.title}</h1>
+            <p className="mt-4 text-lg text-muted-foreground leading-relaxed">{service.description}</p>
 
-        <Separator className="my-10" />
+            <Separator className="my-10" />
 
-        <p className="text-muted-foreground leading-relaxed">{service.longDescription}</p>
+            <p className="text-muted-foreground leading-relaxed">{service.longDescription}</p>
 
-        <Separator className="my-10" />
+            {slug === "research-strategy" && <VennDiagram />}
+          </div>
 
-        <h2 className="text-xl tracking-tight mb-4">{t("deliverables")}</h2>
-        <div className="flex flex-wrap gap-2">
-          {service.deliverables.map((d) => (
-            <Badge key={d} variant="secondary">{d}</Badge>
-          ))}
+          {/* Sidebar */}
+          <div className="lg:pt-[72px]">
+            <h2 className="text-xl tracking-tight mb-4">{t("deliverables")}</h2>
+            <div className="flex flex-wrap gap-2">
+              {service.deliverables.map((d) => (
+                <Badge key={d} variant="secondary">{d}</Badge>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* CTA */}

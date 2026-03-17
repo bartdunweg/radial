@@ -4,7 +4,11 @@ import { Link } from "@/i18n/navigation";
 import { Separator } from "@/components/ui/separator";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { cn } from "@/lib/utils";
-import { ArrowRight, Check, X } from "lucide-react";
+import { ArrowRight, Check, X, Globe } from "lucide-react";
+
+const LinkedinIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg>
+);
 import {
   AnimatedSection,
   AnimatedGrid,
@@ -139,7 +143,7 @@ export default async function AboutPage({
             <div className="rounded-2xl bg-foreground text-background p-6 -my-4 shadow-lg flex flex-col max-md:mt-4 max-md:-mb-0">
               <div className="flex items-center justify-between gap-4 mb-1">
                 <h3 className="text-xl font-medium tracking-tight">{t("approachRadialTitle")}</h3>
-                <span className="shrink-0 rounded-full bg-accent px-3 py-1 text-xs font-medium text-white">{t("approachRadialSubtitle")}</span>
+                <span className="shrink-0 rounded-full bg-background text-foreground px-3 py-1 text-xs font-medium">{t("approachRadialSubtitle")}</span>
               </div>
               <ul className="mt-6 space-y-4 flex-1">
                 {radialSteps.map((item) => (
@@ -158,6 +162,14 @@ export default async function AboutPage({
 
         <Separator className="my-16" />
 
+        {/* Small by design */}
+        <AnimatedSection>
+          <h3 className="text-base font-semibold">{t("smallByDesignTitle")}</h3>
+          <p className="mt-2 max-w-xl text-sm text-muted-foreground leading-relaxed">{t("smallByDesignText")}</p>
+        </AnimatedSection>
+
+        <Separator className="my-16" />
+
         {/* Team */}
         <AnimatedSection>
           <h2 className="text-2xl tracking-tight">{t("teamTitle")}</h2>
@@ -165,9 +177,9 @@ export default async function AboutPage({
         </AnimatedSection>
         <AnimatedGrid className="mt-8 grid gap-8 sm:grid-cols-3" staggerDelay={0.12}>
           {[
-            { initials: "BD", name: "Bart Dunweg", role: t("teamBart"), bio: t("teamBartBio") },
-            { initials: "JO", name: "Jasper den Ouden", role: t("teamJasper"), bio: t("teamJasperBio") },
-            { initials: "EW", name: "Erwin de Witte", role: t("teamErwin"), bio: t("teamErwinBio") },
+            { initials: "BD", name: "Bart Dunweg", bio: t("teamBartBio"), linkedin: "https://www.linkedin.com/in/bartdunweg/", website: "https://bartdunweg.com" },
+            { initials: "JO", name: "Jasper den Ouden", bio: t("teamJasperBio"), linkedin: "https://www.linkedin.com/in/jasperdenouden/", website: "https://jasperdenouden.com" },
+            { initials: "EW", name: "Elwin de Witte", bio: t("teamElwinBio"), linkedin: "https://www.linkedin.com/in/elwindewitte/", website: "https://elwindewitte.com" },
           ].map((member) => (
             <AnimatedGridItem key={member.name} className="flex flex-col items-start gap-3">
               <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-muted text-sm font-semibold">
@@ -175,8 +187,15 @@ export default async function AboutPage({
               </div>
               <div>
                 <div className="font-semibold">{member.name}</div>
-                <div className="text-sm text-muted-foreground">{member.role}</div>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{member.bio}</p>
+                <p className="mt-1 text-sm text-muted-foreground leading-relaxed">{member.bio}</p>
+                <div className="mt-3 flex items-center gap-3">
+                  <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+                    <LinkedinIcon />
+                  </a>
+                  <a href={member.website} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+                    <Globe size={16} />
+                  </a>
+                </div>
               </div>
             </AnimatedGridItem>
           ))}

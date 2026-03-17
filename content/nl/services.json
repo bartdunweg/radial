@@ -2,16 +2,18 @@
   {
     "slug": "research-strategy",
     "title": "Research & Strategie",
-    "description": "We praten graag met gebruikers. Met diverse onderzoeksmethoden werken we naar een haalbare productstrategie.",
-    "longDescription": "Je gebruikers begrijpen is de basis van elk succesvol product. We voeren interviews, usability tests, enquêtes en concurrentieanalyses uit om inzichten te ontdekken die slimme beslissingen sturen. Van daaruit vertalen we bevindingen naar een heldere productstrategie en roadmap die bedrijfsdoelen afstemmen op echte gebruikersbehoeften.",
-    "deliverables": ["Gebruikersonderzoek", "Concurrentieanalyse", "Productstrategie", "Roadmapping", "Stakeholder Workshops"]
+    "description": "We praten met gebruikers én stakeholders. Door gebruikersonderzoek te combineren met bedrijfsstrategie leggen we de basis voor producten die wenselijk, haalbaar en uitvoerbaar zijn.",
+    "longDescription": "Geweldige producten ontstaan op het snijvlak van gebruikersbehoeften, bedrijfsdoelen en technische haalbaarheid. We beginnen met het grondig begrijpen van je gebruikers — via interviews, usability tests en UX-analyse — en stemmen tegelijkertijd af met je bedrijf door stakeholder workshops, waardepropositie-ontwerp en strategische sessies. Het resultaat is een heldere productstrategie en roadmap gebaseerd op echte inzichten, niet op aannames.",
+    "deliverables": ["Gebruikersonderzoek", "UX Analyse", "Business Research", "Stakeholder Workshops", "Productstrategie", "Roadmap", "Productrichtlijnen", "Flowcharts"],
+    "previewDeliverables": ["Gebruikersonderzoek", "Business Research", "Productstrategie"]
   },
   {
     "slug": "ux-ui-design",
     "title": "Product Design",
-    "description": "We creëren intuïtieve, mooie interfaces die gebruikers verrassen en betrokkenheid stimuleren.",
-    "longDescription": "Goed design is onzichtbaar — het werkt gewoon. We maken interfaces die niet alleen visueel verbluffend zijn, maar diep intuïtief. Ons proces gaat van wireframes en user flows naar pixel-perfect UI design, altijd gegrond in gebruikersonderzoek en iteratief testen.",
-    "deliverables": ["Wireframing", "User Flows", "Visueel Design", "Interactie Design", "Responsive Design"]
+    "description": "We ontwerpen intuïtieve, mooie interfaces — we testen vroeg met high-fidelity designs en itereren op basis van echte gebruikers- en business-inzichten.",
+    "longDescription": "Goed design is onzichtbaar — het werkt gewoon. We maken high-fidelity designs die eruitzien en aanvoelen als het echte product, zodat we vroeg kunnen testen met echte gebruikers, zinvolle feedback verzamelen en snel itereren. Elke designbeslissing is gebaseerd op gebruikersonderzoek en business-inzichten, zodat wat we opleveren niet alleen mooi is — maar ook gevalideerd.",
+    "deliverables": ["UX/UI Design", "Responsive Design", "Accessibility", "Prototyping", "Usability Testing"],
+    "previewDeliverables": ["UX/UI Design", "Prototyping", "Usability Testing"]
   },
   {
     "slug": "design-systems",
@@ -25,34 +27,69 @@
     "title": "MVP's Bouwen",
     "description": "Valideer snel je productidee, ontvang feedback van gebruikers en itereer naar een succesvolle oplossing.",
     "longDescription": "Snelheid naar de markt telt. We helpen je de kleinst haalbare versie van je product te definiëren, ontwerpen en snel bouwen, en dan voor echte gebruikers te zetten. Deze leer-snel aanpak vermindert risico en zorgt dat je iets bouwt dat mensen echt willen.",
-    "deliverables": ["MVP Scoping", "Rapid Prototyping", "Frontend Development", "Gebruikerstesten", "Iteratie Sprints"]
+    "deliverables": ["MVP Scoping", "Prototyping", "Development", "Productvalidatie", "Iteratie Sprints"],
+    "previewDeliverables": ["MVP Scoping", "Development", "Productvalidatie"]
   },
   {
     "slug": "boost-branding",
     "title": "Branding Versterken",
-    "description": "We tillen de visuele identiteit van je product naar een hoger niveau voor een samenhangend, memorabel merk.",
-    "longDescription": "Je merk is meer dan een logo — het is het gevoel dat mensen krijgen als ze met je product interacteren. Wij creëren visuele identiteiten die resoneren met je doelgroep, van typografie en kleursystemen tot illustratiestijlen en motion principles.",
-    "deliverables": ["Merkstrategie", "Visuele Identiteit", "Typografie Systemen", "Illustratiestijl", "Merkrichtlijnen"]
+    "description": "We nemen je bestaande merk en integreren het op een betekenisvolle manier in je product — van kleursystemen en typografie tot interactiepatronen en motion.",
+    "longDescription": "Je hebt al een merk. Wij zorgen dat je product daar recht aan doet. We vertalen je bestaande identiteit naar een samenhangende productervaring — door te bepalen hoe je kleuren, typografie, illustratiestijl en motion principles terugkomen op elk scherm en in elke interactie. Een nieuw logo of naamgeving nodig? Dan verbinden we je met onze vertrouwde partners. Onze focus ligt op het tot leven brengen van je merk in je product.",
+    "deliverables": ["Merkintegratie", "Product Theming", "Typografie Systemen", "Illustratiestijl", "Merkrichtlijnen"],
+    "previewDeliverables": ["Merkintegratie", "Typografie Systemen", "Merkrichtlijnen"]
   },
   {
     "slug": "ai-integration",
     "title": "AI Integratie",
+    "section": "secondary",
     "description": "We integreren AI in je productworkflows — van intelligente automatisering tot generatieve features die echte waarde creëren.",
     "longDescription": "AI transformeert hoe producten werken. We helpen je identificeren waar AI echte waarde creëert voor je gebruikers — geen gimmicks, maar zinvolle features. Van slimme automatisering tot generatieve interfaces, we ontwerpen en bouwen AI-aangedreven ervaringen die natuurlijk en nuttig aanvoelen.",
-    "deliverables": ["AI Opportunity Mapping", "Prompt Engineering", "AI-Powered Features", "LLM Integratie", "Workflow Automatisering"]
+    "deliverables": ["AI Opportunity Mapping", "Prompt Engineering", "AI-Powered Features", "LLM Integratie", "Workflow Automatisering"],
+    "previewDeliverables": ["AI Opportunity Mapping", "AI-Powered Features", "Workflow Automatisering"]
   },
   {
     "slug": "design-sprints",
     "title": "Design Sprints",
     "description": "Los grote productuitdagingen op in slechts 4 dagen — van probleemstelling tot een getest prototype met echte gebruikers.",
     "longDescription": "Een Design Sprint is een gestructureerd 4-daags proces dat teams helpt snel van uitdaging naar gevalideerde oplossing te gaan. Wij faciliteren de hele sprint: het probleem in kaart brengen, oplossingen schetsen, richting bepalen, een realistisch prototype bouwen en testen met echte gebruikers. Het is de snelste manier om beslissingen te de-risken en je team te alignen.",
-    "deliverables": ["Sprint Facilitatie", "Probleem Mapping", "Rapid Prototyping", "Gebruikerstesten", "Gevalideerde Concepten"]
+    "deliverables": ["Sprint Facilitatie", "Probleem Mapping", "Rapid Prototyping", "Gebruikerstesten", "Gevalideerde Concepten"],
+    "whenToSprint": [
+      { "title": "Valideer een idee met gebruikers", "description": "Breng maanden ontwikkeling terug tot een vierdaags proces om een prototype te maken en te testen op effectiviteit bij je eindgebruikers." },
+      { "title": "Kom op gang of kom los", "description": "Pak dat sluimerende idee aan of los een hardnekkige uitdaging op door het om te zetten in een gericht, uitvoerbaar project." },
+      { "title": "Breng visie tot leven", "description": "Een goed team is divers en brengt verschillende perspectieven. Een design sprint is erop gericht deze uiteenlopende visies samen te brengen in een samenhangend plan." },
+      { "title": "Van praten naar doen", "description": "Stop met praten over ideeën en begin ze te realiseren. De snelle design sprint is perfect om gedurfde, onderbouwde beslissingen te nemen." }
+    ]
+  },
+  {
+    "slug": "foundation-sprint",
+    "title": "Product Foundation Sprint",
+    "section": "secondary",
+    "description": "Een gestructureerde 2-daagse workshop om je doelklant te definiëren, je waardepropositie aan te scherpen en je team te alignen op een heldere strategische richting.",
+    "longDescription": "Voordat je bouwt, zorg dat je het juiste probleem oplost voor de juiste mensen. De Foundation Sprint is een 2-daagse gefaciliteerde workshop die teams helpt om te alignen op klant, probleem en strategie. Dag één definieert de fundamenten en werkt je differentiatie uit. Dag twee genereert meerdere strategische paden en toetst ze. Je loopt naar buiten met een founding hypothesis, een mini manifesto en een duidelijke volgende stap.",
+    "deliverables": ["Founding Hypothesis", "Waardepropositie", "Concurrentiepositionering", "Strategische Richting", "Actieplan"]
+  },
+  {
+    "slug": "ux-ui-audits",
+    "title": "UX/UI Audits",
+    "section": "secondary",
+    "description": "Een grondige review van de gebruikerservaring en interface van je product — met oog voor frictie, inconsistenties en verbeterkansen.",
+    "longDescription": "Soms heb je een frisse blik van experts nodig op je product. We auditen je bestaande ervaring van begin tot eind: bruikbaarheid, visuele consistentie, toegankelijkheid en interactiepatronen. Je krijgt een geprioriteerd rapport met concrete, uitvoerbare aanbevelingen — geen vage observaties, maar duidelijke stappen om je product beter te maken.",
+    "deliverables": ["Heuristische Evaluatie", "Usability Review", "Toegankelijkheidsaudit", "UI Consistentie Check", "Geprioriteerde Aanbevelingen"]
+  },
+  {
+    "slug": "user-testing",
+    "title": "User Testing & Interviews",
+    "section": "secondary",
+    "description": "Zet je product voor echte gebruikers. We voeren usability tests en diepte-interviews uit om te ontdekken wat werkt, wat niet, en waarom.",
+    "longDescription": "Aannames zijn riskant. We helpen je beslissingen te valideren door met echte gebruikers te praten. Of het nu gaat om gemodureerde usability tests, ongemodureerde sessies of diepte-interviews — we plannen, werven, faciliteren en vertalen bevindingen naar heldere inzichten waar je team direct mee aan de slag kan.",
+    "deliverables": ["Testplanning", "Gebruikerswerving", "Gemodureerde Tests", "Interview Sessies", "Inzichtrapporten"]
   },
   {
     "slug": "design-for-mendix",
     "title": "Design for Mendix",
+    "section": "secondary",
     "description": "We ontwerpen pixel-perfecte interfaces geoptimaliseerd voor Mendix — zodat je low-code apps eruitzien en aanvoelen als maatwerk.",
-    "longDescription": "Mendix is krachtig, maar out-of-the-box levert het niet altijd de ervaring die je gebruikers verdienen. Wij overbruggen dat gat — we ontwerpen interfaces die naadloos werken binnen Mendix's componentarchitectuur en tegelijkertijd de visuele en interactiekwaliteit ver voorbij standaard templates tillen. Van custom design systems tot productie-klare Atlas UI thema's, wij laten je Mendix apps stralen.",
-    "deliverables": ["Mendix UI Design", "Atlas UI Theming", "Custom Widget Design", "Design System voor Mendix", "Mendix Prototyping"]
+    "longDescription": "Mendix is krachtig, maar out-of-the-box levert het niet altijd de ervaring die je gebruikers verdienen. Wij overbruggen dat gat — we ontwerpen interfaces die naadloos werken binnen Mendix's componentarchitectuur en tegelijkertijd de visuele en interactiekwaliteit ver voorbij standaard templates tillen. Van custom design systems tot productie-klare thema's, wij laten je Mendix apps stralen.",
+    "deliverables": ["Mendix UI Design", "Custom Widget Design", "Design System voor Mendix", "Mendix Prototyping"]
   }
 ]

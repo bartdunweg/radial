@@ -2,16 +2,18 @@
   {
     "slug": "research-strategy",
     "title": "Research & Strategy",
-    "description": "We love talking to users. Using various research methods we work towards a viable product strategy.",
-    "longDescription": "Understanding your users is the foundation of every successful product. We conduct interviews, usability tests, surveys, and competitive analyses to uncover insights that drive smart decisions. From there, we translate findings into a clear product strategy and roadmap that aligns business goals with real user needs.",
-    "deliverables": ["User Research", "Competitive Analysis", "Product Strategy", "Roadmapping", "Stakeholder Workshops"]
+    "description": "We talk to users and stakeholders alike. Combining user research with business strategy, we build the foundation for products that are desirable, viable, and feasible.",
+    "longDescription": "Great products sit at the intersection of user needs, business goals, and technical feasibility. We start by deeply understanding your users — through interviews, usability tests, and UX analysis — while simultaneously aligning with your business through stakeholder workshops, value proposition design, and strategic sessions. The result is a clear product strategy and roadmap grounded in real insights, not assumptions.",
+    "deliverables": ["User Research", "UX Analysis", "Business Research", "Stakeholder Workshops", "Product Strategy", "Roadmap", "Product Guidelines", "Flowcharts"],
+    "previewDeliverables": ["User Research", "Business Research", "Product Strategy"]
   },
   {
     "slug": "ux-ui-design",
     "title": "Product Design",
-    "description": "We create intuitive, beautiful interfaces that delight users and drive engagement across every touchpoint.",
-    "longDescription": "Great design is invisible — it just works. We craft interfaces that are not only visually stunning but deeply intuitive. Our process moves from wireframes and user flows through to pixel-perfect UI design, always grounded in user research and iterative testing.",
-    "deliverables": ["Wireframing", "User Flows", "Visual Design", "Interaction Design", "Responsive Design"]
+    "description": "We design intuitive, beautiful interfaces — testing early with high-fidelity designs and iterating based on real user and business insight.",
+    "longDescription": "Great design is invisible — it just works. We craft high-fidelity designs that look and feel like the real product, so we can test with real users early, gather meaningful feedback, and iterate fast. Every design decision is grounded in user research and business insight, so what we ship isn't just beautiful — it's validated.",
+    "deliverables": ["UX/UI Design", "Responsive Design", "Accessibility", "Prototyping", "Usability Testing"],
+    "previewDeliverables": ["UX/UI Design", "Prototyping", "Usability Testing"]
   },
   {
     "slug": "design-systems",
@@ -25,34 +27,69 @@
     "title": "Build MVPs",
     "description": "Quickly validate your product idea, receive feedback from users, and iterate towards a successful and sustainable solution.",
     "longDescription": "Speed to market matters. We help you define the smallest viable version of your product, design and build it rapidly, then put it in front of real users. This learn-fast approach reduces risk and ensures you're building something people actually want.",
-    "deliverables": ["MVP Scoping", "Rapid Prototyping", "Frontend Development", "User Testing", "Iteration Sprints"]
+    "deliverables": ["MVP Scoping", "Prototyping", "Development", "Product Validation", "Iteration Sprints"],
+    "previewDeliverables": ["MVP Scoping", "Development", "Product Validation"]
   },
   {
     "slug": "boost-branding",
     "title": "Boost Branding",
-    "description": "We elevate your product's visual identity to create a cohesive, memorable brand that stands out in the market.",
-    "longDescription": "Your brand is more than a logo — it's the feeling people get when they interact with your product. We craft visual identities that resonate with your audience, from typography and color systems to illustration styles and motion principles.",
-    "deliverables": ["Brand Strategy", "Visual Identity", "Typography Systems", "Illustration Style", "Brand Guidelines"]
+    "description": "We take your existing brand and integrate it meaningfully into your product — from color systems and typography to interaction patterns and motion.",
+    "longDescription": "You already have a brand. We make sure your product lives up to it. We translate your existing identity into a coherent product experience — defining how your colors, typography, illustration style, and motion principles show up across every screen and interaction. Need a new logo or naming? We'll connect you with our trusted partners. Our focus is on making your brand feel alive inside your product.",
+    "deliverables": ["Brand Integration", "Product Theming", "Typography Systems", "Illustration Style", "Brand Guidelines"],
+    "previewDeliverables": ["Brand Integration", "Typography Systems", "Brand Guidelines"]
   },
   {
     "slug": "ai-integration",
     "title": "AI Integration",
+    "section": "secondary",
     "description": "We embed AI into your product workflows — from intelligent automation to generative features that create real user value.",
     "longDescription": "AI is transforming how products work. We help you identify where AI creates genuine value for your users — not gimmicks, but meaningful features. From smart automation to generative interfaces, we design and build AI-powered experiences that feel natural and useful.",
-    "deliverables": ["AI Opportunity Mapping", "Prompt Engineering", "AI-Powered Features", "LLM Integration", "Workflow Automation"]
+    "deliverables": ["AI Opportunity Mapping", "Prompt Engineering", "AI-Powered Features", "LLM Integration", "Workflow Automation"],
+    "previewDeliverables": ["AI Opportunity Mapping", "AI-Powered Features", "Workflow Automation"]
   },
   {
     "slug": "design-sprints",
     "title": "Design Sprints",
     "description": "Solve big product challenges in just 4 days — from problem framing to a tested prototype with real users.",
     "longDescription": "A Design Sprint is a structured 4-day process that helps teams rapidly move from a challenge to a validated solution. We facilitate the entire sprint: mapping the problem, sketching solutions, deciding on direction, building a realistic prototype, and testing it with real users. It's the fastest way to de-risk decisions and align your team.",
-    "deliverables": ["Sprint Facilitation", "Problem Mapping", "Rapid Prototyping", "User Testing", "Validated Concepts"]
+    "deliverables": ["Sprint Facilitation", "Problem Mapping", "Rapid Prototyping", "User Testing", "Validated Concepts"],
+    "whenToSprint": [
+      { "title": "Validate an idea with users", "description": "Condense months of development into a four-day process to create and test a prototype, evaluating its effectiveness for your end users." },
+      { "title": "Get started or get unstuck", "description": "Tackle that lingering idea or resolve a persistent challenge by turning it into a focused, actionable project." },
+      { "title": "Bring vision to life", "description": "A great team is diverse and brings different perspectives. A design sprint is tailored to unite these varied visions into a cohesive plan." },
+      { "title": "Shift to concrete outcomes", "description": "Stop talking about ideas and start realizing them. The fast-paced design sprint is perfect for making bold, solid decisions quickly." }
+    ]
+  },
+  {
+    "slug": "foundation-sprint",
+    "title": "Product Foundation Sprint",
+    "section": "secondary",
+    "description": "A structured 2-day workshop to define your target customer, sharpen your value proposition, and align your team on a clear strategic direction.",
+    "longDescription": "Before you build, make sure you're solving the right problem for the right people. The Foundation Sprint is a 2-day facilitated workshop that helps teams align on customer, problem, and strategy. Day one defines the fundamentals and crafts your differentiation. Day two generates multiple strategic paths and stress-tests them. You walk out with a founding hypothesis, a mini manifesto, and a clear next step.",
+    "deliverables": ["Founding Hypothesis", "Value Proposition", "Competitive Positioning", "Strategic Direction", "Action Plan"]
+  },
+  {
+    "slug": "ux-ui-audits",
+    "title": "UX/UI Audits",
+    "section": "secondary",
+    "description": "A thorough review of your product's user experience and interface — identifying friction, inconsistencies, and opportunities to improve.",
+    "longDescription": "Sometimes you need a fresh pair of expert eyes on your product. We audit your existing experience end-to-end: evaluating usability, visual consistency, accessibility, and interaction patterns. You get a prioritized report with concrete, actionable recommendations — not vague observations, but clear steps to make your product better.",
+    "deliverables": ["Heuristic Evaluation", "Usability Review", "Accessibility Audit", "UI Consistency Check", "Prioritized Recommendations"]
+  },
+  {
+    "slug": "user-testing",
+    "title": "User Testing & Interviews",
+    "section": "secondary",
+    "description": "Put your product in front of real users. We run usability tests and in-depth interviews to uncover what works, what doesn't, and why.",
+    "longDescription": "Assumptions are risky. We help you validate decisions by talking to real users. Whether it's moderated usability tests, unmoderated sessions, or in-depth interviews — we plan, recruit, facilitate, and synthesize findings into clear insights your team can act on immediately.",
+    "deliverables": ["Test Planning", "User Recruitment", "Moderated Testing", "Interview Sessions", "Insight Reports"]
   },
   {
     "slug": "design-for-mendix",
     "title": "Design for Mendix",
+    "section": "secondary",
     "description": "We design pixel-perfect interfaces optimized for Mendix — so your low-code apps look and feel like custom-built products.",
-    "longDescription": "Mendix is powerful, but out-of-the-box it doesn't always deliver the experience your users deserve. We bridge that gap — designing interfaces that work seamlessly within Mendix's component architecture while pushing the visual and interaction quality far beyond standard templates. From custom design systems to production-ready Atlas UI themes, we make your Mendix apps shine.",
-    "deliverables": ["Mendix UI Design", "Atlas UI Theming", "Custom Widget Design", "Design System for Mendix", "Mendix Prototyping"]
+    "longDescription": "Mendix is powerful, but out-of-the-box it doesn't always deliver the experience your users deserve. We bridge that gap — designing interfaces that work seamlessly within Mendix's component architecture while pushing the visual and interaction quality far beyond standard templates. From custom design systems to production-ready themes, we make your Mendix apps shine.",
+    "deliverables": ["Mendix UI Design", "Custom Widget Design", "Design System for Mendix", "Mendix Prototyping"]
   }
 ]

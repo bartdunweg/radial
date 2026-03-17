@@ -10,6 +10,12 @@ import { cn } from "@/lib/utils";
 
 import blogEn from "@/content/en/blog.json";
 
+const authorInitials: Record<string, string> = {
+  "Bart Dunweg": "BD",
+  "Jasper den Ouden": "JO",
+  "Elwin de Witte": "EW",
+};
+
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
     blogEn.map((post) => ({ locale, slug: post.slug }))
@@ -59,6 +65,9 @@ export default async function BlogPostPage({
         <h1 className="text-[clamp(2rem,4vw,3rem)] tracking-tight">{post.title}</h1>
 
         <div className="mt-6 flex items-center gap-4 border-b border-border pb-8 text-sm text-muted-foreground">
+          <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-muted text-xs font-semibold">
+            {authorInitials[post.author] ?? post.author.split(" ").map(w => w[0]).join("")}
+          </span>
           <span>{post.author}</span>
           <span>&middot;</span>
           <span>

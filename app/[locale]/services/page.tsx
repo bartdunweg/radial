@@ -33,6 +33,9 @@ export default async function ServicesPage({
   const t = await getTranslations("services");
   const { services } = getContent(locale);
 
+  const primary = services.filter((s) => !("section" in s && s.section === "secondary"));
+  const secondary = services.filter((s) => "section" in s && s.section === "secondary");
+
   return (
     <section className="px-8 pt-[212px] pb-24">
       <div className="mx-auto max-w-[1280px]">
@@ -42,7 +45,7 @@ export default async function ServicesPage({
         </AnimatedSection>
 
         <AnimatedGrid className="mt-12 grid gap-4 sm:grid-cols-2" staggerDelay={0.1}>
-          {services.map((service) => (
+          {primary.map((service) => (
             <AnimatedGridItem key={service.slug}>
               <Link href={`/services/${service.slug}`}>
                 <Card className="bg-card border-border h-full hover:shadow-card transition-shadow group">
@@ -50,11 +53,11 @@ export default async function ServicesPage({
                     <CardTitle className="text-lg">{service.title}</CardTitle>
                     <CardDescription className="mt-2">{service.description}</CardDescription>
                     <div className="flex flex-wrap gap-1.5 mt-4">
-                      {service.deliverables.slice(0, 3).map((d) => (
+                      {(service.previewDeliverables ?? service.deliverables.slice(0, 3)).map((d) => (
                         <Badge key={d} variant="outline" className="text-xs">{d}</Badge>
                       ))}
-                      {service.deliverables.length > 3 && (
-                        <Badge variant="outline" className="text-xs">+{service.deliverables.length - 3}</Badge>
+                      {service.deliverables.length > (service.previewDeliverables ?? service.deliverables.slice(0, 3)).length && (
+                        <Badge variant="outline" className="text-xs">+{service.deliverables.length - (service.previewDeliverables ?? service.deliverables.slice(0, 3)).length}</Badge>
                       )}
                     </div>
                     <div className="mt-4 text-sm text-muted-foreground group-hover:text-foreground transition-colors flex items-center gap-1">
@@ -66,6 +69,33 @@ export default async function ServicesPage({
             </AnimatedGridItem>
           ))}
         </AnimatedGrid>
+
+        {/* Secondary section */}
+        {secondary.length > 0 && (
+          <>
+            <AnimatedSection className="mt-20">
+              <h2 className="text-2xl tracking-tight">{t("secondaryTitle")}</h2>
+            </AnimatedSection>
+
+            <AnimatedGrid className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3" staggerDelay={0.08}>
+              {secondary.map((service) => (
+                <AnimatedGridItem key={service.slug}>
+                  <Link href={`/services/${service.slug}`}>
+                    <Card className="bg-card border-border h-full hover:shadow-card transition-shadow group">
+                      <CardHeader className="p-5">
+                        <CardTitle className="text-base">{service.title}</CardTitle>
+                        <CardDescription className="mt-1 text-sm">{service.description}</CardDescription>
+                        <div className="mt-3 text-sm text-muted-foreground group-hover:text-foreground transition-colors flex items-center gap-1">
+                          {t("learnMore")} <ArrowRight size={14} />
+                        </div>
+                      </CardHeader>
+                    </Card>
+                  </Link>
+                </AnimatedGridItem>
+              ))}
+            </AnimatedGrid>
+          </>
+        )}
 
         {/* CTA */}
         <AnimatedSection className="py-32">

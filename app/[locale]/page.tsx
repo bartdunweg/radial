@@ -34,7 +34,7 @@ export default async function HomePage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("home");
-  const { work, services, testimonials } = getContent(locale);
+  const { work, services, expertise, testimonials } = getContent(locale);
 
   /* ------------------------------------------------------------------ */
   /*  Marquee rows (shared between variants)                            */
@@ -289,19 +289,22 @@ export default async function HomePage({
             </AnimatedSection>
           </div>
 
-          {/* AI disciplines */}
-          <div className="mt-12 grid grid-cols-2 lg:grid-cols-4">
+          {/* Expertise columns */}
+          <h3 className="mt-12 mb-6 text-xs font-semibold uppercase tracking-widest text-muted-foreground">{t("ourExpertise")}</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-3">
             {[
-              { title: t("aiPoint1Title"), text: t("aiPoint1Text") },
-              { title: t("aiPoint2Title"), text: t("aiPoint2Text") },
-              { title: t("aiPoint3Title"), text: t("aiPoint3Text") },
-              { title: t("aiPoint4Title"), text: t("aiPoint4Text") },
+              { title: t("aiPoint1Title"), text: t("aiPoint1Text"), href: "/services/uxr-strategy" },
+              { title: t("aiPoint2Title"), text: t("aiPoint2Text"), href: "/services/product-design" },
+              { title: t("aiPoint3Title"), text: t("aiPoint3Text"), href: "/services/building" },
             ].map((item, i) => (
               <div key={item.title} className="flex">
                 {i > 0 && <div className="w-px bg-black/5 dark:bg-white/10" />}
                 <div className="py-2 px-5">
                   <h3 className="text-lg font-medium tracking-tight">{item.title}</h3>
                   <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.text}</p>
+                  <Link href={item.href} className="mt-3 inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors">
+                    Read more <ArrowRight size={14} />
+                  </Link>
                 </div>
               </div>
             ))}
@@ -440,8 +443,16 @@ export default async function HomePage({
             </div>
           </AnimatedSection>
           {(() => {
+            // Map service slugs to their parent expertise page
+            const serviceToExpertise: Record<string, string> = {};
+            for (const exp of expertise) {
+              for (const sSlug of exp.services) {
+                serviceToExpertise[sSlug] = `/services/${exp.slug}`;
+              }
+            }
+
             // Filter out secondary services from homepage, then split into two columns
-            const excludeSlugs = ["design-for-mendix", "foundation-sprint", "ux-ui-audits", "user-testing"];
+            const excludeSlugs = ["research-strategy", "ux-ui-design", "design-for-mendix", "foundation-sprint", "ux-ui-audits", "user-testing"];
             const homepageServices = services.filter((s: { slug: string }) => !excludeSlugs.includes(s.slug));
             const col1 = homepageServices.filter((_: unknown, i: number) => i % 2 === 0);
             const col2 = homepageServices.filter((_: unknown, i: number) => i % 2 === 1);
@@ -486,7 +497,7 @@ export default async function HomePage({
                       <div className="p-6">
                         <h3 className="text-xl font-medium tracking-tight">{service.title}</h3>
                         <p className="mt-1 text-sm text-muted-foreground line-clamp-1">{service.description}</p>
-                        <Link href="/services" className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
+                        <Link href={serviceToExpertise[service.slug] || "/services"} className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
                           {t("learnMore")} <ArrowRight size={14} />
                         </Link>
                       </div>
@@ -503,7 +514,7 @@ export default async function HomePage({
                       <div className="p-6">
                         <h3 className="text-xl font-medium tracking-tight">{service.title}</h3>
                         <p className="mt-1 text-sm text-muted-foreground line-clamp-1">{service.description}</p>
-                        <Link href="/services" className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
+                        <Link href={serviceToExpertise[service.slug] || "/services"} className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
                           {t("learnMore")} <ArrowRight size={14} />
                         </Link>
                       </div>

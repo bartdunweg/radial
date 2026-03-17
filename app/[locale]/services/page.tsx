@@ -13,29 +13,6 @@ import {
   AnimatedGridItem,
 } from "../../components/animated-sections";
 
-const expertiseGroups = [
-  {
-    titleKey: "aiPoint1Title" as const,
-    textKey: "aiPoint1Text" as const,
-    slugs: ["research-strategy", "ux-ui-audits", "user-testing"],
-  },
-  {
-    titleKey: "aiPoint2Title" as const,
-    textKey: "aiPoint2Text" as const,
-    slugs: ["ux-ui-design", "design-systems", "boost-branding", "design-for-mendix"],
-  },
-  {
-    titleKey: "aiPoint3Title" as const,
-    textKey: "aiPoint3Text" as const,
-    slugs: ["build-mvps", "ai-integration"],
-  },
-  {
-    titleKey: "aiPoint4Title" as const,
-    textKey: "aiPoint4Text" as const,
-    slugs: ["design-sprints", "foundation-sprint"],
-  },
-];
-
 export async function generateMetadata({
   params,
 }: {
@@ -54,8 +31,7 @@ export default async function ServicesPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("services");
-  const h = await getTranslations("home");
-  const { services } = getContent(locale);
+  const { services, expertise } = getContent(locale);
 
   const serviceMap = new Map(services.map((s) => [s.slug, s]));
 
@@ -67,21 +43,30 @@ export default async function ServicesPage({
           <p className="mt-4 text-lg text-muted-foreground">{t("subtitle")}</p>
         </AnimatedSection>
 
-        {expertiseGroups.map((group, gi) => {
-          const groupServices = group.slugs
-            .map((slug) => serviceMap.get(slug))
+        {expertise.map((exp, i) => {
+          const childServices = exp.services
+            .map((slug: string) => serviceMap.get(slug))
             .filter(Boolean);
-          if (groupServices.length === 0) return null;
 
           return (
-            <div key={group.titleKey} className={gi === 0 ? "mt-16" : "mt-20"}>
+            <div key={exp.slug} className={i === 0 ? "mt-16" : "mt-20"}>
               <AnimatedSection>
-                <h2 className="text-2xl tracking-tight">{h(group.titleKey)}</h2>
-                <p className="mt-2 text-sm text-muted-foreground max-w-xl">{h(group.textKey)}</p>
+                <div className="flex items-start justify-between gap-8">
+                  <div className="max-w-2xl">
+                    <h2 className="text-2xl tracking-tight">{exp.title}</h2>
+                    <p className="mt-2 text-muted-foreground leading-relaxed">{exp.description}</p>
+                  </div>
+                  <Link
+                    href={`/services/${exp.slug}`}
+                    className="shrink-0 text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
+                  >
+                    {t("learnMore")} <ArrowRight size={14} />
+                  </Link>
+                </div>
               </AnimatedSection>
 
               <AnimatedGrid className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" staggerDelay={0.08}>
-                {groupServices.map((service) => (
+                {childServices.map((service) => (
                   <AnimatedGridItem key={service!.slug}>
                     <Link href={`/services/${service!.slug}`}>
                       <Card className="bg-card border-border h-full hover:shadow-card transition-shadow group">

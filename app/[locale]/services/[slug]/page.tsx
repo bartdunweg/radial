@@ -7,16 +7,27 @@ import { routing } from "@/i18n/routing";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { Separator } from "@/components/ui/separator";
-import { Card, CardContent } from "@/components/ui/card";
-import { ArrowLeft, Check } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { VennDiagram } from "@/app/components/venn-diagram";
+import {
+  AnimatedSection,
+  AnimatedGrid,
+  AnimatedGridItem,
+} from "@/app/components/animated-sections";
 
 import servicesEn from "@/content/en/services.json";
+import expertiseEn from "@/content/en/expertise.json";
+
+const allSlugs = [
+  ...servicesEn.map((s) => s.slug),
+  ...expertiseEn.map((e) => e.slug),
+];
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
-    servicesEn.map((s) => ({ locale, slug: s.slug }))
+    allSlugs.map((slug) => ({ locale, slug }))
   );
 }
 
@@ -26,27 +37,49 @@ export async function generateMetadata({
   params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
   const { locale, slug } = await params;
-  const { services } = getContent(locale);
+  const { services, expertise } = getContent(locale);
+  const exp = expertise.find((e) => e.slug === slug);
+  if (exp) return { title: exp.title, description: exp.description };
   const service = services.find((s) => s.slug === slug);
-  if (!service) return { title: "Not Found" };
-  return {
-    title: service.title,
-    description: service.description,
-  };
+  if (service) return { title: service.title, description: service.description };
+  return { title: "Not Found" };
 }
 
-export default async function ServiceDetailPage({
+export default async function ServiceOrExpertisePage({
   params,
 }: {
   params: Promise<{ locale: string; slug: string }>;
 }) {
   const { locale, slug } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("services");
-  const { services } = getContent(locale);
-  const service = services.find((s) => s.slug === slug);
+  const { services, expertise } = getContent(locale);
 
-  if (!service) notFound();
+  const exp = expertise.find((e) => e.slug === slug);
+  if (exp) return <ExpertisePage locale={locale} expertise={exp} services={services} />;
+
+  const service = services.find((s) => s.slug === slug);
+  if (service) return <ServicePage locale={locale} slug={slug} service={service} />;
+
+  notFound();
+}
+
+/* ------------------------------------------------------------------ */
+/*  Expertise detail page                                              */
+/* ------------------------------------------------------------------ */
+
+async function ExpertisePage({
+  locale,
+  expertise,
+  services,
+}: {
+  locale: string;
+  expertise: { slug: string; title: string; description: string; longDescription: string; deliverables?: string[]; services: string[] };
+  services: Array<{ slug: string; title: string; description: string; deliverables: string[]; previewDeliverables?: string[] }>;
+}) {
+  const t = await getTranslations("services");
+  const childServices = expertise.services
+    .map((slug) => services.find((s) => s.slug === slug))
+    .filter(Boolean);
 
   return (
     <section className="px-8 pt-[212px] pb-24">
@@ -56,6 +89,101 @@ export default async function ServiceDetailPage({
           className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
         >
           <ArrowLeft size={14} /> {t("backToServices")}
+        </Link>
+
+        <AnimatedSection>
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_320px]">
+            <div>
+              <h1 className="text-[clamp(2rem,4vw,3rem)] tracking-tight">{expertise.title}</h1>
+              <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
+                {expertise.longDescription}
+              </p>
+            </div>
+            {expertise.deliverables && expertise.deliverables.length > 0 && (
+              <div className="lg:pt-[72px]">
+                <h2 className="text-xl tracking-tight mb-4">{t("deliverables")}</h2>
+                <div className="flex flex-wrap gap-2">
+                  {expertise.deliverables.map((d) => (
+                    <Badge key={d} variant="secondary">{d}</Badge>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </AnimatedSection>
+
+        <AnimatedGrid className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" staggerDelay={0.08}>
+          {childServices.map((service) => (
+            <AnimatedGridItem key={service!.slug}>
+              <Link href={`/services/${service!.slug}`}>
+                <Card className="bg-card border-border h-full hover:shadow-card transition-shadow group">
+                  <CardHeader>
+                    <CardTitle className="text-lg">{service!.title}</CardTitle>
+                    <CardDescription className="mt-2">{service!.description}</CardDescription>
+                    <div className="flex flex-wrap gap-1.5 mt-4">
+                      {(service!.previewDeliverables ?? service!.deliverables.slice(0, 3)).map((d) => (
+                        <Badge key={d} variant="outline" className="text-xs">{d}</Badge>
+                      ))}
+                      {service!.deliverables.length > (service!.previewDeliverables ?? service!.deliverables.slice(0, 3)).length && (
+                        <Badge variant="outline" className="text-xs">+{service!.deliverables.length - (service!.previewDeliverables ?? service!.deliverables.slice(0, 3)).length}</Badge>
+                      )}
+                    </div>
+                    <div className="mt-4 text-sm text-muted-foreground group-hover:text-foreground transition-colors flex items-center gap-1">
+                      {t("learnMore")} <ArrowRight size={14} />
+                    </div>
+                  </CardHeader>
+                </Card>
+              </Link>
+            </AnimatedGridItem>
+          ))}
+        </AnimatedGrid>
+
+        {/* CTA */}
+        <AnimatedSection className="py-32">
+          <div className="mx-auto max-w-[680px] text-center">
+            <h2 className="text-3xl font-light leading-tight tracking-tight md:text-5xl">
+              {t("ctaHeadline")}
+            </h2>
+            <div className="mt-10 flex items-center justify-center gap-4">
+              <Link href="/contact" className={cn(buttonVariants({ size: "lg" }))}>
+                {t("ctaCta")}
+              </Link>
+              <Link href="/pricing" className={cn(buttonVariants({ variant: "outline", size: "lg" }))}>
+                {t("ctaSecondary")}
+              </Link>
+            </div>
+          </div>
+        </AnimatedSection>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/*  Service detail page (existing)                                     */
+/* ------------------------------------------------------------------ */
+
+async function ServicePage({
+  locale,
+  slug,
+  service,
+}: {
+  locale: string;
+  slug: string;
+  service: { title: string; description: string; longDescription: string; deliverables: string[]; [key: string]: unknown };
+}) {
+  const t = await getTranslations("services");
+  const { expertise } = getContent(locale);
+  const parentExpertise = expertise.find((e) => e.services.includes(slug));
+
+  return (
+    <section className="px-8 pt-[212px] pb-24">
+      <div className="mx-auto max-w-[1280px]">
+        <Link
+          href={parentExpertise ? `/services/${parentExpertise.slug}` : "/services"}
+          className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+        >
+          <ArrowLeft size={14} /> {parentExpertise ? parentExpertise.title : t("backToServices")}
         </Link>
 
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_320px]">

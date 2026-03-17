@@ -1,0 +1,25 @@
+[
+  {
+    "slug": "uxr-strategy",
+    "title": "UX Research & Strategie",
+    "description": "Wij leiden het onderzoek, spreken met gebruikers en bepalen de strategie. AI helpt ons voorbereiden, analyseren en patronen ontdekken.",
+    "longDescription": "Geweldige producten ontstaan op het snijvlak van gebruikersbehoeften, bedrijfsdoelen en technische haalbaarheid. We beginnen met het grondig begrijpen van je gebruikers — via interviews, usability tests en UX-analyse — en stemmen tegelijkertijd af met je bedrijf door stakeholder workshops, waardepropositie-ontwerp en strategische sessies. Het resultaat is een heldere productstrategie en roadmap gebaseerd op echte inzichten, niet op aannames. Strategie, richting en oordeelsvermogen vragen om empathie en context die alleen mensen kunnen brengen — dus het denken erachter blijft menselijk. AI versterkt ons onderzoek en analyse, maar de keuzes zijn van ons.",
+    "deliverables": ["Gebruikersonderzoek", "UX Analyse", "Business Research", "Stakeholder Workshops", "Productstrategie", "Roadmap", "Productrichtlijnen", "Flowcharts"],
+    "services": ["ux-ui-audits", "user-testing", "design-sprints", "foundation-sprint"]
+  },
+  {
+    "slug": "product-design",
+    "title": "Product Design",
+    "description": "Wij bepalen de richting en vormgeven de ervaring. AI verkent de opties. Wij itereren, verfijnen en nemen de beslissingen.",
+    "longDescription": "Goed design is onzichtbaar — het werkt gewoon. We maken high-fidelity designs die eruitzien en aanvoelen als het echte product, zodat we vroeg kunnen testen met echte gebruikers, zinvolle feedback verzamelen en snel itereren. Elke designbeslissing is gebaseerd op gebruikersonderzoek en business-inzichten, zodat wat we opleveren niet alleen mooi is — maar ook gevalideerd. Of het nu een nieuw product is, een design system, of het versterken van je merk in je product — elke pixel telt.",
+    "deliverables": ["UX/UI Design", "Responsive Design", "Accessibility", "Prototyping", "Usability Testing"],
+    "services": ["design-systems", "boost-branding", "design-for-mendix"]
+  },
+  {
+    "slug": "building",
+    "title": "Building",
+    "description": "Werkende prototypes en productiecode — gebouwd in een fractie van de tijd, zonder concessies.",
+    "longDescription": "We ontwerpen niet alleen — we bouwen ook. Van MVP's tot AI-gedreven features, we zetten gevalideerde designs om in werkende producten. AI versnelt ons ontwikkelproces, zodat we sneller kunnen opleveren zonder kwaliteit in te leveren.",
+    "services": ["build-mvps", "ai-integration"]
+  }
+]

@@ -31,10 +31,9 @@ export default async function ServicesPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("services");
-  const { services } = getContent(locale);
+  const { services, expertise } = getContent(locale);
 
-  const primary = services.filter((s) => !("section" in s && s.section === "secondary"));
-  const secondary = services.filter((s) => "section" in s && s.section === "secondary");
+  const serviceMap = new Map(services.map((s) => [s.slug, s]));
 
   return (
     <section className="px-8 pt-[212px] pb-24">
@@ -44,58 +43,56 @@ export default async function ServicesPage({
           <p className="mt-4 text-lg text-muted-foreground">{t("subtitle")}</p>
         </AnimatedSection>
 
-        <AnimatedGrid className="mt-12 grid gap-4 sm:grid-cols-2" staggerDelay={0.1}>
-          {primary.map((service) => (
-            <AnimatedGridItem key={service.slug}>
-              <Link href={`/services/${service.slug}`}>
-                <Card className="bg-card border-border h-full hover:shadow-card transition-shadow group">
-                  <CardHeader>
-                    <CardTitle className="text-lg">{service.title}</CardTitle>
-                    <CardDescription className="mt-2">{service.description}</CardDescription>
-                    <div className="flex flex-wrap gap-1.5 mt-4">
-                      {(service.previewDeliverables ?? service.deliverables.slice(0, 3)).map((d) => (
-                        <Badge key={d} variant="outline" className="text-xs">{d}</Badge>
-                      ))}
-                      {service.deliverables.length > (service.previewDeliverables ?? service.deliverables.slice(0, 3)).length && (
-                        <Badge variant="outline" className="text-xs">+{service.deliverables.length - (service.previewDeliverables ?? service.deliverables.slice(0, 3)).length}</Badge>
-                      )}
-                    </div>
-                    <div className="mt-4 text-sm text-muted-foreground group-hover:text-foreground transition-colors flex items-center gap-1">
-                      {t("learnMore")} <ArrowRight size={14} />
-                    </div>
-                  </CardHeader>
-                </Card>
-              </Link>
-            </AnimatedGridItem>
-          ))}
-        </AnimatedGrid>
+        {expertise.map((exp, i) => {
+          const childServices = exp.services
+            .map((slug: string) => serviceMap.get(slug))
+            .filter(Boolean);
 
-        {/* Secondary section */}
-        {secondary.length > 0 && (
-          <>
-            <AnimatedSection className="mt-20">
-              <h2 className="text-2xl tracking-tight">{t("secondaryTitle")}</h2>
-            </AnimatedSection>
-
-            <AnimatedGrid className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3" staggerDelay={0.08}>
-              {secondary.map((service) => (
-                <AnimatedGridItem key={service.slug}>
-                  <Link href={`/services/${service.slug}`}>
-                    <Card className="bg-card border-border h-full hover:shadow-card transition-shadow group">
-                      <CardHeader className="p-5">
-                        <CardTitle className="text-base">{service.title}</CardTitle>
-                        <CardDescription className="mt-1 text-sm">{service.description}</CardDescription>
-                        <div className="mt-3 text-sm text-muted-foreground group-hover:text-foreground transition-colors flex items-center gap-1">
-                          {t("learnMore")} <ArrowRight size={14} />
-                        </div>
-                      </CardHeader>
-                    </Card>
+          return (
+            <div key={exp.slug} className={i === 0 ? "mt-16" : "mt-20"}>
+              <AnimatedSection>
+                <div className="flex items-start justify-between gap-8">
+                  <div className="max-w-2xl">
+                    <h2 className="text-2xl tracking-tight">{exp.title}</h2>
+                    <p className="mt-2 text-muted-foreground leading-relaxed">{exp.description}</p>
+                  </div>
+                  <Link
+                    href={`/services/${exp.slug}`}
+                    className="shrink-0 text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
+                  >
+                    {t("learnMore")} <ArrowRight size={14} />
                   </Link>
-                </AnimatedGridItem>
-              ))}
-            </AnimatedGrid>
-          </>
-        )}
+                </div>
+              </AnimatedSection>
+
+              <AnimatedGrid className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" staggerDelay={0.08}>
+                {childServices.map((service) => (
+                  <AnimatedGridItem key={service!.slug}>
+                    <Link href={`/services/${service!.slug}`}>
+                      <Card className="bg-card border-border h-full hover:shadow-card transition-shadow group">
+                        <CardHeader>
+                          <CardTitle className="text-lg">{service!.title}</CardTitle>
+                          <CardDescription className="mt-2">{service!.description}</CardDescription>
+                          <div className="flex flex-wrap gap-1.5 mt-4">
+                            {(service!.previewDeliverables ?? service!.deliverables.slice(0, 3)).map((d) => (
+                              <Badge key={d} variant="outline" className="text-xs">{d}</Badge>
+                            ))}
+                            {service!.deliverables.length > (service!.previewDeliverables ?? service!.deliverables.slice(0, 3)).length && (
+                              <Badge variant="outline" className="text-xs">+{service!.deliverables.length - (service!.previewDeliverables ?? service!.deliverables.slice(0, 3)).length}</Badge>
+                            )}
+                          </div>
+                          <div className="mt-4 text-sm text-muted-foreground group-hover:text-foreground transition-colors flex items-center gap-1">
+                            {t("learnMore")} <ArrowRight size={14} />
+                          </div>
+                        </CardHeader>
+                      </Card>
+                    </Link>
+                  </AnimatedGridItem>
+                ))}
+              </AnimatedGrid>
+            </div>
+          );
+        })}
 
         {/* CTA */}
         <AnimatedSection className="py-32">

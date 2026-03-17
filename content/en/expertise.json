@@ -1,0 +1,25 @@
+[
+  {
+    "slug": "uxr-strategy",
+    "title": "UX Research & Strategy",
+    "description": "We lead the research, talk to users, and define the strategy. AI helps us prepare, analyze, and uncover patterns.",
+    "longDescription": "Great products sit at the intersection of user needs, business goals, and technical feasibility. We start by deeply understanding your users — through interviews, usability tests, and UX analysis — while simultaneously aligning with your business through stakeholder workshops, value proposition design, and strategic sessions. The result is a clear product strategy and roadmap grounded in real insights, not assumptions. Strategy, direction, and judgment require empathy and context only people can bring — so the thinking behind it stays deeply human. AI amplifies our research and analysis, but the calls are ours.",
+    "deliverables": ["User Research", "UX Analysis", "Business Research", "Stakeholder Workshops", "Product Strategy", "Roadmap", "Product Guidelines", "Flowcharts"],
+    "services": ["ux-ui-audits", "user-testing", "design-sprints", "foundation-sprint"]
+  },
+  {
+    "slug": "product-design",
+    "title": "Product Design",
+    "description": "We set the direction and craft the experience. AI explores options. We iterate, refine, and make the calls.",
+    "longDescription": "Great design is invisible — it just works. We craft high-fidelity designs that look and feel like the real product, so we can test with real users early, gather meaningful feedback, and iterate fast. Every design decision is grounded in user research and business insight, so what we ship isn't just beautiful — it's validated. Whether it's a new product, a design system, or elevating your brand inside your product, we make every pixel count.",
+    "deliverables": ["UX/UI Design", "Responsive Design", "Accessibility", "Prototyping", "Usability Testing"],
+    "services": ["design-systems", "boost-branding", "design-for-mendix"]
+  },
+  {
+    "slug": "building",
+    "title": "Building",
+    "description": "Working prototypes and production code — built in a fraction of the time, without cutting corners.",
+    "longDescription": "We don't just design — we build. From MVPs to AI-powered features, we turn validated designs into working products. AI accelerates our development process, letting us ship faster without sacrificing quality.",
+    "services": ["build-mvps", "ai-integration"]
+  }
+]

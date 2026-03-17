@@ -255,7 +255,7 @@ export default async function HomePage({
       <section className="px-8 py-24">
         <div className="mx-auto max-w-[1280px]">
           <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:items-start">
-            {/* Left: text + stats */}
+            {/* Left: text + AI */}
             <div>
               <AnimatedSection>
                 <h2 className="text-[28px] md:text-[36px] tracking-tight">{t("aboutTitle")}</h2>
@@ -269,6 +269,11 @@ export default async function HomePage({
                 </div>
               </AnimatedSection>
 
+              <AnimatedSection delay={0.2} className="mt-12">
+                <h3 className="text-xl font-medium tracking-tight">{t("aiTitle")}</h3>
+                <p className="mt-4 text-muted-foreground leading-relaxed">{t("aiText")}</p>
+                <p className="mt-4 text-muted-foreground leading-relaxed">{t("aiText2")}</p>
+              </AnimatedSection>
             </div>
 
             {/* Right: approach accordion */}
@@ -282,6 +287,24 @@ export default async function HomePage({
                 ]}
               />
             </AnimatedSection>
+          </div>
+
+          {/* AI disciplines */}
+          <div className="mt-12 grid grid-cols-2 lg:grid-cols-4">
+            {[
+              { title: t("aiPoint1Title"), text: t("aiPoint1Text") },
+              { title: t("aiPoint2Title"), text: t("aiPoint2Text") },
+              { title: t("aiPoint3Title"), text: t("aiPoint3Text") },
+              { title: t("aiPoint4Title"), text: t("aiPoint4Text") },
+            ].map((item, i) => (
+              <div key={item.title} className="flex">
+                {i > 0 && <div className="w-px bg-black/5 dark:bg-white/10" />}
+                <div className="py-2 px-5">
+                  <h3 className="text-lg font-medium tracking-tight">{item.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.text}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -388,36 +411,6 @@ export default async function HomePage({
               </div>
             </div>
           </AnimatedSection>
-        </div>
-      </section>
-
-      <div className="px-8"><div className="mx-auto max-w-[1280px]"><div className="h-px bg-black/5 dark:bg-white/10" /></div></div>
-
-      {/* AI */}
-      <section className="px-8 py-24">
-        <div className="mx-auto max-w-[1280px]">
-          <AnimatedSection className="max-w-2xl">
-            <h2 className="text-[28px] md:text-[36px] tracking-tight">{t("aiTitle")}</h2>
-            <p className="mt-4 text-lg text-muted-foreground leading-relaxed">{t("aiText")}</p>
-            <p className="mt-4 text-muted-foreground leading-relaxed">{t("aiText2")}</p>
-          </AnimatedSection>
-
-          <div className="mt-12 grid grid-cols-2 lg:grid-cols-4">
-            {[
-              { title: t("aiPoint1Title"), text: t("aiPoint1Text") },
-              { title: t("aiPoint2Title"), text: t("aiPoint2Text") },
-              { title: t("aiPoint3Title"), text: t("aiPoint3Text") },
-              { title: t("aiPoint4Title"), text: t("aiPoint4Text") },
-            ].map((item, i) => (
-              <div key={item.title} className="flex">
-                {i > 0 && <div className="w-px bg-black/5 dark:bg-white/10" />}
-                <div className="py-2 px-5">
-                  <h3 className="text-lg font-medium tracking-tight">{item.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.text}</p>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 

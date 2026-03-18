@@ -91,84 +91,160 @@ function Sparkles({
 }
 
 /* ------------------------------------------------------------------ */
-/*  ScrollTextReveal — word-based for smooth performance               */
+/*  ScrollTextReveal — zoom-out from core text                         */
 /* ------------------------------------------------------------------ */
 
 export interface TextSegment {
   text: string;
-  /** "default" = primary color, "accent" = bold + gradient (branded only) */
   style?: "default" | "accent";
-  /** Add a line break after this segment */
   break?: boolean;
 }
 
 interface ScrollTextRevealProps {
   segments: TextSegment[];
+  segmentsAfter?: TextSegment[];
+  coreText?: string;
   label?: string;
   className?: string;
   sparkles?: boolean;
 }
 
-interface Word {
-  text: string;
-  style: "default" | "accent";
-  index: number;
-  breakAfter?: boolean;
-}
-
 export function ScrollTextReveal({
   segments,
+  segmentsAfter = [],
+  coreText,
   label,
   className,
   sparkles = true,
 }: ScrollTextRevealProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const stickyRef = useRef<HTMLDivElement>(null);
+  const coreLineRef = useRef<HTMLSpanElement>(null);
+  const circlesRef = useRef<HTMLDivElement>(null);
   const variant = useHomeVariant();
   const isBranded = variant === "b";
 
-  // Build flat word list from segments
-  const words: Word[] = [];
-  let wordIdx = 0;
-  for (const seg of segments) {
-    const style = seg.style ?? "default";
-    const segWords = seg.text.split(/\s+/).filter(Boolean);
-    for (let i = 0; i < segWords.length; i++) {
-      words.push({
-        text: segWords[i],
-        style,
-        index: wordIdx++,
-        breakAfter: seg.break && i === segWords.length - 1,
-      });
-    }
-  }
-  const totalWords = words.length;
+  const totalSegments = segments.length + segmentsAfter.length;
 
-  // Scroll progress mapped to word index
+  // Scroll progress
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
   });
 
-  const revealedCount = useTransform(scrollYProgress, [0.05, 0.85], [0, totalWords]);
+  // Core font-size zoom: 64px → base size
+  const coreZoom = useTransform(scrollYProgress, [0, 0.35], [1.6, 1]);
+  // Segment reveal (before + after combined)
+  const revealCount = useTransform(scrollYProgress, [0.35, 0.9], [0, totalSegments]);
+  // Circles — start huge (all rings beyond viewport), shrink with core text zoom
+  // Smallest ring = 240px, needs scale ~8 to be off a 1920px screen
+  const circleOpacity = useTransform(scrollYProgress, [0, 0.25, 0.4], [0.08, 0.08, 0]);
+  const circleScale = useTransform(scrollYProgress, [0, 0.35], [8, 0.6]);
   const [revealed, setRevealed] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [zoomDone, setZoomDone] = useState(false);
   const prevRevealed = useRef(0);
 
-  useMotionValueEvent(revealedCount, "change", (v) => {
+  useMotionValueEvent(revealCount, "change", (v) => {
     const rounded = Math.round(v);
-    setRevealed(rounded);
-    const isMoving = rounded > prevRevealed.current;
-    prevRevealed.current = rounded;
-    setIsAnimating(isMoving && rounded > 0 && rounded < totalWords);
+    if (rounded !== prevRevealed.current) {
+      setRevealed(rounded);
+      setIsAnimating(rounded > prevRevealed.current && rounded > 0 && rounded < totalSegments);
+      prevRevealed.current = rounded;
+    }
   });
+
+  // Track when zoom phase is complete
+  useMotionValueEvent(scrollYProgress, "change", (v) => {
+    const done = v >= 0.34;
+    setZoomDone((prev) => prev !== done ? done : prev);
+  });
+
+  // Get base font size from the core text itself (now inline, inherits correct size)
+  const baseFontSize = useRef(0);
+  useEffect(() => {
+    const el = coreLineRef.current;
+    if (!el) return;
+    baseFontSize.current = parseFloat(getComputedStyle(el).fontSize);
+    // Set initial zoomed size
+    el.style.fontSize = `${baseFontSize.current * 1.6}px`;
+  }, []);
+
+  // Drive core font-size on scroll
+  useMotionValueEvent(coreZoom, "change", (v) => {
+    const el = coreLineRef.current;
+    if (el && baseFontSize.current > 0) {
+      el.style.fontSize = `${baseFontSize.current * v}px`;
+    }
+  });
+
+  // Drive circles on DOM
+  useMotionValueEvent(circleOpacity, "change", (v) => {
+    const el = circlesRef.current;
+    if (el) el.style.opacity = String(v);
+  });
+  // Drive circle sizes directly (no transform scale) so border stays exactly 1px
+  useMotionValueEvent(circleScale, "change", (v) => {
+    const el = circlesRef.current;
+    if (!el) return;
+    const rings = el.querySelectorAll<HTMLDivElement>("[data-ring]");
+    rings.forEach((ring, idx) => {
+      const baseSize = (idx + 1) * 240;
+      const size = baseSize * v;
+      ring.style.width = `${size}px`;
+      ring.style.height = `${size}px`;
+    });
+  });
+
+  // Render a segment (sentence) as a single unit
+  const renderSegment = (seg: TextSegment, index: number, isRevealed: boolean) => {
+    const isAccent = seg.style === "accent";
+    return (
+      <span key={index} className="inline">
+        <span
+          data-revealed={isRevealed || undefined}
+          data-word=""
+          className={`inline ${
+            isAccent
+              ? isBranded ? "font-semibold" : "font-semibold text-foreground"
+              : isBranded ? "" : "text-[#555] dark:text-[#999]"
+          }`}
+          style={{
+            opacity: !zoomDone ? 0 : isRevealed ? 1 : 0.15,
+            filter: !zoomDone ? "blur(6px)" : isRevealed ? "blur(0px)" : "blur(4px)",
+            transition: "opacity 0.5s ease-out, filter 0.5s ease-out",
+          }}
+        >
+          {seg.text}
+        </span>{seg.break ? <span className="block h-[0.5em]" /> : ""}
+      </span>
+    );
+  };
+
+  let segCounter = 0;
 
   return (
     <div ref={containerRef} className="relative h-[300vh]">
       <div
         ref={stickyRef}
-        className="sticky top-0 flex min-h-[100svh] items-center px-8"
+        className="sticky top-0 flex min-h-[100svh] items-center justify-center px-8 relative overflow-hidden"
       >
+        {/* Concentric circles */}
+        <div
+          ref={circlesRef}
+          className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden"
+          style={{ opacity: 0 }}
+          aria-hidden
+        >
+          {[1, 2, 3, 4, 5].map((i) => (
+            <div
+              key={i}
+              data-ring=""
+              className="absolute rounded-full border border-current"
+            />
+          ))}
+        </div>
+
         <div className={className} style={{ position: "relative" }}>
           {label && (
             <span className="mb-6 block text-xs font-semibold uppercase tracking-widest text-muted-foreground">
@@ -176,41 +252,42 @@ export function ScrollTextReveal({
             </span>
           )}
           {sparkles && <Sparkles containerRef={stickyRef} active={isAnimating} />}
-          {words.map((w) => {
-            const isRevealed = w.index < revealed;
-            const isAccent = w.style === "accent";
 
+          {/* Before-core segments */}
+          <div className="text-center">
+            {segments.map((seg, i) => {
+              const isRevealed = segCounter < revealed;
+              segCounter++;
+              return renderSegment(seg, i, isRevealed);
+            })}
+          </div>
 
-            return (
-              <span key={w.index} className="inline">
-                <span
-                  data-revealed={isRevealed || undefined}
-                  className={`inline-block ${
-                    isAccent
-                      ? isBranded
-                        ? "font-semibold"
-                        : "font-semibold text-foreground"
-                      : isBranded
-                        ? ""
-                        : "text-[#555] dark:text-[#999]"
-                  }`}
-                  style={{
-                    opacity: isRevealed ? 1 : 0.15,
-                    filter: isRevealed ? "blur(0px)" : "blur(4px)",
-                    transition: "opacity 0.6s ease-out, filter 0.6s ease-out",
-                    ...(isAccent && isBranded ? {
-                      backgroundImage: "linear-gradient(135deg, #8070c0 0%, #5080d0 50%, #70a0f0 100%)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      backgroundClip: "text",
-                    } : {}),
-                  }}
-                >
-                  {w.text}
-                </span>{w.breakAfter ? <span className="block h-[0.5em]" /> : " "}
-              </span>
-            );
-          })}
+          {/* Core text — own centered line, font-size driven by scroll */}
+          <div className="text-center my-2">
+            <span
+              ref={coreLineRef}
+              className="font-semibold whitespace-nowrap"
+              style={{
+                ...(isBranded ? {
+                  backgroundImage: "linear-gradient(135deg, #9b7ad8 0%, #6b8de0 40%, #5a9ff0 70%, #88bbff 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                } : {}),
+              }}
+            >
+              {coreText}
+            </span>
+          </div>
+
+          {/* After-core segments */}
+          <div className="text-center">
+            {segmentsAfter.map((seg, i) => {
+              const isRevealed = segCounter < revealed;
+              segCounter++;
+              return renderSegment(seg, segments.length + i, isRevealed);
+            })}
+          </div>
         </div>
       </div>
     </div>

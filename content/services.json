@@ -1,34 +1,34 @@
 [
   {
-    "slug": "research-strategy",
+    "slug": "discover",
     "title": "Research & Strategy",
     "description": "We love talking to users. Using various research methods we work towards a viable product strategy.",
     "longDescription": "Understanding your users is the foundation of every successful product. We conduct interviews, usability tests, surveys, and competitive analyses to uncover insights that drive smart decisions. From there, we translate findings into a clear product strategy and roadmap that aligns business goals with real user needs.",
     "deliverables": ["User Research", "Competitive Analysis", "Product Strategy", "Roadmapping", "Stakeholder Workshops"]
   },
   {
-    "slug": "ux-ui-design",
+    "slug": "product-design",
     "title": "Product Design",
     "description": "We create intuitive, beautiful interfaces that delight users and drive engagement across every touchpoint.",
     "longDescription": "Great design is invisible — it just works. We craft interfaces that are not only visually stunning but deeply intuitive. Our process moves from wireframes and user flows through to pixel-perfect UI design, always grounded in user research and iterative testing.",
     "deliverables": ["Wireframing", "User Flows", "Visual Design", "Interaction Design", "Responsive Design"]
   },
   {
-    "slug": "design-systems",
+    "slug": "design-system",
     "title": "Design Systems",
     "description": "A design system brings consistency and efficiency to your product, resulting in better user experience and brand identity.",
     "longDescription": "As products scale, inconsistency creeps in. We build comprehensive design systems — component libraries, design tokens, and documentation — that keep your product coherent and your team fast. A well-built system pays dividends for years.",
     "deliverables": ["Component Libraries", "Design Tokens", "Documentation", "Figma Libraries", "Developer Handoff"]
   },
   {
-    "slug": "build-mvps",
+    "slug": "launch-mvp",
     "title": "Build MVPs",
     "description": "Quickly validate your product idea, receive feedback from users, and iterate towards a successful and sustainable solution.",
     "longDescription": "Speed to market matters. We help you define the smallest viable version of your product, design and build it rapidly, then put it in front of real users. This learn-fast approach reduces risk and ensures you're building something people actually want.",
     "deliverables": ["MVP Scoping", "Rapid Prototyping", "Frontend Development", "User Testing", "Iteration Sprints"]
   },
   {
-    "slug": "boost-branding",
+    "slug": "brand-integration",
     "title": "Boost Branding",
     "description": "We elevate your product's visual identity to create a cohesive, memorable brand that stands out in the market.",
     "longDescription": "Your brand is more than a logo — it's the feeling people get when they interact with your product. We craft visual identities that resonate with your audience, from typography and color systems to illustration styles and motion principles.",

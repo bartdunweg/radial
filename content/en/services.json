@@ -1,14 +1,6 @@
 [
   {
-    "slug": "research-strategy",
-    "title": "Research & Strategy",
-    "description": "We talk to users and stakeholders alike. Combining user research with business strategy, we build the foundation for products that are desirable, viable, and feasible.",
-    "longDescription": "Great products sit at the intersection of user needs, business goals, and technical feasibility. We start by deeply understanding your users — through interviews, usability tests, and UX analysis — while simultaneously aligning with your business through stakeholder workshops, value proposition design, and strategic sessions. The result is a clear product strategy and roadmap grounded in real insights, not assumptions.",
-    "deliverables": ["User Research", "UX Analysis", "Business Research", "Stakeholder Workshops", "Product Strategy", "Roadmap", "Product Guidelines", "Flowcharts"],
-    "previewDeliverables": ["User Research", "Business Research", "Product Strategy"]
-  },
-  {
-    "slug": "ux-ui-design",
+    "slug": "product-design",
     "title": "Product Design",
     "description": "We design intuitive, beautiful interfaces — testing early with high-fidelity designs and iterating based on real user and business insight.",
     "longDescription": "Great design is invisible — it just works. We craft high-fidelity designs that look and feel like the real product, so we can test with real users early, gather meaningful feedback, and iterate fast. Every design decision is grounded in user research and business insight, so what we ship isn't just beautiful — it's validated.",
@@ -16,40 +8,63 @@
     "previewDeliverables": ["UX/UI Design", "Prototyping", "Usability Testing"]
   },
   {
-    "slug": "design-systems",
-    "title": "Design Systems",
+    "slug": "design-system",
+    "title": "Design System",
     "description": "A design system brings consistency and efficiency to your product, resulting in better user experience and brand identity.",
     "longDescription": "As products scale, inconsistency creeps in. We build comprehensive design systems — component libraries, design tokens, and documentation — that keep your product coherent and your team fast. A well-built system pays dividends for years.",
     "deliverables": ["Component Libraries", "Design Tokens", "Documentation", "Figma Libraries", "Developer Handoff"]
   },
   {
-    "slug": "build-mvps",
-    "title": "Build MVPs",
+    "slug": "launch-mvp",
+    "title": "Launch MVP",
     "description": "Quickly validate your product idea, receive feedback from users, and iterate towards a successful and sustainable solution.",
     "longDescription": "Speed to market matters. We help you define the smallest viable version of your product, design and build it rapidly, then put it in front of real users. This learn-fast approach reduces risk and ensures you're building something people actually want.",
     "deliverables": ["MVP Scoping", "Prototyping", "Development", "Product Validation", "Iteration Sprints"],
     "previewDeliverables": ["MVP Scoping", "Development", "Product Validation"]
   },
   {
-    "slug": "boost-branding",
-    "title": "Boost Branding",
+    "slug": "brand-integration",
+    "title": "Brand Integration",
     "description": "We take your existing brand and integrate it meaningfully into your product — from color systems and typography to interaction patterns and motion.",
     "longDescription": "You already have a brand. We make sure your product lives up to it. We translate your existing identity into a coherent product experience — defining how your colors, typography, illustration style, and motion principles show up across every screen and interaction. Need a new logo or naming? We'll connect you with our trusted partners. Our focus is on making your brand feel alive inside your product.",
     "deliverables": ["Brand Integration", "Product Theming", "Typography Systems", "Illustration Style", "Brand Guidelines"],
     "previewDeliverables": ["Brand Integration", "Typography Systems", "Brand Guidelines"]
   },
   {
-    "slug": "ai-integration",
-    "title": "AI Integration",
+    "slug": "web-apps",
+    "title": "Web Apps",
     "section": "secondary",
-    "description": "We embed AI into your product workflows — from intelligent automation to generative features that create real user value.",
-    "longDescription": "AI is transforming how products work. We help you identify where AI creates genuine value for your users — not gimmicks, but meaningful features. From smart automation to generative interfaces, we design and build AI-powered experiences that feel natural and useful.",
-    "deliverables": ["AI Opportunity Mapping", "Prompt Engineering", "AI-Powered Features", "LLM Integration", "Workflow Automation"],
-    "previewDeliverables": ["AI Opportunity Mapping", "AI-Powered Features", "Workflow Automation"]
+    "description": "Custom web applications built for performance, scalability, and a seamless user experience.",
+    "longDescription": "We design and build web applications that feel fast and intuitive — from complex SaaS platforms to internal tools. Using modern frameworks like React and Next.js, we deliver applications that scale with your business while keeping the user experience front and center.",
+    "deliverables": ["Front-end Development", "Back-end Integration", "Responsive Design", "Performance Optimization", "Deployment"]
   },
   {
-    "slug": "design-sprints",
-    "title": "Design Sprints",
+    "slug": "mobile-apps",
+    "title": "Mobile Apps",
+    "section": "secondary",
+    "description": "Native and cross-platform mobile apps that feel right at home on iOS and Android.",
+    "longDescription": "We build mobile apps that users love to open. Whether native or cross-platform with React Native or Flutter — we focus on smooth interactions, offline capability, and platform-specific patterns that make your app feel like it belongs on every device.",
+    "deliverables": ["iOS Development", "Android Development", "Cross-platform Development", "App Store Deployment", "Push Notifications"]
+  },
+  {
+    "slug": "dashboards",
+    "title": "Dashboards",
+    "section": "secondary",
+    "description": "Data-driven dashboards that turn complex information into clear, actionable insights.",
+    "longDescription": "Good dashboards don't just show data — they drive decisions. We design and build dashboards that surface the right information at the right time, with intuitive filtering, real-time updates, and visualizations that make complex data easy to understand and act on.",
+    "deliverables": ["Data Visualization", "Real-time Updates", "Filtering & Search", "Export & Reporting", "Role-based Views"]
+  },
+  {
+    "slug": "interactive-displays",
+    "title": "Interactive Displays",
+    "section": "secondary",
+    "description": "Touch-driven experiences for kiosks, in-store displays, and public-facing screens.",
+    "longDescription": "Digital experiences don't stop at phones and laptops. We design and build interactive displays for physical spaces — from retail kiosks and museum installations to office lobby screens and wayfinding systems. We account for the unique challenges of public-facing touch interfaces: accessibility, durability, and intuitive interaction without a learning curve.",
+    "deliverables": ["Touch Interface Design", "Kiosk Development", "Digital Signage", "Wayfinding Systems", "Hardware Integration"]
+  },
+  {
+    "slug": "design-sprint",
+    "title": "Design Sprint",
     "description": "Solve big product challenges in just 4 days — from problem framing to a tested prototype with real users.",
     "longDescription": "A Design Sprint is a structured 4-day process that helps teams rapidly move from a challenge to a validated solution. We facilitate the entire sprint: mapping the problem, sketching solutions, deciding on direction, building a realistic prototype, and testing it with real users. It's the fastest way to de-risk decisions and align your team.",
     "deliverables": ["Sprint Facilitation", "Problem Mapping", "Rapid Prototyping", "User Testing", "Validated Concepts"],
@@ -69,8 +84,8 @@
     "deliverables": ["Founding Hypothesis", "Value Proposition", "Competitive Positioning", "Strategic Direction", "Action Plan"]
   },
   {
-    "slug": "ux-ui-audits",
-    "title": "UX/UI Audits",
+    "slug": "ux-ui-audit",
+    "title": "UX/UI Audit",
     "section": "secondary",
     "description": "A thorough review of your product's user experience and interface — identifying friction, inconsistencies, and opportunities to improve.",
     "longDescription": "Sometimes you need a fresh pair of expert eyes on your product. We audit your existing experience end-to-end: evaluating usability, visual consistency, accessibility, and interaction patterns. You get a prioritized report with concrete, actionable recommendations — not vague observations, but clear steps to make your product better.",
@@ -78,11 +93,19 @@
   },
   {
     "slug": "user-testing",
-    "title": "User Testing & Interviews",
+    "title": "User Testing",
     "section": "secondary",
-    "description": "Put your product in front of real users. We run usability tests and in-depth interviews to uncover what works, what doesn't, and why.",
-    "longDescription": "Assumptions are risky. We help you validate decisions by talking to real users. Whether it's moderated usability tests, unmoderated sessions, or in-depth interviews — we plan, recruit, facilitate, and synthesize findings into clear insights your team can act on immediately.",
-    "deliverables": ["Test Planning", "User Recruitment", "Moderated Testing", "Interview Sessions", "Insight Reports"]
+    "description": "Put your product in front of real users. We run usability tests to uncover what works, what doesn't, and why.",
+    "longDescription": "Assumptions are risky. We help you validate decisions by testing with real users. Whether it's moderated usability tests or unmoderated sessions — we plan, recruit, facilitate, and synthesize findings into clear insights your team can act on immediately.",
+    "deliverables": ["Test Planning", "User Recruitment", "Moderated Testing", "Unmoderated Testing", "Insight Reports"]
+  },
+  {
+    "slug": "interviews",
+    "title": "Interviews",
+    "section": "secondary",
+    "description": "In-depth conversations with users and stakeholders to uncover needs, motivations, and pain points.",
+    "longDescription": "The best product decisions are grounded in real conversations. We conduct in-depth interviews with users, customers, and stakeholders to understand what drives behavior, what causes frustration, and what people actually need. We handle everything — from recruiting the right participants to synthesizing findings into actionable insights.",
+    "deliverables": ["Interview Guide", "Participant Recruitment", "In-depth Interviews", "Stakeholder Interviews", "Insight Synthesis"]
   },
   {
     "slug": "design-for-mendix",

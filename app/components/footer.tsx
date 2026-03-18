@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 
 
 const LinkedinIcon = () => (
@@ -32,57 +32,75 @@ export function Footer() {
 
   const isVariantA = homeVariant === "a";
 
+  const footerRef = useRef<HTMLElement>(null);
+  const innerRef = useRef<HTMLDivElement>(null);
+
+  const handleScroll = useCallback(() => {
+    const footer = footerRef.current;
+    if (!footer) return;
+    const scrollBottom = document.documentElement.scrollHeight - window.scrollY - window.innerHeight;
+    // Footer starts lower and slides up as you scroll to bottom
+    const offset = Math.min(256, scrollBottom * 0.25);
+    footer.style.transform = `translateY(${offset}px)`;
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [handleScroll]);
+
   return (
-    <footer className="sticky bottom-0 z-0 flex min-h-screen w-full flex-col justify-between bg-[#f8f9fb] text-foreground dark:bg-[#101114] dark:text-white px-8 pt-32">
+    <footer ref={footerRef} className="sticky bottom-0 z-0 flex min-h-screen w-full flex-col justify-between bg-[#f8f9fb] text-foreground dark:bg-[#101114] dark:text-white px-8 pt-32">
       {/* Top: navigation, contact, social, legal */}
       <div className="mx-auto w-full max-w-[1280px]">
         <div className="mb-12 grid gap-10 md:grid-cols-[2fr_1fr_1fr_1fr_1fr]">
           <div>
-            <p className="max-w-[260px] text-sm leading-relaxed text-muted-foreground">
+            <p className="max-w-[260px] text-lg leading-relaxed text-muted-foreground">
               {t("tagline")}
             </p>
           </div>
 
           <div>
-            <div className="mb-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+            <div className="mb-4 text-sm font-medium text-foreground">
               {t("navigation")}
             </div>
             <ul className="flex flex-col gap-2.5">
-              <li><Link href="/work" className="text-sm text-muted-foreground transition-colors hover:text-foreground">{nav("work")}</Link></li>
-              <li><Link href="/services" className="text-sm text-muted-foreground transition-colors hover:text-foreground">{nav("services")}</Link></li>
-              <li><Link href="/about" className="text-sm text-muted-foreground transition-colors hover:text-foreground">{nav("about")}</Link></li>
-              <li><Link href="/blog" className="text-sm text-muted-foreground transition-colors hover:text-foreground">{nav("blog")}</Link></li>
-              <li><Link href="/pricing" className="text-sm text-muted-foreground transition-colors hover:text-foreground">{nav("pricing")}</Link></li>
+              <li><Link href="/work" className="text-lg text-muted-foreground transition-colors hover:text-foreground">{nav("work")}</Link></li>
+              <li><Link href="/services" className="text-lg text-muted-foreground transition-colors hover:text-foreground">{nav("services")}</Link></li>
+              <li><Link href="/about" className="text-lg text-muted-foreground transition-colors hover:text-foreground">{nav("about")}</Link></li>
+              <li><Link href="/blog" className="text-lg text-muted-foreground transition-colors hover:text-foreground">{nav("blog")}</Link></li>
+              <li><Link href="/pricing" className="text-lg text-muted-foreground transition-colors hover:text-foreground">{nav("pricing")}</Link></li>
             </ul>
           </div>
 
           <div>
-            <div className="mb-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+            <div className="mb-4 text-sm font-medium text-foreground">
               {t("contact")}
             </div>
             <ul className="flex flex-col gap-2.5">
-              <li><a href="mailto:hello@radial.design" className="text-sm text-muted-foreground transition-colors hover:text-foreground">hello@radial.design</a></li>
-              <li><a href="tel:+31639561580" className="text-sm text-muted-foreground transition-colors hover:text-foreground">+31 (6) 39 56 15 80</a></li>
+              <li><a href="mailto:hello@radial.design" className="text-lg text-muted-foreground transition-colors hover:text-foreground">hello@radial.design</a></li>
+              <li><a href="tel:+31639561580" className="text-lg text-muted-foreground transition-colors hover:text-foreground">+31 (6) 39 56 15 80</a></li>
             </ul>
             <div className="mt-6">
-              <div className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">{t("headquarters")}</div>
-              <p className="text-sm text-muted-foreground">Voorhaven 27C<br />3025 HC Rotterdam</p>
+              <div className="mb-2 text-sm font-medium text-foreground">{t("headquarters")}</div>
+              <p className="text-lg text-muted-foreground">Voorhaven 27C<br />3025 HC Rotterdam</p>
             </div>
           </div>
 
           <div>
-            <div className="mb-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">{t("followUs")}</div>
+            <div className="mb-4 text-sm font-medium text-foreground">{t("followUs")}</div>
             <ul className="flex flex-col gap-2.5">
-              <li><a href="#" className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"><LinkedinIcon /> LinkedIn</a></li>
-              <li><a href="#" className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"><InstagramIcon /> Instagram</a></li>
+              <li><a href="#" className="flex items-center gap-2 text-lg text-muted-foreground transition-colors hover:text-foreground"><LinkedinIcon /> LinkedIn</a></li>
+              <li><a href="#" className="flex items-center gap-2 text-lg text-muted-foreground transition-colors hover:text-foreground"><InstagramIcon /> Instagram</a></li>
             </ul>
           </div>
 
           <div>
-            <div className="mb-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">{t("legal")}</div>
+            <div className="mb-4 text-sm font-medium text-foreground">{t("legal")}</div>
             <ul className="flex flex-col gap-2.5">
-              <li><a href="#" className="text-sm text-muted-foreground transition-colors hover:text-foreground">{t("privacy")}</a></li>
-              <li><a href="#" className="text-sm text-muted-foreground transition-colors hover:text-foreground">{t("terms")}</a></li>
+              <li><a href="#" className="text-lg text-muted-foreground transition-colors hover:text-foreground">{t("privacy")}</a></li>
+              <li><a href="#" className="text-lg text-muted-foreground transition-colors hover:text-foreground">{t("terms")}</a></li>
 
             </ul>
           </div>

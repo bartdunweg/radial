@@ -12,6 +12,7 @@ import {
   AnimatedGrid,
   AnimatedGridItem,
 } from "../../components/animated-sections";
+import { ServiceIllustration } from "../../components/service-illustrations";
 
 export async function generateMetadata({
   params,
@@ -69,18 +70,11 @@ export default async function ServicesPage({
                 {childServices.map((service) => (
                   <AnimatedGridItem key={service!.slug}>
                     <Link href={`/services/${service!.slug}`}>
-                      <Card className="bg-card border-border h-full hover:shadow-card transition-shadow group">
-                        <CardHeader>
+                      <Card className="bg-card border-border h-full hover:shadow-card transition-shadow group overflow-hidden">
+                        <ServiceIllustration slug={service!.slug} className="flex items-center justify-center px-6 pt-6 pb-2" />
+                        <CardHeader className="pt-0">
                           <CardTitle className="text-lg">{service!.title}</CardTitle>
                           <CardDescription className="mt-2">{service!.description}</CardDescription>
-                          <div className="flex flex-wrap gap-1.5 mt-4">
-                            {(service!.previewDeliverables ?? service!.deliverables.slice(0, 3)).map((d) => (
-                              <Badge key={d} variant="outline" className="text-xs">{d}</Badge>
-                            ))}
-                            {service!.deliverables.length > (service!.previewDeliverables ?? service!.deliverables.slice(0, 3)).length && (
-                              <Badge variant="outline" className="text-xs">+{service!.deliverables.length - (service!.previewDeliverables ?? service!.deliverables.slice(0, 3)).length}</Badge>
-                            )}
-                          </div>
                           <div className="mt-4 text-sm text-muted-foreground group-hover:text-foreground transition-colors flex items-center gap-1">
                             {t("learnMore")} <ArrowRight size={14} />
                           </div>

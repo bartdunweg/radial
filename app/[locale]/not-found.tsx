@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 
 export default function NotFound() {
   return (
-    <section className="flex min-h-[80vh] flex-col items-center justify-center px-8 text-center">
+    <section className="flex min-h-[80vh] flex-col items-center justify-center px-8 text-center animate-[fadeIn_0.5s_ease-out]">
       <h1 className="text-6xl font-bold tracking-tight md:text-8xl">404</h1>
       <p className="mt-4 text-lg text-muted-foreground">
         This page doesn&apos;t exist.

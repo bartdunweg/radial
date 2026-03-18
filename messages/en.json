@@ -244,7 +244,9 @@
     "submit": "Send message",
     "phone": "Phone",
     "address": "Address",
-    "email": "Email"
+    "email": "Email",
+    "submitSuccess": "Message sent successfully!",
+    "submitError": "Something went wrong. Please try again."
   },
   "footer": {
     "tagline": "Everything we make starts at the core — where user needs meet business goals.",

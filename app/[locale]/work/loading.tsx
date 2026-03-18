@@ -1,0 +1,17 @@
+export default function Loading() {
+  return (
+    <section className="px-8 pt-[212px] pb-24 animate-pulse">
+      <div className="mx-auto max-w-[1280px]">
+        <div className="max-w-xl">
+          <div className="h-10 w-1/2 rounded-xl bg-muted" />
+          <div className="h-5 w-full mt-4 rounded-lg bg-muted" />
+        </div>
+        <div className="mt-12 grid gap-6 sm:grid-cols-2">
+          {[...Array(4)].map((_, i) => (
+            <div key={i} className="aspect-[4/3] rounded-2xl bg-muted" />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

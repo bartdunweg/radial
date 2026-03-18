@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
@@ -9,6 +9,11 @@ import { ThemeProvider } from "../components/theme-provider";
 import { Navbar } from "../components/navbar";
 import { Footer } from "../components/footer";
 import { VariantToggle } from "../components/variant-toggle";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
 
 const inter = Inter({
   variable: "--font-inter",
@@ -45,12 +50,20 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
   return {
+    metadataBase: new URL("https://studioradial.com"),
     title: { default: t("siteTitle"), template: "%s — Radial" },
     description: t("siteDescription"),
+    alternates: {
+      canonical: locale === "en" ? "/" : "/nl",
+      languages: { en: "/", nl: "/nl" },
+    },
     openGraph: {
       type: "website",
       locale: locale === "nl" ? "nl_NL" : "en_US",
       siteName: "Radial",
+    },
+    twitter: {
+      card: "summary_large_image",
     },
   };
 }

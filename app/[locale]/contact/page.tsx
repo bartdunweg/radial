@@ -7,6 +7,8 @@ import { cn } from "@/lib/utils";
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { ArrowRight, Check } from "lucide-react";
+import { useActionState } from "react";
+import { submitContactForm } from "@/app/actions/contact";
 
 const intents = ["new", "improve", "audit", "other"] as const;
 type Intent = (typeof intents)[number];
@@ -16,6 +18,7 @@ export default function ContactPage() {
   const searchParams = useSearchParams();
   const initialIntent = (searchParams.get("intent") as Intent) || null;
   const [selectedIntent, setSelectedIntent] = useState<Intent | null>(initialIntent);
+  const [state, formAction, isPending] = useActionState(submitContactForm, null);
 
   const intentOptions: { key: Intent; label: string; desc: string }[] = [
     { key: "new", label: t("intentNew"), desc: t("intentNewDesc") },
@@ -62,7 +65,7 @@ export default function ContactPage() {
         <Separator className="my-12" />
 
         <div className="grid gap-16 lg:grid-cols-[1fr_320px]">
-          <form className="space-y-6">
+          <form action={formAction} className="space-y-6">
             {selectedIntent && (
               <input type="hidden" name="intent" value={selectedIntent} />
             )}
@@ -111,9 +114,15 @@ export default function ContactPage() {
                 className="flex w-full rounded-2xl border border-border bg-white px-4 py-3 text-sm transition-colors placeholder:text-muted-foreground focus:border-primary focus:outline-none dark:bg-card"
               />
             </div>
-            <button type="submit" className={cn(buttonVariants({ size: "lg" }))}>
-              {t("submit")}
+            <button type="submit" disabled={isPending} className={cn(buttonVariants({ size: "lg" }))}>
+              {isPending ? "..." : t("submit")}
             </button>
+            {state?.success && (
+              <p className="text-sm text-green-600">Message sent successfully!</p>
+            )}
+            {state?.error && (
+              <p className="text-sm text-red-600">{state.error}</p>
+            )}
           </form>
 
           <div>
@@ -121,8 +130,8 @@ export default function ContactPage() {
             <div className="space-y-6">
               <div>
                 <div className="text-sm font-medium text-muted-foreground mb-1">{t("email")}</div>
-                <a href="mailto:hello@radial.design" className="text-sm transition-colors hover:text-muted-foreground">
-                  hello@radial.design
+                <a href="mailto:hello@studioradial.com" className="text-sm transition-colors hover:text-muted-foreground">
+                  hello@studioradial.com
                 </a>
               </div>
               <div>

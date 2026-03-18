@@ -103,7 +103,10 @@
     "learnMore": "Learn more",
     "ctaTitle": "Ready to build something great?",
     "ctaText": "Let's talk about your next project. We'd love to hear what you're working on.",
-    "ctaCta": "Get in touch"
+    "ctaCta": "Get in touch",
+    "ctaHeadline": "Let's build something that radiates.",
+    "ctaContact": "Jasper den Ouden",
+    "ctaRole": "Strategy & UX"
   },
   "about": {
     "title": "Radial, from the inside out",
@@ -258,6 +261,13 @@
   },
   "metadata": {
     "siteTitle": "Radial — Digital Product Studio",
-    "siteDescription": "Digital product design from the center out. We shape tomorrow's digital products with clarity and impact."
+    "siteDescription": "It starts at the core. We create digital products that work — for users and for business.",
+    "aboutDescription": "A small, focused design studio in Rotterdam. Senior designers, close collaboration, and AI-powered workflows.",
+    "workDescription": "Selected projects by Radial. Designed to make impact, measured to prove it.",
+    "servicesDescription": "From research to launch — UX design, UI design, design systems, prototyping, and development.",
+    "blogDescription": "Insights on design, AI, and building better digital products.",
+    "pricingDescription": "Transparent pricing for design sprints, product design, and ongoing collaboration.",
+    "contactDescription": "Get in touch with Radial. Let's talk about your next digital product.",
+    "orgDescription": "Digital product design studio based in Rotterdam. We design and build digital products with research-driven design and AI-powered workflows."
   }
 }

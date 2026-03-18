@@ -103,7 +103,7 @@ export default async function BlogPostPage({
             publisher: {
               "@type": "Organization",
               name: "Radial",
-              url: "https://radial.design",
+              url: "https://studioradial.com",
             },
           }),
         }}

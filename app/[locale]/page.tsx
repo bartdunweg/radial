@@ -190,19 +190,19 @@ export default async function HomePage({
         label={undefined}
         coreText={t("intro4core")}
         segments={[
-          { text: t("intro1a") },
-          { text: t("intro1b") },
+          { text: t("intro1a"), style: "accent" },
+          { text: t("intro1b"), style: "accent" },
           { text: t("intro2") },
-          { text: t("intro3b"), style: "accent" },
+          { text: t("intro3b") },
         ]}
         segmentsAfter={[
           { text: t("intro4rest") },
           { text: t("intro5") },
           { text: t("intro5b") },
-          { text: t("intro6"), style: "accent" },
-          { text: t("intro7"), style: "accent" },
+          { text: t("intro6") },
+          { text: t("intro7") },
         ]}
-        className="mx-auto max-w-[960px] text-[clamp(1.75rem,3vw,2.5rem)] leading-[1.4] tracking-tight text-center"
+        className="mx-auto max-w-[960px] text-[28px] md:text-[36px] leading-[1.4] tracking-tight text-center"
         sparkles={false}
       />
 

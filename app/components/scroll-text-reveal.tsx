@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, useCallback, useEffect, useSyncExternalStore } from "react";
-import { motion, useScroll, useTransform, useMotionValueEvent } from "motion/react";
+import { motion, useScroll, useMotionValueEvent } from "motion/react";
 
 function useHomeVariant() {
   return useSyncExternalStore(
@@ -126,75 +126,55 @@ export function ScrollTextReveal({
 
   const totalSegments = segments.length + segmentsAfter.length;
 
-  // Scroll progress
+  // Scroll progress — detect how far into the section we are
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
   });
 
-  // Core font-size zoom: 64px → base size
-  const coreZoom = useTransform(scrollYProgress, [0, 0.35], [1.6, 1]);
-  // Segment reveal (before + after combined)
-  const revealCount = useTransform(scrollYProgress, [0.35, 0.9], [0, totalSegments]);
-  // Circles — start huge (all rings beyond viewport), shrink with core text zoom
-  // Smallest ring = 240px, needs scale ~8 to be off a 1920px screen
-  const circleOpacity = useTransform(scrollYProgress, [0, 0.25, 0.4], [0.08, 0.08, 0]);
-  const circleScale = useTransform(scrollYProgress, [0, 0.35], [8, 0.6]);
+  // Max ring size = viewport height so rings never reach the logo divider
+  const [maxRingSize, setMaxRingSize] = useState(700);
+  useEffect(() => {
+    setMaxRingSize(Math.min(window.innerHeight, window.innerWidth) * 0.8);
+  }, []);
+
+  // Trigger text reveal when scrolled ~halfway into section
+  const [hasTriggered, setHasTriggered] = useState(false);
+  const [maskSize, setMaskSize] = useState(0);
   const [revealed, setRevealed] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [zoomDone, setZoomDone] = useState(false);
-  const prevRevealed = useRef(0);
 
-  useMotionValueEvent(revealCount, "change", (v) => {
-    const rounded = Math.round(v);
-    if (rounded !== prevRevealed.current) {
-      setRevealed(rounded);
-      setIsAnimating(rounded > prevRevealed.current && rounded > 0 && rounded < totalSegments);
-      prevRevealed.current = rounded;
-    }
-  });
-
-  // Track when zoom phase is complete
   useMotionValueEvent(scrollYProgress, "change", (v) => {
-    const done = v >= 0.34;
-    setZoomDone((prev) => prev !== done ? done : prev);
-  });
-
-  // Get base font size from the core text itself (now inline, inherits correct size)
-  const baseFontSize = useRef(0);
-  useEffect(() => {
-    const el = coreLineRef.current;
-    if (!el) return;
-    baseFontSize.current = parseFloat(getComputedStyle(el).fontSize);
-    // Set initial zoomed size
-    el.style.fontSize = `${baseFontSize.current * 1.6}px`;
-  }, []);
-
-  // Drive core font-size on scroll
-  useMotionValueEvent(coreZoom, "change", (v) => {
-    const el = coreLineRef.current;
-    if (el && baseFontSize.current > 0) {
-      el.style.fontSize = `${baseFontSize.current * v}px`;
+    if (v > 0.01 && !hasTriggered) setHasTriggered(true);
+    if (v <= 0.01 && hasTriggered) {
+      setHasTriggered(false);
+      setMaskSize(0);
+      setRevealed(0);
+      setIsAnimating(false);
+      setZoomDone(false);
     }
   });
 
-  // Drive circles on DOM
-  useMotionValueEvent(circleOpacity, "change", (v) => {
-    const el = circlesRef.current;
-    if (el) el.style.opacity = String(v);
-  });
-  // Drive circle sizes directly (no transform scale) so border stays exactly 1px
-  useMotionValueEvent(circleScale, "change", (v) => {
-    const el = circlesRef.current;
-    if (!el) return;
-    const rings = el.querySelectorAll<HTMLDivElement>("[data-ring]");
-    rings.forEach((ring, idx) => {
-      const baseSize = (idx + 1) * 240;
-      const size = baseSize * v;
-      ring.style.width = `${size}px`;
-      ring.style.height = `${size}px`;
-    });
-  });
+  // Once triggered, fade in text + reveal segments
+  useEffect(() => {
+    if (!hasTriggered) return;
+    setMaskSize(160);
+    setZoomDone(true);
+    let count = 0;
+    const interval = setInterval(() => {
+      count++;
+      setRevealed(count);
+      setIsAnimating(count < totalSegments);
+      if (count >= totalSegments) {
+        clearInterval(interval);
+        setIsAnimating(false);
+      }
+    }, 100);
+    return () => clearInterval(interval);
+  }, [hasTriggered, totalSegments]);
+
+
 
   // Render a segment (sentence) as a single unit
   const renderSegment = (seg: TextSegment, index: number, isRevealed: boolean) => {
@@ -204,15 +184,11 @@ export function ScrollTextReveal({
         <span
           data-revealed={isRevealed || undefined}
           data-word=""
-          className={`inline ${
-            isAccent
-              ? isBranded ? "font-semibold" : "font-semibold text-foreground"
-              : isBranded ? "" : "text-[#555] dark:text-[#999]"
-          }`}
+          className="inline text-muted-foreground"
           style={{
-            opacity: !zoomDone ? 0 : isRevealed ? 1 : 0.15,
-            filter: !zoomDone ? "blur(6px)" : isRevealed ? "blur(0px)" : "blur(4px)",
-            transition: "opacity 0.5s ease-out, filter 0.5s ease-out",
+            opacity: maskSize > 0 ? 1 : 0,
+            filter: maskSize > 20 ? "blur(0px)" : "blur(6px)",
+            transition: "opacity 0.8s ease-out, filter 1.2s ease-out",
           }}
         >
           {seg.text}
@@ -224,28 +200,46 @@ export function ScrollTextReveal({
   let segCounter = 0;
 
   return (
-    <div ref={containerRef} className="relative h-[300vh]">
+    <div ref={containerRef} className="relative h-[150vh]">
+
       <div
         ref={stickyRef}
-        className="sticky top-0 flex min-h-[100svh] items-center justify-center px-8 relative overflow-hidden"
+        className="sticky top-0 flex min-h-[100svh] items-center justify-center px-8 relative"
       >
         {/* Concentric circles */}
         <div
           ref={circlesRef}
-          className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden"
-          style={{ opacity: 0 }}
+          className="pointer-events-none absolute inset-0 flex items-center justify-center"
+          style={{
+            opacity: maskSize > 10 ? 0 : 1,
+            transition: "opacity 0.8s ease-out",
+          }}
           aria-hidden
         >
-          {[1, 2, 3, 4, 5].map((i) => (
-            <div
+          {[1, 2, 3].map((i) => (
+            <motion.div
               key={i}
-              data-ring=""
-              className="absolute rounded-full border border-current"
+              className="absolute rounded-full border border-border"
+              style={{
+                width: `${maxRingSize}px`,
+                height: `${maxRingSize}px`,
+              }}
+              animate={{
+                scale: [0, 0.05, 0.8, 1],
+                opacity: [0, 1, 1, 0],
+              }}
+              transition={{
+                duration: 6,
+                ease: "linear",
+                repeat: Infinity,
+                delay: i * 2,
+                times: [0, 0.02, 0.8, 1],
+              }}
             />
           ))}
         </div>
 
-        <div className={className} style={{ position: "relative" }}>
+        <div className={className} style={{ position: "relative", fontFamily: "var(--font-satoshi), sans-serif", fontWeight: 500 }}>
           {label && (
             <span className="mb-6 block text-xs font-semibold uppercase tracking-widest text-muted-foreground">
               {label}
@@ -254,7 +248,7 @@ export function ScrollTextReveal({
           {sparkles && <Sparkles containerRef={stickyRef} active={isAnimating} />}
 
           {/* Before-core segments */}
-          <div className="text-center">
+          <div className="text-center" style={{ textWrap: "balance" }}>
             {segments.map((seg, i) => {
               const isRevealed = segCounter < revealed;
               segCounter++;
@@ -263,17 +257,18 @@ export function ScrollTextReveal({
           </div>
 
           {/* Core text — own centered line, font-size driven by scroll */}
-          <div className="text-center my-2">
+          <div className="text-center" style={{ padding: "32px 0" }}>
             <span
               ref={coreLineRef}
-              className="font-semibold whitespace-nowrap"
+              className="whitespace-nowrap text-[48px] md:text-[64px]"
               style={{
-                ...(isBranded ? {
-                  backgroundImage: "linear-gradient(135deg, #9b7ad8 0%, #6b8de0 40%, #5a9ff0 70%, #88bbff 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                } : {}),
+                fontFamily: "var(--font-satoshi), sans-serif",
+                fontWeight: 500,
+                backgroundImage: "linear-gradient(135deg, #6b4aa8 0%, #3b5db0 40%, #2a6fc0 70%, #4a7bcf 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                color: "transparent",
               }}
             >
               {coreText}
@@ -281,7 +276,7 @@ export function ScrollTextReveal({
           </div>
 
           {/* After-core segments */}
-          <div className="text-center">
+          <div className="text-center" style={{ textWrap: "balance" }}>
             {segmentsAfter.map((seg, i) => {
               const isRevealed = segCounter < revealed;
               segCounter++;

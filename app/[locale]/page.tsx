@@ -7,7 +7,6 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { ArrowRight, Check, X, Search, PenTool, Hammer } from "lucide-react";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
 import { AtomToggle } from "../components/atom-toggle";
 import { RotatingClients } from "../components/rotating-clients";
 import { TestimonialSlider } from "../components/testimonial-slider";
@@ -34,6 +33,7 @@ export default async function HomePage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("home");
+  const meta = await getTranslations("metadata");
   const { work, services, expertise, testimonials } = getContent(locale);
   const serviceSlugMap = new Map(services.map((s: { title: string; slug: string }) => [s.title, s.slug]));
 
@@ -536,7 +536,7 @@ export default async function HomePage({
         <AnimatedSection className="relative mx-auto max-w-[680px] text-center">
           <div className="pointer-events-none absolute -inset-24 opacity-0 animate-[fadeIn_1.5s_0.3s_ease-out_forwards] rounded-full" style={{ background: "radial-gradient(circle, rgba(0,91,228,0.06) 0%, transparent 70%)" }} />
           <h2 className="relative text-3xl font-light leading-tight tracking-tight md:text-5xl">
-            Let&apos;s build something that radiates.
+            {t("ctaHeadline")}
           </h2>
           <div className="mt-10 flex items-center justify-center gap-4">
             <Link href="/contact" className={cn(buttonVariants({ size: "lg" }))}>
@@ -545,8 +545,8 @@ export default async function HomePage({
             <div className="flex items-center gap-3">
               <div className="h-10 w-10 shrink-0 rounded-full bg-muted" />
               <div className="text-left">
-                <p className="text-sm font-medium">Jasper den Ouden</p>
-                <p className="text-xs text-muted-foreground">Strategy &amp; UX</p>
+                <p className="text-sm font-medium">{t("ctaContact")}</p>
+                <p className="text-xs text-muted-foreground">{t("ctaRole")}</p>
               </div>
             </div>
           </div>
@@ -560,9 +560,11 @@ export default async function HomePage({
             "@context": "https://schema.org",
             "@type": "Organization",
             name: "Radial",
-            url: "https://radial.design",
-            description: "Digital product design studio based in Rotterdam. We design and build digital products with AI-powered workflows.",
-            email: "hello@radial.design",
+            url: "https://studioradial.com",
+            logo: "https://studioradial.com/logo.svg",
+            description: meta("orgDescription"),
+            foundingDate: "2014",
+            email: "hello@studioradial.com",
             telephone: "+31639561580",
             address: {
               "@type": "PostalAddress",
@@ -571,14 +573,20 @@ export default async function HomePage({
               addressLocality: "Rotterdam",
               addressCountry: "NL",
             },
+            sameAs: [
+              "https://www.linkedin.com/company/studioradial",
+              "https://www.instagram.com/studioradial",
+            ],
             knowsAbout: [
               "Digital Product Design",
+              "UX Research",
               "UX Design",
               "UI Design",
               "Design Systems",
               "AI Integration",
               "Design Sprints",
               "MVP Development",
+              "Prototyping",
             ],
           }),
         }}

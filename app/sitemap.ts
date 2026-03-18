@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import blogEn from "@/content/en/blog.json";
 import servicesEn from "@/content/en/services.json";
 
-const BASE_URL = "https://radial.design";
+const BASE_URL = "https://studioradial.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = ["", "/about", "/work", "/services", "/blog", "/pricing", "/contact"];

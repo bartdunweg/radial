@@ -92,23 +92,12 @@ async function ExpertisePage({
         </Link>
 
         <AnimatedSection>
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_320px]">
-            <div>
-              <h1 className="text-[clamp(2rem,4vw,3rem)] tracking-tight">{expertise.title}</h1>
-              <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-                {expertise.longDescription}
-              </p>
-            </div>
-            {expertise.deliverables && expertise.deliverables.length > 0 && (
-              <div className="lg:pt-[72px]">
-                <h2 className="text-xl tracking-tight mb-4">{t("deliverables")}</h2>
-                <div className="flex flex-wrap gap-2">
-                  {expertise.deliverables.map((d) => (
-                    <Badge key={d} variant="secondary">{d}</Badge>
-                  ))}
-                </div>
-              </div>
-            )}
+          <div className="max-w-2xl">
+            <h1 className="text-[clamp(2rem,4vw,3rem)] tracking-tight">{expertise.title}</h1>
+            <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
+              {expertise.longDescription}
+            </p>
+            {expertise.slug === "discover" && <VennDiagram />}
           </div>
         </AnimatedSection>
 
@@ -120,14 +109,6 @@ async function ExpertisePage({
                   <CardHeader>
                     <CardTitle className="text-lg">{service!.title}</CardTitle>
                     <CardDescription className="mt-2">{service!.description}</CardDescription>
-                    <div className="flex flex-wrap gap-1.5 mt-4">
-                      {(service!.previewDeliverables ?? service!.deliverables.slice(0, 3)).map((d) => (
-                        <Badge key={d} variant="outline" className="text-xs">{d}</Badge>
-                      ))}
-                      {service!.deliverables.length > (service!.previewDeliverables ?? service!.deliverables.slice(0, 3)).length && (
-                        <Badge variant="outline" className="text-xs">+{service!.deliverables.length - (service!.previewDeliverables ?? service!.deliverables.slice(0, 3)).length}</Badge>
-                      )}
-                    </div>
                     <div className="mt-4 text-sm text-muted-foreground group-hover:text-foreground transition-colors flex items-center gap-1">
                       {t("learnMore")} <ArrowRight size={14} />
                     </div>
@@ -186,32 +167,19 @@ async function ServicePage({
           <ArrowLeft size={14} /> {parentExpertise ? parentExpertise.title : t("backToServices")}
         </Link>
 
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_320px]">
-          {/* Main content */}
-          <div>
-            <h1 className="text-[clamp(2rem,4vw,3rem)] tracking-tight">{service.title}</h1>
-            <p className="mt-4 text-lg text-muted-foreground leading-relaxed">{service.description}</p>
+        <div className="max-w-2xl">
+          <h1 className="text-[clamp(2rem,4vw,3rem)] tracking-tight">{service.title}</h1>
+          <p className="mt-4 text-lg text-muted-foreground leading-relaxed">{service.description}</p>
 
-            <Separator className="my-10" />
+          <Separator className="my-10" />
 
-            <p className="text-muted-foreground leading-relaxed">{service.longDescription}</p>
+          <p className="text-muted-foreground leading-relaxed">{service.longDescription}</p>
 
-            {slug === "research-strategy" && <VennDiagram />}
-          </div>
-
-          {/* Sidebar */}
-          <div className="lg:pt-[72px]">
-            <h2 className="text-xl tracking-tight mb-4">{t("deliverables")}</h2>
-            <div className="flex flex-wrap gap-2">
-              {service.deliverables.map((d) => (
-                <Badge key={d} variant="secondary">{d}</Badge>
-              ))}
-            </div>
-          </div>
+          {slug === "discover" && <VennDiagram />}
         </div>
 
         {/* Design Sprint: When to sprint + pricing */}
-        {slug === "design-sprints" && "whenToSprint" in service && (
+        {slug === "design-sprint" && "whenToSprint" in service && (
           <>
             <Separator className="my-10" />
 

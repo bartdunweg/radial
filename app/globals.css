@@ -88,6 +88,10 @@ h1, h2, h3, h4, h5 {
   animation: radial-pulse 4s ease-out infinite;
 }
 
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
 @keyframes marquee-left {
   0% {
     transform: translateX(0);

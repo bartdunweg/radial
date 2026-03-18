@@ -5,7 +5,7 @@ import { buttonVariants } from "@/components/ui/button-variants";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { ArrowRight, Check, X, Users, Handshake, Microscope, Rocket } from "lucide-react";
+import { ArrowRight, Check, X, Search, PenTool, Hammer } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { AtomToggle } from "../components/atom-toggle";
@@ -22,8 +22,8 @@ import { HomeVariantToggle } from "../components/home-variant-toggle";
 import { DotField } from "../components/dot-field";
 import { TextReveal } from "../components/text-reveal";
 import { ScrollTextReveal } from "../components/scroll-text-reveal";
-import { ScrollApproach } from "../components/scroll-approach";
 import { Icon3DCore, Icon3DFingerprint, Icon3DMagnifier, Icon3DHeart } from "../components/manifesto-icons";
+import { ProcessTimeline } from "../components/process-timeline";
 
 
 export default async function HomePage({
@@ -35,6 +35,7 @@ export default async function HomePage({
   setRequestLocale(locale);
   const t = await getTranslations("home");
   const { work, services, expertise, testimonials } = getContent(locale);
+  const serviceSlugMap = new Map(services.map((s: { title: string; slug: string }) => [s.title, s.slug]));
 
   /* ------------------------------------------------------------------ */
   /*  Marquee rows (shared between variants)                            */
@@ -187,18 +188,21 @@ export default async function HomePage({
       {/* Manifesto — scroll-driven reveal */}
       <ScrollTextReveal
         label={undefined}
+        coreText={t("intro4core")}
         segments={[
           { text: t("intro1a") },
           { text: t("intro1b") },
           { text: t("intro2") },
           { text: t("intro3b"), style: "accent" },
-          { text: t("intro4") },
+        ]}
+        segmentsAfter={[
+          { text: t("intro4rest") },
           { text: t("intro5") },
           { text: t("intro5b") },
           { text: t("intro6"), style: "accent" },
           { text: t("intro7"), style: "accent" },
         ]}
-        className="mx-auto max-w-[960px] text-[clamp(1.75rem,3vw,2.5rem)] leading-[1.4] tracking-tight"
+        className="mx-auto max-w-[960px] text-[clamp(1.75rem,3vw,2.5rem)] leading-[1.4] tracking-tight text-center"
         sparkles={false}
       />
 
@@ -218,30 +222,39 @@ export default async function HomePage({
           </AnimatedSection>
           <AnimatedGrid className="grid gap-8 md:grid-cols-2" staggerDelay={0.15}>
             {work.slice(0, 2).map((project) => (
-              <AnimatedGridItem key={project.slug}>
+              <AnimatedGridItem key={project.slug} className="flex flex-col">
                 <div className="h-[400px] rounded-2xl border border-black/5 bg-[#f8f9fb] dark:border-white/10 dark:bg-[#101114]" />
-                <div className="mt-4">
-                  <div className="flex items-center gap-3 mb-2">
+                <div className="mt-4 flex flex-1 flex-col">
+                  <div className="mb-2">
                     <span className="text-sm font-medium">{project.client}</span>
-                    <span className="text-xs text-muted-foreground">{project.year}</span>
                   </div>
                   <h3 className="text-xl font-medium tracking-tight">{project.title}</h3>
-                  <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{project.description}</p>
-                  {project.metrics && project.metrics.length > 0 && (
-                    <div className="flex gap-6 mt-4">
-                      {project.metrics.map((metric: { value: string; label: string }) => (
-                        <div key={metric.label}>
-                          <div className="text-2xl font-semibold tracking-tight">{metric.value}</div>
-                          <div className="text-xs text-muted-foreground">{metric.label}</div>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                  <div className="flex flex-wrap gap-1.5 mt-3">
-                    {project.services.map((service) => (
-                      <Badge key={service} variant="outline" className="text-xs border-border text-muted-foreground">{service}</Badge>
-                    ))}
+                  <p className="mt-3 flex-1 text-base text-muted-foreground line-clamp-2">{project.description}</p>
+                  <div className="flex flex-wrap gap-1.5 mt-5">
+                    {project.services.map((service) => {
+                      const slug = serviceSlugMap.get(service);
+                      return slug ? (
+                        <Link key={service} href={`/services/${slug}`}>
+                          <Badge variant="outline" className="text-xs border-border text-muted-foreground hover:text-foreground hover:border-foreground/20 transition-colors cursor-pointer h-auto py-1.5 px-3">{service}</Badge>
+                        </Link>
+                      ) : (
+                        <Badge key={service} variant="outline" className="text-xs border-border text-muted-foreground h-auto py-1.5 px-3">{service}</Badge>
+                      );
+                    })}
                   </div>
+                  {project.metrics && project.metrics.length > 0 && (
+                    <>
+                      <div className="mt-5 h-px bg-black/5 dark:bg-white/10" />
+                      <div className="flex gap-6 mt-5">
+                        {project.metrics.map((metric: { value: string; label: string }) => (
+                          <div key={metric.label}>
+                            <div className="text-2xl font-semibold tracking-tight">{metric.value}</div>
+                            <div className="text-xs text-muted-foreground">{metric.label}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </>
+                  )}
                 </div>
               </AnimatedGridItem>
             ))}
@@ -251,75 +264,66 @@ export default async function HomePage({
 
       <div className="px-8"><div className="mx-auto max-w-[1280px]"><div className="h-px bg-black/5 dark:bg-white/10" /></div></div>
 
+      {/* AI */}
+      <section className="px-8 py-24">
+        <div className="mx-auto max-w-[1280px]">
+          <AnimatedSection className="max-w-2xl">
+            <h2 className="text-[28px] md:text-[36px] tracking-tight">{t("aiTitle")}</h2>
+            <p className="mt-4 text-muted-foreground leading-relaxed">{t("aiText")}</p>
+            <p className="mt-4 text-muted-foreground leading-relaxed">{t("aiText2")}</p>
+          </AnimatedSection>
+
+          {/* Expertise — scroll-driven process timeline */}
+          <ProcessTimeline
+            items={[
+              { step: "01", title: t("aiPoint1Title"), text: t("aiPoint1Text"), href: "/services/discover", icon: <Search size={20} />, readMoreLabel: t("readMore") },
+              { step: "02", title: t("aiPoint2Title"), text: t("aiPoint2Text"), href: "/services/design", icon: <PenTool size={20} />, readMoreLabel: t("readMore") },
+              { step: "03", title: t("aiPoint3Title"), text: t("aiPoint3Text"), href: "/services/build", icon: <Hammer size={20} />, readMoreLabel: t("readMore") },
+            ]}
+          />
+        </div>
+      </section>
+
+      <div className="px-8"><div className="mx-auto max-w-[1280px]"><div className="h-px bg-black/5 dark:bg-white/10" /></div></div>
+
       {/* About */}
       <section className="px-8 py-24">
         <div className="mx-auto max-w-[1280px]">
           <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:items-start">
-            {/* Left: text + AI */}
-            <div>
-              <AnimatedSection>
-                <h2 className="text-[28px] md:text-[36px] tracking-tight">{t("aboutTitle")}</h2>
-                <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-                  {t("aboutText")}
-                </p>
-                <div className="mt-6">
-                  <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
-                    {t("aboutCta")} <ArrowRight size={14} />
-                  </Link>
-                </div>
-              </AnimatedSection>
-
-              <AnimatedSection delay={0.2} className="mt-12">
-                <h3 className="text-xl font-medium tracking-tight">{t("aiTitle")}</h3>
-                <p className="mt-4 text-muted-foreground leading-relaxed">{t("aiText")}</p>
-                <p className="mt-4 text-muted-foreground leading-relaxed">{t("aiText2")}</p>
-              </AnimatedSection>
-            </div>
-
-            {/* Right: approach accordion */}
-            <AnimatedSection delay={0.15}>
-              <ScrollApproach
-                items={[
-                  { title: t("aboutApproach1Title"), text: t("aboutApproach1Text") },
-                  { title: t("aboutApproach2Title"), text: t("aboutApproach2Text") },
-                  { title: t("aboutApproach3Title"), text: t("aboutApproach3Text") },
-                  { title: t("aboutApproach4Title"), text: t("aboutApproach4Text") },
-                ]}
-              />
+            <AnimatedSection>
+              <h2 className="text-[28px] md:text-[36px] tracking-tight">{t("aboutTitle")}</h2>
+              <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
+                {t("aboutText")}
+              </p>
+              <div className="mt-6">
+                <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
+                  {t("aboutCta")} <ArrowRight size={14} />
+                </Link>
+              </div>
             </AnimatedSection>
-          </div>
 
-          {/* Expertise columns */}
-          <h3 className="mt-12 mb-6 text-xs font-semibold uppercase tracking-widest text-muted-foreground">{t("ourExpertise")}</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-3">
-            {[
-              { title: t("aiPoint1Title"), text: t("aiPoint1Text"), href: "/services/uxr-strategy" },
-              { title: t("aiPoint2Title"), text: t("aiPoint2Text"), href: "/services/product-design" },
-              { title: t("aiPoint3Title"), text: t("aiPoint3Text"), href: "/services/building" },
-            ].map((item, i) => (
-              <div key={item.title} className="flex">
-                {i > 0 && <div className="w-px bg-black/5 dark:bg-white/10" />}
-                <div className="py-2 px-5">
-                  <h3 className="text-lg font-medium tracking-tight">{item.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.text}</p>
-                  <Link href={item.href} className="mt-3 inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors">
-                    Read more <ArrowRight size={14} />
-                  </Link>
+            {/* Photo grid — 2 left, 1 right */}
+            <AnimatedSection delay={0.15}>
+              <div className="grid grid-cols-2 gap-3">
+                <div className="flex flex-col gap-3">
+                  <div className="group relative aspect-[3/2] overflow-hidden rounded-2xl bg-muted">
+                    <div className="absolute inset-0 flex items-center justify-center text-muted-foreground text-xs transition-transform duration-500 group-hover:scale-[1.03]">
+                      Photo 1
+                    </div>
+                  </div>
+                  <div className="group relative aspect-[4/3] overflow-hidden rounded-2xl bg-muted">
+                    <div className="absolute inset-0 flex items-center justify-center text-muted-foreground text-xs transition-transform duration-500 group-hover:scale-[1.03]">
+                      Photo 2
+                    </div>
+                  </div>
+                </div>
+                <div className="group relative overflow-hidden rounded-2xl bg-muted">
+                  <div className="absolute inset-0 flex items-center justify-center text-muted-foreground text-xs transition-transform duration-500 group-hover:scale-[1.03]">
+                    Photo 3
+                  </div>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Team photo */}
-      <section className="px-8 py-24">
-        <div className="mx-auto max-w-[1280px]">
-          <div className="relative aspect-[21/9] w-full overflow-hidden rounded-2xl bg-muted">
-            {/* Placeholder — replace with actual team/drone photo */}
-            <div className="absolute inset-0 flex items-center justify-center text-muted-foreground text-sm">
-              Team photo placeholder
-            </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
@@ -452,8 +456,8 @@ export default async function HomePage({
             }
 
             // Filter out secondary services from homepage, then split into two columns
-            const excludeSlugs = ["research-strategy", "ux-ui-design", "design-for-mendix", "foundation-sprint", "ux-ui-audits", "user-testing"];
-            const homepageServices = services.filter((s: { slug: string }) => !excludeSlugs.includes(s.slug));
+            const excludeSlugs = ["discover", "product-design", "design-for-mendix", "foundation-sprint", "ux-ui-audit", "user-testing", "interviews", "dashboards", "interactive-displays"];
+            const homepageServices = services.filter((s: { slug: string }) => !excludeSlugs.includes(s.slug)).slice(0, 6);
             const col1 = homepageServices.filter((_: unknown, i: number) => i % 2 === 0);
             const col2 = homepageServices.filter((_: unknown, i: number) => i % 2 === 1);
 
@@ -496,8 +500,8 @@ export default async function HomePage({
                       <div style={{ height: col1Heights[i] }} />
                       <div className="p-6">
                         <h3 className="text-xl font-medium tracking-tight">{service.title}</h3>
-                        <p className="mt-1 text-sm text-muted-foreground line-clamp-1">{service.description}</p>
-                        <Link href={serviceToExpertise[service.slug] || "/services"} className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
+                        <p className="mt-1 text-base text-muted-foreground">{service.description}</p>
+                        <Link href={`/services/${service.slug}`} className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
                           {t("learnMore")} <ArrowRight size={14} />
                         </Link>
                       </div>
@@ -513,8 +517,8 @@ export default async function HomePage({
                       <div style={{ height: col2Heights[i] }} />
                       <div className="p-6">
                         <h3 className="text-xl font-medium tracking-tight">{service.title}</h3>
-                        <p className="mt-1 text-sm text-muted-foreground line-clamp-1">{service.description}</p>
-                        <Link href={serviceToExpertise[service.slug] || "/services"} className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
+                        <p className="mt-1 text-base text-muted-foreground">{service.description}</p>
+                        <Link href={`/services/${service.slug}`} className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
                           {t("learnMore")} <ArrowRight size={14} />
                         </Link>
                       </div>
@@ -529,17 +533,22 @@ export default async function HomePage({
 
       {/* CTA */}
       <section className="px-8 py-32">
-        <AnimatedSection className="mx-auto max-w-[680px] text-center">
-          <h2 className="text-3xl font-light leading-tight tracking-tight md:text-5xl">
+        <AnimatedSection className="relative mx-auto max-w-[680px] text-center">
+          <div className="pointer-events-none absolute -inset-24 opacity-0 animate-[fadeIn_1.5s_0.3s_ease-out_forwards] rounded-full" style={{ background: "radial-gradient(circle, rgba(0,91,228,0.06) 0%, transparent 70%)" }} />
+          <h2 className="relative text-3xl font-light leading-tight tracking-tight md:text-5xl">
             Let&apos;s build something that radiates.
           </h2>
           <div className="mt-10 flex items-center justify-center gap-4">
             <Link href="/contact" className={cn(buttonVariants({ size: "lg" }))}>
               {t("cta")}
             </Link>
-            <Link href="/work" className={cn(buttonVariants({ variant: "outline", size: "lg" }))}>
-              {t("viewAllWork")}
-            </Link>
+            <div className="flex items-center gap-3">
+              <div className="h-10 w-10 shrink-0 rounded-full bg-muted" />
+              <div className="text-left">
+                <p className="text-sm font-medium">Jasper den Ouden</p>
+                <p className="text-xs text-muted-foreground">Strategy &amp; UX</p>
+              </div>
+            </div>
           </div>
         </AnimatedSection>
       </section>

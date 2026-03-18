@@ -29,7 +29,10 @@ export default async function WorkPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("work");
-  const { work } = getContent(locale);
+  const { work, services } = getContent(locale);
+
+  // Map service display names to slugs for linking
+  const serviceSlugMap = new Map(services.map((s) => [s.title, s.slug]));
 
   return (
     <section className="px-8 pt-[212px] pb-24">
@@ -50,11 +53,11 @@ export default async function WorkPage({
               return (
                 <AnimatedGrid key={project.slug} className="grid gap-8 md:grid-cols-2" staggerDelay={0.15}>
                   <AnimatedGridItem>
-                    <ProjectCard project={project} t={t} height={400} />
+                    <ProjectCard project={project} t={t} height={400} serviceSlugMap={serviceSlugMap} />
                   </AnimatedGridItem>
                   {rightProject && (
                     <AnimatedGridItem>
-                      <ProjectCard project={rightProject} t={t} height={400} />
+                      <ProjectCard project={rightProject} t={t} height={400} serviceSlugMap={serviceSlugMap} />
                     </AnimatedGridItem>
                   )}
                 </AnimatedGrid>
@@ -65,7 +68,7 @@ export default async function WorkPage({
 
             return (
               <AnimatedSection key={project.slug}>
-                <ProjectCard project={project} t={t} height={500} />
+                <ProjectCard project={project} t={t} height={500} serviceSlugMap={serviceSlugMap} />
               </AnimatedSection>
             );
           })}
@@ -79,36 +82,47 @@ function ProjectCard({
   project,
   t,
   height,
+  serviceSlugMap,
 }: {
   project: { slug: string; client: string; year: string | number; title: string; description: string; services: string[]; metrics?: { value: string; label: string }[] };
   t: (key: string) => string;
   height: number;
+  serviceSlugMap: Map<string, string>;
 }) {
   return (
-    <div>
+    <div className="flex h-full flex-col">
       <div className="rounded-2xl border border-black/5 bg-[#f8f9fb] dark:border-white/10 dark:bg-[#101114]" style={{ height }} />
-      <div className="mt-4">
-        <div className="flex items-center gap-3 mb-2">
+      <div className="mt-4 flex flex-1 flex-col">
+        <div className="mb-2">
           <span className="text-sm font-medium">{project.client}</span>
-          <span className="text-xs text-muted-foreground">{project.year}</span>
         </div>
         <h2 className="text-[28px] md:text-[36px] font-medium tracking-tight">{project.title}</h2>
-        <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{project.description}</p>
-        {project.metrics && project.metrics.length > 0 && (
-          <div className="flex gap-6 mt-4">
-            {project.metrics.map((metric) => (
-              <div key={metric.label}>
-                <div className="text-2xl font-semibold tracking-tight">{metric.value}</div>
-                <div className="text-xs text-muted-foreground">{metric.label}</div>
-              </div>
-            ))}
-          </div>
-        )}
-        <div className="flex flex-wrap gap-1.5 mt-3">
-          {project.services.map((service) => (
-            <Badge key={service} variant="outline" className="text-xs border-border text-muted-foreground">{service}</Badge>
-          ))}
+        <p className="mt-3 flex-1 text-base text-muted-foreground line-clamp-2">{project.description}</p>
+        <div className="flex flex-wrap gap-1.5 mt-5">
+          {project.services.map((service) => {
+            const slug = serviceSlugMap.get(service);
+            return slug ? (
+              <Link key={service} href={`/services/${slug}`}>
+                <Badge variant="outline" className="text-xs border-border text-muted-foreground hover:text-foreground hover:border-foreground/20 transition-colors cursor-pointer h-auto py-1.5 px-3">{service}</Badge>
+              </Link>
+            ) : (
+              <Badge key={service} variant="outline" className="text-xs border-border text-muted-foreground h-auto py-1.5 px-3">{service}</Badge>
+            );
+          })}
         </div>
+        {project.metrics && project.metrics.length > 0 && (
+          <>
+            <div className="mt-5 h-px bg-black/5 dark:bg-white/10" />
+            <div className="flex gap-6 mt-5">
+              {project.metrics.map((metric) => (
+                <div key={metric.label}>
+                  <div className="text-2xl font-semibold tracking-tight">{metric.value}</div>
+                  <div className="text-xs text-muted-foreground">{metric.label}</div>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

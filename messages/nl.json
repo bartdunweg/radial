@@ -244,7 +244,9 @@
     "submit": "Verstuur bericht",
     "phone": "Telefoon",
     "address": "Adres",
-    "email": "E-mail"
+    "email": "E-mail",
+    "submitSuccess": "Bericht succesvol verstuurd!",
+    "submitError": "Er ging iets mis. Probeer het opnieuw."
   },
   "footer": {
     "tagline": "Alles wat we maken begint bij de kern — waar gebruikersbehoeften en bedrijfsdoelen samenkomen.",

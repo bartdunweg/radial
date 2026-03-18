@@ -18,6 +18,7 @@ export const viewport: Viewport = {
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const satoshi = localFont({
@@ -88,10 +89,13 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className="scroll-smooth" suppressHydrationWarning>
       <body className={`${inter.variable} ${satoshi.variable} antialiased`}>
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-background focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:shadow-md">
+          Skip to content
+        </a>
         <ThemeProvider>
           <NextIntlClientProvider locale={locale} messages={messages}>
             <Navbar />
-            <main className="relative z-10 bg-background">{children}</main>
+            <main id="main-content" className="relative z-10 bg-background">{children}</main>
 
             <Footer />
             <VariantToggle />

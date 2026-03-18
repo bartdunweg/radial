@@ -70,6 +70,59 @@ h1, h2, h3, h4, h5 {
   color: var(--color-primary-foreground);
 }
 
+@keyframes rippleCircle {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  2% {
+    transform: scale(0.05);
+    opacity: 1;
+  }
+  80% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes ringPulse {
+  0% {
+    transform: scale(0.05);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes ringPulseScale {
+  0% {
+    transform: scale(0.05);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
 @keyframes radial-pulse {
   0% {
     opacity: 0;

@@ -52,7 +52,7 @@
 }
 
 body {
-  background-color: var(--color-background);
+  background-color: transparent;
   color: var(--color-foreground);
   font-family: var(--font-inter, 'Inter'), sans-serif;
   line-height: 1.6;

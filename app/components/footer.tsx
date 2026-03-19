@@ -53,10 +53,10 @@ export function Footer() {
   }, [handleScroll]);
 
   return (
-    <footer ref={footerRef} className="sticky bottom-0 z-0 flex min-h-screen w-full flex-col justify-between bg-[#f8f9fb] text-foreground dark:bg-[#101114] dark:text-white px-8 pt-32">
+    <footer ref={footerRef} className="sticky bottom-0 z-0 flex min-h-screen w-full flex-col justify-between bg-[#f8f8fa] text-foreground dark:bg-[#0a0a0a] dark:text-white px-8">
       {/* Top: navigation, contact, social, legal */}
-      <div className="mx-auto w-full max-w-[1280px]">
-        <div className="mb-12 grid gap-10 md:grid-cols-[2fr_1fr_1fr_1fr_1fr]">
+      <div className="mx-auto flex w-full max-w-[1280px] flex-1 items-center">
+        <div className="w-full grid gap-10 md:grid-cols-[2fr_1fr_1fr]">
           <div>
             <p className="max-w-[260px] text-lg leading-relaxed text-muted-foreground">
               {t("tagline")}
@@ -68,47 +68,45 @@ export function Footer() {
               {t("navigation")}
             </div>
             <ul className="flex flex-col gap-2.5">
-              <li><Link href="/work" className="text-lg text-foreground transition-colors hover:text-foreground">{nav("work")}</Link></li>
-              <li><Link href="/services" className="text-lg text-foreground transition-colors hover:text-foreground">{nav("services")}</Link></li>
-              <li><Link href="/about" className="text-lg text-foreground transition-colors hover:text-foreground">{nav("about")}</Link></li>
-              <li><Link href="/blog" className="text-lg text-foreground transition-colors hover:text-foreground">{nav("blog")}</Link></li>
-              <li><Link href="/pricing" className="text-lg text-foreground transition-colors hover:text-foreground">{nav("pricing")}</Link></li>
+              <li><Link href="/work" className="text-lg text-foreground transition-colors hover:text-foreground/50">{nav("work")}</Link></li>
+              <li><Link href="/services" className="text-lg text-foreground transition-colors hover:text-foreground/50">{nav("services")}</Link></li>
+              <li><Link href="/about" className="text-lg text-foreground transition-colors hover:text-foreground/50">{nav("about")}</Link></li>
+              <li><Link href="/blog" className="text-lg text-foreground transition-colors hover:text-foreground/50">{nav("blog")}</Link></li>
+              <li><Link href="/pricing" className="text-lg text-foreground transition-colors hover:text-foreground/50">{nav("pricing")}</Link></li>
             </ul>
+            <div className="mt-8">
+              <div className="mb-4 text-sm font-medium text-muted-foreground">{t("legal")}</div>
+              <ul className="flex flex-col gap-2.5">
+                <li><Link href="/privacy" className="text-lg text-foreground transition-colors hover:text-foreground/50">{t("privacy")}</Link></li>
+                <li><Link href="/terms" className="text-lg text-foreground transition-colors hover:text-foreground/50">{t("terms")}</Link></li>
+              </ul>
+            </div>
           </div>
 
-          <div>
+          <div className="md:justify-self-end">
             <div className="mb-4 text-sm font-medium text-muted-foreground">
               {t("contact")}
             </div>
             <ul className="flex flex-col gap-2.5">
-              <li><a href="mailto:hello@studioradial.com" className="text-lg text-foreground transition-colors hover:text-foreground">hello@studioradial.com</a></li>
-              <li><a href="tel:+31639561580" className="text-lg text-foreground transition-colors hover:text-foreground">+31 (6) 39 56 15 80</a></li>
+              <li><a href="mailto:hello@studioradial.com" className="text-lg text-foreground transition-colors hover:text-foreground/50">hello@studioradial.com</a></li>
+              <li><a href="tel:+31639561580" className="text-lg text-foreground transition-colors hover:text-foreground/50">+31 (6) 39 56 15 80</a></li>
             </ul>
-            <div className="mt-6">
+            <div className="mt-8">
               <div className="mb-2 text-sm font-medium text-muted-foreground">{t("headquarters")}</div>
-              <p className="text-lg text-foreground">Voorhaven 27C<br />3025 HC Rotterdam</p>
+              <ul className="flex flex-col gap-2.5">
+                <li className="text-lg text-foreground">Voorhaven 27C</li>
+                <li className="text-lg text-foreground">3025 HC Rotterdam</li>
+              </ul>
+            </div>
+            <div className="mt-8">
+              <div className="mb-2 text-sm font-medium text-muted-foreground">{t("followUs")}</div>
+              <ul className="flex flex-col gap-2.5">
+                <li><a href="https://www.linkedin.com/company/studioradial" target="_blank" rel="noopener noreferrer" aria-label="Radial on LinkedIn" className="inline-flex items-center gap-2 text-lg text-foreground transition-colors hover:text-foreground/50"><LinkedinIcon /> LinkedIn</a></li>
+                <li><a href="https://www.instagram.com/studioradial" target="_blank" rel="noopener noreferrer" aria-label="Radial on Instagram" className="inline-flex items-center gap-2 text-lg text-foreground transition-colors hover:text-foreground/50"><InstagramIcon /> Instagram</a></li>
+              </ul>
             </div>
           </div>
 
-          <div>
-            <div className="mb-4 text-sm font-medium text-muted-foreground">{t("followUs")}</div>
-            <ul className="flex flex-col gap-2.5">
-              <li><a href="https://www.linkedin.com/company/studioradial" target="_blank" rel="noopener noreferrer" aria-label="Radial on LinkedIn" className="flex items-center gap-2 text-lg text-foreground transition-colors hover:text-foreground"><LinkedinIcon /> LinkedIn</a></li>
-              <li><a href="https://www.instagram.com/studioradial" target="_blank" rel="noopener noreferrer" aria-label="Radial on Instagram" className="flex items-center gap-2 text-lg text-foreground transition-colors hover:text-foreground"><InstagramIcon /> Instagram</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <div className="mb-4 text-sm font-medium text-muted-foreground">{t("legal")}</div>
-            <ul className="flex flex-col gap-2.5">
-              <li><Link href="/privacy" className="text-lg text-foreground transition-colors hover:text-foreground">{t("privacy")}</Link></li>
-              <li><Link href="/terms" className="text-lg text-foreground transition-colors hover:text-foreground">{t("terms")}</Link></li>
-            </ul>
-            <div className="mt-6 flex items-center gap-2">
-              <LanguageSwitcher />
-              <ThemeToggle />
-            </div>
-          </div>
         </div>
       </div>
 
@@ -121,7 +119,10 @@ export function Footer() {
           >
             {isVariantA ? "Strakzat" : "Radial"}
           </span>
-          <span className="mt-2 text-xs text-muted-foreground whitespace-nowrap md:mt-0">&copy;{t("copyright")}</span>
+          <div className="mt-2 flex items-center gap-2 md:mt-0">
+            <LanguageSwitcher />
+            <ThemeToggle />
+          </div>
         </div>
       </div>
     </footer>

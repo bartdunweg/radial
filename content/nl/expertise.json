@@ -1,25 +1,18 @@
 [
   {
-    "slug": "discover",
-    "title": "Ontdek",
-    "description": "Wij leiden het onderzoek, spreken met gebruikers en bepalen de strategie. AI helpt ons voorbereiden, analyseren en patronen ontdekken.",
+    "slug": "research-strategy",
+    "title": "Onderzoek & Strategie",
+    "description": "We spreken met gebruikers, achterhalen wat ertoe doet, en vertalen inzichten naar een heldere productstrategie. AI helpt ons sneller te bewegen — maar het denken blijft menselijk.",
     "longDescription": "Geweldige producten ontstaan op het snijvlak van gebruikersbehoeften, bedrijfsdoelen en technische haalbaarheid. We beginnen met het grondig begrijpen van je gebruikers — via interviews, usability tests en UX-analyse — en stemmen tegelijkertijd af met je bedrijf door stakeholder workshops, waardepropositie-ontwerp en strategische sessies. Het resultaat is een heldere productstrategie en roadmap gebaseerd op echte inzichten, niet op aannames. Strategie, richting en oordeelsvermogen vragen om empathie en context die alleen mensen kunnen brengen — dus het denken erachter blijft menselijk. AI versterkt ons onderzoek en analyse, maar de keuzes zijn van ons.",
-    "deliverables": ["Gebruikersonderzoek", "UX Analyse", "Business Research", "Stakeholder Workshops", "Productstrategie", "Roadmap", "Productrichtlijnen", "Flowcharts"],
+    "deliverables": ["Gebruikersonderzoek", "UX Analyse", "Usability Testing", "Stakeholder Interviews", "Productstrategie", "Roadmap", "Productrichtlijnen", "Waardepropositie", "Flowcharts"],
     "services": ["ux-ui-audit", "user-testing", "interviews", "design-sprint", "foundation-sprint"]
   },
   {
-    "slug": "design",
-    "title": "Ontwerp",
-    "description": "Wij bepalen de richting en vormgeven de ervaring. AI verkent de opties. Wij itereren, verfijnen en nemen de beslissingen.",
-    "longDescription": "Goed design is onzichtbaar — het werkt gewoon. We maken high-fidelity designs die eruitzien en aanvoelen als het echte product, zodat we vroeg kunnen testen met echte gebruikers, zinvolle feedback verzamelen en snel itereren. Elke designbeslissing is gebaseerd op gebruikersonderzoek en business-inzichten, zodat wat we opleveren niet alleen mooi is — maar ook gevalideerd. Of het nu een nieuw product is, een design system, of het versterken van je merk in je product — elke pixel telt.",
-    "deliverables": ["UX/UI Design", "Responsive Design", "Accessibility", "Prototyping", "Usability Testing"],
-    "services": ["product-design", "design-system", "brand-integration", "design-for-mendix"]
-  },
-  {
-    "slug": "build",
-    "title": "Bouw",
-    "description": "Werkende prototypes en productie-ready code — gebouwd in een fractie van de tijd, zonder concessies.",
-    "longDescription": "We ontwerpen niet alleen — we bouwen ook. Van MVP's tot AI-gedreven features, we zetten gevalideerde designs om in werkende producten. AI versnelt ons ontwikkelproces, zodat we sneller kunnen opleveren zonder kwaliteit in te leveren.",
-    "services": ["launch-mvp", "web-apps", "mobile-apps", "dashboards", "interactive-displays"]
+    "slug": "design-realisation",
+    "title": "Design & Realisatie",
+    "description": "Van wireframes tot werkende producten — we ontwerpen, bouwen en lanceren. Snel, zonder concessies.",
+    "longDescription": "We maken high-fidelity designs die eruitzien en aanvoelen als het echte product, testen met echte gebruikers en itereren snel. Wanneer het design gevalideerd is, schakelen we direct door naar bouwen — van MVP's tot productie-ready code. AI versnelt ons proces, zodat we sneller kunnen opleveren zonder kwaliteit in te leveren. Of het nu een nieuw product is, een design system, of het versterken van je merk in je product — elke pixel en elke regel code telt.",
+    "deliverables": ["UX/UI Design", "Responsive Design", "Prototyping", "Design Systems", "MVP Development", "Productie Code"],
+    "services": ["product-design", "design-system", "brand-integration", "launch-mvp"]
   }
 ]

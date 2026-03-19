@@ -161,7 +161,7 @@ export default async function PricingPage({
                 className="group inline-flex h-11 items-center gap-3 rounded-full bg-foreground pr-6 pl-2 text-sm font-medium text-background transition-colors hover:bg-foreground/90"
               >
                 <img
-                  src="/team/jasper.png"
+                  src="/team/bart.png"
                   alt={t("ctaContact")}
                   width={36}
                   height={36}

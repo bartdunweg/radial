@@ -2,10 +2,10 @@
   {
     "slug": "product-design",
     "title": "Productontwerp",
-    "description": "We ontwerpen intuïtieve, mooie interfaces — we testen vroeg met high-fidelity designs en itereren op basis van echte gebruikers- en business-inzichten.",
-    "longDescription": "Goed design is onzichtbaar — het werkt gewoon. We maken high-fidelity designs die eruitzien en aanvoelen als het echte product, zodat we vroeg kunnen testen met echte gebruikers, zinvolle feedback verzamelen en snel itereren. Elke designbeslissing is gebaseerd op gebruikersonderzoek en business-inzichten, zodat wat we opleveren niet alleen mooi is — maar ook gevalideerd.",
-    "deliverables": ["UX/UI Design", "Responsive Design", "Accessibility", "Prototyping", "Usability Testing"],
-    "previewDeliverables": ["UX/UI Design", "Prototyping", "Usability Testing"]
+    "description": "Van intuïtieve interfaces tot gevalideerde MVP's — we ontwerpen, testen en bouwen producten die werken voor gebruikers én business.",
+    "longDescription": "Goed design is onzichtbaar — het werkt gewoon. We maken high-fidelity designs die eruitzien en aanvoelen als het echte product, zodat we vroeg kunnen testen met echte gebruikers, zinvolle feedback verzamelen en snel itereren. Elke designbeslissing is gebaseerd op gebruikersonderzoek en business-inzichten, zodat wat we opleveren niet alleen mooi is — maar ook gevalideerd. Wanneer het design klopt, schakelen we snel door naar bouwen — we definiëren de kleinst haalbare versie, lanceren het, en zetten het voor echte gebruikers. Deze leer-snel aanpak vermindert risico en zorgt dat je iets bouwt dat mensen echt willen.",
+    "deliverables": ["UX/UI Design", "Responsive Design", "Accessibility", "Prototyping", "Usability Testing", "MVP Scoping", "Development", "Productvalidatie"],
+    "previewDeliverables": ["UX/UI Design", "Prototyping", "MVP Scoping", "Productvalidatie"]
   },
   {
     "slug": "design-system",
@@ -31,38 +31,6 @@
     "previewDeliverables": ["Merkintegratie", "Typografie Systemen", "Merkrichtlijnen"]
   },
   {
-    "slug": "web-apps",
-    "title": "Web Apps",
-    "section": "secondary",
-    "description": "Custom webapplicaties gebouwd voor performance, schaalbaarheid en een naadloze gebruikerservaring.",
-    "longDescription": "We ontwerpen en bouwen webapplicaties die snel en intuïtief aanvoelen — van complexe SaaS-platformen tot interne tools. Met moderne frameworks zoals React en Next.js leveren we applicaties die meeschalen met je bedrijf, met de gebruikerservaring altijd voorop.",
-    "deliverables": ["Front-end Development", "Back-end Integratie", "Responsive Design", "Performance Optimalisatie", "Deployment"]
-  },
-  {
-    "slug": "mobile-apps",
-    "title": "Mobile Apps",
-    "section": "secondary",
-    "description": "Native en cross-platform mobiele apps die thuishoren op iOS en Android.",
-    "longDescription": "We bouwen mobiele apps die gebruikers graag openen. Of het nu native is of cross-platform met React Native of Flutter — we focussen op vloeiende interacties, offline mogelijkheden en platformspecifieke patronen die je app laten aanvoelen alsof hij thuishoort op elk apparaat.",
-    "deliverables": ["iOS Development", "Android Development", "Cross-platform Development", "App Store Deployment", "Push Notificaties"]
-  },
-  {
-    "slug": "dashboards",
-    "title": "Dashboards",
-    "section": "secondary",
-    "description": "Datagedreven dashboards die complexe informatie omzetten in heldere, bruikbare inzichten.",
-    "longDescription": "Goede dashboards tonen niet alleen data — ze sturen beslissingen. We ontwerpen en bouwen dashboards die de juiste informatie op het juiste moment tonen, met intuïtieve filtering, real-time updates en visualisaties die complexe data begrijpelijk en bruikbaar maken.",
-    "deliverables": ["Datavisualisatie", "Real-time Updates", "Filtering & Zoeken", "Export & Rapportage", "Rolgebaseerde Weergaven"]
-  },
-  {
-    "slug": "interactive-displays",
-    "title": "Interactieve Displays",
-    "section": "secondary",
-    "description": "Touch-gedreven ervaringen voor kiosken, winkeldisplays en publieke schermen.",
-    "longDescription": "Digitale ervaringen stoppen niet bij telefoons en laptops. We ontwerpen en bouwen interactieve displays voor fysieke ruimtes — van retailkiosken en museuminstallaties tot lobbydisplays en wayfinding-systemen. We houden rekening met de unieke uitdagingen van publieke touch-interfaces: toegankelijkheid, duurzaamheid en intuïtieve interactie zonder leercurve.",
-    "deliverables": ["Touch Interface Design", "Kiosk Development", "Digital Signage", "Wayfinding Systemen", "Hardware Integratie"]
-  },
-  {
     "slug": "design-sprint",
     "title": "Design Sprint",
     "description": "Los grote productuitdagingen op in slechts 4 dagen — van probleemstelling tot een getest prototype met echte gebruikers.",
@@ -85,7 +53,7 @@
   },
   {
     "slug": "ux-ui-audit",
-    "title": "UX/UI Audit",
+    "title": "Productanalyse",
     "section": "secondary",
     "description": "Een grondige review van de gebruikerservaring en interface van je product — met oog voor frictie, inconsistenties en verbeterkansen.",
     "longDescription": "Soms heb je een frisse blik van experts nodig op je product. We auditen je bestaande ervaring van begin tot eind: bruikbaarheid, visuele consistentie, toegankelijkheid en interactiepatronen. Je krijgt een geprioriteerd rapport met concrete, uitvoerbare aanbevelingen — geen vage observaties, maar duidelijke stappen om je product beter te maken.",
@@ -106,13 +74,5 @@
     "description": "Diepgaande gesprekken met gebruikers en stakeholders om behoeften, motivaties en pijnpunten te achterhalen.",
     "longDescription": "De beste productbeslissingen zijn gebaseerd op echte gesprekken. We voeren diepte-interviews uit met gebruikers, klanten en stakeholders om te begrijpen wat gedrag drijft, wat frustratie veroorzaakt en wat mensen echt nodig hebben. We regelen alles — van het werven van de juiste deelnemers tot het vertalen van bevindingen naar bruikbare inzichten.",
     "deliverables": ["Interviewgids", "Deelnemerswerving", "Diepte-interviews", "Stakeholder Interviews", "Inzichtensynthese"]
-  },
-  {
-    "slug": "design-for-mendix",
-    "title": "Design voor Mendix",
-    "section": "secondary",
-    "description": "We ontwerpen pixel-perfecte interfaces geoptimaliseerd voor Mendix — zodat je low-code apps eruitzien en aanvoelen als maatwerk.",
-    "longDescription": "Mendix is krachtig, maar out-of-the-box levert het niet altijd de ervaring die je gebruikers verdienen. Wij overbruggen dat gat — we ontwerpen interfaces die naadloos werken binnen Mendix's componentarchitectuur en tegelijkertijd de visuele en interactiekwaliteit ver voorbij standaard templates tillen. Van custom design systems tot productie-klare thema's, wij laten je Mendix apps stralen.",
-    "deliverables": ["Mendix UI Design", "Custom Widget Design", "Design System voor Mendix", "Mendix Prototyping"]
   }
 ]

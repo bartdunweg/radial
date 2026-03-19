@@ -3,6 +3,8 @@
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { useEffect, useState, useRef, useCallback } from "react";
+import { LanguageSwitcher } from "./language-switcher";
+import { ThemeToggle } from "./theme-toggle";
 
 
 const LinkedinIcon = () => (
@@ -62,47 +64,50 @@ export function Footer() {
           </div>
 
           <div>
-            <div className="mb-4 text-sm font-medium text-foreground">
+            <div className="mb-4 text-sm font-medium text-muted-foreground">
               {t("navigation")}
             </div>
             <ul className="flex flex-col gap-2.5">
-              <li><Link href="/work" className="text-lg text-muted-foreground transition-colors hover:text-foreground">{nav("work")}</Link></li>
-              <li><Link href="/services" className="text-lg text-muted-foreground transition-colors hover:text-foreground">{nav("services")}</Link></li>
-              <li><Link href="/about" className="text-lg text-muted-foreground transition-colors hover:text-foreground">{nav("about")}</Link></li>
-              <li><Link href="/blog" className="text-lg text-muted-foreground transition-colors hover:text-foreground">{nav("blog")}</Link></li>
-              <li><Link href="/pricing" className="text-lg text-muted-foreground transition-colors hover:text-foreground">{nav("pricing")}</Link></li>
+              <li><Link href="/work" className="text-lg text-foreground transition-colors hover:text-foreground">{nav("work")}</Link></li>
+              <li><Link href="/services" className="text-lg text-foreground transition-colors hover:text-foreground">{nav("services")}</Link></li>
+              <li><Link href="/about" className="text-lg text-foreground transition-colors hover:text-foreground">{nav("about")}</Link></li>
+              <li><Link href="/blog" className="text-lg text-foreground transition-colors hover:text-foreground">{nav("blog")}</Link></li>
+              <li><Link href="/pricing" className="text-lg text-foreground transition-colors hover:text-foreground">{nav("pricing")}</Link></li>
             </ul>
           </div>
 
           <div>
-            <div className="mb-4 text-sm font-medium text-foreground">
+            <div className="mb-4 text-sm font-medium text-muted-foreground">
               {t("contact")}
             </div>
             <ul className="flex flex-col gap-2.5">
-              <li><a href="mailto:hello@studioradial.com" className="text-lg text-muted-foreground transition-colors hover:text-foreground">hello@studioradial.com</a></li>
-              <li><a href="tel:+31639561580" className="text-lg text-muted-foreground transition-colors hover:text-foreground">+31 (6) 39 56 15 80</a></li>
+              <li><a href="mailto:hello@studioradial.com" className="text-lg text-foreground transition-colors hover:text-foreground">hello@studioradial.com</a></li>
+              <li><a href="tel:+31639561580" className="text-lg text-foreground transition-colors hover:text-foreground">+31 (6) 39 56 15 80</a></li>
             </ul>
             <div className="mt-6">
-              <div className="mb-2 text-sm font-medium text-foreground">{t("headquarters")}</div>
-              <p className="text-lg text-muted-foreground">Voorhaven 27C<br />3025 HC Rotterdam</p>
+              <div className="mb-2 text-sm font-medium text-muted-foreground">{t("headquarters")}</div>
+              <p className="text-lg text-foreground">Voorhaven 27C<br />3025 HC Rotterdam</p>
             </div>
           </div>
 
           <div>
-            <div className="mb-4 text-sm font-medium text-foreground">{t("followUs")}</div>
+            <div className="mb-4 text-sm font-medium text-muted-foreground">{t("followUs")}</div>
             <ul className="flex flex-col gap-2.5">
-              <li><a href="https://www.linkedin.com/company/studioradial" target="_blank" rel="noopener noreferrer" aria-label="Radial on LinkedIn" className="flex items-center gap-2 text-lg text-muted-foreground transition-colors hover:text-foreground"><LinkedinIcon /> LinkedIn</a></li>
-              <li><a href="https://www.instagram.com/studioradial" target="_blank" rel="noopener noreferrer" aria-label="Radial on Instagram" className="flex items-center gap-2 text-lg text-muted-foreground transition-colors hover:text-foreground"><InstagramIcon /> Instagram</a></li>
+              <li><a href="https://www.linkedin.com/company/studioradial" target="_blank" rel="noopener noreferrer" aria-label="Radial on LinkedIn" className="flex items-center gap-2 text-lg text-foreground transition-colors hover:text-foreground"><LinkedinIcon /> LinkedIn</a></li>
+              <li><a href="https://www.instagram.com/studioradial" target="_blank" rel="noopener noreferrer" aria-label="Radial on Instagram" className="flex items-center gap-2 text-lg text-foreground transition-colors hover:text-foreground"><InstagramIcon /> Instagram</a></li>
             </ul>
           </div>
 
           <div>
-            <div className="mb-4 text-sm font-medium text-foreground">{t("legal")}</div>
+            <div className="mb-4 text-sm font-medium text-muted-foreground">{t("legal")}</div>
             <ul className="flex flex-col gap-2.5">
-              <li><Link href="/privacy" className="text-lg text-muted-foreground transition-colors hover:text-foreground">{t("privacy")}</Link></li>
-              <li><Link href="/terms" className="text-lg text-muted-foreground transition-colors hover:text-foreground">{t("terms")}</Link></li>
-
+              <li><Link href="/privacy" className="text-lg text-foreground transition-colors hover:text-foreground">{t("privacy")}</Link></li>
+              <li><Link href="/terms" className="text-lg text-foreground transition-colors hover:text-foreground">{t("terms")}</Link></li>
             </ul>
+            <div className="mt-6 flex items-center gap-2">
+              <LanguageSwitcher />
+              <ThemeToggle />
+            </div>
           </div>
         </div>
       </div>

@@ -5,7 +5,7 @@ import { buttonVariants } from "@/components/ui/button-variants";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { ArrowRight, Check, X, Search, PenTool, Hammer } from "lucide-react";
+import { ArrowRight, Check, X, Search, PenTool } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { AtomToggle } from "../components/atom-toggle";
 import { RotatingClients } from "../components/rotating-clients";
@@ -22,7 +22,8 @@ import { DotField } from "../components/dot-field";
 import { TextReveal } from "../components/text-reveal";
 import { ScrollTextReveal } from "../components/scroll-text-reveal";
 import { Icon3DCore, Icon3DFingerprint, Icon3DMagnifier, Icon3DHeart } from "../components/manifesto-icons";
-import { ProcessTimeline } from "../components/process-timeline";
+import { ExpertisePanels } from "../components/expertise-panels";
+
 
 
 export default async function HomePage({
@@ -208,6 +209,38 @@ export default async function HomePage({
 
       <div className="px-8"><div className="mx-auto max-w-[1280px]"><div className="h-px bg-black/5 dark:bg-white/10" /></div></div>
 
+      {/* AI */}
+      <section className="px-8 py-24">
+        <div className="mx-auto max-w-[1280px]">
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
+            {/* Left — sticky intro */}
+            <div className="md:sticky md:top-24 md:self-start">
+              <AnimatedSection>
+                <h2 className="text-[28px] md:text-[36px] tracking-tight">{t("aiTitle")}</h2>
+                <p className="mt-4 text-lg text-muted-foreground leading-relaxed">{t("aiText")}</p>
+                <p className="mt-4 text-lg text-muted-foreground leading-relaxed">{t("aiText2")}</p>
+              </AnimatedSection>
+            </div>
+
+            {/* Right — cards scroll in sequentially */}
+            {(() => {
+              const serviceMap = new Map(services.map((s: { slug: string; title: string }) => [s.slug, s.title]));
+              const panels = expertise.map((exp: { slug: string; title: string; description: string; services: string[] }) => ({
+                slug: exp.slug,
+                title: exp.title,
+                description: exp.description,
+                services: exp.services
+                  .map((slug: string) => ({ slug, title: serviceMap.get(slug) || "" }))
+                  .filter((s: { title: string }) => s.title),
+              }));
+              return <ExpertisePanels panels={panels} />;
+            })()}
+          </div>
+        </div>
+      </section>
+
+      <div className="px-8"><div className="mx-auto max-w-[1280px]"><div className="h-px bg-black/5 dark:bg-white/10" /></div></div>
+
       {/* Featured Work */}
       <section className="px-8 py-24">
         <div className="mx-auto max-w-[1280px]">
@@ -259,28 +292,6 @@ export default async function HomePage({
               </AnimatedGridItem>
             ))}
           </AnimatedGrid>
-        </div>
-      </section>
-
-      <div className="px-8"><div className="mx-auto max-w-[1280px]"><div className="h-px bg-black/5 dark:bg-white/10" /></div></div>
-
-      {/* AI */}
-      <section className="px-8 py-24">
-        <div className="mx-auto max-w-[1280px]">
-          <AnimatedSection className="max-w-2xl">
-            <h2 className="text-[28px] md:text-[36px] tracking-tight">{t("aiTitle")}</h2>
-            <p className="mt-4 text-muted-foreground leading-relaxed">{t("aiText")}</p>
-            <p className="mt-4 text-muted-foreground leading-relaxed">{t("aiText2")}</p>
-          </AnimatedSection>
-
-          {/* Expertise — scroll-driven process timeline */}
-          <ProcessTimeline
-            items={[
-              { step: "01", title: t("aiPoint1Title"), text: t("aiPoint1Text"), href: "/services/discover", icon: <Search size={20} />, readMoreLabel: t("readMore") },
-              { step: "02", title: t("aiPoint2Title"), text: t("aiPoint2Text"), href: "/services/design", icon: <PenTool size={20} />, readMoreLabel: t("readMore") },
-              { step: "03", title: t("aiPoint3Title"), text: t("aiPoint3Text"), href: "/services/build", icon: <Hammer size={20} />, readMoreLabel: t("readMore") },
-            ]}
-          />
         </div>
       </section>
 
@@ -456,7 +467,7 @@ export default async function HomePage({
             }
 
             // Filter out secondary services from homepage, then split into two columns
-            const excludeSlugs = ["discover", "product-design", "design-for-mendix", "foundation-sprint", "ux-ui-audit", "user-testing", "interviews", "dashboards", "interactive-displays"];
+            const excludeSlugs = ["ux-research", "product-design", "foundation-sprint", "ux-ui-audit", "user-testing", "interviews"];
             const homepageServices = services.filter((s: { slug: string }) => !excludeSlugs.includes(s.slug)).slice(0, 6);
             const col1 = homepageServices.filter((_: unknown, i: number) => i % 2 === 0);
             const col2 = homepageServices.filter((_: unknown, i: number) => i % 2 === 1);
@@ -534,8 +545,7 @@ export default async function HomePage({
       {/* CTA */}
       <section className="px-8 py-32">
         <AnimatedSection className="relative mx-auto max-w-[680px] text-center">
-          <div className="pointer-events-none absolute -inset-24 opacity-0 animate-[fadeIn_1.5s_0.3s_ease-out_forwards] rounded-full" style={{ background: "radial-gradient(circle, rgba(0,91,228,0.06) 0%, transparent 70%)" }} />
-          <h2 className="relative text-3xl font-light leading-tight tracking-tight md:text-5xl">
+          <h2 className="text-3xl font-light leading-tight tracking-tight md:text-5xl">
             {t("ctaHeadline")}
           </h2>
           <div className="mt-10 flex items-center justify-center">
@@ -544,7 +554,7 @@ export default async function HomePage({
               className="inline-flex h-11 items-center gap-3 rounded-full bg-foreground pr-6 pl-2 text-sm font-medium text-background transition-colors hover:bg-foreground/90"
             >
               <img
-                src="/team/jasper.png"
+                src="/team/bart.png"
                 alt={t("ctaContact")}
                 width={36}
                 height={36}

@@ -35,7 +35,7 @@ export function ProcessTimeline({ items }: ProcessTimelineProps) {
   const linePct = Math.min(100, Math.max(0, progress * 120));
 
   return (
-    <div ref={containerRef} className="mt-16">
+    <div ref={containerRef} className="mt-8 md:mt-0">
       {items.map((item, i) => (
         <div key={item.step} className="flex gap-6 md:gap-8">
           {/* Timeline column */}
@@ -47,7 +47,7 @@ export function ProcessTimeline({ items }: ProcessTimelineProps) {
                 color: i <= activeIndex ? "#fff" : "var(--color-muted-foreground)",
                 borderWidth: "1.5px",
                 borderColor: i <= activeIndex ? "#005BE4" : "rgba(0,0,0,0.15)",
-                transform: `scale(${i === activeIndex ? 1.15 : 1})`,
+                transform: "scale(1)",
               }}
             >
               {item.icon}

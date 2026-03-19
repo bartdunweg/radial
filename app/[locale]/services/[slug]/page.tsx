@@ -97,7 +97,7 @@ async function ExpertisePage({
             <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
               {expertise.longDescription}
             </p>
-            {expertise.slug === "discover" && <VennDiagram />}
+            {expertise.slug === "research-strategy" && <VennDiagram />}
           </div>
         </AnimatedSection>
 

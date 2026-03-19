@@ -10,7 +10,7 @@
   {
     "slug": "design-realisation",
     "title": "Design & Realisation",
-    "description": "From wireframes to working products — we design, build, and ship. Fast, without cutting corners.",
+    "description": "From concepts to high-quality designs and working products — accelerated by AI, without cutting corners.",
     "longDescription": "We craft high-fidelity designs that look and feel like the real product, test with real users, and iterate fast. When the design is validated, we move straight into build — from MVPs to production-ready code. AI accelerates our process, letting us ship faster without sacrificing quality. Whether it's a new product, a design system, or elevating your brand inside your product, we make every pixel and every line of code count.",
     "deliverables": ["UX/UI Design", "Responsive Design", "Prototyping", "Design Systems", "MVP Development", "Production Code"],
     "services": ["product-design", "design-system", "brand-integration", "launch-mvp"]

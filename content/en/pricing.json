@@ -5,7 +5,7 @@
       "title": "Per day",
       "dailyRate": 999,
       "days": 1,
-      "description": "Book a designer for a day. Ideal for quick tasks."
+      "description": "Flexible collaboration for workshops, quick design iterations, or rapid prototypes."
     },
     {
       "slug": "short-term",
@@ -13,7 +13,7 @@
       "dailyRate": 899,
       "days": 20,
       "discount": "-10%",
-      "description": "Consistent design support with weekly syncs and unlimited revisions."
+      "description": "Make an impact in a short period by designing or redesigning specific aspects or features of your product."
     },
     {
       "slug": "long-term",
@@ -22,26 +22,36 @@
       "days": 40,
       "discount": "-20%",
       "popular": true,
-      "description": "A senior designer embedded in your team, including design system setup."
+      "description": "A close, lasting collaboration to revamp your product extensively or create something new."
     }
   ],
   "designSprint": {
     "title": "Design Sprint",
-    "description": "A structured 4-day process to rapidly solve a design challenge. From problem definition to a tested prototype in less than a week.",
+    "description": "Validate the direction of your project within days, not months. Ideal for non-validated ideas or new concepts. By the end of the week, you'll know exactly what to build.",
     "price": 6399,
     "duration": "4 days",
-    "features": [
-      "Day 1: Understand — Map the problem, explore solutions",
-      "Day 2: Decide — Choose the best direction, create a storyboard",
-      "Day 3: Prototype — Build a realistic, clickable prototype",
-      "Day 4: Test — Validate with real users, gather insights"
-    ],
-    "includes": [
-      "2 designers facilitated",
-      "Stakeholder interviews",
-      "Clickable Figma prototype",
-      "User test report with findings",
-      "Actionable next steps"
+    "facilitated": "2 designers",
+    "days": [
+      {
+        "title": "Understand",
+        "tagline": "Map the problem, explore the landscape",
+        "deliverables": ["Expert interviews", "Customer journey map", "Inspiration share"]
+      },
+      {
+        "title": "Ideate",
+        "tagline": "Choose a direction, sketch the solution",
+        "deliverables": ["Solution sketches", "Aligned concept vision", "Storyboard & flowchart"]
+      },
+      {
+        "title": "Build",
+        "tagline": "Turn the concept into something real",
+        "deliverables": ["Prototype that feels like the real thing", "Interview scripts"]
+      },
+      {
+        "title": "Validate",
+        "tagline": "Test with real users, prove the direction",
+        "deliverables": ["Real user feedback & insights", "Validated ideas & vision", "Kickstart of your product or features"]
+      }
     ]
   }
 }

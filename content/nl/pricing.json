@@ -5,7 +5,7 @@
       "title": "Per dag",
       "dailyRate": 999,
       "days": 1,
-      "description": "Boek een designer voor een dag. Ideaal voor snelle taken."
+      "description": "Flexibel inzetbaar voor workshops, korte designiteraties of snelle prototypes."
     },
     {
       "slug": "short-term",
@@ -13,7 +13,7 @@
       "dailyRate": 899,
       "days": 20,
       "discount": "-10%",
-      "description": "Consistente design support met wekelijkse syncs en onbeperkte revisies."
+      "description": "In een korte periode impact maken met het ontwerpen of herontwerpen van specifieke onderdelen of features van je product."
     },
     {
       "slug": "long-term",
@@ -22,26 +22,36 @@
       "days": 40,
       "discount": "-20%",
       "popular": true,
-      "description": "Een senior designer ingebed in je team, inclusief design system setup."
+      "description": "Een nauwe, duurzame samenwerking om je product grondig te vernieuwen of iets nieuws te bouwen."
     }
   ],
   "designSprint": {
     "title": "Design Sprint",
-    "description": "Een gestructureerd 4-daags proces om snel een designvraagstuk op te lossen. Van probleemstelling tot een getest prototype in minder dan een week.",
+    "description": "Valideer de richting van je project binnen dagen, niet maanden. Ideaal voor niet-gevalideerde ideeën of nieuwe concepten. Aan het eind van de week weet je precies waar je naartoe bouwt.",
     "price": 6399,
     "duration": "4 dagen",
-    "features": [
-      "Dag 1: Begrijpen — Probleem in kaart brengen, oplossingen verkennen",
-      "Dag 2: Beslissen — Beste richting kiezen, storyboard maken",
-      "Dag 3: Prototypen — Realistisch, klikbaar prototype bouwen",
-      "Dag 4: Testen — Valideren met echte gebruikers, inzichten verzamelen"
-    ],
-    "includes": [
-      "2 designers",
-      "Stakeholder interviews",
-      "Klikbaar Figma prototype",
-      "User test rapport met bevindingen",
-      "Concrete vervolgstappen"
+    "facilitated": "2 designers",
+    "days": [
+      {
+        "title": "Understand",
+        "tagline": "Probleem in kaart brengen, het speelveld verkennen",
+        "deliverables": ["Expert interviews", "Customer journey map", "Inspiration share"]
+      },
+      {
+        "title": "Ideate",
+        "tagline": "Richting kiezen, de oplossing schetsen",
+        "deliverables": ["Solution sketches", "Aligned concept vision", "Storyboard & flowchart"]
+      },
+      {
+        "title": "Build",
+        "tagline": "Van concept naar iets tastbaars",
+        "deliverables": ["Prototype dat al aanvoelt als het echte product", "Interview scripts"]
+      },
+      {
+        "title": "Validate",
+        "tagline": "Testen met echte gebruikers, richting bewijzen",
+        "deliverables": ["Echte gebruikersfeedback & inzichten", "Gevalideerde ideeën & visie", "Kickstart van je product of features"]
+      }
     ]
   }
 }

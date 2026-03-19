@@ -190,7 +190,7 @@ export default async function AboutPage({
         </AnimatedSection>
         <AnimatedGrid className="mt-8 grid gap-8 sm:grid-cols-3" staggerDelay={0.12}>
           {[
-            { initials: "JO", name: "Jasper den Ouden", role: t("teamJasper"), bio: t("teamJasperBio"), linkedin: "https://www.linkedin.com/in/jasperdenouden/", website: "https://jasperdenouden.com" },
+            { initials: "JO", photo: "/team/jasper.png", name: "Jasper den Ouden", role: t("teamJasper"), bio: t("teamJasperBio"), linkedin: "https://www.linkedin.com/in/jasperdenouden/", website: "https://jasperdenouden.com" },
             { initials: "BD", photo: "/team/bart.png", name: "Bart Dunweg", role: t("teamBart"), bio: t("teamBartBio"), linkedin: "https://www.linkedin.com/in/bartdunweg/", website: "https://bartdunweg.com" },
             { initials: "EW", name: "Elwin de Witte", role: t("teamElwin"), bio: t("teamElwinBio"), linkedin: "https://www.linkedin.com/in/elwindewitte/", website: "https://elwindewitte.com" },
           ].map((member) => (

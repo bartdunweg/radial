@@ -97,7 +97,7 @@ export default async function PricingPage({
                 <div className="flex items-center gap-3">
                   <div className="flex flex-col text-sm text-muted-foreground text-right">
                     <span>{sprint.duration}</span>
-                    <span>{sprint.includes[0]}</span>
+                    <span>{sprint.facilitated}</span>
                   </div>
                   <span className="text-[40px] font-semibold tracking-tight leading-none" style={{ fontFamily: "var(--font-satoshi), sans-serif" }}>
                     <span className="text-xl align-super relative top-1">€</span> {sprint.price.toLocaleString()}
@@ -109,25 +109,28 @@ export default async function PricingPage({
               </div>
 
               <p className="mt-4 text-muted-foreground leading-relaxed max-w-xl">
-                {sprint.description} {t("sprintIncludes")}: {sprint.includes.join(", ")}.
+                {sprint.description}
               </p>
 
-              {/* Process — horizontal */}
+              {/* Deliverables per day */}
               <div className="mt-10 grid grid-cols-2 gap-6 md:grid-cols-4">
-                {sprint.features.map((step: string, i: number) => {
-                  const [dayPart, ...rest] = step.split(" — ");
-                  const title = dayPart.replace(/^(Day|Dag)\s+\d+:\s*/, "");
-                  const description = rest.join(" — ");
-                  return (
-                    <div key={i}>
-                      <div className="flex h-8 items-center justify-center rounded-full border border-border text-xs font-semibold mb-3 px-3 w-fit">
-                        {t("day")} {i + 1}
-                      </div>
-                      <p className="text-sm font-medium">{title}</p>
-                      {description && <p className="mt-0.5 text-sm text-muted-foreground">{description}</p>}
+                {sprint.days.map((day: { title: string; tagline: string; deliverables: string[] }, i: number) => (
+                  <div key={i}>
+                    <div className="flex h-8 items-center justify-center rounded-full border border-border text-xs font-semibold mb-3 px-3 w-fit">
+                      {t("day")} {i + 1}
                     </div>
-                  );
-                })}
+                    <p className="text-sm font-semibold">{day.title}</p>
+                    <p className="text-xs text-muted-foreground mb-2">{day.tagline}</p>
+                    <ul className="space-y-1.5">
+                      {day.deliverables.map((item: string) => (
+                        <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                          <Check size={14} className="mt-0.5 shrink-0 text-foreground" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
               </div>
             </CardContent>
           </Card>
@@ -161,7 +164,7 @@ export default async function PricingPage({
                 className="group inline-flex h-11 items-center gap-3 rounded-full bg-foreground pr-6 pl-2 text-sm font-medium text-background transition-colors hover:bg-foreground/90"
               >
                 <img
-                  src="/team/bart.png"
+                  src="/team/jasper.png"
                   alt={t("ctaContact")}
                   width={36}
                   height={36}

@@ -17,7 +17,7 @@ export function PreFooterCTA() {
             className="group inline-flex items-center gap-3 rounded-full bg-foreground py-2 pr-6 pl-2 text-sm font-medium text-background transition-colors hover:bg-foreground/90"
           >
             <Image
-              src="/team/bart.png"
+              src="/team/jasper.png"
               alt={t("ctaContact")}
               width={36}
               height={36}

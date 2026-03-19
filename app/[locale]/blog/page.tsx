@@ -14,6 +14,11 @@ const authorInitials: Record<string, string> = {
   "Elwin de Witte": "EW",
 };
 
+const authorPhotos: Record<string, string> = {
+  "Bart Dunweg": "/team/bart.png",
+  "Jasper den Ouden": "/team/jasper.png",
+};
+
 export async function generateMetadata({
   params,
 }: {
@@ -56,9 +61,13 @@ export default async function BlogPage({
                     <CardTitle className="text-base">{post.title}</CardTitle>
                     <CardDescription className="mt-2 text-sm">{post.excerpt}</CardDescription>
                     <div className="mt-4 flex items-center gap-2 text-xs text-muted-foreground">
-                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-muted text-[10px] font-semibold">
-                        {authorInitials[post.author] ?? post.author.split(" ").map(w => w[0]).join("")}
-                      </span>
+                      {authorPhotos[post.author] ? (
+                        <img src={authorPhotos[post.author]} alt={post.author} className="h-6 w-6 shrink-0 rounded-full object-cover" />
+                      ) : (
+                        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-muted text-[10px] font-semibold">
+                          {authorInitials[post.author] ?? post.author.split(" ").map(w => w[0]).join("")}
+                        </span>
+                      )}
                       {post.author} &middot;{" "}
                       {new Date(post.date).toLocaleDateString(
                         locale === "nl" ? "nl-NL" : "en-US",

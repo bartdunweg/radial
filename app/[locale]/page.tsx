@@ -23,6 +23,7 @@ import { TextReveal } from "../components/text-reveal";
 import { ScrollTextReveal } from "../components/scroll-text-reveal";
 import { Icon3DCore, Icon3DFingerprint, Icon3DMagnifier, Icon3DHeart } from "../components/manifesto-icons";
 import { ExpertisePanels } from "../components/expertise-panels";
+import { ProcessColumn } from "../components/process/process-column";
 
 
 
@@ -34,9 +35,42 @@ export default async function HomePage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("home");
+  const pt = await getTranslations("process");
   const meta = await getTranslations("metadata");
   const { work, services, expertise, testimonials } = getContent(locale);
   const serviceSlugMap = new Map(services.map((s: { title: string; slug: string }) => [s.title, s.slug]));
+  const serviceBySlug = new Map(services.map((s: { slug: string; title: string; description: string }) => [s.slug, s]));
+
+  /* ------------------------------------------------------------------ */
+  /*  Process steps for pioneer section                                  */
+  /* ------------------------------------------------------------------ */
+  const STEP_SERVICES: Record<number, string[]> = {
+    0: ["ux-ui-audit", "user-testing", "interviews"],
+    1: ["design-sprint", "foundation-sprint"],
+    2: ["product-design", "design-system", "brand-integration"],
+    3: ["launch-mvp"],
+  };
+  const STEP_LABELS: Record<number, string[]> = {
+    0: ["Stakeholder Workshops"],
+    1: ["Product Vision", "Flowcharts"],
+    2: [],
+    3: ["High-fidelity Prototyping", "Product Validation"],
+  };
+  const processSteps = [
+    { number: "01", title: pt("step1Title"), description: pt("step1Description") },
+    { number: "02", title: pt("step2Title"), description: pt("step2Description") },
+    { number: "03", title: pt("step3Title"), description: pt("step3Description") },
+    { number: "04", title: pt("step4Title"), description: pt("step4Description") },
+  ].map((step, i) => ({
+    ...step,
+    services: [
+      ...(STEP_SERVICES[i] || [])
+        .map((slug) => serviceBySlug.get(slug))
+        .filter(Boolean)
+        .map((s) => ({ slug: s!.slug, title: s!.title, description: s!.description })),
+      ...(STEP_LABELS[i] || []).map((title) => ({ title })),
+    ],
+  }));
 
   /* ------------------------------------------------------------------ */
   /*  Marquee rows (shared between variants)                            */
@@ -209,12 +243,12 @@ export default async function HomePage({
 
       <div className="px-8"><div className="mx-auto max-w-[1280px]"><div className="h-px bg-black/5 dark:bg-white/10" /></div></div>
 
-      {/* AI */}
-      <section className="px-8 py-24">
+      {/* Process / Pioneer */}
+      <section className="px-8">
         <div className="mx-auto max-w-[1280px]">
-          <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* Left — sticky intro */}
-            <div className="md:sticky md:top-24 md:self-start">
+            <div className="md:sticky md:top-24 md:self-start pt-24">
               <AnimatedSection>
                 <h2 className="text-[28px] md:text-[36px] tracking-tight">{t("aiTitle")}</h2>
                 <p className="mt-4 text-lg text-muted-foreground leading-relaxed">{t("aiText")}</p>
@@ -222,19 +256,8 @@ export default async function HomePage({
               </AnimatedSection>
             </div>
 
-            {/* Right — cards scroll in sequentially */}
-            {(() => {
-              const serviceMap = new Map(services.map((s: { slug: string; title: string }) => [s.slug, s.title]));
-              const panels = expertise.map((exp: { slug: string; title: string; description: string; services: string[] }) => ({
-                slug: exp.slug,
-                title: exp.title,
-                description: exp.description,
-                services: exp.services
-                  .map((slug: string) => ({ slug, title: serviceMap.get(slug) || "" }))
-                  .filter((s: { title: string }) => s.title),
-              }));
-              return <ExpertisePanels panels={panels} />;
-            })()}
+            {/* Right — scroll-driven process steps */}
+            <ProcessColumn steps={processSteps} />
           </div>
         </div>
       </section>

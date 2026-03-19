@@ -259,6 +259,18 @@
     "language": "Taal",
     "switchLang": "English"
   },
+  "process": {
+    "title": "Ons Proces",
+    "description": "Van onderzoek tot realisatie — hoe wij digitale producten bouwen.",
+    "step1Title": "Onderzoek",
+    "step1Description": "We duiken diep in je gebruikers, markt en bedrijfsdoelen. Door interviews, data-analyse en verkenning ontdekken we welke richting we op moeten.",
+    "step2Title": "Strategie",
+    "step2Description": "Structuur ontstaat uit chaos. We definiëren de blauwdruk — informatiearchitectuur, user flows en een helder plan waar iedereen achter staat.",
+    "step3Title": "Design",
+    "step3Description": "Het product krijgt vorm. High-fidelity interfaces met aandacht voor elke pixel, interactie en micro-animatie.",
+    "step4Title": "Realisatie",
+    "step4Description": "Het product komt tot leven. We bouwen, testen, itereren en lanceren — tot een product dat presteert in de echte wereld."
+  },
   "metadata": {
     "siteTitle": "Radial — Digital Product Studio",
     "siteDescription": "Het begint bij de kern. Wij maken digitale producten die werken — voor gebruikers én voor de business.",

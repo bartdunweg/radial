@@ -5,8 +5,7 @@ import { Link, usePathname } from "@/i18n/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Sparkles, ArrowRight } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button-variants";
-import { ThemeToggle } from "./theme-toggle";
-import { LanguageSwitcher } from "./language-switcher";
+
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
@@ -119,8 +118,6 @@ export function Navbar() {
         </Link>
 
         <div className="flex h-[52px] items-center gap-1">
-          <LanguageSwitcher isHome={isDarkHero} />
-          <ThemeToggle isHome={isDarkHero} />
           <Link
             ref={ctaRef}
             href="/contact"

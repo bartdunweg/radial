@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { Separator } from "@/components/ui/separator";
@@ -173,21 +174,37 @@ export default async function AboutPage({
 
         {/* Team */}
         <AnimatedSection>
+          <div className="overflow-hidden rounded-2xl h-[768px] relative">
+            <Image
+              src="/team/team.jpg"
+              alt="The Radial team"
+              fill
+              className="object-cover object-top"
+              priority
+            />
+          </div>
+        </AnimatedSection>
+        <AnimatedSection className="mt-10">
           <h2 className="text-2xl tracking-tight">{t("teamTitle")}</h2>
           <p className="mt-3 max-w-xl text-muted-foreground leading-relaxed">{t("teamIntro")}</p>
         </AnimatedSection>
         <AnimatedGrid className="mt-8 grid gap-8 sm:grid-cols-3" staggerDelay={0.12}>
           {[
-            { initials: "BD", name: "Bart Dunweg", bio: t("teamBartBio"), linkedin: "https://www.linkedin.com/in/bartdunweg/", website: "https://bartdunweg.com" },
-            { initials: "JO", name: "Jasper den Ouden", bio: t("teamJasperBio"), linkedin: "https://www.linkedin.com/in/jasperdenouden/", website: "https://jasperdenouden.com" },
-            { initials: "EW", name: "Elwin de Witte", bio: t("teamElwinBio"), linkedin: "https://www.linkedin.com/in/elwindewitte/", website: "https://elwindewitte.com" },
+            { initials: "JO", name: "Jasper den Ouden", role: t("teamJasper"), bio: t("teamJasperBio"), linkedin: "https://www.linkedin.com/in/jasperdenouden/", website: "https://jasperdenouden.com" },
+            { initials: "BD", photo: "/team/bart.png", name: "Bart Dunweg", role: t("teamBart"), bio: t("teamBartBio"), linkedin: "https://www.linkedin.com/in/bartdunweg/", website: "https://bartdunweg.com" },
+            { initials: "EW", name: "Elwin de Witte", role: t("teamElwin"), bio: t("teamElwinBio"), linkedin: "https://www.linkedin.com/in/elwindewitte/", website: "https://elwindewitte.com" },
           ].map((member) => (
             <AnimatedGridItem key={member.name} className="flex flex-col items-start gap-3">
-              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-muted text-sm font-semibold">
-                {member.initials}
-              </div>
+              {member.photo ? (
+                <Image src={member.photo} alt={member.name} width={56} height={56} className="h-14 w-14 shrink-0 rounded-full object-cover" />
+              ) : (
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-muted text-sm font-semibold">
+                  {member.initials}
+                </div>
+              )}
               <div>
                 <div className="font-semibold">{member.name}</div>
+                <div className="text-sm text-muted-foreground">{member.role}</div>
                 <p className="mt-1 text-sm text-muted-foreground leading-relaxed">{member.bio}</p>
                 <div className="mt-3 flex items-center gap-3">
                   <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">

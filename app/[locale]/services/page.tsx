@@ -45,49 +45,49 @@ export default async function ServicesPage({
           <p className="mt-4 text-lg text-muted-foreground">{t("subtitle")}</p>
         </AnimatedSection>
 
-        {expertise.map((exp, i) => {
-          const childServices = exp.services
-            .map((slug: string) => serviceMap.get(slug))
-            .filter(Boolean);
+        <div className="mt-16 grid grid-cols-1 gap-12 md:grid-cols-2">
+          {expertise.map((exp, i) => {
+            const childServices = exp.services
+              .map((slug: string) => serviceMap.get(slug))
+              .filter(Boolean);
 
-          return (
-            <div key={exp.slug} className={i === 0 ? "mt-16" : "mt-20"}>
-              <AnimatedSection>
-                <div className="flex items-start justify-between gap-8">
-                  <div className="max-w-2xl">
+            return (
+              <div key={exp.slug}>
+                <AnimatedSection delay={i * 0.1}>
+                  <div>
                     <h2 className="text-2xl tracking-tight">{exp.title}</h2>
                     <p className="mt-2 text-muted-foreground leading-relaxed">{exp.description}</p>
-                  </div>
-                  <Link
-                    href={`/services/${exp.slug}`}
-                    className="shrink-0 text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
-                  >
-                    {t("learnMore")} <ArrowRight size={14} />
-                  </Link>
-                </div>
-              </AnimatedSection>
-
-              <AnimatedGrid className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" staggerDelay={0.08}>
-                {childServices.map((service) => (
-                  <AnimatedGridItem key={service!.slug}>
-                    <Link href={`/services/${service!.slug}`}>
-                      <Card className="bg-card border-border h-full hover:shadow-card transition-shadow group overflow-hidden">
-                        <ServiceIllustration slug={service!.slug} className="flex items-center justify-center px-6 pt-6 pb-2" />
-                        <CardHeader className="pt-0">
-                          <CardTitle className="text-lg">{service!.title}</CardTitle>
-                          <CardDescription className="mt-2">{service!.description}</CardDescription>
-                          <div className="mt-4 text-sm text-muted-foreground group-hover:text-foreground transition-colors flex items-center gap-1">
-                            {t("learnMore")} <ArrowRight size={14} />
-                          </div>
-                        </CardHeader>
-                      </Card>
+                    <Link
+                      href={`/services/${exp.slug}`}
+                      className="mt-3 inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {t("learnMore")} <ArrowRight size={14} />
                     </Link>
-                  </AnimatedGridItem>
-                ))}
-              </AnimatedGrid>
-            </div>
-          );
-        })}
+                  </div>
+                </AnimatedSection>
+
+                <AnimatedGrid className="mt-8 grid gap-4" staggerDelay={0.08}>
+                  {childServices.map((service) => (
+                    <AnimatedGridItem key={service!.slug}>
+                      <Link href={`/services/${service!.slug}`}>
+                        <Card className="bg-card border-border h-full hover:shadow-card transition-shadow group overflow-hidden">
+                          <ServiceIllustration slug={service!.slug} className="flex items-center justify-center px-6 pt-6 pb-2" />
+                          <CardHeader className="pt-0">
+                            <CardTitle className="text-lg">{service!.title}</CardTitle>
+                            <CardDescription className="mt-2">{service!.description}</CardDescription>
+                            <div className="mt-4 text-sm text-muted-foreground group-hover:text-foreground transition-colors flex items-center gap-1">
+                              {t("learnMore")} <ArrowRight size={14} />
+                            </div>
+                          </CardHeader>
+                        </Card>
+                      </Link>
+                    </AnimatedGridItem>
+                  ))}
+                </AnimatedGrid>
+              </div>
+            );
+          })}
+        </div>
 
         {/* CTA */}
         <AnimatedSection className="py-32">

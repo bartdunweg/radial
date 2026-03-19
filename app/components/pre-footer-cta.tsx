@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { cn } from "@/lib/utils";
@@ -321,24 +322,19 @@ export function PreFooterCTA() {
         <h2 className="mx-auto max-w-[680px] text-3xl font-light leading-tight tracking-tight text-white/90 md:text-5xl">
           Let&apos;s build something that radiates.
         </h2>
-        <div className="mt-10 flex items-center justify-center gap-4">
+        <div className="mt-10 flex items-center justify-center">
           <Link
             href="/contact"
-            className={cn(
-              buttonVariants({ size: "lg" }),
-              "bg-white text-foreground hover:bg-white/90"
-            )}
+            className="group inline-flex items-center gap-3 rounded-full bg-white py-2 pr-6 pl-2 text-sm font-medium text-foreground transition-colors hover:bg-white/90"
           >
-            {t("cta")}
-          </Link>
-          <Link
-            href="/work"
-            className={cn(
-              buttonVariants({ variant: "outline", size: "lg" }),
-              "border-white/15 text-white/70 hover:bg-white/5 hover:text-white"
-            )}
-          >
-            {t("viewAllWork")}
+            <Image
+              src="/team/jasper.png"
+              alt={t("ctaContact")}
+              width={36}
+              height={36}
+              className="rounded-full object-cover"
+            />
+            {t("ctaButton")}
           </Link>
         </div>
       </div>

@@ -538,17 +538,20 @@ export default async function HomePage({
           <h2 className="relative text-3xl font-light leading-tight tracking-tight md:text-5xl">
             {t("ctaHeadline")}
           </h2>
-          <div className="mt-10 flex items-center justify-center gap-4">
-            <Link href="/contact" className={cn(buttonVariants({ size: "lg" }))}>
-              {t("cta")}
+          <div className="mt-10 flex items-center justify-center">
+            <Link
+              href="/contact"
+              className="inline-flex h-11 items-center gap-3 rounded-full bg-foreground pr-6 pl-2 text-sm font-medium text-background transition-colors hover:bg-foreground/90"
+            >
+              <img
+                src="/team/jasper.png"
+                alt={t("ctaContact")}
+                width={36}
+                height={36}
+                className="h-7 w-7 rounded-full object-cover"
+              />
+              {t("ctaButton")}
             </Link>
-            <div className="flex items-center gap-3">
-              <div className="h-10 w-10 shrink-0 rounded-full bg-muted" />
-              <div className="text-left">
-                <p className="text-sm font-medium">{t("ctaContact")}</p>
-                <p className="text-xs text-muted-foreground">{t("ctaRole")}</p>
-              </div>
-            </div>
           </div>
         </AnimatedSection>
       </section>

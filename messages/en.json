@@ -106,7 +106,8 @@
     "ctaCta": "Get in touch",
     "ctaHeadline": "Let's build something that radiates.",
     "ctaContact": "Jasper den Ouden",
-    "ctaRole": "Strategy & UX"
+    "ctaRole": "Strategy & UX",
+    "ctaButton": "Talk to Jasper"
   },
   "about": {
     "title": "Radial, from the inside out",
@@ -199,13 +200,16 @@
     "subtitle": "Transparent pricing. No hidden fees. Pick the package that fits your needs.",
     "popular": "Most popular",
     "perDay": "per day",
+    "for": "for",
     "days": "days",
+    "day": "Day",
     "getStarted": "Get started",
     "designSprint": "Design Sprint",
     "sprintIncludes": "What's included",
     "sprintProcess": "The 4-day process",
     "ctaHeadline": "Not sure which package fits?",
-    "ctaCta": "Get in touch",
+    "ctaButton": "Talk to Jasper",
+    "ctaContact": "Jasper den Ouden",
     "ctaSecondary": "See our projects",
     "faqTitle": "Frequently Asked Questions",
     "faq1Q": "How does the design process work?",

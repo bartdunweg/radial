@@ -49,49 +49,39 @@ export default async function PricingPage({
 
         {/* Day-rate packages */}
         <AnimatedGrid className="mt-12 grid gap-6 md:grid-cols-3" staggerDelay={0.1}>
-          {packages.map((pkg: { slug: string; title: string; dailyRate: number; days: number; totalPrice?: number; popular?: boolean; description: string; features: string[] }) => (
+          {packages.map((pkg: { slug: string; title: string; dailyRate: number; days: number; discount?: string; popular?: boolean; description: string }) => (
             <AnimatedGridItem key={pkg.slug}>
               <Card
-                className={`bg-card border-border relative h-full overflow-visible ${
-                  pkg.popular ? "ring-2 ring-primary" : ""
-                }`}
-              >
-                {pkg.popular && (
-                  <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
-                    {t("popular")}
-                  </Badge>
+                className={cn(
+                  "relative h-full overflow-visible",
+                  pkg.popular
+                    ? "bg-foreground text-background border-foreground"
+                    : "bg-card border-border"
                 )}
+              >
                 <CardHeader>
-                  <CardTitle className="text-lg">{pkg.title}</CardTitle>
-                  <CardDescription className="mt-1">{pkg.description}</CardDescription>
-                  <div className="mt-4">
-                    <span className="text-3xl font-semibold tracking-tight">
-                      &euro;{pkg.dailyRate.toLocaleString()}
+                  <div className="flex items-center gap-2">
+                    <CardTitle className={cn("text-sm font-medium", pkg.popular && "text-background")}>{pkg.title}</CardTitle>
+                    {pkg.discount && (
+                      <Badge variant={pkg.popular ? "outline" : "secondary"} className={cn(pkg.popular && "border-background/20 text-background")}>{pkg.discount}</Badge>
+                    )}
+                    {pkg.popular && (
+                      <Badge className="bg-background text-foreground hover:bg-background/90">{t("popular")}</Badge>
+                    )}
+                  </div>
+                  <div className="mt-3">
+                    <span className="text-[40px] font-semibold tracking-tight" style={{ fontFamily: "var(--font-satoshi), sans-serif" }}>
+                      <span className="text-xl align-super relative top-1">€</span> {pkg.dailyRate.toLocaleString()}
                     </span>
-                    <span className="text-sm text-muted-foreground ml-1">{t("perDay")}</span>
+                    <span className={cn("text-sm ml-1", pkg.popular ? "text-background/60" : "text-muted-foreground")}>{t("perDay")}</span>
                   </div>
-                  {pkg.totalPrice && (
-                    <div className="text-sm text-muted-foreground">
-                      {pkg.days} {t("days")} &middot; &euro;{pkg.totalPrice.toLocaleString()}
-                    </div>
-                  )}
-                </CardHeader>
-                <CardContent>
-                  <Separator className="mb-4" />
-                  <ul className="space-y-2.5">
-                    {pkg.features.map((feature: string) => (
-                      <li key={feature} className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <Check size={16} className="mt-0.5 shrink-0 text-foreground" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="mt-6">
-                    <a href="mailto:hello@studioradial.com" className={cn(buttonVariants({ variant: pkg.popular ? "default" : "outline", size: "sm" }), "w-full")}>
+                  <CardDescription className={cn("mt-1", pkg.popular && "text-background/60")}>{pkg.description}</CardDescription>
+                  <div className="mt-4">
+                    <Link href="/contact" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "w-full")}>
                       {t("getStarted")}
-                    </a>
+                    </Link>
                   </div>
-                </CardContent>
+                </CardHeader>
               </Card>
             </AnimatedGridItem>
           ))}
@@ -101,44 +91,43 @@ export default async function PricingPage({
         <AnimatedSection className="mt-16">
           <Card className="bg-card border-border overflow-hidden">
             <CardContent className="p-8 md:p-10">
-              <div className="grid gap-10 md:grid-cols-[1fr_1fr]">
-                <div>
-                  <h2 className="text-2xl md:text-3xl tracking-tight">{sprint.title}</h2>
-                  <p className="mt-4 text-muted-foreground leading-relaxed">{sprint.description}</p>
-                  <div className="mt-6">
-                    <span className="text-3xl font-semibold tracking-tight">
-                      &euro;{sprint.price.toLocaleString()}
-                    </span>
-                    <span className="text-sm text-muted-foreground ml-2">{sprint.duration}</span>
+              {/* Header: title left, price right */}
+              <div className="flex items-start justify-between">
+                <h2 className="text-2xl md:text-3xl tracking-tight">{sprint.title}</h2>
+                <div className="flex items-center gap-3">
+                  <div className="flex flex-col text-sm text-muted-foreground text-right">
+                    <span>{sprint.duration}</span>
+                    <span>{sprint.includes[0]}</span>
                   </div>
-                  <div className="mt-8">
-                    <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-4">{t("sprintIncludes")}</div>
-                    <ul className="space-y-2.5">
-                      {sprint.includes.map((item: string) => (
-                        <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <Check size={16} className="mt-0.5 shrink-0 text-foreground" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="mt-8">
-                    <a href="mailto:hello@studioradial.com" className={cn(buttonVariants({ size: "lg" }))}>
-                      {t("getStarted")}
-                    </a>
-                  </div>
+                  <span className="text-[40px] font-semibold tracking-tight leading-none" style={{ fontFamily: "var(--font-satoshi), sans-serif" }}>
+                    <span className="text-xl align-super relative top-1">€</span> {sprint.price.toLocaleString()}
+                  </span>
+                  <Link href="/contact" className={cn(buttonVariants({ size: "lg" }))}>
+                    {t("getStarted")}
+                  </Link>
                 </div>
+              </div>
 
-                <div>
-                  <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-4">{t("sprintProcess")}</div>
-                  <div className="space-y-3">
-                    {sprint.features.map((step: string, i: number) => (
-                      <div key={i} className="rounded-lg border border-border bg-[#f8f9fb] dark:bg-[#101114] p-4">
-                        <p className="text-sm">{step}</p>
+              <p className="mt-4 text-muted-foreground leading-relaxed max-w-xl">
+                {sprint.description} {t("sprintIncludes")}: {sprint.includes.join(", ")}.
+              </p>
+
+              {/* Process — horizontal */}
+              <div className="mt-10 grid grid-cols-2 gap-6 md:grid-cols-4">
+                {sprint.features.map((step: string, i: number) => {
+                  const [dayPart, ...rest] = step.split(" — ");
+                  const title = dayPart.replace(/^(Day|Dag)\s+\d+:\s*/, "");
+                  const description = rest.join(" — ");
+                  return (
+                    <div key={i}>
+                      <div className="flex h-8 items-center justify-center rounded-full border border-border text-xs font-semibold mb-3 px-3 w-fit">
+                        {t("day")} {i + 1}
                       </div>
-                    ))}
-                  </div>
-                </div>
+                      <p className="text-sm font-medium">{title}</p>
+                      {description && <p className="mt-0.5 text-sm text-muted-foreground">{description}</p>}
+                    </div>
+                  );
+                })}
               </div>
             </CardContent>
           </Card>
@@ -166,12 +155,19 @@ export default async function PricingPage({
             <h2 className="text-3xl font-light leading-tight tracking-tight md:text-5xl">
               {t("ctaHeadline")}
             </h2>
-            <div className="mt-10 flex items-center justify-center gap-4">
-              <Link href="/contact" className={cn(buttonVariants({ size: "lg" }))}>
-                {t("ctaCta")}
-              </Link>
-              <Link href="/work" className={cn(buttonVariants({ variant: "outline", size: "lg" }))}>
-                {t("ctaSecondary")}
+            <div className="mt-10 flex items-center justify-center">
+              <Link
+                href="/contact"
+                className="group inline-flex h-11 items-center gap-3 rounded-full bg-foreground pr-6 pl-2 text-sm font-medium text-background transition-colors hover:bg-foreground/90"
+              >
+                <img
+                  src="/team/jasper.png"
+                  alt={t("ctaContact")}
+                  width={36}
+                  height={36}
+                  className="h-7 w-7 rounded-full object-cover"
+                />
+                {t("ctaButton")}
               </Link>
             </div>
           </div>

@@ -2,51 +2,27 @@
   "packages": [
     {
       "slug": "flexible",
-      "title": "Flexible",
+      "title": "Per day",
       "dailyRate": 999,
       "days": 1,
-      "description": "For quick wins and focused tasks. Book a designer for a day.",
-      "features": [
-        "1 dedicated designer",
-        "Per-day booking",
-        "Figma deliverables",
-        "Async communication",
-        "1 revision round included"
-      ]
+      "description": "Book a designer for a day. Ideal for quick tasks."
     },
     {
       "slug": "short-term",
-      "title": "Short Term",
+      "title": "20 days",
       "dailyRate": 899,
       "days": 20,
-      "totalPrice": 17999,
-      "description": "For ongoing projects that need consistent design support.",
-      "features": [
-        "1 dedicated designer",
-        "20 days of design work",
-        "Weekly syncs & updates",
-        "Figma + developer handoff",
-        "Unlimited revisions",
-        "Priority scheduling"
-      ]
+      "discount": "-10%",
+      "description": "Consistent design support with weekly syncs and unlimited revisions."
     },
     {
       "slug": "long-term",
-      "title": "Long Term",
+      "title": "40 days",
       "dailyRate": 799,
       "days": 40,
-      "totalPrice": 31999,
+      "discount": "-20%",
       "popular": true,
-      "description": "For long-term partnerships with a dedicated design resource.",
-      "features": [
-        "1 dedicated senior designer",
-        "40 days of design work",
-        "Embedded in your team",
-        "Figma + developer handoff",
-        "Unlimited revisions",
-        "Priority scheduling",
-        "Design system setup included"
-      ]
+      "description": "A senior designer embedded in your team, including design system setup."
     }
   ],
   "designSprint": {

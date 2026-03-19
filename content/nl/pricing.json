@@ -2,51 +2,27 @@
   "packages": [
     {
       "slug": "flexible",
-      "title": "Flexible",
+      "title": "Per dag",
       "dailyRate": 999,
       "days": 1,
-      "description": "Voor snelle winsten en gerichte taken. Boek een designer voor een dag.",
-      "features": [
-        "1 dedicated designer",
-        "Boekbaar per dag",
-        "Figma deliverables",
-        "Asynchrone communicatie",
-        "1 revisieronde inbegrepen"
-      ]
+      "description": "Boek een designer voor een dag. Ideaal voor snelle taken."
     },
     {
       "slug": "short-term",
-      "title": "Short Term",
+      "title": "20 dagen",
       "dailyRate": 899,
       "days": 20,
-      "totalPrice": 17999,
-      "description": "Voor doorlopende projecten die consistente design support nodig hebben.",
-      "features": [
-        "1 dedicated designer",
-        "20 dagen designwerk",
-        "Wekelijkse syncs & updates",
-        "Figma + developer handoff",
-        "Onbeperkte revisies",
-        "Prioriteitsplanning"
-      ]
+      "discount": "-10%",
+      "description": "Consistente design support met wekelijkse syncs en onbeperkte revisies."
     },
     {
       "slug": "long-term",
-      "title": "Long Term",
+      "title": "40 dagen",
       "dailyRate": 799,
       "days": 40,
-      "totalPrice": 31999,
+      "discount": "-20%",
       "popular": true,
-      "description": "Voor langdurige samenwerkingen met een dedicated design resource.",
-      "features": [
-        "1 dedicated senior designer",
-        "40 dagen designwerk",
-        "Ingebed in je team",
-        "Figma + developer handoff",
-        "Onbeperkte revisies",
-        "Prioriteitsplanning",
-        "Design system setup inbegrepen"
-      ]
+      "description": "Een senior designer ingebed in je team, inclusief design system setup."
     }
   ],
   "designSprint": {

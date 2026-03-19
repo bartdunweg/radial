@@ -106,7 +106,8 @@
     "ctaCta": "Neem contact op",
     "ctaHeadline": "Laten we iets bouwen dat uitstraalt.",
     "ctaContact": "Jasper den Ouden",
-    "ctaRole": "Strategie & UX"
+    "ctaRole": "Strategie & UX",
+    "ctaButton": "Praat met Jasper"
   },
   "about": {
     "title": "Radial, van binnenuit",
@@ -199,13 +200,16 @@
     "subtitle": "Transparante prijzen. Geen verborgen kosten. Kies het pakket dat bij je past.",
     "popular": "Meest gekozen",
     "perDay": "per dag",
+    "for": "voor",
     "days": "dagen",
+    "day": "Dag",
     "getStarted": "Aan de slag",
     "designSprint": "Design Sprint",
     "sprintIncludes": "Wat zit erbij",
     "sprintProcess": "Het 4-daagse proces",
     "ctaHeadline": "Niet zeker welk pakket past?",
-    "ctaCta": "Neem contact op",
+    "ctaButton": "Praat met Jasper",
+    "ctaContact": "Jasper den Ouden",
     "ctaSecondary": "Bekijk onze projecten",
     "faqTitle": "Veelgestelde vragen",
     "faq1Q": "Hoe werkt het designproces?",

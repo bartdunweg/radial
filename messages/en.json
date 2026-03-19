@@ -259,6 +259,18 @@
     "language": "Language",
     "switchLang": "Nederlands"
   },
+  "process": {
+    "title": "Our Process",
+    "description": "From research to reality — how we build digital products.",
+    "step1Title": "Research",
+    "step1Description": "We dive deep into your users, market, and business goals. Through interviews, data analysis, and exploration, we discover which direction to pursue.",
+    "step2Title": "Strategy",
+    "step2Description": "Structure emerges from chaos. We define the blueprint — information architecture, user flows, and a clear plan that aligns everyone.",
+    "step3Title": "Design",
+    "step3Description": "The product takes shape. High-fidelity interfaces crafted with attention to every pixel, interaction, and micro-animation.",
+    "step4Title": "Realization",
+    "step4Description": "The product comes alive. We build, test, iterate, and launch — delivering a product that performs in the real world."
+  },
   "metadata": {
     "siteTitle": "Radial — Digital Product Studio",
     "siteDescription": "It starts at the core. We create digital products that work — for users and for business.",

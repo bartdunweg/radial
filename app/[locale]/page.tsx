@@ -202,7 +202,7 @@ export default async function HomePage({
           { text: t("intro6") },
           { text: t("intro7") },
         ]}
-        className="mx-auto max-w-[960px] text-[28px] md:text-[36px] leading-[1.4] tracking-tight text-center"
+        className="mx-auto max-w-[960px] text-[22px] md:text-[28px] leading-[1.4] tracking-tight text-center"
         sparkles={false}
       />
 

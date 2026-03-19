@@ -9,6 +9,7 @@ import { ThemeProvider } from "../components/theme-provider";
 import { Navbar } from "../components/navbar";
 import { Footer } from "../components/footer";
 import { VariantToggle } from "../components/variant-toggle";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -99,6 +100,7 @@ export default async function LocaleLayout({
 
             <Footer />
             <VariantToggle />
+            <SpeedInsights />
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>

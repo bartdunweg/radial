@@ -31,6 +31,19 @@
     "price": 6399,
     "duration": "4 days",
     "facilitated": "2 designers",
+    "includes": [
+      "4 full days of facilitated design",
+      "2 dedicated designers",
+      "Clickable prototype",
+      "User testing with real users",
+      "Actionable insights report"
+    ],
+    "features": [
+      "Go from idea to validated concept in just 4 days",
+      "Structured process based on the Google Design Sprint",
+      "Real user feedback before you write a single line of code",
+      "Aligned team vision and clear next steps"
+    ],
     "days": [
       {
         "title": "Understand",

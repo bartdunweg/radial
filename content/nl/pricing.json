@@ -31,6 +31,19 @@
     "price": 6399,
     "duration": "4 dagen",
     "facilitated": "2 designers",
+    "includes": [
+      "4 volledige dagen begeleide design",
+      "2 toegewijde designers",
+      "Klikbaar prototype",
+      "Gebruikerstests met echte gebruikers",
+      "Rapport met concrete inzichten"
+    ],
+    "features": [
+      "Ga van idee naar gevalideerd concept in slechts 4 dagen",
+      "Gestructureerd proces gebaseerd op de Google Design Sprint",
+      "Echte gebruikersfeedback voordat je één regel code schrijft",
+      "Gedeelde teamvisie en duidelijke vervolgstappen"
+    ],
     "days": [
       {
         "title": "Understand",

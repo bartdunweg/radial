@@ -16,6 +16,11 @@ const authorInitials: Record<string, string> = {
   "Elwin de Witte": "EW",
 };
 
+const authorPhotos: Record<string, string> = {
+  "Bart Dunweg": "/team/bart.png",
+  "Jasper den Ouden": "/team/jasper.png",
+};
+
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
     blogEn.map((post) => ({ locale, slug: post.slug }))
@@ -65,9 +70,13 @@ export default async function BlogPostPage({
         <h1 className="text-[clamp(2rem,4vw,3rem)] tracking-tight">{post.title}</h1>
 
         <div className="mt-6 flex items-center gap-4 border-b border-border pb-8 text-sm text-muted-foreground">
-          <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-muted text-xs font-semibold">
-            {authorInitials[post.author] ?? post.author.split(" ").map(w => w[0]).join("")}
-          </span>
+          {authorPhotos[post.author] ? (
+            <img src={authorPhotos[post.author]} alt={post.author} className="h-7 w-7 shrink-0 rounded-full object-cover" />
+          ) : (
+            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-muted text-xs font-semibold">
+              {authorInitials[post.author] ?? post.author.split(" ").map(w => w[0]).join("")}
+            </span>
+          )}
           <span>{post.author}</span>
           <span>&middot;</span>
           <span>

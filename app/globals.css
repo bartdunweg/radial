@@ -357,6 +357,35 @@ h1, h2, h3, h4, h5 {
   .btn-glass-glow:active {
     background-color: rgba(255,255,255,0.16);
   }
+  .dark [data-inverted] .btn-glass-glow,
+  .dark .btn-glass-glow[data-inverted] {
+    background-color: rgba(0,0,0,0.02);
+    color: #0A0A0A;
+    border: 1px solid rgba(0,0,0,0.06);
+    background-image:
+      linear-gradient(rgba(0,0,0,0) 65%, rgba(0,0,0,0.01) 110%),
+      linear-gradient(rgba(0,0,0,0.01) -10%, rgba(0,0,0,0) 45%);
+    box-shadow:
+      rgba(0,0,0,0.02) 0px 1px 2px 0px,
+      rgba(0,0,0,0.01) 0px 0.5px 0.5px 0px,
+      rgba(0,0,0,0.03) 0px 8px 16px -8px,
+      rgba(255,255,255,0.30) 0px 0.5px 0.5px 0px inset,
+      rgba(0,0,0,0.005) 0px -0.5px 0.5px 0px inset;
+  }
+  .dark [data-inverted] .btn-glass-glow::before,
+  .dark .btn-glass-glow[data-inverted]::before {
+    background-image:
+      linear-gradient(287deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.01) 90%),
+      linear-gradient(107deg, rgba(0,0,0,0) 62%, rgba(0,0,0,0.005) 91%);
+  }
+  .dark [data-inverted] .btn-glass-glow:hover,
+  .dark .btn-glass-glow[data-inverted]:hover {
+    background-color: rgba(0,0,0,0.05);
+  }
+  .dark [data-inverted] .btn-glass-glow:active,
+  .dark .btn-glass-glow[data-inverted]:active {
+    background-color: rgba(0,0,0,0.08);
+  }
 
   /* Icon button with glass hover — for lang switcher, theme toggle */
   .btn-icon-glass {
@@ -461,6 +490,34 @@ h1, h2, h3, h4, h5 {
   }
   .dark .btn-primary-glow:active {
     background-color: #d4d4d4;
+  }
+
+  /* Force light-mode primary button inside nav on light backgrounds */
+  .dark [data-nav-light] .btn-primary-glow {
+    background-color: #0A0A0A;
+    color: #ffffff;
+    border: 1px solid rgba(0,0,0,0.08);
+    background-image:
+      linear-gradient(rgba(255,255,255,0) 65%, rgba(255,255,255,0.03) 110%),
+      linear-gradient(rgba(255,255,255,0.05) -10%, rgba(255,255,255,0) 45%);
+    box-shadow:
+      rgba(0,0,0,0.12) 0px 1px 3px 0px,
+      rgba(0,0,0,0.08) 0px 0.5px 0.5px 0px,
+      rgba(0,0,0,0.15) 0px 12px 24px -12px,
+      rgba(255,255,255,0.06) 0px 0.5px 0.5px 0px inset,
+      rgba(255,255,255,0.02) 0px -0.5px 0.5px 0px inset;
+  }
+  .dark [data-nav-light] .btn-primary-glow::before {
+    background-image:
+      linear-gradient(287deg, rgba(0,0,0,0) 60%, rgba(255,255,255,0.025) 90%),
+      linear-gradient(107deg, rgba(0,0,0,0) 62%, rgba(255,255,255,0.015) 91%);
+    background-color: transparent;
+  }
+  .dark [data-nav-light] .btn-primary-glow:hover {
+    background-color: #111111;
+  }
+  .dark [data-nav-light] .btn-primary-glow:active {
+    background-color: #1a1a1a;
   }
 
   .dark .btn-white-glow {

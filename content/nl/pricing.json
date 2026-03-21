@@ -13,7 +13,7 @@
       "dailyRate": 899,
       "days": 20,
       "discount": "-10%",
-      "description": "In een korte periode impact maken met het ontwerpen of herontwerpen van specifieke onderdelen of features van je product."
+      "description": "Impact maken met het ontwerpen of herontwerpen van specifieke features van je product."
     },
     {
       "slug": "long-term",
@@ -47,23 +47,19 @@
     "days": [
       {
         "title": "Understand",
-        "tagline": "Probleem in kaart brengen, het speelveld verkennen",
-        "deliverables": ["Expert interviews", "Customer journey map", "Inspiration share"]
+        "deliverables": ["Probleem & speelveld in kaart", "Expert interviews", "Customer journey map", "Inspiration share"]
       },
       {
         "title": "Ideate",
-        "tagline": "Richting kiezen, de oplossing schetsen",
-        "deliverables": ["Solution sketches", "Aligned concept vision", "Storyboard & flowchart"]
+        "deliverables": ["Richting kiezen", "Solution sketches", "Aligned concept vision", "Storyboard & flowchart"]
       },
       {
         "title": "Build",
-        "tagline": "Van concept naar iets tastbaars",
-        "deliverables": ["Prototype dat al aanvoelt als het echte product", "Interview scripts"]
+        "deliverables": ["Van concept naar realiteit", "Prototype dat echt aanvoelt", "Interview scripts"]
       },
       {
         "title": "Validate",
-        "tagline": "Testen met echte gebruikers, richting bewijzen",
-        "deliverables": ["Echte gebruikersfeedback & inzichten", "Gevalideerde ideeën & visie", "Kickstart van je product of features"]
+        "deliverables": ["Testen met echte gebruikers", "Gebruikersfeedback & inzichten", "Gevalideerde ideeën & visie", "Product kickstart"]
       }
     ]
   }

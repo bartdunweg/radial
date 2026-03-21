@@ -13,7 +13,7 @@
       "dailyRate": 899,
       "days": 20,
       "discount": "-10%",
-      "description": "Make an impact in a short period by designing or redesigning specific aspects or features of your product."
+      "description": "Make an impact by designing or redesigning specific features of your product."
     },
     {
       "slug": "long-term",
@@ -47,23 +47,19 @@
     "days": [
       {
         "title": "Understand",
-        "tagline": "Map the problem, explore the landscape",
-        "deliverables": ["Expert interviews", "Customer journey map", "Inspiration share"]
+        "deliverables": ["Map the problem & landscape", "Expert interviews", "Customer journey map", "Inspiration share"]
       },
       {
         "title": "Ideate",
-        "tagline": "Choose a direction, sketch the solution",
-        "deliverables": ["Solution sketches", "Aligned concept vision", "Storyboard & flowchart"]
+        "deliverables": ["Choose a direction", "Solution sketches", "Aligned concept vision", "Storyboard & flowchart"]
       },
       {
         "title": "Build",
-        "tagline": "Turn the concept into something real",
-        "deliverables": ["Prototype that feels like the real thing", "Interview scripts"]
+        "deliverables": ["Turn concept into reality", "Prototype that feels real", "Interview scripts"]
       },
       {
         "title": "Validate",
-        "tagline": "Test with real users, prove the direction",
-        "deliverables": ["Real user feedback & insights", "Validated ideas & vision", "Kickstart of your product or features"]
+        "deliverables": ["Test with real users", "User feedback & insights", "Validated ideas & vision", "Product kickstart"]
       }
     ]
   }

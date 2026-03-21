@@ -53,7 +53,7 @@ export function Footer() {
   }, [handleScroll]);
 
   return (
-    <footer ref={footerRef} className="sticky bottom-0 z-0 flex min-h-screen w-full flex-col justify-between bg-[#f8f8fa] text-foreground dark:bg-[#0a0a0a] dark:text-white px-8">
+    <footer ref={footerRef} className="sticky bottom-0 z-0 flex w-full flex-col justify-between bg-[#f8f8fa] text-foreground dark:bg-[#0a0a0a] dark:text-white px-8 py-16">
       {/* Top: navigation, contact, social, legal */}
       <div className="mx-auto flex w-full max-w-[1280px] flex-1 items-center">
         <div className="w-full grid gap-10 md:grid-cols-[2fr_1fr_1fr]">
@@ -115,7 +115,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row md:items-baseline md:justify-between">
           <span
             className={`block font-bold leading-none tracking-tighter ${isVariantA ? "text-foreground" : "bg-clip-text text-transparent footer-wordmark"}`}
-            style={{ fontSize: "clamp(80px, 15vw, 200px)" }}
+            style={{ fontSize: "clamp(60px, 12vw, 160px)" }}
           >
             {isVariantA ? "Strakzat" : "Radial"}
           </span>

@@ -53,35 +53,33 @@ export default async function PricingPage({
             <AnimatedGridItem key={pkg.slug}>
               <Card
                 className={cn(
-                  "relative h-full overflow-visible",
-                  pkg.popular
-                    ? "bg-foreground text-background border-foreground"
-                    : "bg-card border-border"
+                  "relative h-full overflow-visible flex flex-col gap-0 p-8 py-8",
+                  "bg-card border-border"
                 )}
               >
-                <CardHeader>
+                <div className="flex-1">
                   <div className="flex items-center gap-2">
-                    <CardTitle className={cn("text-sm font-medium", pkg.popular && "text-background")}>{pkg.title}</CardTitle>
+                    <CardTitle className="text-lg font-semibold">{pkg.title}</CardTitle>
                     {pkg.discount && (
-                      <Badge variant={pkg.popular ? "outline" : "secondary"} className={cn(pkg.popular && "border-background/20 text-background")}>{pkg.discount}</Badge>
+                      <Badge variant="secondary">{pkg.discount}</Badge>
                     )}
                     {pkg.popular && (
-                      <Badge className="bg-background text-foreground hover:bg-background/90">{t("popular")}</Badge>
+                      <Badge variant="outline" className="border-[#0A0A0A] bg-[#0A0A0A] text-white dark:border-white dark:bg-white dark:text-[#0A0A0A]">{t("popular")}</Badge>
                     )}
                   </div>
+                  <p className="mt-1 text-sm line-clamp-2 text-muted-foreground">{pkg.description}</p>
                   <div className="mt-3">
                     <span className="text-[40px] font-semibold tracking-tight" style={{ fontFamily: "var(--font-satoshi), sans-serif" }}>
                       <span className="text-xl align-super relative top-1">€</span> {pkg.dailyRate.toLocaleString()}
                     </span>
-                    <span className={cn("text-sm ml-1", pkg.popular ? "text-background/60" : "text-muted-foreground")}>{t("perDay")}</span>
+                    <span className="text-sm ml-1 text-muted-foreground">{t("perDay")}</span>
                   </div>
-                  <CardDescription className={cn("mt-1", pkg.popular && "text-background/60")}>{pkg.description}</CardDescription>
-                  <div className="mt-4">
-                    <Link href="/contact" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "w-full")}>
-                      {t("getStarted")}
-                    </Link>
-                  </div>
-                </CardHeader>
+                </div>
+                <div className="mt-8">
+                  <Link href="/contact" className={cn(buttonVariants({ variant: pkg.popular ? "default" : "outline", size: "lg" }), "w-full")}>
+                    {t("getStarted")}
+                  </Link>
+                </div>
               </Card>
             </AnimatedGridItem>
           ))}
@@ -89,48 +87,51 @@ export default async function PricingPage({
 
         {/* Design Sprint */}
         <AnimatedSection className="mt-16">
-          <Card className="bg-card border-border overflow-hidden">
-            <CardContent className="p-8 md:p-10">
+          <Card data-inverted className="bg-foreground text-background border-foreground overflow-hidden gap-0 p-0">
+            <CardContent className="p-8">
               {/* Header: title left, price right */}
-              <div className="flex items-start justify-between">
-                <h2 className="text-2xl md:text-3xl tracking-tight">{sprint.title}</h2>
+              <div className="flex items-end justify-between">
+                <div>
+                  <CardTitle className="text-lg font-semibold text-background">{sprint.title}</CardTitle>
+                  <p className="mt-1 text-sm text-background/60 leading-relaxed max-w-2xl">
+                    {sprint.description}
+                  </p>
+                </div>
                 <div className="flex items-center gap-3">
-                  <div className="flex flex-col text-sm text-muted-foreground text-right">
-                    <span>{sprint.duration}</span>
-                    <span>{sprint.facilitated}</span>
-                  </div>
                   <span className="text-[40px] font-semibold tracking-tight leading-none" style={{ fontFamily: "var(--font-satoshi), sans-serif" }}>
                     <span className="text-xl align-super relative top-1">€</span> {sprint.price.toLocaleString()}
                   </span>
-                  <Link href="/contact" className={cn(buttonVariants({ size: "lg" }))}>
-                    {t("getStarted")}
-                  </Link>
+                  <div className="flex flex-col text-sm text-background/60">
+                    <span>{sprint.duration}</span>
+                    <span>{sprint.facilitated}</span>
+                  </div>
                 </div>
               </div>
 
-              <p className="mt-4 text-muted-foreground leading-relaxed max-w-xl">
-                {sprint.description}
-              </p>
-
               {/* Deliverables per day */}
               <div className="mt-10 grid grid-cols-2 gap-6 md:grid-cols-4">
-                {sprint.days.map((day: { title: string; tagline: string; deliverables: string[] }, i: number) => (
-                  <div key={i}>
-                    <div className="flex h-8 items-center justify-center rounded-full border border-border text-xs font-semibold mb-3 px-3 w-fit">
-                      {t("day")} {i + 1}
-                    </div>
-                    <p className="text-sm font-semibold">{day.title}</p>
-                    <p className="text-xs text-muted-foreground mb-2">{day.tagline}</p>
+                {sprint.days.map((day: { title: string; deliverables: string[] }, i: number) => (
+                  <div key={i} className={cn(i > 0 && "border-l border-background/10 pl-6")}>
+                    <p className="text-xs font-semibold mb-1">{t("day")} {i + 1}</p>
+                    <p className="text-base font-semibold mb-2">{day.title}</p>
                     <ul className="space-y-1.5">
                       {day.deliverables.map((item: string) => (
-                        <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <Check size={14} className="mt-0.5 shrink-0 text-foreground" />
+                        <li key={item} className="flex items-start gap-2 text-sm text-background/60">
+                          <Check size={14} className="mt-0.5 shrink-0 text-background" />
                           {item}
                         </li>
                       ))}
                     </ul>
                   </div>
                 ))}
+              </div>
+              <div className="mt-10 flex gap-3">
+                <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "bg-background text-foreground hover:bg-background/90")}>
+                  {t("getStarted")}
+                </Link>
+                <Link href="/services/design-sprint" className={cn(buttonVariants({ variant: "ghost-light", size: "lg" }))}>
+                  {t("readMore")}
+                </Link>
               </div>
             </CardContent>
           </Card>
@@ -139,26 +140,30 @@ export default async function PricingPage({
         {/* FAQ */}
         <AnimatedSection className="mt-16">
           <Separator className="mb-16" />
-          <h2 className="text-[28px] md:text-[36px] tracking-tight mb-10">{t("faqTitle")}</h2>
-          <FaqAccordion
-            items={[
-              { q: t("faq1Q"), a: t("faq1A") },
-              { q: t("faq2Q"), a: t("faq2A") },
-              { q: t("faq3Q"), a: t("faq3A") },
-              { q: t("faq4Q"), a: t("faq4A") },
-              { q: t("faq5Q"), a: t("faq5A") },
-              { q: t("faq6Q"), a: t("faq6A") },
-            ]}
-          />
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-10 md:gap-16">
+            <div>
+              <h2 className="text-[28px] md:text-[36px] tracking-tight">{t("faqTitle")}</h2>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{t("faqSubtitle")}</p>
+            </div>
+            <FaqAccordion
+              items={[
+                { q: t("faq1Q"), a: t("faq1A") },
+                { q: t("faq2Q"), a: t("faq2A") },
+                { q: t("faq3Q"), a: t("faq3A") },
+                { q: t("faq4Q"), a: t("faq4A") },
+                { q: t("faq5Q"), a: t("faq5A") },
+                { q: t("faq6Q"), a: t("faq6A") },
+              ]}
+            />
+          </div>
         </AnimatedSection>
 
-        {/* CTA */}
-        <AnimatedSection className="py-32">
-          <div className="mx-auto max-w-[680px] text-center">
-            <h2 className="text-3xl font-light leading-tight tracking-tight md:text-5xl">
-              {t("ctaHeadline")}
-            </h2>
-            <div className="mt-10 flex items-center justify-center">
+        {/* CTA — aligned with FAQ right column */}
+        <AnimatedSection className="mt-16">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-10 md:gap-16">
+            <div />
+            <div className="flex items-center justify-between">
+              <h2 className="text-xl font-semibold">{t("ctaHeadline")}</h2>
               <Link
                 href="/contact"
                 className="group inline-flex h-11 items-center gap-3 rounded-full bg-foreground pr-6 pl-2 text-sm font-medium text-background transition-colors hover:bg-foreground/90"

@@ -9,7 +9,7 @@ import { ArrowRight, Check, X, Search, PenTool } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { AtomToggle } from "../components/atom-toggle";
 import { RotatingClients } from "../components/rotating-clients";
-import { TestimonialSlider } from "../components/testimonial-slider";
+import { TestimonialAccordion } from "../components/testimonial-accordion";
 import {
   AnimatedSection,
   AnimatedGrid,
@@ -141,7 +141,7 @@ export default async function HomePage({
                   <Link href="/contact" className={cn(buttonVariants({ size: "lg" }))}>
                     {t("cta")}
                   </Link>
-                  <Link href="/work" className={cn(buttonVariants({ variant: "outline", size: "lg" }))}>
+                  <Link href="/projects" className={cn(buttonVariants({ variant: "outline", size: "lg" }))}>
                     {t("ctaSecondary")}
                     <ArrowRight size={16} />
                   </Link>
@@ -194,7 +194,7 @@ export default async function HomePage({
                   <Link href="/contact" className={cn(buttonVariants({ variant: "outline-on-dark", size: "lg" }))}>
                     {t("cta")}
                   </Link>
-                  <Link href="/work" className={cn(buttonVariants({ variant: "ghost-light", size: "lg" }))}>
+                  <Link href="/projects" className={cn(buttonVariants({ variant: "ghost-light", size: "lg" }))}>
                     {t("ctaSecondary")}
                     <ArrowRight size={16} />
                   </Link>
@@ -270,7 +270,7 @@ export default async function HomePage({
           <AnimatedSection>
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-[28px] md:text-[36px] tracking-tight">{t("featuredWork")}</h2>
-              <Link href="/work" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
+              <Link href="/projects" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
                 {t("viewAllWork")} <ArrowRight size={14} />
               </Link>
             </div>
@@ -290,7 +290,7 @@ export default async function HomePage({
                     {project.services.map((service) => {
                       const slug = serviceSlugMap.get(service);
                       return slug ? (
-                        <Link key={service} href={`/services/${slug}`}>
+                        <Link key={service} href={`/expertise/${slug}`}>
                           <Badge variant="outline" className="text-xs border-border text-muted-foreground hover:text-foreground hover:border-foreground/20 transition-colors cursor-pointer h-auto py-1.5 px-3">{service}</Badge>
                         </Link>
                       ) : (
@@ -341,20 +341,14 @@ export default async function HomePage({
               <div className="grid grid-cols-2 gap-3">
                 <div className="flex flex-col gap-3">
                   <div className="group relative aspect-[3/2] overflow-hidden rounded-2xl bg-muted">
-                    <div className="absolute inset-0 flex items-center justify-center text-muted-foreground text-xs transition-transform duration-500 group-hover:scale-[1.03]">
-                      Photo 1
-                    </div>
+                    <img src="/about/phone-app.webp" alt="App on phone" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
                   </div>
                   <div className="group relative aspect-[4/3] overflow-hidden rounded-2xl bg-muted">
-                    <div className="absolute inset-0 flex items-center justify-center text-muted-foreground text-xs transition-transform duration-500 group-hover:scale-[1.03]">
-                      Photo 2
-                    </div>
+                    <img src="/about/working.webp" alt="Designer at work" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
                   </div>
                 </div>
                 <div className="group relative overflow-hidden rounded-2xl bg-muted">
-                  <div className="absolute inset-0 flex items-center justify-center text-muted-foreground text-xs transition-transform duration-500 group-hover:scale-[1.03]">
-                    Photo 3
-                  </div>
+                  <img src="/about/calling.webp" alt="Phone call" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
                 </div>
               </div>
             </AnimatedSection>
@@ -458,15 +452,15 @@ export default async function HomePage({
       <div className="px-8"><div className="mx-auto max-w-[1280px]"><div className="h-px bg-black/5 dark:bg-white/10" /></div></div>
 
       {/* Testimonials */}
-      <section className="py-24">
-        <div className="px-8 mx-auto max-w-[1280px]">
+      <section className="px-8 py-24">
+        <div className="mx-auto max-w-[1280px]">
           <AnimatedSection>
             <h2 className="text-[28px] md:text-[36px] tracking-tight mb-10">{t("testimonialsTitle")}</h2>
           </AnimatedSection>
+          <AnimatedSection>
+            <TestimonialAccordion items={testimonials} />
+          </AnimatedSection>
         </div>
-        <AnimatedSection>
-          <TestimonialSlider items={testimonials} />
-        </AnimatedSection>
       </section>
 
       {/* How We Can Help — Bento Grid */}
@@ -475,7 +469,7 @@ export default async function HomePage({
           <AnimatedSection>
             <div className="flex items-center justify-between mb-10">
               <h2 className="text-[28px] md:text-[36px] tracking-tight">{t("expertiseTitle")}</h2>
-              <Link href="/services" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
+              <Link href="/expertise" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
                 {t("viewAllExpertise")} <ArrowRight size={14} />
               </Link>
             </div>
@@ -485,7 +479,7 @@ export default async function HomePage({
             const serviceToExpertise: Record<string, string> = {};
             for (const exp of expertise) {
               for (const sSlug of exp.services) {
-                serviceToExpertise[sSlug] = `/services/${exp.slug}`;
+                serviceToExpertise[sSlug] = `/expertise/${exp.slug}`;
               }
             }
 
@@ -535,7 +529,7 @@ export default async function HomePage({
                       <div className="p-6">
                         <h3 className="text-xl font-medium tracking-tight">{service.title}</h3>
                         <p className="mt-1 text-base text-muted-foreground">{service.description}</p>
-                        <Link href={`/services/${service.slug}`} className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
+                        <Link href={`/expertise/${service.slug}`} className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
                           {t("learnMore")} <ArrowRight size={14} />
                         </Link>
                       </div>
@@ -552,7 +546,7 @@ export default async function HomePage({
                       <div className="p-6">
                         <h3 className="text-xl font-medium tracking-tight">{service.title}</h3>
                         <p className="mt-1 text-base text-muted-foreground">{service.description}</p>
-                        <Link href={`/services/${service.slug}`} className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
+                        <Link href={`/expertise/${service.slug}`} className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
                           {t("learnMore")} <ArrowRight size={14} />
                         </Link>
                       </div>

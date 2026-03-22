@@ -13,8 +13,9 @@ export function ProcessText({
   return (
     <div className="relative h-[420px] w-full max-w-xl">
       {steps.map((step, i) => {
-        const start = i * 0.25;
-        const end = start + 0.25;
+        const segment = 1 / steps.length;
+        const start = i * segment;
+        const end = start + segment;
         const opacity = useTransform(
           progress,
           [start, start + 0.05, end - 0.05, end],
@@ -49,7 +50,7 @@ export function ProcessText({
                   service.slug ? (
                     <a
                       key={service.slug}
-                      href={`/services/${service.slug}`}
+                      href={`/expertise/${service.slug}`}
                       className="group flex items-center gap-2 rounded-lg border border-border bg-card px-3 py-2 text-sm transition-colors hover:border-foreground/20 hover:shadow-sm"
                     >
                       <span className="font-medium">{service.title}</span>

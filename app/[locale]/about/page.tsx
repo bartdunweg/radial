@@ -229,7 +229,7 @@ export default async function AboutPage({
             <Link href="/contact" className={cn(buttonVariants({ size: "lg" }))}>
               {t("ctaCta")}
             </Link>
-            <Link href="/work" className={cn(buttonVariants({ variant: "outline", size: "lg" }))}>
+            <Link href="/projects" className={cn(buttonVariants({ variant: "outline", size: "lg" }))}>
               {t("ctaSecondary")}
               <ArrowRight size={16} />
             </Link>

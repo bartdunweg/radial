@@ -18,8 +18,8 @@ export function Navbar() {
   const announcementRef = useRef<HTMLDivElement>(null);
 
   const links = [
-    { href: "/work" as const, label: t("work") },
-    { href: "/services" as const, label: t("services") },
+    { href: "/projects" as const, label: t("work") },
+    { href: "/expertise" as const, label: t("services") },
     { href: "/about" as const, label: t("about") },
     { href: "/blog" as const, label: t("blog") },
     { href: "/pricing" as const, label: t("pricing") },

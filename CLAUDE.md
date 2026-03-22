@@ -16,7 +16,7 @@ Digital product design studio that designs and builds digital products with a st
 - Off-white background (#FAFAFA) with near-black text (#0A0A0A)
 - Single accent color: Radial blue (#005BE4)
 - Subtle shadows, no gradients or glows
-- Light mode only
+- Light and dark mode support
 - Clean, well-structured components
 - Mobile-first responsive design
 

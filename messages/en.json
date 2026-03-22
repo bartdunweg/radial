@@ -80,9 +80,9 @@
     "whyCol3Title": "Secondment",
     "whyCol3Pro1": "Fills a gap quickly",
     "whyCol3Pro2": "Flexible scaling",
-    "whyCol3Con1": "No ownership over the result",
+    "whyCol3Con1": "Less ownership",
     "whyCol3Con2": "Punching a clock, not invested",
-    "whyCol3Con3": "Needs onboarding & management",
+    "whyCol3Con3": "Money goes to the recruiter",
     "whyCol4Title": "Big agency",
     "whyCol4Pro1": "Large teams available",
     "whyCol4Pro2": "Brand recognition",
@@ -166,7 +166,8 @@
     "impact": "Impact",
     "ctaHeadline": "Like what you see?",
     "ctaCta": "Let's collaborate",
-    "ctaSecondary": "See plans"
+    "ctaSecondary": "See plans",
+    "testimonialsTitle": "What our clients say"
   },
   "services": {
     "title": "Expertise",

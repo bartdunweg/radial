@@ -80,9 +80,9 @@
     "whyCol3Title": "Detachering",
     "whyCol3Pro1": "Vult snel een gat",
     "whyCol3Pro2": "Flexibel opschalen",
-    "whyCol3Con1": "Geen eigenaarschap over het resultaat",
+    "whyCol3Con1": "Minder eigenaarschap",
     "whyCol3Con2": "Klokken in, niet betrokken",
-    "whyCol3Con3": "Heeft onboarding & aansturing nodig",
+    "whyCol3Con3": "Geld gaat naar de recruiter",
     "whyCol4Title": "Groot bureau",
     "whyCol4Pro1": "Grote teams beschikbaar",
     "whyCol4Pro2": "Naamsbekendheid",
@@ -166,7 +166,8 @@
     "impact": "Impact",
     "ctaHeadline": "Bevalt wat je ziet?",
     "ctaCta": "Samenwerken",
-    "ctaSecondary": "Bekijk plannen"
+    "ctaSecondary": "Bekijk plannen",
+    "testimonialsTitle": "Wat onze klanten zeggen"
   },
   "services": {
     "title": "Expertise",

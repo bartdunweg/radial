@@ -5,7 +5,7 @@ import servicesEn from "@/content/en/services.json";
 const BASE_URL = "https://studioradial.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/about", "/work", "/services", "/blog", "/pricing", "/contact"];
+  const staticRoutes = ["", "/about", "/projects", "/expertise", "/blog", "/pricing", "/contact"];
 
   const staticEntries = staticRoutes.flatMap((route) => [
     {
@@ -29,12 +29,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const serviceEntries = servicesEn.map((service) => ({
-    url: `${BASE_URL}/services/${service.slug}`,
+    url: `${BASE_URL}/expertise/${service.slug}`,
     lastModified: new Date(),
     alternates: {
       languages: {
-        en: `${BASE_URL}/services/${service.slug}`,
-        nl: `${BASE_URL}/nl/services/${service.slug}`,
+        en: `${BASE_URL}/expertise/${service.slug}`,
+        nl: `${BASE_URL}/nl/expertise/${service.slug}`,
       },
     },
   }));

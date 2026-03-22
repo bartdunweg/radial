@@ -58,7 +58,7 @@ export default async function ServicesPage({
                     <h2 className="text-2xl tracking-tight">{exp.title}</h2>
                     <p className="mt-2 text-muted-foreground leading-relaxed">{exp.description}</p>
                     <Link
-                      href={`/services/${exp.slug}`}
+                      href={`/expertise/${exp.slug}`}
                       className="mt-3 inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
                     >
                       {t("learnMore")} <ArrowRight size={14} />
@@ -69,7 +69,7 @@ export default async function ServicesPage({
                 <AnimatedGrid className="mt-8 grid gap-4" staggerDelay={0.08}>
                   {childServices.map((service) => (
                     <AnimatedGridItem key={service!.slug}>
-                      <Link href={`/services/${service!.slug}`}>
+                      <Link href={`/expertise/${service!.slug}`}>
                         <Card className="bg-card border-border h-full hover:shadow-card transition-shadow group overflow-hidden">
                           <ServiceIllustration slug={service!.slug} className="flex items-center justify-center px-6 pt-6 pb-2" />
                           <CardHeader className="pt-0">

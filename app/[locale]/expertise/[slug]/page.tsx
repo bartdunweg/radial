@@ -85,7 +85,7 @@ async function ExpertisePage({
     <section className="px-8 pt-[212px] pb-24">
       <div className="mx-auto max-w-[1280px]">
         <Link
-          href="/services"
+          href="/expertise"
           className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
         >
           <ArrowLeft size={14} /> {t("backToServices")}
@@ -104,7 +104,7 @@ async function ExpertisePage({
         <AnimatedGrid className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" staggerDelay={0.08}>
           {childServices.map((service) => (
             <AnimatedGridItem key={service!.slug}>
-              <Link href={`/services/${service!.slug}`}>
+              <Link href={`/expertise/${service!.slug}`}>
                 <Card className="bg-card border-border h-full hover:shadow-card transition-shadow group">
                   <CardHeader>
                     <CardTitle className="text-lg">{service!.title}</CardTitle>
@@ -161,7 +161,7 @@ async function ServicePage({
     <section className="px-8 pt-[212px] pb-24">
       <div className="mx-auto max-w-[1280px]">
         <Link
-          href={parentExpertise ? `/services/${parentExpertise.slug}` : "/services"}
+          href={parentExpertise ? `/expertise/${parentExpertise.slug}` : "/expertise"}
           className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
         >
           <ArrowLeft size={14} /> {parentExpertise ? parentExpertise.title : t("backToServices")}

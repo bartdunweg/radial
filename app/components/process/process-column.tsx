@@ -21,10 +21,17 @@ export function ProcessColumn({ steps }: { steps: Step[] }) {
   });
 
   return (
-    <div ref={containerRef} className="relative" style={{ height: "400vh" }}>
-      <div className="sticky top-0 h-screen flex flex-col items-center justify-center gap-8">
-        <ProcessCircle progress={smoothProgress} />
-        <ProcessText progress={smoothProgress} steps={steps} />
+    <div ref={containerRef} className="relative" style={{ height: "500vh" }}>
+      <div className="sticky top-0 h-screen flex items-center">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          {/* Left — scroll-driven text steps */}
+          <ProcessText progress={smoothProgress} steps={steps} />
+
+          {/* Right — animated illustration */}
+          <div className="hidden md:flex items-center justify-center">
+            <ProcessCircle progress={smoothProgress} />
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -10,6 +10,7 @@ import {
   AnimatedGrid,
   AnimatedGridItem,
 } from "../../components/animated-sections";
+import { TestimonialSlider } from "../../components/testimonial-slider";
 
 export async function generateMetadata({
   params,
@@ -30,7 +31,7 @@ export default async function WorkPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("work");
-  const { work, services } = getContent(locale);
+  const { work, services, testimonials } = getContent(locale);
 
   // Map service display names to slugs for linking
   const serviceSlugMap = new Map(services.map((s) => [s.title, s.slug]));
@@ -75,6 +76,17 @@ export default async function WorkPage({
           })}
         </div>
       </div>
+      {/* Testimonials */}
+      <section className="py-24">
+        <div className="px-8 mx-auto max-w-[1280px]">
+          <AnimatedSection>
+            <h2 className="text-[28px] md:text-[36px] tracking-tight mb-10">{t("testimonialsTitle")}</h2>
+          </AnimatedSection>
+        </div>
+        <AnimatedSection>
+          <TestimonialSlider items={testimonials} />
+        </AnimatedSection>
+      </section>
     </section>
   );
 }
@@ -103,7 +115,7 @@ function ProjectCard({
           {project.services.map((service) => {
             const slug = serviceSlugMap.get(service);
             return slug ? (
-              <Link key={service} href={`/services/${slug}`}>
+              <Link key={service} href={`/expertise/${slug}`}>
                 <Badge variant="outline" className="text-xs border-border text-muted-foreground hover:text-foreground hover:border-foreground/20 transition-colors cursor-pointer h-auto py-1.5 px-3">{service}</Badge>
               </Link>
             ) : (

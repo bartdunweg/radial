@@ -1,18 +1,34 @@
 [
   {
-    "slug": "research-strategy",
-    "title": "Onderzoek & Strategie",
-    "description": "We spreken met gebruikers, achterhalen wat ertoe doet, en vertalen inzichten naar een heldere productstrategie. AI helpt ons sneller te bewegen — maar het denken blijft menselijk.",
-    "longDescription": "Geweldige producten ontstaan op het snijvlak van gebruikersbehoeften, bedrijfsdoelen en technische haalbaarheid. We beginnen met het grondig begrijpen van je gebruikers — via interviews, usability tests en UX-analyse — en stemmen tegelijkertijd af met je bedrijf door stakeholder workshops, waardepropositie-ontwerp en strategische sessies. Het resultaat is een heldere productstrategie en roadmap gebaseerd op echte inzichten, niet op aannames. Strategie, richting en oordeelsvermogen vragen om empathie en context die alleen mensen kunnen brengen — dus het denken erachter blijft menselijk. AI versterkt ons onderzoek en analyse, maar de keuzes zijn van ons.",
-    "deliverables": ["Gebruikersonderzoek", "UX Analyse", "Usability Testing", "Stakeholder Interviews", "Productstrategie", "Roadmap", "Productrichtlijnen", "Waardepropositie", "Flowcharts"],
-    "services": ["ux-ui-audit", "user-testing", "interviews", "design-sprint", "foundation-sprint"]
+    "slug": "research",
+    "title": "Onderzoek",
+    "description": "We duiken diep in je gebruikers, markt en bedrijfsdoelen. Door interviews, data-analyse en verkenning ontdekken we welke richting op te gaan.",
+    "longDescription": "Geweldige producten beginnen met begrip. We spreken met je gebruikers, analyseren gedrag, auditen je bestaande ervaring en ontdekken de inzichten die ertoe doen. Door interviews, usability tests en UX-analyse bouwen we een helder beeld van wat je gebruikers nodig hebben en waar de kansen liggen. AI versnelt ons onderzoek — maar de empathie en het oordeelsvermogen blijven menselijk.",
+    "deliverables": ["Gebruikersonderzoek", "UX Analyse", "Usability Testing", "Stakeholder Interviews", "Gebruikersinterviews", "Inzichtrapporten"],
+    "services": ["ux-ui-audit", "user-testing", "interviews"]
   },
   {
-    "slug": "design-realisation",
-    "title": "Design & Realisatie",
-    "description": "Van concepten tot hoogwaardige designs en werkende producten — versneld door AI, zonder concessies.",
-    "longDescription": "We maken high-fidelity designs die eruitzien en aanvoelen als het echte product, testen met echte gebruikers en itereren snel. Wanneer het design gevalideerd is, schakelen we direct door naar bouwen — van MVP's tot productie-ready code. AI versnelt ons proces, zodat we sneller kunnen opleveren zonder kwaliteit in te leveren. Of het nu een nieuw product is, een design system, of het versterken van je merk in je product — elke pixel en elke regel code telt.",
-    "deliverables": ["UX/UI Design", "Responsive Design", "Prototyping", "Design Systems", "MVP Development", "Productie Code"],
-    "services": ["product-design", "design-system", "brand-integration", "launch-mvp"]
+    "slug": "strategy",
+    "title": "Strategie",
+    "description": "Structuur ontstaat uit chaos. We definiëren de blauwdruk — informatiearchitectuur, user flows en een helder plan waar iedereen achter staat.",
+    "longDescription": "Onderzoek zonder richting is slechts data. We vertalen inzichten naar een heldere productstrategie — met informatiearchitectuur, user flows en een roadmap die je team op één lijn brengt. Of het nu via een gerichte Design Sprint of een Foundation Sprint is, we helpen je van onduidelijkheid naar een gevalideerd plan waar iedereen in gelooft.",
+    "deliverables": ["Productstrategie", "Informatiearchitectuur", "User Flows", "Roadmap", "Waardepropositie", "Sprint Begeleiding"],
+    "services": ["design-sprint", "foundation-sprint"]
+  },
+  {
+    "slug": "design",
+    "title": "Design",
+    "description": "Het product krijgt vorm. High-fidelity interfaces met aandacht voor elke pixel, interactie en micro-animatie.",
+    "longDescription": "We maken high-fidelity designs die eruitzien en aanvoelen als het echte product, zodat we vroeg kunnen testen met echte gebruikers en snel kunnen itereren. Van compleet productdesign tot schaalbare design systems en doordachte merkintegratie — elke beslissing is gebaseerd op onderzoek en bedrijfsinzicht. AI versnelt ons werkproces, maar het vakmanschap blijft menselijk.",
+    "deliverables": ["UX/UI Design", "Responsive Design", "Prototyping", "Design Systems", "Merkintegratie", "Micro-animaties"],
+    "services": ["product-design", "design-system", "brand-integration"]
+  },
+  {
+    "slug": "realisation",
+    "title": "Realisatie",
+    "description": "Het product komt tot leven. We bouwen, testen, itereren en lanceren — een product dat presteert in de echte wereld.",
+    "longDescription": "Design zonder oplevering is slechts een plaatje. We gaan van gevalideerde designs direct door naar bouwen — definiëren de kleinst mogelijke versie, leveren op en zetten het voor echte gebruikers. Deze snelle aanpak vermindert risico en zorgt dat je iets bouwt wat mensen echt willen. Van MVP tot productie-ready code, elke regel telt.",
+    "deliverables": ["MVP Development", "Productie Code", "Productvalidatie", "Iteratie Sprints", "Launch Support"],
+    "services": ["launch-mvp"]
   }
 ]

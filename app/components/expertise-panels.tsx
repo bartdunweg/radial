@@ -63,7 +63,7 @@ export function ExpertisePanels({
           {/* Arrow link */}
           <div className="mt-8">
             <Link
-              href={`/services/${panel.slug}`}
+              href={`/expertise/${panel.slug}`}
               className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-black/10 text-muted-foreground transition-colors hover:border-foreground hover:text-foreground"
               aria-label={panel.title}
             >

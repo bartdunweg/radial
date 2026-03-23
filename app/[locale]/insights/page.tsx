@@ -51,7 +51,7 @@ export default async function BlogPage({
         <AnimatedGrid className="mt-12 flex flex-col gap-4" staggerDelay={0.1}>
           {blog.map((post) => (
             <AnimatedGridItem key={post.slug}>
-              <Link href={`/blog/${post.slug}`}>
+              <Link href={`/insights/${post.slug}`}>
                 <Card className="bg-card border-border h-full hover:shadow-card transition-shadow">
                   <CardHeader>
                     <div className="flex items-center gap-2 mb-2">

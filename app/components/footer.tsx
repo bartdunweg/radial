@@ -53,7 +53,7 @@ export function Footer() {
   }, [handleScroll]);
 
   return (
-    <footer ref={footerRef} className="sticky bottom-0 z-0 flex min-h-screen w-full flex-col justify-between bg-[#f8f8fa] text-foreground dark:bg-[#0a0a0a] dark:text-white px-8">
+    <footer ref={footerRef} className="sticky bottom-0 z-0 flex w-full flex-col justify-between bg-[#f8f8fa] text-foreground dark:bg-[#0a0a0a] dark:text-white px-8 py-16">
       {/* Top: navigation, contact, social, legal */}
       <div className="mx-auto flex w-full max-w-[1280px] flex-1 items-center">
         <div className="w-full grid gap-10 md:grid-cols-[2fr_1fr_1fr]">
@@ -68,10 +68,10 @@ export function Footer() {
               {t("navigation")}
             </div>
             <ul className="flex flex-col gap-2.5">
-              <li><Link href="/work" className="text-lg text-foreground transition-colors hover:text-foreground/50">{nav("work")}</Link></li>
-              <li><Link href="/services" className="text-lg text-foreground transition-colors hover:text-foreground/50">{nav("services")}</Link></li>
+              <li><Link href="/projects" className="text-lg text-foreground transition-colors hover:text-foreground/50">{nav("work")}</Link></li>
+              <li><Link href="/expertise" className="text-lg text-foreground transition-colors hover:text-foreground/50">{nav("services")}</Link></li>
               <li><Link href="/about" className="text-lg text-foreground transition-colors hover:text-foreground/50">{nav("about")}</Link></li>
-              <li><Link href="/blog" className="text-lg text-foreground transition-colors hover:text-foreground/50">{nav("blog")}</Link></li>
+              <li><Link href="/insights" className="text-lg text-foreground transition-colors hover:text-foreground/50">{nav("blog")}</Link></li>
               <li><Link href="/pricing" className="text-lg text-foreground transition-colors hover:text-foreground/50">{nav("pricing")}</Link></li>
             </ul>
             <div className="mt-8">
@@ -115,7 +115,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row md:items-baseline md:justify-between">
           <span
             className={`block font-bold leading-none tracking-tighter ${isVariantA ? "text-foreground" : "bg-clip-text text-transparent footer-wordmark"}`}
-            style={{ fontSize: "clamp(80px, 15vw, 200px)" }}
+            style={{ fontSize: "clamp(60px, 12vw, 160px)" }}
           >
             {isVariantA ? "Strakzat" : "Radial"}
           </span>

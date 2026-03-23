@@ -3,13 +3,26 @@
     "quote": "UX was the driving force behind the START project, and its successful deployment proved the impact of putting users first. We also established a scalable design system that now serves as a foundation for future applications.",
     "author": "Koen Rutten",
     "role": "Product Owner",
-    "company": "SPIE"
+    "company": "SPIE",
+    "color": "#0F1D5A",
+    "logo": "/logos/spie.svg"
   },
   {
     "quote": "Thank you for putting in such good efforts on the T&C consolidation project, you provided us with very insightful information for what we thought could have been a simple change, thanks for understanding the business needs and putting in the effort.",
     "author": "Utsha Sinha",
     "role": "Product Manager",
-    "company": "Uber"
+    "company": "Uber",
+    "color": "#000000",
+    "colorDark": "#ffffff",
+    "logo": "/logos/uber.svg"
+  },
+  {
+    "quote": "Next to the fact that they are really pleasant people to work with, they add incredible value to our company. Our design flow is way more efficient which is beneficial for both our team internally as our customers.",
+    "author": "Tako Paddenburg",
+    "role": "Co-founder",
+    "company": "Heineken",
+    "color": "#13670B",
+    "logo": "/logos/heineken.svg"
   },
   {
     "quote": "Next to the fact that they are really pleasant people to work with, they add incredible value to our company. Our design flow is way more efficient which is beneficial for both our team internally as our customers.",
@@ -22,12 +35,6 @@
     "author": "Wendy Bogers",
     "role": "Founder",
     "company": "Ligo"
-  },
-  {
-    "quote": "Radial's work has had a major impact on our product. The app plays a key role in our trainings, and participants really enjoy the competitive element at the end, which boosts engagement. Since working together, the value of our training sessions has clearly increased. We've appreciated the clear communication, strong follow-up on tasks, patience, and the fun energy they bring.",
-    "author": "Thomas van Boheemen",
-    "role": "Manager Global Star Quality",
-    "company": "Heineken"
   },
   {
     "quote": "Radial's design work will make several previously frustrating tasks much faster and easier. The collaboration has been smooth, with clear communication and a low-barrier, hands-on approach. Their ability to explain and involve end users has really stood out and made the transition feel seamless.",

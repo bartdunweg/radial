@@ -49,7 +49,7 @@ export function ProcessCircle({
   const glowIntensity = useTransform(progress, [0.75, 0.9], [0, 1]);
 
   return (
-    <div className="relative w-[120px] h-[120px] md:w-[140px] md:h-[140px]">
+    <div className="relative w-[200px] h-[200px] md:w-[280px] md:h-[280px]">
       {/* Base circle outline — dotted in research, solid in strategy, fades when sphere appears */}
       <motion.div
         className="absolute inset-0 rounded-full border-foreground/20"

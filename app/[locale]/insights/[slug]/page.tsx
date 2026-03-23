@@ -61,7 +61,7 @@ export default async function BlogPostPage({
     <article className="px-8 pt-[212px] pb-24">
       <div className="mx-auto max-w-[720px]">
         <Link
-          href="/blog"
+          href="/insights"
           className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
         >
           <ArrowLeft size={14} /> {t("backToBlog")}

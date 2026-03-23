@@ -16,6 +16,7 @@ export interface Step {
   title: string;
   description: string;
   services: StepService[];
+  expertiseSlug?: string;
 }
 
 export function ProcessScroll({ steps }: { steps: Step[] }) {

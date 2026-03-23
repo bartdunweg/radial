@@ -21,7 +21,7 @@ export function Navbar() {
     { href: "/projects" as const, label: t("work") },
     { href: "/expertise" as const, label: t("services") },
     { href: "/about" as const, label: t("about") },
-    { href: "/blog" as const, label: t("blog") },
+    { href: "/insights" as const, label: t("blog") },
     { href: "/pricing" as const, label: t("pricing") },
   ];
 
@@ -185,8 +185,11 @@ export function Navbar() {
     function applyBg() {
       if (!navRef.current) return;
       const isMobile = window.innerWidth < 768;
+      const isDark = document.documentElement.classList.contains("dark");
       if (isMobile) {
-        navRef.current.style.backgroundColor = "rgba(255, 255, 255, 0.85)";
+        navRef.current.style.backgroundColor = isDark
+          ? "rgba(0, 0, 0, 0.85)"
+          : "rgba(255, 255, 255, 0.85)";
       } else if (isOverDark) {
         navRef.current.style.backgroundColor = "rgba(0, 0, 0, 0.3)";
       } else {
@@ -233,7 +236,7 @@ export function Navbar() {
       )}>
         <Sparkles size={14} className={isDarkHero ? "text-white/70" : "text-muted-foreground"} />
         <span className={cn("truncate", isDarkHero ? "text-white/70" : "text-muted-foreground")}>{t("announcement")}</span>
-        <Link href="/blog" className={cn(
+        <Link href="/insights" className={cn(
           "inline-flex shrink-0 items-center gap-1 whitespace-nowrap font-semibold transition-colors",
           isDarkHero ? "text-white hover:text-white/80" : "text-muted-foreground hover:text-foreground"
         )}>

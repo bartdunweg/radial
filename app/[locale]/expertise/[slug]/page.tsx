@@ -97,7 +97,15 @@ async function ExpertisePage({
             <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
               {expertise.longDescription}
             </p>
-            {expertise.slug === "research-strategy" && <VennDiagram />}
+            {expertise.slug === "research" && <VennDiagram />}
+
+            {expertise.deliverables && expertise.deliverables.length > 0 && (
+              <div className="mt-8 flex flex-wrap gap-2">
+                {expertise.deliverables.map((d) => (
+                  <Badge key={d} variant="secondary">{d}</Badge>
+                ))}
+              </div>
+            )}
           </div>
         </AnimatedSection>
 

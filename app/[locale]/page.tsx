@@ -22,7 +22,6 @@ import { DotField } from "../components/dot-field";
 import { TextReveal } from "../components/text-reveal";
 import { ScrollTextReveal } from "../components/scroll-text-reveal";
 import { Icon3DCore, Icon3DFingerprint, Icon3DMagnifier, Icon3DHeart } from "../components/manifesto-icons";
-import { ExpertisePanels } from "../components/expertise-panels";
 import { ProcessColumn } from "../components/process/process-column";
 
 
@@ -44,32 +43,15 @@ export default async function HomePage({
   /* ------------------------------------------------------------------ */
   /*  Process steps for pioneer section                                  */
   /* ------------------------------------------------------------------ */
-  const STEP_SERVICES: Record<number, string[]> = {
-    0: ["ux-ui-audit", "user-testing", "interviews"],
-    1: ["design-sprint", "foundation-sprint"],
-    2: ["product-design", "design-system", "brand-integration"],
-    3: ["launch-mvp"],
-  };
-  const STEP_LABELS: Record<number, string[]> = {
-    0: ["Stakeholder Workshops"],
-    1: ["Product Vision", "Flowcharts"],
-    2: [],
-    3: ["High-fidelity Prototyping", "Product Validation"],
-  };
-  const processSteps = [
-    { number: "01", title: pt("step1Title"), description: pt("step1Description") },
-    { number: "02", title: pt("step2Title"), description: pt("step2Description") },
-    { number: "03", title: pt("step3Title"), description: pt("step3Description") },
-    { number: "04", title: pt("step4Title"), description: pt("step4Description") },
-  ].map((step, i) => ({
-    ...step,
-    services: [
-      ...(STEP_SERVICES[i] || [])
-        .map((slug) => serviceBySlug.get(slug))
-        .filter(Boolean)
-        .map((s) => ({ slug: s!.slug, title: s!.title, description: s!.description })),
-      ...(STEP_LABELS[i] || []).map((title) => ({ title })),
-    ],
+  const processSteps = expertise.map((exp: { slug: string; title: string; services: string[] }, i: number) => ({
+    number: String(i + 1).padStart(2, "0"),
+    title: pt(`step${i + 1}Title`),
+    description: pt(`step${i + 1}Description`),
+    services: exp.services
+      .map((slug: string) => serviceBySlug.get(slug))
+      .filter((s): s is { slug: string; title: string; description: string } => !!s)
+      .map((s) => ({ slug: s.slug, title: s.title, description: s.description })),
+    expertiseSlug: exp.slug,
   }));
 
   /* ------------------------------------------------------------------ */
@@ -246,19 +228,17 @@ export default async function HomePage({
       {/* Process / Pioneer */}
       <section className="px-8">
         <div className="mx-auto max-w-[1280px]">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {/* Left — sticky intro */}
-            <div className="md:sticky md:top-24 md:self-start pt-24">
-              <AnimatedSection>
-                <h2 className="text-[28px] md:text-[36px] tracking-tight">{t("aiTitle")}</h2>
-                <p className="mt-4 text-lg text-muted-foreground leading-relaxed">{t("aiText")}</p>
-                <p className="mt-4 text-lg text-muted-foreground leading-relaxed">{t("aiText2")}</p>
-              </AnimatedSection>
-            </div>
-
-            {/* Right — scroll-driven process steps */}
-            <ProcessColumn steps={processSteps} />
+          {/* Section header */}
+          <div className="pt-24 pb-12 max-w-2xl">
+            <AnimatedSection>
+              <h2 className="text-[28px] md:text-[36px] tracking-tight">{t("aiTitle")}</h2>
+              <p className="mt-4 text-lg text-muted-foreground leading-relaxed">{t("aiText")}</p>
+              <p className="mt-4 text-lg text-muted-foreground leading-relaxed">{t("aiText2")}</p>
+            </AnimatedSection>
           </div>
+
+          {/* Steps left, illustration right */}
+          <ProcessColumn steps={processSteps} />
         </div>
       </section>
 
@@ -366,14 +346,12 @@ export default async function HomePage({
             <p className="mt-4 text-lg text-muted-foreground leading-relaxed">{t("whyRadialText")}</p>
           </AnimatedSection>
 
-          {/* Comparison cards — 4 columns with dividers, Radial card elevated */}
+          {/* Comparison columns with dividers */}
           <AnimatedSection delay={0.1}>
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr_1fr_auto] items-start gap-0 relative">
-              {/* Three comparison cards in one bordered container */}
-              <div className="rounded-2xl border border-black/5 dark:border-white/10 grid grid-cols-1 sm:grid-cols-3 lg:col-span-3 relative z-0">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0">
               {/* Freelancer */}
-              <div className="p-6">
-                <h3 className="text-xl font-medium tracking-tight mb-6">{t("whyCol1Title")}</h3>
+              <div className="py-2 sm:pr-8">
+                <h3 className="text-lg font-medium tracking-tight mb-6">{t("whyCol1Title")}</h3>
                 <ul className="space-y-3">
                   {[t("whyCol1Pro1"), t("whyCol1Pro2")].map((item) => (
                     <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
@@ -391,8 +369,8 @@ export default async function HomePage({
               </div>
 
               {/* Secondment */}
-              <div className="p-6 border-l border-black/5 dark:border-white/10 max-sm:border-l-0 max-sm:border-t">
-                <h3 className="text-xl font-medium tracking-tight mb-6">{t("whyCol3Title")}</h3>
+              <div className="py-2 sm:px-8 lg:border-l border-black/5 dark:border-white/10 max-sm:border-t max-sm:pt-8 max-sm:mt-6">
+                <h3 className="text-lg font-medium tracking-tight mb-6">{t("whyCol3Title")}</h3>
                 <ul className="space-y-3">
                   {[t("whyCol3Pro1"), t("whyCol3Pro2")].map((item) => (
                     <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
@@ -410,8 +388,8 @@ export default async function HomePage({
               </div>
 
               {/* Big agency */}
-              <div className="p-6 border-l border-black/5 dark:border-white/10 max-sm:border-l-0 max-sm:border-t">
-                <h3 className="text-xl font-medium tracking-tight mb-6">{t("whyCol4Title")}</h3>
+              <div className="py-2 sm:px-8 lg:border-l border-black/5 dark:border-white/10 max-sm:border-t max-sm:pt-8 max-sm:mt-6 max-lg:border-t max-lg:pt-8 max-lg:mt-6 max-lg:border-l-0">
+                <h3 className="text-lg font-medium tracking-tight mb-6">{t("whyCol4Title")}</h3>
                 <ul className="space-y-3">
                   {[t("whyCol4Pro1"), t("whyCol4Pro2")].map((item) => (
                     <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
@@ -427,20 +405,19 @@ export default async function HomePage({
                   ))}
                 </ul>
               </div>
-              </div>
 
-              {/* Radial — elevated card */}
-              <div className="rounded-2xl bg-foreground text-background dark:bg-white dark:text-black p-6 -my-4 lg:-ml-4 shadow-lg flex flex-col max-lg:mt-4 max-lg:-mb-0 relative z-10">
-                <h3 className="text-xl font-medium tracking-tight mb-6">{t("whyCol2Title")}</h3>
-                <ul className="space-y-3 flex-1">
+              {/* Radial Studio */}
+              <div className="py-2 sm:pl-8 lg:border-l border-black/5 dark:border-white/10 max-sm:border-t max-sm:pt-8 max-sm:mt-6 max-lg:border-l max-lg:border-t-0">
+                <h3 className="text-lg font-semibold tracking-tight mb-6">{t("whyCol2Title")}</h3>
+                <ul className="space-y-3">
                   {[t("whyCol2Pro1"), t("whyCol2Pro2"), t("whyCol2Pro3"), t("whyCol2Pro4"), t("whyCol2Pro5")].map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-sm text-background/80 dark:text-black/70">
+                    <li key={item} className="flex items-start gap-2 text-sm">
                       <Check size={16} className="mt-0.5 shrink-0 text-accent" />
                       {item}
                     </li>
                   ))}
                 </ul>
-                <Link href="/contact" className={cn(buttonVariants({ size: "default" }), "mt-6 w-full bg-background text-foreground hover:bg-background/90 dark:bg-black dark:text-white dark:hover:bg-black/90")}>
+                <Link href="/contact" className={cn(buttonVariants({ size: "default" }), "mt-8 w-full")}>
                   {t("cta")}
                 </Link>
               </div>
@@ -463,104 +440,16 @@ export default async function HomePage({
         </div>
       </section>
 
-      {/* How We Can Help — Bento Grid */}
-      <section className="px-8 py-24">
-        <div className="mx-auto max-w-[1280px]">
-          <AnimatedSection>
-            <div className="flex items-center justify-between mb-10">
-              <h2 className="text-[28px] md:text-[36px] tracking-tight">{t("expertiseTitle")}</h2>
-              <Link href="/expertise" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
-                {t("viewAllExpertise")} <ArrowRight size={14} />
-              </Link>
-            </div>
-          </AnimatedSection>
-          {(() => {
-            // Map service slugs to their parent expertise page
-            const serviceToExpertise: Record<string, string> = {};
-            for (const exp of expertise) {
-              for (const sSlug of exp.services) {
-                serviceToExpertise[sSlug] = `/expertise/${exp.slug}`;
-              }
-            }
-
-            // Filter out secondary services from homepage, then split into two columns
-            const excludeSlugs = ["ux-research", "product-design", "foundation-sprint", "ux-ui-audit", "user-testing", "interviews"];
-            const homepageServices = services.filter((s: { slug: string }) => !excludeSlugs.includes(s.slug)).slice(0, 6);
-            const col1 = homepageServices.filter((_: unknown, i: number) => i % 2 === 0);
-            const col2 = homepageServices.filter((_: unknown, i: number) => i % 2 === 1);
-
-            // Base image heights per card (visual variety)
-            const baseHeights = [520, 400, 460, 440, 500, 380, 480];
-            const col1BaseHeights = baseHeights.filter((_: number, i: number) => i % 2 === 0);
-            const col2BaseHeights = baseHeights.filter((_: number, i: number) => i % 2 === 1);
-
-            // Each card has ~120px of content (p-6 + text), gaps are 32px (gap-8)
-            const CONTENT_HEIGHT = 120;
-            const GAP = 32;
-
-            const col1Total = col1BaseHeights.reduce((s: number, h: number) => s + h, 0) + col1.length * CONTENT_HEIGHT + (col1.length - 1) * GAP;
-            const col2Total = col2BaseHeights.reduce((s: number, h: number) => s + h, 0) + col2.length * CONTENT_HEIGHT + (col2.length - 1) * GAP;
-
-            // Distribute the height difference across the shorter column's image heights
-            const col1Heights = [...col1BaseHeights];
-            const col2Heights = [...col2BaseHeights];
-            const diff = col1Total - col2Total;
-            if (diff > 0) {
-              // col2 is shorter — distribute extra height evenly
-              const perCard = Math.floor(diff / col2Heights.length);
-              const remainder = diff % col2Heights.length;
-              col2Heights.forEach((_: number, i: number) => { col2Heights[i] += perCard + (i < remainder ? 1 : 0); });
-            } else if (diff < 0) {
-              const absDiff = Math.abs(diff);
-              const perCard = Math.floor(absDiff / col1Heights.length);
-              const remainder = absDiff % col1Heights.length;
-              col1Heights.forEach((_: number, i: number) => { col1Heights[i] += perCard + (i < remainder ? 1 : 0); });
-            }
-
-            return (
-              <div className="grid gap-8 md:grid-cols-2">
-                <div className="flex flex-col gap-8">
-                  {col1.map((service: { slug: string; title: string; description: string }, i: number) => (
-                    <div
-                      key={service.slug}
-                      className="flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-background dark:border-white/10"
-                    >
-                      <div style={{ height: col1Heights[i] }} />
-                      <div className="p-6">
-                        <h3 className="text-xl font-medium tracking-tight">{service.title}</h3>
-                        <p className="mt-1 text-base text-muted-foreground">{service.description}</p>
-                        <Link href={`/expertise/${service.slug}`} className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-                          {t("learnMore")} <ArrowRight size={14} />
-                        </Link>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className="flex flex-col gap-8">
-                  {col2.map((service: { slug: string; title: string; description: string }, i: number) => (
-                    <div
-                      key={service.slug}
-                      className="flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-background dark:border-white/10"
-                    >
-                      <div style={{ height: col2Heights[i] }} />
-                      <div className="p-6">
-                        <h3 className="text-xl font-medium tracking-tight">{service.title}</h3>
-                        <p className="mt-1 text-base text-muted-foreground">{service.description}</p>
-                        <Link href={`/expertise/${service.slug}`} className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-                          {t("learnMore")} <ArrowRight size={14} />
-                        </Link>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            );
-          })()}
-        </div>
-      </section>
+      <div className="h-px bg-black/5 dark:bg-white/10" />
 
       {/* CTA */}
-      <section className="px-8 py-32">
+      <section className="relative px-8 py-32 overflow-hidden">
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background: "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,91,228,0.06) 0%, rgba(180,130,255,0.04) 30%, rgba(255,180,200,0.03) 50%, transparent 80%)",
+          }}
+        />
         <AnimatedSection className="relative mx-auto max-w-[680px] text-center">
           <h2 className="text-3xl font-light leading-tight tracking-tight md:text-5xl">
             {t("ctaHeadline")}

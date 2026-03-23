@@ -71,7 +71,7 @@ export function Footer() {
               <li><Link href="/projects" className="text-lg text-foreground transition-colors hover:text-foreground/50">{nav("work")}</Link></li>
               <li><Link href="/expertise" className="text-lg text-foreground transition-colors hover:text-foreground/50">{nav("services")}</Link></li>
               <li><Link href="/about" className="text-lg text-foreground transition-colors hover:text-foreground/50">{nav("about")}</Link></li>
-              <li><Link href="/blog" className="text-lg text-foreground transition-colors hover:text-foreground/50">{nav("blog")}</Link></li>
+              <li><Link href="/insights" className="text-lg text-foreground transition-colors hover:text-foreground/50">{nav("blog")}</Link></li>
               <li><Link href="/pricing" className="text-lg text-foreground transition-colors hover:text-foreground/50">{nav("pricing")}</Link></li>
             </ul>
             <div className="mt-8">

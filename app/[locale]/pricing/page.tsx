@@ -129,7 +129,7 @@ export default async function PricingPage({
                 <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "bg-background text-foreground hover:bg-background/90")}>
                   {t("getStarted")}
                 </Link>
-                <Link href="/services/design-sprint" className={cn(buttonVariants({ variant: "ghost-light", size: "lg" }))}>
+                <Link href="/expertise/design-sprint" className={cn(buttonVariants({ variant: "ghost-light", size: "lg" }))}>
                   {t("readMore")}
                 </Link>
               </div>

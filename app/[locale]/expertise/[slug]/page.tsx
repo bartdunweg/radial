@@ -8,7 +8,52 @@ import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { Separator } from "@/components/ui/separator";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { ArrowLeft, ArrowRight, Check } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Check,
+  ChevronRight,
+  Search,
+  ClipboardCheck,
+  Users,
+  Mic,
+  Zap,
+  Layers,
+  Compass,
+  Palette,
+  PaintBucket,
+  Rocket,
+  Presentation,
+  Eye,
+  Ruler,
+  Route,
+  FileText,
+  Blocks,
+  MousePointerClick,
+  BadgeCheck,
+  TrendingUp,
+} from "lucide-react";
+
+const serviceIcons: Record<string, React.ElementType> = {
+  "ux-ui-audit": ClipboardCheck,
+  "user-testing": Users,
+  "interviews": Mic,
+  "stakeholder-workshops": Presentation,
+  "design-sprint": Zap,
+  "foundation-sprint": Compass,
+  "product-vision": Eye,
+  "design-principles": Ruler,
+  "product-flow": Route,
+  "product-design": Palette,
+  "design-system": Layers,
+  "brand-integration": PaintBucket,
+  "design-documentation": FileText,
+  "design-for-mendix": Blocks,
+  "launch-mvp": Rocket,
+  "high-fidelity-prototyping": MousePointerClick,
+  "product-validation": BadgeCheck,
+  "impact-analysis": TrendingUp,
+};
 import { cn } from "@/lib/utils";
 import { VennDiagram } from "@/app/components/venn-diagram";
 import {
@@ -84,12 +129,13 @@ async function ExpertisePage({
   return (
     <section className="px-8 pt-[212px] pb-24">
       <div className="mx-auto max-w-[1280px]">
-        <Link
-          href="/expertise"
-          className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-        >
-          <ArrowLeft size={14} /> {t("backToServices")}
-        </Link>
+        <nav className="mb-8 flex items-center gap-1 text-sm text-muted-foreground">
+          <Link href="/expertise" className="transition-colors hover:text-foreground">
+            {t("title")}
+          </Link>
+          <ChevronRight size={14} />
+          <span className="text-foreground">{expertise.title}</span>
+        </nav>
 
         <AnimatedSection>
           <div className="max-w-2xl">
@@ -99,32 +145,30 @@ async function ExpertisePage({
             </p>
             {expertise.slug === "research" && <VennDiagram />}
 
-            {expertise.deliverables && expertise.deliverables.length > 0 && (
-              <div className="mt-8 flex flex-wrap gap-2">
-                {expertise.deliverables.map((d) => (
-                  <Badge key={d} variant="secondary">{d}</Badge>
-                ))}
-              </div>
-            )}
           </div>
         </AnimatedSection>
 
         <AnimatedGrid className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" staggerDelay={0.08}>
-          {childServices.map((service) => (
-            <AnimatedGridItem key={service!.slug}>
-              <Link href={`/expertise/${service!.slug}`}>
-                <Card className="bg-card border-border h-full hover:shadow-card transition-shadow group">
-                  <CardHeader>
-                    <CardTitle className="text-lg">{service!.title}</CardTitle>
-                    <CardDescription className="mt-2">{service!.description}</CardDescription>
-                    <div className="mt-4 text-sm text-muted-foreground group-hover:text-foreground transition-colors flex items-center gap-1">
-                      {t("learnMore")} <ArrowRight size={14} />
+          {childServices.map((service) => {
+            const Icon = serviceIcons[service!.slug] ?? Search;
+            return (
+              <AnimatedGridItem key={service!.slug}>
+                <Link href={`/expertise/${service!.slug}`} className="group">
+                  <div className="flex h-full flex-col rounded-xl border border-border bg-card p-6 transition-colors duration-200 hover:bg-foreground/[0.04] dark:hover:bg-foreground/[0.08]">
+                    <div className="flex size-12 items-center justify-center rounded-lg bg-muted text-foreground">
+                      <Icon size={22} strokeWidth={1.5} />
                     </div>
-                  </CardHeader>
-                </Card>
-              </Link>
-            </AnimatedGridItem>
-          ))}
+                    <h3 className="mt-4 text-base font-medium">
+                      {service!.title}
+                    </h3>
+                    <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground line-clamp-2">
+                      {service!.description}
+                    </p>
+                  </div>
+                </Link>
+              </AnimatedGridItem>
+            );
+          })}
         </AnimatedGrid>
 
         {/* CTA */}
@@ -168,12 +212,21 @@ async function ServicePage({
   return (
     <section className="px-8 pt-[212px] pb-24">
       <div className="mx-auto max-w-[1280px]">
-        <Link
-          href={parentExpertise ? `/expertise/${parentExpertise.slug}` : "/expertise"}
-          className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-        >
-          <ArrowLeft size={14} /> {parentExpertise ? parentExpertise.title : t("backToServices")}
-        </Link>
+        <nav className="mb-8 flex items-center gap-1 text-sm text-muted-foreground">
+          <Link href="/expertise" className="transition-colors hover:text-foreground">
+            {t("title")}
+          </Link>
+          {parentExpertise && (
+            <>
+              <ChevronRight size={14} />
+              <Link href={`/expertise/${parentExpertise.slug}`} className="transition-colors hover:text-foreground">
+                {parentExpertise.title}
+              </Link>
+            </>
+          )}
+          <ChevronRight size={14} />
+          <span className="text-foreground">{service.title}</span>
+        </nav>
 
         <div className="max-w-2xl">
           <h1 className="text-[clamp(2rem,4vw,3rem)] tracking-tight">{service.title}</h1>

@@ -141,6 +141,60 @@ h1, h2, h3, h4, h5 {
   animation: radial-pulse 4s ease-out infinite;
 }
 
+@keyframes particle-float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: var(--particle-opacity, 0.5);
+  }
+  25% {
+    transform: translate(6px, -8px) scale(1.1);
+    opacity: calc(var(--particle-opacity, 0.5) * 1.2);
+  }
+  50% {
+    transform: translate(-4px, -12px) scale(0.9);
+    opacity: calc(var(--particle-opacity, 0.5) * 0.8);
+  }
+  75% {
+    transform: translate(-7px, -4px) scale(1.05);
+    opacity: var(--particle-opacity, 0.5);
+  }
+}
+
+.animate-particle-float {
+  animation: particle-float 5s ease-in-out infinite;
+}
+
+@keyframes device-pulse {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  10% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+}
+
+.animate-device-pulse {
+  animation: device-pulse 4s ease-out infinite;
+}
+
+@keyframes ui-shimmer {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-ui-shimmer {
+  animation: ui-shimmer 3s ease-in-out infinite;
+}
+
 @keyframes fadeIn {
   to { opacity: 1; }
 }

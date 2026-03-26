@@ -455,7 +455,7 @@ export default async function HomePage({
                 <ul className="space-y-3">
                   {[t("whyCol2Pro1"), t("whyCol2Pro2"), t("whyCol2Pro3"), t("whyCol2Pro4"), t("whyCol2Pro5")].map((item) => (
                     <li key={item} className="flex items-start gap-2 text-sm">
-                      <Check size={16} className="mt-0.5 shrink-0 text-accent" />
+                      <Check size={16} className="mt-0.5 shrink-0 text-foreground" />
                       {item}
                     </li>
                   ))}

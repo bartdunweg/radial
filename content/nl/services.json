@@ -74,5 +74,77 @@
     "description": "Diepgaande gesprekken met gebruikers en stakeholders om behoeften, motivaties en pijnpunten te achterhalen.",
     "longDescription": "De beste productbeslissingen zijn gebaseerd op echte gesprekken. We voeren diepte-interviews uit met gebruikers, klanten en stakeholders om te begrijpen wat gedrag drijft, wat frustratie veroorzaakt en wat mensen echt nodig hebben. We regelen alles — van het werven van de juiste deelnemers tot het vertalen van bevindingen naar bruikbare inzichten.",
     "deliverables": ["Interviewgids", "Deelnemerswerving", "Diepte-interviews", "Stakeholder Interviews", "Inzichtensynthese"]
+  },
+  {
+    "slug": "stakeholder-workshops",
+    "title": "Stakeholder Workshops",
+    "section": "secondary",
+    "description": "Begeleide sessies om visie te alignen, input te verzamelen van meerdere teams en disciplines, en gedeeld begrip te creëren.",
+    "longDescription": "Iedereen op één lijn krijgen is het halve werk. We ontwerpen en faciliteren workshops die stakeholders van verschillende teams en disciplines samenbrengen — om doelen te alignen, aannames boven tafel te krijgen en een gedeelde visie op te bouwen. Het resultaat is helderheid, draagvlak en een fundament waar je productteam met vertrouwen op kan bouwen.",
+    "deliverables": ["Workshop Facilitatie", "Stakeholder Alignment", "Visiedocument", "Prioriteiten Mapping", "Actieplan"]
+  },
+  {
+    "slug": "product-vision",
+    "title": "Productvisie",
+    "section": "secondary",
+    "description": "Definieer een heldere, overtuigende visie voor je product die elke beslissing stuurt, van strategie tot design.",
+    "longDescription": "Een sterke productvisie geeft je team richting en doel. We helpen je verwoorden waar je product naartoe gaat, wie het bedient en waarom het ertoe doet — een kompas dat stakeholders alignt, prioriteiten informeert en iedereen dezelfde kant op laat bewegen.",
+    "deliverables": ["Visie Statement", "Productprincipes", "Doelgroep Definitie", "Kansen Mapping", "Strategisch Verhaal"]
+  },
+  {
+    "slug": "design-principles",
+    "title": "Design Principles",
+    "section": "secondary",
+    "description": "Een gedeelde set richtlijnen die designbeslissingen sturen en je productervaring consistent houden.",
+    "longDescription": "Design principles zijn de regels waar je team het over eens is. We helpen je principes definiëren die geworteld zijn in je gebruikers, merk en bedrijfsdoelen — zodat elke designbeslissing een heldere onderbouwing heeft. Ze worden een tool voor alignment, feedback en kwaliteitscontrole door je hele product.",
+    "deliverables": ["Principe Definitie", "Teamworkshops", "Documentatie", "Beslissingskader", "Design Criteria"]
+  },
+  {
+    "slug": "product-flow",
+    "title": "Product Flow",
+    "section": "secondary",
+    "description": "Breng de reis in kaart die gebruikers afleggen door je product — van instap tot resultaat.",
+    "longDescription": "Begrijpen hoe gebruikers door je product bewegen is essentieel. We brengen elke stap, keuzemoment en interactie in kaart — en identificeren waar gebruikers vastlopen, afhaken of slagen. Het resultaat is een helder overzicht dat dient als blauwdruk voor design en development, en een soepele ervaring van begin tot eind garandeert.",
+    "deliverables": ["User Flow Mapping", "Journey Visualisatie", "Drop-off Analyse", "Navigatie Architectuur", "Flow Documentatie"]
+  },
+  {
+    "slug": "design-documentation",
+    "title": "Design Documentatie",
+    "section": "secondary",
+    "description": "Heldere documentatie van designkeuzes voor een soepelere samenwerking met developers.",
+    "longDescription": "Goede design documentatie legt het waarom vast achter elke keuze — niet alleen het wat. We documenteren componentgedrag, interactielogica, edge cases en design rationale zodat developers met vertrouwen kunnen bouwen en minder vragen hebben. Het resultaat is minder heen-en-weer, minder misinterpretaties en een product dat overeenkomt met de design-intentie.",
+    "deliverables": ["Design Rationale Docs", "Component Specificaties", "Interactie Richtlijnen", "Edge Case Documentatie", "Developer Handoff"]
+  },
+  {
+    "slug": "design-for-mendix",
+    "title": "Design voor Mendix",
+    "section": "secondary",
+    "description": "Pixel-perfecte interfaces geoptimaliseerd voor Mendix — zodat je low-code apps eruitzien als custom-built producten.",
+    "longDescription": "Mendix is krachtig, maar standaard levert het niet altijd de ervaring die je gebruikers verdienen. Wij overbruggen dat gat — met interfaces die naadloos werken binnen Mendix' componentarchitectuur en tegelijk de visuele en interactiekwaliteit ver voorbij standaard templates tillen. Van custom design systems tot productie-ready Atlas UI themes, wij laten je Mendix apps schitteren.",
+    "deliverables": ["Mendix UI Design", "Atlas UI Theming", "Custom Widget Design", "Design System voor Mendix", "Mendix Prototyping"]
+  },
+  {
+    "slug": "high-fidelity-prototyping",
+    "title": "High-Fidelity Prototyping",
+    "section": "secondary",
+    "description": "Klikbare, interactieve designs in een vroeg stadium die nauwelijks te onderscheiden zijn van het uiteindelijke eindproduct.",
+    "longDescription": "Waarom wachten tot development om je product in actie te zien? We bouwen high-fidelity prototypes die eruitzien, aanvoelen en werken als het echte product — compleet met transities, interacties en echte content. Zo kun je testen met gebruikers, pitchen aan stakeholders en beslissingen valideren lang voordat er een regel productiecode is geschreven.",
+    "deliverables": ["Interactieve Prototypes", "Micro-interacties", "Gebruikerstesten", "Stakeholder Demo's", "Conceptvalidatie"]
+  },
+  {
+    "slug": "product-validation",
+    "title": "Productvalidatie",
+    "section": "secondary",
+    "description": "Voor en na launch valideren we met gebruikers en business of de oplossing daadwerkelijk market-fit is.",
+    "longDescription": "Iets bouwen dat mensen willen is maar de helft — bewijzen dat het werkt is de andere helft. We draaien validatiecycli voor en na launch, met een combinatie van gebruikerstesten, analytics en business metrics om te beoordelen of je product waarmaakt wat het belooft. Het resultaat is vertrouwen in je richting en een helder beeld van wat er beter kan.",
+    "deliverables": ["Pre-launch Validatie", "Post-launch Analyse", "Gebruikerstesten", "Market-Fit Beoordeling", "Verbeterroadmap"]
+  },
+  {
+    "slug": "impact-analysis",
+    "title": "Impactanalyse",
+    "section": "secondary",
+    "description": "We monitoren of de gestelde doelen zijn behaald, en zoeken samen naar kansen om meer impact te maken.",
+    "longDescription": "Lanceren is pas het begin. We volgen hoe je product presteert ten opzichte van de doelen die je hebt gesteld — van conversie en engagement tot gebruikerstevredenheid. Als targets gehaald worden, zoeken we de volgende kans. Als dat niet zo is, duiken we in het waarom en stellen concrete vervolgstappen voor. Samen bepalen we wat het product nodig heeft om meer impact te maken.",
+    "deliverables": ["KPI Monitoring", "Prestatierapporten", "Kansen Mapping", "Data-gedreven Aanbevelingen", "Iteratieplanning"]
   }
 ]

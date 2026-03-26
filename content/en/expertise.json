@@ -5,7 +5,7 @@
     "description": "We dive deep into your users, market, and business goals. Through interviews, data analysis, and exploration, we discover which direction to pursue.",
     "longDescription": "Great products start with understanding. We talk to your users, analyze behavior, audit your existing experience, and uncover the insights that matter. Through interviews, usability tests, and UX analysis, we build a clear picture of what your users need and where the opportunities lie. AI accelerates our research — but the empathy and judgment stay human.",
     "deliverables": ["User Research", "UX Analysis", "Usability Testing", "Stakeholder Interviews", "User Interviews", "Insight Reports"],
-    "services": ["ux-ui-audit", "user-testing", "interviews"]
+    "services": ["ux-ui-audit", "user-testing", "interviews", "stakeholder-workshops"]
   },
   {
     "slug": "strategy",
@@ -13,7 +13,7 @@
     "description": "Structure emerges from chaos. We define the blueprint — information architecture, user flows, and a clear plan that aligns everyone.",
     "longDescription": "Research without direction is just data. We translate insights into a clear product strategy — defining the information architecture, user flows, and a roadmap that aligns your team. Whether through a focused Design Sprint or a Foundation Sprint, we help you move from ambiguity to a validated plan everyone believes in.",
     "deliverables": ["Product Strategy", "Information Architecture", "User Flows", "Roadmap", "Value Proposition", "Sprint Facilitation"],
-    "services": ["design-sprint", "foundation-sprint"]
+    "services": ["design-sprint", "foundation-sprint", "product-vision", "design-principles", "product-flow"]
   },
   {
     "slug": "design",
@@ -21,7 +21,7 @@
     "description": "The product takes shape. High-fidelity interfaces crafted with attention to every pixel, interaction, and micro-animation.",
     "longDescription": "We craft high-fidelity designs that look and feel like the real product, so we can test with real users early and iterate fast. From complete product design to scalable design systems and thoughtful brand integration — every decision is grounded in research and business insight. AI accelerates our workflow, but the craft stays human.",
     "deliverables": ["UX/UI Design", "Responsive Design", "Prototyping", "Design Systems", "Brand Integration", "Micro-animations"],
-    "services": ["product-design", "design-system", "brand-integration"]
+    "services": ["product-design", "design-system", "brand-integration", "design-documentation", "design-for-mendix"]
   },
   {
     "slug": "realisation",
@@ -29,6 +29,6 @@
     "description": "The product comes alive. We build, test, iterate, and launch — delivering a product that performs in the real world.",
     "longDescription": "Design without delivery is just a picture. We move from validated designs straight into build — defining the smallest viable version, shipping it, and putting it in front of real users. This learn-fast approach reduces risk and ensures you're building something people actually want. From MVP to production-ready code, we make every line count.",
     "deliverables": ["MVP Development", "Production Code", "Product Validation", "Iteration Sprints", "Launch Support"],
-    "services": ["launch-mvp"]
+    "services": ["launch-mvp", "high-fidelity-prototyping", "product-validation", "impact-analysis"]
   }
 ]

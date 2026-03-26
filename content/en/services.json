@@ -74,5 +74,77 @@
     "description": "In-depth conversations with users and stakeholders to uncover needs, motivations, and pain points.",
     "longDescription": "The best product decisions are grounded in real conversations. We conduct in-depth interviews with users, customers, and stakeholders to understand what drives behavior, what causes frustration, and what people actually need. We handle everything — from recruiting the right participants to synthesizing findings into actionable insights.",
     "deliverables": ["Interview Guide", "Participant Recruitment", "In-depth Interviews", "Stakeholder Interviews", "Insight Synthesis"]
+  },
+  {
+    "slug": "stakeholder-workshops",
+    "title": "Stakeholder Workshops",
+    "section": "secondary",
+    "description": "Facilitated sessions to align vision, gather input from multiple teams and disciplines, and build shared understanding.",
+    "longDescription": "Getting everyone on the same page is half the battle. We design and facilitate workshops that bring together stakeholders from different teams and disciplines — aligning on goals, surfacing assumptions, and building a shared vision. The result is clarity, buy-in, and a foundation your product team can build on with confidence.",
+    "deliverables": ["Workshop Facilitation", "Stakeholder Alignment", "Vision Document", "Priority Mapping", "Action Plan"]
+  },
+  {
+    "slug": "product-vision",
+    "title": "Product Vision",
+    "section": "secondary",
+    "description": "Define a clear, compelling vision for your product that guides every decision from strategy to design.",
+    "longDescription": "A strong product vision gives your team direction and purpose. We help you articulate where your product is going, who it serves, and why it matters — creating a north star that aligns stakeholders, informs priorities, and keeps everyone moving in the same direction.",
+    "deliverables": ["Vision Statement", "Product Principles", "Target Audience Definition", "Opportunity Mapping", "Strategic Narrative"]
+  },
+  {
+    "slug": "design-principles",
+    "title": "Design Principles",
+    "section": "secondary",
+    "description": "A shared set of guidelines that steer design decisions and keep your product experience consistent.",
+    "longDescription": "Design principles are the rules your team agrees to follow. We help you define principles grounded in your users, brand, and business goals — so every design decision has a clear rationale. They become a tool for alignment, feedback, and quality control across your entire product.",
+    "deliverables": ["Principle Definition", "Team Workshops", "Documentation", "Decision Framework", "Design Criteria"]
+  },
+  {
+    "slug": "product-flow",
+    "title": "Product Flow",
+    "section": "secondary",
+    "description": "Map the journey users take to navigate through your product — from entry to outcome.",
+    "longDescription": "Understanding how users move through your product is essential. We map out every step, decision point, and interaction — identifying where users get stuck, drop off, or succeed. The result is a clear flow that serves as a blueprint for design and development, ensuring a smooth experience from start to finish.",
+    "deliverables": ["User Flow Mapping", "Journey Visualization", "Drop-off Analysis", "Navigation Architecture", "Flow Documentation"]
+  },
+  {
+    "slug": "design-documentation",
+    "title": "Design Documentation",
+    "section": "secondary",
+    "description": "Clear documentation of design decisions for smoother handoff and better collaboration with developers.",
+    "longDescription": "Good design documentation captures the why behind every choice — not just the what. We document component behavior, interaction logic, edge cases, and design rationale so developers can build with confidence and fewer questions. The result is less back-and-forth, fewer misinterpretations, and a product that matches the design intent.",
+    "deliverables": ["Design Rationale Docs", "Component Specifications", "Interaction Guidelines", "Edge Case Documentation", "Developer Handoff"]
+  },
+  {
+    "slug": "design-for-mendix",
+    "title": "Design for Mendix",
+    "section": "secondary",
+    "description": "Pixel-perfect interfaces optimized for Mendix — so your low-code apps look and feel like custom-built products.",
+    "longDescription": "Mendix is powerful, but out-of-the-box it doesn't always deliver the experience your users deserve. We bridge that gap — designing interfaces that work seamlessly within Mendix's component architecture while pushing the visual and interaction quality far beyond standard templates. From custom design systems to production-ready Atlas UI themes, we make your Mendix apps shine.",
+    "deliverables": ["Mendix UI Design", "Atlas UI Theming", "Custom Widget Design", "Design System for Mendix", "Mendix Prototyping"]
+  },
+  {
+    "slug": "high-fidelity-prototyping",
+    "title": "High-Fidelity Prototyping",
+    "section": "secondary",
+    "description": "Clickable, interactive designs at an early stage that are nearly indistinguishable from the final product.",
+    "longDescription": "Why wait until development to see your product in action? We build high-fidelity prototypes that look, feel, and behave like the real thing — complete with transitions, interactions, and real content. This lets you test with users, pitch to stakeholders, and validate decisions long before a single line of production code is written.",
+    "deliverables": ["Interactive Prototypes", "Micro-interactions", "User Testing", "Stakeholder Demos", "Concept Validation"]
+  },
+  {
+    "slug": "product-validation",
+    "title": "Product Validation",
+    "section": "secondary",
+    "description": "Before and after launch, we validate with users and business whether your solution is truly market-fit.",
+    "longDescription": "Building something people want is only half the challenge — proving it is the other half. We run validation cycles before and after launch, combining user testing, analytics, and business metrics to assess whether your product delivers on its promise. The result is confidence in your direction and a clear view of what to improve next.",
+    "deliverables": ["Pre-launch Validation", "Post-launch Analysis", "User Testing", "Market-Fit Assessment", "Improvement Roadmap"]
+  },
+  {
+    "slug": "impact-analysis",
+    "title": "Impact Analysis",
+    "section": "secondary",
+    "description": "We monitor whether the goals you've set have been met, and identify opportunities to drive more impact.",
+    "longDescription": "Launching is just the beginning. We track how your product performs against the goals you've defined — from conversion and engagement to user satisfaction. When targets are met, we look for the next opportunity. When they're not, we dig into why and propose concrete next steps. Together we figure out what the product needs to make more impact.",
+    "deliverables": ["KPI Monitoring", "Performance Reports", "Opportunity Mapping", "Data-Driven Recommendations", "Iteration Planning"]
   }
 ]

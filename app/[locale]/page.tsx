@@ -23,6 +23,7 @@ import { TextReveal } from "../components/text-reveal";
 import { ScrollTextReveal } from "../components/scroll-text-reveal";
 import { Icon3DCore, Icon3DFingerprint, Icon3DMagnifier, Icon3DHeart } from "../components/manifesto-icons";
 import { ProcessColumn } from "../components/process/process-column";
+import { AiComparisonToggle } from "../components/ai-comparison-toggle";
 
 
 
@@ -225,63 +226,42 @@ export default async function HomePage({
 
       <div className="px-8"><div className="mx-auto max-w-[1280px]"><div className="h-px bg-black/5 dark:bg-white/10" /></div></div>
 
-      {/* Process / Pioneer */}
-      <section className="px-8">
+      {/* Pioneers + AI Comparison — combined */}
+      <section className="px-8 py-24">
         <div className="mx-auto max-w-[1280px]">
-          {/* Section header */}
-          <div className="pt-24 pb-12 max-w-2xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 md:items-start">
+            {/* Left — text */}
             <AnimatedSection>
               <h2 className="text-[28px] md:text-[36px] tracking-tight">{t("aiTitle")}</h2>
               <p className="mt-4 text-lg text-muted-foreground leading-relaxed">{t("aiText")}</p>
               <p className="mt-4 text-lg text-muted-foreground leading-relaxed">{t("aiText2")}</p>
+              <p className="mt-4 text-lg text-muted-foreground leading-relaxed">{t("aiText3")}</p>
+            </AnimatedSection>
+
+            {/* Right — interactive AI comparison */}
+            <AnimatedSection delay={0.15}>
+              <AiComparisonToggle
+                items={[1, 2, 3, 4, 5].map((i) => ({
+                  aiTitle: t(`he${i}AITitle`),
+                  aiText: t(`he${i}AIText`),
+                  humanTitle: t(`he${i}HumanTitle`),
+                  humanText: t(`he${i}HumanText`),
+                }))}
+                toggleLabel={t("heToggleLabel")}
+                aiColumnLabel={t("heColAI")}
+                humanColumnLabel={t("heColHuman")}
+              />
             </AnimatedSection>
           </div>
-
-          {/* Steps left, illustration right */}
-          <ProcessColumn steps={processSteps} />
         </div>
       </section>
 
       <div className="px-8"><div className="mx-auto max-w-[1280px]"><div className="h-px bg-black/5 dark:bg-white/10" /></div></div>
 
-      {/* Human Expertise vs AI */}
-      <section className="px-8 py-24">
+      {/* Process steps — scroll animation */}
+      <section className="px-8">
         <div className="mx-auto max-w-[1280px]">
-          <AnimatedSection className="max-w-2xl mb-16">
-            <h2 className="text-[28px] md:text-[36px] tracking-tight">{t("heTitle")}</h2>
-            <p className="mt-4 text-lg text-muted-foreground leading-relaxed">{t("heText")}</p>
-          </AnimatedSection>
-
-          {/* Column headers — desktop only */}
-          <AnimatedSection delay={0.05}>
-            <div className="hidden md:grid grid-cols-2 gap-x-16 mb-2">
-              <span className="text-xs font-medium uppercase tracking-widest text-muted-foreground">{t("heColAI")}</span>
-              <span className="text-xs font-medium uppercase tracking-widest text-[#005BE4]">{t("heColHuman")}</span>
-            </div>
-          </AnimatedSection>
-
-          {/* Contrast pairs */}
-          <AnimatedGrid className="divide-y divide-black/5 dark:divide-white/10" staggerDelay={0.08}>
-            {[1, 2, 3, 4, 5].map((i) => (
-              <AnimatedGridItem key={i} className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-6 py-8">
-                <div>
-                  <span className="md:hidden text-xs font-medium uppercase tracking-widest text-muted-foreground mb-2 block">{t("heColAI")}</span>
-                  <h3 className="text-base font-medium mb-1">{t(`he${i}AITitle`)}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{t(`he${i}AIText`)}</p>
-                </div>
-                <div>
-                  <span className="md:hidden text-xs font-medium uppercase tracking-widest text-[#005BE4] mb-2 block">{t("heColHuman")}</span>
-                  <h3 className="text-base font-medium mb-1">{t(`he${i}HumanTitle`)}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{t(`he${i}HumanText`)}</p>
-                </div>
-              </AnimatedGridItem>
-            ))}
-          </AnimatedGrid>
-
-          {/* Closing statement */}
-          <AnimatedSection delay={0.5}>
-            <p className="mt-12 text-center text-lg font-medium tracking-tight">{t("heClosing")}</p>
-          </AnimatedSection>
+          <ProcessColumn steps={processSteps} />
         </div>
       </section>
 

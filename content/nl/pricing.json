@@ -47,11 +47,11 @@
     "days": [
       {
         "title": "Understand",
-        "deliverables": ["Probleem & speelveld in kaart", "Expert interviews", "Customer journey map", "Inspiration share"]
+        "deliverables": ["Probleem & speelveld in kaart", "Expert interviews", "Customer journey map", "Inspiratiedeling"]
       },
       {
         "title": "Ideate",
-        "deliverables": ["Richting kiezen", "Solution sketches", "Aligned concept vision", "Storyboard & flowchart"]
+        "deliverables": ["Richting kiezen", "Oplossingsschetsen", "Afgestemde conceptvisie", "Storyboard & flowchart"]
       },
       {
         "title": "Build",

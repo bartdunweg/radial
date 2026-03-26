@@ -287,41 +287,48 @@ async function DesignSprintPricing({ locale }: { locale: string }) {
   const sprint = pricing.designSprint;
 
   return (
-    <Card className="bg-card border-border overflow-hidden">
-      <CardContent className="p-8 md:p-10">
-        <div className="grid gap-10 md:grid-cols-[1fr_1fr]">
+    <Card data-inverted className="bg-foreground text-background border-foreground overflow-hidden gap-0 p-0">
+      <CardContent className="p-8">
+        {/* Header: title left, price right */}
+        <div className="flex items-end justify-between">
           <div>
-            <h2 className="text-2xl md:text-3xl tracking-tight">{sprint.title}</h2>
-            <p className="mt-4 text-muted-foreground leading-relaxed">{sprint.description}</p>
-            <div className="mt-6">
-              <span className="text-3xl font-semibold tracking-tight">
-                &euro;{sprint.price.toLocaleString()}
-              </span>
-              <span className="text-sm text-muted-foreground ml-2">{sprint.duration}</span>
+            <CardTitle className="text-lg font-semibold text-background">{sprint.title}</CardTitle>
+            <p className="mt-1 text-sm text-background/60 leading-relaxed max-w-2xl">
+              {sprint.description}
+            </p>
+          </div>
+          <div className="flex items-center gap-3">
+            <span className="text-[40px] font-semibold tracking-tight leading-none" style={{ fontFamily: "var(--font-satoshi), sans-serif" }}>
+              <span className="text-xl align-super relative top-1">€</span> {sprint.price.toLocaleString()}
+            </span>
+            <div className="flex flex-col text-sm text-background/60">
+              <span>{sprint.duration}</span>
+              <span>{sprint.facilitated}</span>
             </div>
-            <div className="mt-8">
-              <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-4">{t("sprintIncludes")}</div>
-              <ul className="space-y-2.5">
-                {sprint.includes.map((item: string) => (
-                  <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
-                    <Check size={16} className="mt-0.5 shrink-0 text-foreground" />
+          </div>
+        </div>
+
+        {/* Deliverables per day */}
+        <div className="mt-10 grid grid-cols-2 gap-6 md:grid-cols-4">
+          {sprint.days.map((day: { title: string; deliverables: string[] }, i: number) => (
+            <div key={i} className={cn(i > 0 && "border-l border-background/10 pl-6")}>
+              <p className="text-xs font-semibold mb-1">{t("day")} {i + 1}</p>
+              <p className="text-base font-semibold mb-2">{day.title}</p>
+              <ul className="space-y-1.5">
+                {day.deliverables.map((item: string) => (
+                  <li key={item} className="flex items-start gap-2 text-sm text-background/60">
+                    <Check size={14} className="mt-0.5 shrink-0 text-background" />
                     {item}
                   </li>
                 ))}
               </ul>
             </div>
-          </div>
-
-          <div>
-            <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-4">{t("sprintProcess")}</div>
-            <div className="space-y-3">
-              {sprint.features.map((step: string, i: number) => (
-                <div key={i} className="rounded-lg border border-border bg-[#f8f9fb] dark:bg-[#101114] p-4">
-                  <p className="text-sm">{step}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+          ))}
+        </div>
+        <div className="mt-10 flex gap-3">
+          <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "bg-background text-foreground hover:bg-background/90")}>
+            {t("getStarted")}
+          </Link>
         </div>
       </CardContent>
     </Card>
